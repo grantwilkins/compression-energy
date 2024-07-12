@@ -89,15 +89,12 @@ int main(int argc, char *argv[]) {
       double compression_times[50] = {0};
       double decompression_times[50] = {0};
       int run_count = 0;
-      double compression_mean = 0, decompression_mean = 0;
       double compression_variance = 0, decompression_variance = 0;
       double compression_z_score = 0, decompression_z_score = 0;
       const double confidence_interval = 1.96; // 95% confidence interval
-
       double compression_mean = 0, decompression_mean = 0;
       double compression_m2 = 0,
              decompression_m2 = 0; // For Welford's algorithm
-      int run_count = 0;
 
       do {
         // run the compression and decompression
