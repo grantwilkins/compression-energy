@@ -147,7 +147,7 @@ int main(int argc, char *argv[]) {
 
       } while ((fabs(compression_z_score) > confidence_interval ||
                 fabs(decompression_z_score) > confidence_interval) &&
-               run_count < 50);
+               run_count > 5 && run_count < 50);
 
       // print out the final metrics results
       struct pressio_options *final_metrics =
