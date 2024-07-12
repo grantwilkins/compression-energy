@@ -132,22 +132,35 @@ int main(int argc, char *argv[]) {
             (decompression_time - old_decompression_mean) *
             (decompression_time - decompression_mean);
 
+        double compression_std_dev = 0;
+        double decompression_std_dev = 0;
         if (run_count > 1) {
-          double compression_std_dev =
-              sqrt(compression_variance / (run_count - 1));
-          double decompression_std_dev =
+          compression_std_dev = sqrt(compression_variance / (run_count - 1));
+          decompression_std_dev =
               sqrt(decompression_variance / (run_count - 1));
-          compression_z_score = (compression_time - compression_mean) /
-                                (compression_std_dev / sqrt(run_count));
-          decompression_z_score = (decompression_time - decompression_mean) /
-                                  (decompression_std_dev / sqrt(run_count));
+
+          // Add a small epsilon to avoid division by zero
+          double epsilon = 1e-10;
+          compression_z_score =
+              (compression_time - compression_mean) /
+              (compression_std_dev / sqrt(run_count) + epsilon);
+          decompression_z_score =
+              (decompression_time - decompression_mean) /
+              (decompression_std_dev / sqrt(run_count) + epsilon);
+        } else {
+          // Set z-scores to a large value for the first run to ensure the loop
+          // continues
+          compression_z_score = decompression_z_score = 1000;
         }
 
         pressio_options_free(metrics_results);
+        printf(
+            "Run %d: compression_z_score=%1.2f decompression_z_score=%1.2f\n",
+            run_count, compression_z_score, decompression_z_score);
 
       } while ((fabs(compression_z_score) > confidence_interval ||
                 fabs(decompression_z_score) > confidence_interval) &&
-               run_count > 5 && run_count < 50);
+               run_count < 50);
 
       // print out the final metrics results
       struct pressio_options *final_metrics =
