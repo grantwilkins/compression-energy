@@ -94,6 +94,11 @@ int main(int argc, char *argv[]) {
       double compression_z_score = 0, decompression_z_score = 0;
       const double confidence_interval = 1.96; // 95% confidence interval
 
+      double compression_mean = 0, decompression_mean = 0;
+      double compression_m2 = 0,
+             decompression_m2 = 0; // For Welford's algorithm
+      int run_count = 0;
+
       do {
         // run the compression and decompression
         if (pressio_compressor_compress(comp, input_data, compressed)) {
@@ -115,45 +120,43 @@ int main(int argc, char *argv[]) {
         pressio_options_get_double(metrics_results, "time:decompress",
                                    &decompression_time);
 
-        compression_times[run_count] = compression_time;
-        decompression_times[run_count] = decompression_time;
-
         run_count++;
 
-        // Calculate mean and variance
-        double old_compression_mean = compression_mean;
-        double old_decompression_mean = decompression_mean;
-        compression_mean += (compression_time - compression_mean) / run_count;
-        decompression_mean +=
-            (decompression_time - decompression_mean) / run_count;
-        compression_variance += (compression_time - old_compression_mean) *
-                                (compression_time - compression_mean);
-        decompression_variance +=
-            (decompression_time - old_decompression_mean) *
-            (decompression_time - decompression_mean);
+        // Welford's online algorithm for mean and variance
+        double compression_delta = compression_time - compression_mean;
+        compression_mean += compression_delta / run_count;
+        compression_m2 +=
+            compression_delta * (compression_time - compression_mean);
 
-        double compression_std_dev = 0;
-        double decompression_std_dev = 0;
+        double decompression_delta = decompression_time - decompression_mean;
+        decompression_mean += decompression_delta / run_count;
+        decompression_m2 +=
+            decompression_delta * (decompression_time - decompression_mean);
+
+        double compression_z_score = 1000, decompression_z_score = 1000;
+
         if (run_count > 1) {
-          compression_std_dev = sqrt(compression_variance / (run_count - 1));
-          decompression_std_dev =
-              sqrt(decompression_variance / (run_count - 1));
+          double compression_variance = compression_m2 / (run_count - 1);
+          double decompression_variance = decompression_m2 / (run_count - 1);
 
-          // Add a small epsilon to avoid division by zero
+          // Add a small epsilon to avoid division by very small numbers
           double epsilon = 1e-10;
-          compression_z_score =
-              (compression_time - compression_mean) /
-              (compression_std_dev / sqrt(run_count) + epsilon);
-          decompression_z_score =
-              (decompression_time - decompression_mean) /
-              (decompression_std_dev / sqrt(run_count) + epsilon);
-        } else {
-          // Set z-scores to a large value for the first run to ensure the loop
-          // continues
-          compression_z_score = decompression_z_score = 1000;
+          double compression_std_dev = sqrt(compression_variance) + epsilon;
+          double decompression_std_dev = sqrt(decompression_variance) + epsilon;
+
+          compression_z_score = (compression_time - compression_mean) /
+                                (compression_std_dev / sqrt(run_count));
+          decompression_z_score = (decompression_time - decompression_mean) /
+                                  (decompression_std_dev / sqrt(run_count));
         }
 
         pressio_options_free(metrics_results);
+        printf("Run %d: compression_time=%f decompression_time=%f\n", run_count,
+               compression_time, decompression_time);
+        printf("Run %d: compression_mean=%f decompression_mean=%f\n", run_count,
+               compression_mean, decompression_mean);
+        printf("Run %d: compression_m2=%f decompression_m2=%f\n", run_count,
+               compression_m2, decompression_m2);
         printf(
             "Run %d: compression_z_score=%1.2f decompression_z_score=%1.2f\n",
             run_count, compression_z_score, decompression_z_score);
