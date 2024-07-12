@@ -10,8 +10,8 @@ int main(int argc, char *argv[]) {
   size_t ndims = sizeof(dims) / sizeof(dims[0]);
   struct pressio_data *metadata =
       pressio_data_new_empty(pressio_float_dtype, ndims, dims);
-  struct pressio_data *input_data =
-      pressio_io_data_path_read(metadata, DATADIR "CLOUDf48.bin.f32");
+  struct pressio_data *input_data = pressio_io_data_path_read(
+      metadata, "/home/gwilkins/data/nyx/temperature.f32");
 
   // create output locations
   struct pressio_data *compressed =
