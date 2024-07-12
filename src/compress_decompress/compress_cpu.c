@@ -1,8 +1,47 @@
 #include <libpressio.h>
 #include <libpressio_ext/io/posix.h>
 #include <math.h>
+#include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#define MAX_ITERATIONS 50
+#define CONFIDENCE_LEVEL 1.96
+
+double calculate_mean(uint32_t *data, int n) {
+  double sum = 0.0;
+  for (int i = 0; i < n; i++) {
+    sum += (double)data[i];
+  }
+  return sum / n;
+}
+
+double calculate_std_dev(uint32_t *data, int n, double mean) {
+  double sum_squared_diff = 0.0;
+  for (int i = 0; i < n; i++) {
+    double diff = (double)data[i] - mean;
+    sum_squared_diff += diff * diff;
+  }
+  return sqrt(sum_squared_diff / (n - 1));
+}
+
+bool within_confidence_interval(uint32_t *data, int n) {
+  if (n < 2)
+    return false;
+  double mean = calculate_mean(data, n);
+  double std_dev = calculate_std_dev(data, n, mean);
+  double margin_of_error = CONFIDENCE_LEVEL * (std_dev / sqrt(n));
+  double lower_bound = mean - margin_of_error;
+  double upper_bound = mean + margin_of_error;
+
+  for (int i = 0; i < n; i++) {
+    if ((double)data[i] < lower_bound || (double)data[i] > upper_bound) {
+      return false;
+    }
+  }
+  return true;
+}
 
 int main(int argc, char *argv[]) {
   // read in the dataset
@@ -10,8 +49,8 @@ int main(int argc, char *argv[]) {
   size_t ndims = sizeof(dims) / sizeof(dims[0]);
   struct pressio_data *metadata =
       pressio_data_new_empty(pressio_float_dtype, ndims, dims);
-  struct pressio_data *input_data = pressio_io_data_path_read(
-      metadata, "/home/gwilkins/data/nyx/temperature.f32");
+  struct pressio_data *input_data =
+      pressio_io_data_path_read(metadata, DATADIR "CLOUDf48.bin.f32");
 
   // create output locations
   struct pressio_data *compressed =
@@ -85,18 +124,12 @@ int main(int argc, char *argv[]) {
       }
       pressio_options_free(options);
 
-      // Variables for statistical analysis
-      double compression_times[50] = {0};
-      double decompression_times[50] = {0};
-      int run_count = 0;
-      double compression_variance = 0, decompression_variance = 0;
-      double compression_z_score = 0, decompression_z_score = 0;
-      const double confidence_interval = 1.96; // 95% confidence interval
-      double compression_mean = 0, decompression_mean = 0;
-      double compression_m2 = 0,
-             decompression_m2 = 0; // For Welford's algorithm
+      uint32_t compression_times[MAX_ITERATIONS];
+      uint32_t decompression_times[MAX_ITERATIONS];
+      int iteration = 0;
+      bool confidence_interval_reached = false;
 
-      do {
+      while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
         // run the compression and decompression
         if (pressio_compressor_compress(comp, input_data, compressed)) {
           fprintf(stderr, "%s\n", pressio_compressor_error_msg(comp));
@@ -111,65 +144,35 @@ int main(int argc, char *argv[]) {
         struct pressio_options *metrics_results =
             pressio_compressor_get_metrics_results(comp);
 
-        double compression_time, decompression_time;
-        pressio_options_get_double(metrics_results, "time:compress",
-                                   &compression_time);
-        pressio_options_get_double(metrics_results, "time:decompress",
-                                   &decompression_time);
+        // extract compression and decompression times
+        uint32_t compression_time, decompression_time;
+        pressio_options_get_uinteger(metrics_results, "time:compression",
+                                     &compression_time);
+        pressio_options_get_uinteger(metrics_results, "time:decompression",
+                                     &decompression_time);
 
-        run_count++;
-
-        // Welford's online algorithm for mean and variance
-        double compression_delta = compression_time - compression_mean;
-        compression_mean += compression_delta / run_count;
-        compression_m2 +=
-            compression_delta * (compression_time - compression_mean);
-
-        double decompression_delta = decompression_time - decompression_mean;
-        decompression_mean += decompression_delta / run_count;
-        decompression_m2 +=
-            decompression_delta * (decompression_time - decompression_mean);
-
-        double compression_z_score = 1000, decompression_z_score = 1000;
-
-        if (run_count > 1) {
-          double compression_variance = compression_m2 / (run_count - 1);
-          double decompression_variance = decompression_m2 / (run_count - 1);
-
-          // Add a small epsilon to avoid division by very small numbers
-          double epsilon = 1e-10;
-          double compression_std_dev = sqrt(compression_variance) + epsilon;
-          double decompression_std_dev = sqrt(decompression_variance) + epsilon;
-
-          compression_z_score = (compression_time - compression_mean) /
-                                (compression_std_dev / sqrt(run_count));
-          decompression_z_score = (decompression_time - decompression_mean) /
-                                  (decompression_std_dev / sqrt(run_count));
-        }
+        compression_times[iteration] = compression_time;
+        decompression_times[iteration] = decompression_time;
 
         pressio_options_free(metrics_results);
-        printf("Run %d: compression_time=%f decompression_time=%f\n", run_count,
-               compression_time, decompression_time);
-        printf("Run %d: compression_mean=%f decompression_mean=%f\n", run_count,
-               compression_mean, decompression_mean);
-        printf("Run %d: compression_m2=%f decompression_m2=%f\n", run_count,
-               compression_m2, decompression_m2);
-        printf(
-            "Run %d: compression_z_score=%1.2f decompression_z_score=%1.2f\n",
-            run_count, compression_z_score, decompression_z_score);
 
-      } while ((fabs(compression_z_score) > confidence_interval ||
-                fabs(decompression_z_score) > confidence_interval) &&
-               run_count < 50);
+        iteration++;
 
-      // print out the final metrics results
-      struct pressio_options *final_metrics =
+        // check if we've reached the confidence interval
+        if (iteration >= 2) {
+          confidence_interval_reached =
+              within_confidence_interval(compression_times, iteration) &&
+              within_confidence_interval(decompression_times, iteration);
+        }
+      }
+
+      // print out the metrics results in a human readable form
+      struct pressio_options *metrics_results =
           pressio_compressor_get_metrics_results(comp);
-      char *metrics_results_str = pressio_options_to_string(final_metrics);
-      printf("bound=%1.1e\nruns=%d\n%s\n", bounds[i], run_count,
-             metrics_results_str);
+      char *metrics_results_str = pressio_options_to_string(metrics_results);
+      printf("bound=%1.1e\n%s\n", bounds[i], metrics_results_str);
       free(metrics_results_str);
-      pressio_options_free(final_metrics);
+      pressio_options_free(metrics_results);
     }
     printf("\n"); // Add a newline between compressors for readability
   }
