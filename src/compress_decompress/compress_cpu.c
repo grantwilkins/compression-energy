@@ -146,9 +146,9 @@ int main(int argc, char *argv[]) {
 
         // extract compression and decompression times
         uint32_t compression_time, decompression_time;
-        pressio_options_get_uinteger(metrics_results, "time:compression",
+        pressio_options_get_uinteger(metrics_results, "time:compress",
                                      &compression_time);
-        pressio_options_get_uinteger(metrics_results, "time:decompression",
+        pressio_options_get_uinteger(metrics_results, "time:decompress",
                                      &decompression_time);
 
         compression_times[iteration] = compression_time;
