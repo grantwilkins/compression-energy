@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
 #define MAX_ITERATIONS 50
@@ -100,7 +101,7 @@ int main(int argc, char *argv[]) {
   size_t n_bounds = sizeof(bounds) / sizeof(bounds[0]);
 
   for (size_t c = 0; c < n_compressors; ++c) {
-    for (size_t d = 0; i < n_datasets; ++i) {
+    for (size_t d = 0; d < n_datasets; ++d) {
       size_t ndims;
       struct pressio_data *metadata;
       if (strstr("nyx", datasets[d]) != NULL) {
@@ -146,7 +147,7 @@ int main(int argc, char *argv[]) {
       }
 
       printf("Compressor: %s\n", compressor_ids[c]);
-      printf("Dataset: %s\n", datasets[i]);
+      printf("Dataset: %s\n", datasets[d]);
 
       for (size_t i = 0; i < n_bounds; ++i) {
         // configure the compressor error bound
@@ -228,7 +229,7 @@ int main(int argc, char *argv[]) {
           pressio_options_get_double(
               metrics_results, "error_stat:min_rel_error", &min_rel_error);
           pressio_options_get_double(metrics_results, "error_stat:mse", &mse);
-          pressio_options_get_uint64(metrics_results, "error_stat:n", &n);
+          pressio_options_get_uinteger64(metrics_results, "error_stat:n", &n);
           pressio_options_get_double(metrics_results, "error_stat:psnr", &psnr);
           pressio_options_get_double(metrics_results, "error_stat:rmse", &rmse);
           pressio_options_get_double(metrics_results, "error_stat:value_max",
@@ -243,13 +244,13 @@ int main(int argc, char *argv[]) {
                                      &value_std);
           pressio_options_get_double(metrics_results, "size:bit_rate",
                                      &bit_rate);
-          pressio_options_get_uint64(metrics_results, "size:compressed_size",
+          pressio_options_get_uinteger64(metrics_results, "size:compressed_size",
                                      &compressed_size);
           pressio_options_get_double(metrics_results, "size:compression_ratio",
                                      &compression_ratio);
-          pressio_options_get_uint64(metrics_results, "size:decompressed_size",
+          pressio_options_get_uinteger64(metrics_results, "size:decompressed_size",
                                      &decompressed_size);
-          pressio_options_get_uint64(metrics_results, "size:uncompressed_size",
+          pressio_options_get_uinteger64(metrics_results, "size:uncompressed_size",
                                      &uncompressed_size);
           pressio_options_get_uinteger(metrics_results, "time:compress",
                                        &compression_time);
