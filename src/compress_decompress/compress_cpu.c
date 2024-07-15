@@ -47,6 +47,7 @@ bool within_confidence_interval(uint32_t *data, int n) {
 
 int main(int argc, char *argv[]) {
   // read in the dataset
+  
   const char *datadir = "/home/gwilkins/data/";
   const char *datasets[] = {"nyx/temperature.f32",
                             "nyx/density.f32",
@@ -66,14 +67,13 @@ int main(int argc, char *argv[]) {
                             "s3d/stat_planar.2.9950E-03.field.d64",
                             "miranda/density.f32"};
   size_t n_datasets = sizeof(datasets) / sizeof(datasets[0]);
-
   // get the compressor
   struct pressio *library = pressio_instance();
 
   const char *compressor_ids[] = {"sz", "sz3", "mgard", "mgardx", "zfp"};
   size_t n_compressors = sizeof(compressor_ids) / sizeof(compressor_ids[0]);
   struct pressio_compressor *compressors[n_compressors];
-
+   
   for (size_t i = 0; i < n_compressors; ++i) {
     compressors[i] = pressio_get_compressor(library, compressor_ids[i]);
     if (compressors[i] == NULL) {
@@ -96,19 +96,19 @@ int main(int argc, char *argv[]) {
   for (size_t d = 0; d < n_datasets; ++d) {
     size_t ndims;
     struct pressio_data *metadata, *input_data;
-    if (strstr("nyx", datasets[d]) != NULL) {
+    if (strstr(datasets[d], "nyx") != NULL) {
       size_t dims[] = {512, 512, 512};
       ndims = sizeof(dims) / sizeof(dims[0]);
       metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
-    } else if (strstr("hacc", datasets[d]) != NULL) {
+    } else if (strstr( datasets[d], "hacc") != NULL) {
       size_t dims[] = {1073726487};
       ndims = sizeof(dims) / sizeof(dims[0]);
       metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
-    } else if (strstr("s3d", datasets[d]) != NULL) {
+    } else if (strstr(datasets[d], "s3d") != NULL) {
       size_t dims[] = {500, 500, 500};
       ndims = sizeof(dims) / sizeof(dims[0]);
       metadata = pressio_data_new_empty(pressio_double_dtype, ndims, dims);
-    } else if (strstr("miranda", datasets[d]) != NULL) {
+    } else if (strstr(datasets[d], "miranda") != NULL) {
       size_t dims[] = {3072, 3072, 3072};
       ndims = sizeof(dims) / sizeof(dims[0]);
       metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
@@ -116,21 +116,22 @@ int main(int argc, char *argv[]) {
       fprintf(stderr, "Unknown dataset %s\n", datasets[d]);
       continue;
     }
-      input_data = pressio_io_data_path_read(metadata, strcat(datadir, datasets[d]);
+    char full_path[1024];
+    snprintf(full_path, sizeof(full_path), "%s%s", datadir, datasets[d]);
+    input_data = pressio_io_data_path_read(metadata, full_path);
     if (input_data == NULL) {
       fprintf(stderr, "Failed to read dataset %s\n", datasets[d]);
       continue;
       }
+    struct pressio_data *compressed =
+          pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+    struct pressio_data *output = pressio_data_new_clone(input_data);
     for (size_t c = 0; c < n_compressors; ++c) {
       // create output locations
-      struct pressio_data *compressed =
-          pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
-      struct pressio_data *output = pressio_data_new_clone(input_data);
-
+ 
       struct pressio_compressor *comp = compressors[c];
       if (comp == NULL)
         continue; // Skip if compressor wasn't initialized
-
       // verify that options passed exist
       if (pressio_compressor_check_options(comp, metrics_options)) {
         fprintf(stderr, "%s\n", pressio_compressor_error_msg(comp));
@@ -294,12 +295,12 @@ int main(int argc, char *argv[]) {
     }
   pressio_data_free(metadata);
   pressio_data_free(input_data);
+  pressio_data_free(compressed);
+  pressio_data_free(output);
   }
 
   pressio_options_free(metrics_options);
 
-  pressio_data_free(compressed);
-  pressio_data_free(output);
   for (size_t i = 0; i < n_compressors; ++i) {
     if (compressors[i] != NULL) {
       pressio_compressor_release(compressors[i]);
