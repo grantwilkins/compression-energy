@@ -1,5 +1,12 @@
 {
     "files.associations": {
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "__availability": "cpp",
+        "__config": "cpp",
+        "__locale": "cpp",
+        "chrono": "cpp",
+        "ctime": "cpp",
+        "locale": "cpp",
+        "algorithm": "cpp"
     }
 }
