@@ -163,8 +163,10 @@ int main(int argc, char *argv[]) {
         continue;
       }
 
-      printf("Compressor: %s\n", compressor_ids[c]);
-      printf("Dataset: %s\n", datasets[d]);
+      if (omp_get_thread_num() == 0) {
+        printf("Compressor: %s\n", compressor_ids[c]);
+        printf("Dataset: %s\n", datasets[d]);
+      }
 
       for (size_t i = 0; i < n_bounds; ++i) {
         // configure the compressor error bound
