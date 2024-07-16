@@ -1,6 +1,7 @@
 #include <libpressio.h>
 #include <libpressio_ext/io/posix.h>
 #include <math.h>
+#include <omp.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -47,7 +48,15 @@ bool within_confidence_interval(uint32_t *data, int n) {
 
 int main(int argc, char *argv[]) {
   // read in the dataset
-
+  int num_threads;
+#pragma omp parallel
+  {
+#pragma omp master
+    {
+      num_threads = omp_get_num_threads();
+      printf("Running with %d OpenMP threads\n", num_threads);
+    }
+  }
   const char *datadir = "/home/gwilkins/data/";
   const char *datasets[] = {"nyx/temperature.f32",
                             "nyx/density.f32",
@@ -70,12 +79,24 @@ int main(int argc, char *argv[]) {
   // get the compressor
   struct pressio *library = pressio_instance();
 
-  const char *compressor_ids[] = {"sz", "sz3", "mgard", "mgardx", "zfp"};
+  const char *compressor_ids[] = {"sz3", "mgard", "zfp"};
   size_t n_compressors = sizeof(compressor_ids) / sizeof(compressor_ids[0]);
   struct pressio_compressor *compressors[n_compressors];
 
   for (size_t i = 0; i < n_compressors; ++i) {
     compressors[i] = pressio_get_compressor(library, compressor_ids[i]);
+    struct pressio_options *options =
+        pressio_compressor_get_options(compressors[i]);
+    if (strstr(compressor_ids[i], "sz3") != NULL) {
+      pressio_options_set_bool(options, "sz3:openmp", true);
+    } else if (strstr(compressor_ids[i], "mgard") != NULL) {
+      pressio_options_set_bool(options, "mgard:openmp_enabled", true);
+      pressio_options_set_string(options, "mgard:dev_type_str", "openmp");
+      pressio_options_set_uinteger(options, "mgard:nthreads", num_threads);
+    } else if (strstr(compressor_ids[i], "zfp") != NULL) {
+      pressio_options_set_string(options, "zfp:execution_name", "omp");
+      pressio_options_set_uinteger(options, "zfp:omp_threads", num_threads);
+    }
     if (compressors[i] == NULL) {
       fprintf(stderr, "Failed to get compressor %s: %s\n", compressor_ids[i],
               pressio_error_msg(library));
@@ -127,8 +148,6 @@ int main(int argc, char *argv[]) {
         pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
     struct pressio_data *output = pressio_data_new_clone(input_data);
     for (size_t c = 0; c < n_compressors; ++c) {
-      // create output locations
-
       struct pressio_compressor *comp = compressors[c];
       if (comp == NULL)
         continue; // Skip if compressor wasn't initialized
