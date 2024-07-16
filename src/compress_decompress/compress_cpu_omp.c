@@ -276,23 +276,26 @@ int main(int argc, char *argv[]) {
 
           nrmse = rmse / value_range;
 
-          // Write metrics to CSV file
-          FILE *csv_file = fopen("compression_metrics.csv", "a");
-          if (csv_file == NULL) {
-            fprintf(stderr, "Error opening CSV file\n");
-          } else {
-            fprintf(csv_file,
-                    "%s,%s,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%lu,%f,%f,%f,"
-                    "%f,%f,%f,%f,%f,%f,%lu,%f,%lu,%lu,%u,%u\n",
-                    compressor_ids[c], datasets[d], compression_rate,
-                    decompression_rate, avg_difference, avg_error, diff_range,
-                    error_range, max_error, max_pw_rel_error, max_rel_error,
-                    min_error, min_pw_rel_error, min_rel_error, mse, n, psnr,
-                    rmse, nrmse, value_max, value_mean, value_min, value_range,
-                    value_std, bit_rate, compressed_size, compression_ratio,
-                    decompressed_size, uncompressed_size, compression_time,
-                    decompression_time);
-            fclose(csv_file);
+          if (omp_get_thread_num() == 0) {
+            // Write metrics to CSV file
+            FILE *csv_file = fopen("compression_metrics.csv", "a");
+            if (csv_file == NULL) {
+              fprintf(stderr, "Error opening CSV file\n");
+            } else {
+              fprintf(
+                  csv_file,
+                  "%s,%s,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%lu,%f,%f,%f,"
+                  "%f,%f,%f,%f,%f,%f,%lu,%f,%lu,%lu,%u,%u,%u\n",
+                  compressor_ids[c], datasets[d], compression_rate,
+                  decompression_rate, avg_difference, avg_error, diff_range,
+                  error_range, max_error, max_pw_rel_error, max_rel_error,
+                  min_error, min_pw_rel_error, min_rel_error, mse, n, psnr,
+                  rmse, nrmse, value_max, value_mean, value_min, value_range,
+                  value_std, bit_rate, compressed_size, compression_ratio,
+                  decompressed_size, uncompressed_size, compression_time,
+                  decompression_time, num_threads);
+              fclose(csv_file);
+            }
           }
           compression_times[iteration] = compression_time;
           decompression_times[iteration] = decompression_time;
