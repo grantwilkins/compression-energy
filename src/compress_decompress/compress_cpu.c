@@ -247,17 +247,18 @@ int main(int argc, char *argv[]) {
         if (csv_file == NULL) {
           fprintf(stderr, "Error opening CSV file\n");
         } else {
-          fprintf(csv_file,
-                  "%s,%s,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%lu,%f,%f,%f,"
-                  "%f,%f,%f,%f,%f,%f,%lu,%f,%lu,%lu,%u,%u,%d\n",
-                  compressor_ids[c], dataset_file, compression_rate,
-                  decompression_rate, avg_difference, avg_error, diff_range,
-                  error_range, max_error, max_pw_rel_error, max_rel_error,
-                  min_error, min_pw_rel_error, min_rel_error, mse, n, psnr,
-                  rmse, nrmse, value_max, value_mean, value_min, value_range,
-                  value_std, bit_rate, compressed_size, compression_ratio,
-                  decompressed_size, uncompressed_size, compression_time,
-                  decompression_time, cpu);
+          fprintf(
+              csv_file,
+              "%s,%s,%e,%d,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%lu,%e,%e,%e,"
+              "%e,%e,%e,%e,%e,%e,%lu,%e,%lu,%lu,%u,%u,%d\n",
+              compressor_ids[c], dataset_file, bounds[i], iteration,
+              compression_rate, decompression_rate, avg_difference, avg_error,
+              diff_range, error_range, max_error, max_pw_rel_error,
+              max_rel_error, min_error, min_pw_rel_error, min_rel_error, mse, n,
+              psnr, rmse, nrmse, value_max, value_mean, value_min, value_range,
+              value_std, bit_rate, compressed_size, compression_ratio,
+              decompressed_size, uncompressed_size, compression_time,
+              decompression_time, cpu);
           fclose(csv_file);
         }
         compression_times[iteration] = compression_time;
