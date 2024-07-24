@@ -1,0 +1,10 @@
+/var/spool/slurmd/job117475/slurm_script: line 13: cd: /home/gwilkins/compression-energy/src/compress_decompress: No such file or directory
+make: *** No targets specified and no makefile found.  Stop.
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+Unable to find given executable in PATH environment var...
+Could not launch the target: ./compress_cpu
+Unable to Launch the Application.
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
