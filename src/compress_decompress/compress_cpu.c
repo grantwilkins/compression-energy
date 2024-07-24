@@ -9,7 +9,7 @@
 #include <string.h>
 #include <time.h>
 
-#define MAX_ITERATIONS 50
+#define MAX_ITERATIONS 25
 #define CONFIDENCE_LEVEL 1.96
 
 double calculate_mean(uint32_t *data, int n) {
@@ -50,23 +50,25 @@ int main(int argc, char *argv[]) {
   // read in the dataset
 
   const char *datadir = "/lcrc/project/ECP-EZ/sdrbench/";
-  const char *datasets[] = {"nyx/temperature.f32",
-                            "nyx/density.f32",
-                            "nyx/velocity_x.f32",
-                            "nyx/velocity_y.f32",
-                            "nyx/velocity_z.f32",
-                            "hacc/vx.f32",
-                            "hacc/vy.f32",
-                            "hacc/vz.f32",
-                            "hacc/xx.f32",
-                            "hacc/yy.f32",
-                            "hacc/zz.f32",
-                            "s3d/stat_planar.1.1000E-03.field.d64",
-                            "s3d/stat_planar.1.7000E-03.field.d64",
-                            "s3d/stat_planar.2.3500E-03.field.d64",
-                            "s3d/stat_planar.2.9000E-03.field.d64",
-                            "s3d/stat_planar.2.9950E-03.field.d64",
-                            "miranda/density.f32"};
+  const char *datasets[] = {
+      "s3d/stat_planar.1.1000E-03.field.d64",
+      "s3d/stat_planar.1.7000E-03.field.d64",
+      "s3d/stat_planar.2.3500E-03.field.d64",
+      "s3d/stat_planar.2.9000E-03.field.d64",
+      "s3d/stat_planar.2.9950E-03.field.d64",
+      "miranda/density.f32",
+      "hacc/vx.f32",
+      "hacc/vy.f32",
+      "hacc/vz.f32",
+      "hacc/xx.f32",
+      "hacc/yy.f32",
+      "hacc/zz.f32",
+      "nyx/temperature.f32",
+      "nyx/density.f32",
+      "nyx/velocity_x.f32",
+      "nyx/velocity_y.f32",
+      "nyx/velocity_z.f32",
+  };
   size_t n_datasets = sizeof(datasets) / sizeof(datasets[0]);
   // get the compressor
   struct pressio *library = pressio_instance();
@@ -91,8 +93,7 @@ int main(int argc, char *argv[]) {
   pressio_options_set_strings(metrics_options, "composite:plugins",
                               n_metrics_ids, metrics_ids);
 
-  double bounds[] = {1e-6, 5e-6, 1e-5, 5e-5, 1e-4, 5e-4,
-                     1e-3, 5e-3, 1e-2, 5e-2, 1e-1};
+  double bounds[] = {1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1};
   size_t n_bounds = sizeof(bounds) / sizeof(bounds[0]);
   for (size_t d = 0; d < n_datasets; ++d) {
     size_t ndims;
@@ -124,9 +125,7 @@ int main(int argc, char *argv[]) {
       fprintf(stderr, "Failed to read dataset %s\n", datasets[d]);
       continue;
     }
-    struct pressio_data *compressed =
-        pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
-    struct pressio_data *output = pressio_data_new_clone(input_data);
+
     for (size_t c = 0; c < n_compressors; ++c) {
       // create output locations
 
@@ -174,6 +173,9 @@ int main(int argc, char *argv[]) {
         bool confidence_interval_reached = false;
 
         while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
+          struct pressio_data *compressed =
+              pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+          struct pressio_data *output = pressio_data_new_clone(input_data);
           // run the compression and decompression
           int cpu = sched_getcpu();
           if (pressio_compressor_compress(comp, input_data, compressed)) {
@@ -290,14 +292,14 @@ int main(int argc, char *argv[]) {
                 within_confidence_interval(compression_times, iteration) &&
                 within_confidence_interval(decompression_times, iteration);
           }
+          pressio_data_free(compressed);
+          pressio_data_free(output);
         }
       }
       printf("\n"); // Add a newline between error bounds for readability
     }
     pressio_data_free(metadata);
     pressio_data_free(input_data);
-    pressio_data_free(compressed);
-    pressio_data_free(output);
   }
 
   pressio_options_free(metrics_options);
