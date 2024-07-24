@@ -33,7 +33,6 @@ This repository requires the following software packages:
   - SZx
   - MGARD
   - MGARDx
-  - SPERR
   - ZFP-X
 - Multi-Threaded Compressors:
   - SZ-OMP 

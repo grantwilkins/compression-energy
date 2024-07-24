@@ -82,8 +82,6 @@ int main(int argc, char *argv[]) {
               pressio_error_msg(library));
     }
   }
-  int cpu = sched_getcpu();
-  printf("CPU CORE: %d\n", cpu);
 
   // configure metrics for the compressors
   struct pressio_options *metrics_options = pressio_options_new();
@@ -177,6 +175,7 @@ int main(int argc, char *argv[]) {
 
         while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
           // run the compression and decompression
+          int cpu = sched_getcpu();
           if (pressio_compressor_compress(comp, input_data, compressed)) {
             fprintf(stderr, "%s\n", pressio_compressor_error_msg(comp));
             break;
@@ -267,7 +266,7 @@ int main(int argc, char *argv[]) {
           } else {
             fprintf(csv_file,
                     "%s,%s,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%lu,%f,%f,%f,"
-                    "%f,%f,%f,%f,%f,%f,%lu,%f,%lu,%lu,%u,%u\n",
+                    "%f,%f,%f,%f,%f,%f,%lu,%f,%lu,%lu,%u,%u,%d\n",
                     compressor_ids[c], datasets[d], compression_rate,
                     decompression_rate, avg_difference, avg_error, diff_range,
                     error_range, max_error, max_pw_rel_error, max_rel_error,
@@ -275,7 +274,7 @@ int main(int argc, char *argv[]) {
                     rmse, nrmse, value_max, value_mean, value_min, value_range,
                     value_std, bit_rate, compressed_size, compression_ratio,
                     decompressed_size, uncompressed_size, compression_time,
-                    decompression_time);
+                    decompression_time, cpu);
             fclose(csv_file);
           }
           compression_times[iteration] = compression_time;
