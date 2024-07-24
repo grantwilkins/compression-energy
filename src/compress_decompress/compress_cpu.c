@@ -48,7 +48,7 @@ bool within_confidence_interval(uint32_t *data, int n) {
 int main(int argc, char *argv[]) {
   // read in the dataset
 
-  const char *datadir = "/home/gwilkins/data/";
+  const char *datadir = "/lcrc/project/ECP-EZ/sdrbench/";
   const char *datasets[] = {"nyx/temperature.f32",
                             "nyx/density.f32",
                             "nyx/velocity_x.f32",
