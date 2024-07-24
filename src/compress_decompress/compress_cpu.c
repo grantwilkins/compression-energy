@@ -1,6 +1,7 @@
 #include <libpressio.h>
 #include <libpressio_ext/io/posix.h>
 #include <math.h>
+#include <sched.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -81,6 +82,8 @@ int main(int argc, char *argv[]) {
               pressio_error_msg(library));
     }
   }
+  int cpu = sched_getcpu();
+  printf("CPU CORE: %d\n", cpu);
 
   // configure metrics for the compressors
   struct pressio_options *metrics_options = pressio_options_new();
