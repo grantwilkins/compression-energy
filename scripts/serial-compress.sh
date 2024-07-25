@@ -7,18 +7,7 @@
 #SBATCH --time=6:00:00 
 #SBATCH --gres=gpu:1
 
-datasets=(
-    s3d/stat_planar.1.1000E-03.field.d64
-    s3d/stat_planar.1.7000E-03.field.d64
-    s3d/stat_planar.2.3500E-03.field.d64
-    s3d/stat_planar.2.9000E-03.field.d64
-    s3d/stat_planar.2.9950E-03.field.d64
-    nyx/temperature.f32
-    nyx/density.f32
-    nyx/velocity_x.f32
-    nyx/velocity_y.f32
-    nyx/velocity_z.f32
-    hacc/vx.f32
+datasets=(   
     hacc/vy.f32
     hacc/vz.f32
     hacc/xx.f32
