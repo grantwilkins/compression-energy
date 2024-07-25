@@ -16,11 +16,19 @@ datasets=(
     miranda/density.f32
 )
 
+compressors=(
+    sz3
+    zfp
+    mgard
+)
+
 module load amd-uprof
 cd /home/ac.gwilkins/compression-energy/src/compress_decompress
 make
 for i in ${datasets[@]}; do
-    mkdir -p ./serial-compress/$i
-    AMDuProfCLI timechart --event power --interval 100 --duration 99999 -o ./serial-compress/$i ./compress_cpu $i
+for j in ${compressors[@]}; do
+    mkdir -p ./serial-compress/$i-$j
+    AMDuProfCLI timechart --event power --interval 100 --duration 99999 -o ./serial-compress/$i-$J ./compress_cpu $j $i
+done
 done
 
