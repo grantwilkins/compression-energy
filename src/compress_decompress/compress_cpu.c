@@ -90,7 +90,7 @@ int main(int argc, char *argv[]) {
     ndims = sizeof(dims) / sizeof(dims[0]);
     metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
   } else if (strstr(dataset_file, "s3d") != NULL) {
-    size_t dims[] = {500, 500, 500};
+    size_t dims[] = {11, 500, 500, 500};
     ndims = sizeof(dims) / sizeof(dims[0]);
     metadata = pressio_data_new_empty(pressio_double_dtype, ndims, dims);
   } else if (strstr(dataset_file, "miranda") != NULL) {
