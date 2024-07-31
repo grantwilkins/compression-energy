@@ -131,6 +131,9 @@ int main(int argc, char *argv[]) {
 
   printf("Compressor: %s\n", compressor_id);
   printf("Dataset: %s\n", dataset_file);
+  struct pressio_data *compressed =
+      pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+  struct pressio_data *output = pressio_data_new_clone(input_data);
 
   for (size_t i = 0; i < n_bounds; ++i) {
     // configure the compressor error bound
@@ -158,9 +161,7 @@ int main(int argc, char *argv[]) {
     bool confidence_interval_reached = false;
 
     while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
-      struct pressio_data *compressed =
-          pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
-      struct pressio_data *output = pressio_data_new_clone(input_data);
+
       // run the compression and decompression
       int cpu = sched_getcpu();
       if (pressio_compressor_compress(compressor, input_data, compressed)) {
@@ -272,14 +273,14 @@ int main(int argc, char *argv[]) {
             within_confidence_interval(compression_times, iteration) &&
             within_confidence_interval(decompression_times, iteration);
       }
-      pressio_data_free(compressed);
-      pressio_data_free(output);
     }
   }
   printf("\n"); // Add a newline between error bounds for readability
 
   pressio_data_free(metadata);
   pressio_data_free(input_data);
+  pressio_data_free(compressed);
+  pressio_data_free(output);
 
   pressio_options_free(metrics_options);
   pressio_compressor_release(compressor);
