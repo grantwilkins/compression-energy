@@ -1,18 +1,12 @@
 #!/bin/bash
 
 #SBATCH -J serial-compress
-
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=16
 #SBATCH --time=6:00:00 
 #SBATCH --gres=gpu:1
 
 datasets=(
-    s3d/stat_planar.1.1000E-03.field.d64
-    s3d/stat_planar.1.7000E-03.field.d64
-    s3d/stat_planar.2.3500E-03.field.d64
-    s3d/stat_planar.2.9000E-03.field.d64
-    s3d/stat_planar.2.9950E-03.field.d64
     nyx/temperature.f32
     nyx/density.f32
     nyx/velocity_x.f32
@@ -34,12 +28,14 @@ compressors=(
     mgard
 )
 
-module load amd-uprof
+module load amd-uprof/4.1.424
+module unload amd-uprof/4.1.424
+module load amd-uprof/4.1.424
 cd /home/ac.gwilkins/compression-energy/src/compress_decompress
 make
 for i in ${datasets[@]}; do
 for j in ${compressors[@]}; do
     mkdir -p ./serial-compress/$i-$j
-    AMDuProfCLI timechart --event power --interval 100 --duration 99999 -o ./serial-compress/$i-$J ./compress_cpu $j $i
+    AMDuProfCLI timechart --event power --interval 100 --duration 99999 -o ./serial-compress/$i-$j ./compress_cpu $j $i
 done
 done

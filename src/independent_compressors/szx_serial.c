@@ -9,6 +9,7 @@
 #include "szx.h"
 #include "szx_rw.h"
 #include <math.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -52,8 +53,8 @@ bool within_confidence_interval(uint32_t *data, int n) {
 }
 
 int main(int argc, char *argv[]) {
-  if (argc != 3) {
-    printf("Usage: %s <dataset_file> <error_bound>\n", argv[0]);
+  if (argc != 2) {
+    printf("Usage: %s <dataset_file>\n", argv[0]);
     return 1;
   }
   double bounds[] = {1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1};
