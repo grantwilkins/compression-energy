@@ -3,27 +3,16 @@
 #SBATCH -J serial-compress
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=16
-#SBATCH --time=6:00:00 
+#SBATCH --time=12:00:00 
 #SBATCH --gres=gpu:1
 
 datasets=(
-    nyx/temperature.f32
-    nyx/density.f32
-    nyx/velocity_x.f32
-    nyx/velocity_y.f32
-    nyx/velocity_z.f32
     hacc/vx.f32
-    hacc/vy.f32
-    hacc/vz.f32
     hacc/xx.f32
-    hacc/yy.f32
-    hacc/zz.f32
     miranda/density.f32
 )
 
 compressors=(
-    sz
-    sz3
     zfp
     mgard
 )

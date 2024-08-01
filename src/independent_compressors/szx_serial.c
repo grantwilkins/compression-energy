@@ -53,16 +53,18 @@ bool within_confidence_interval(uint32_t *data, int n) {
 }
 
 int main(int argc, char *argv[]) {
+  printf("BERGINN");
   if (argc != 2) {
-    printf("Usage: %s <dataset_file>\n", argv[0]);
+    printf("Usage: ./szx_serial.out <dataset_file>\n");
     return 1;
   }
   double bounds[] = {1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1};
   size_t n_bounds = sizeof(bounds) / sizeof(bounds[0]);
 
-  const char *dataset_file = argv[1];
+  char dataset_file[640];
+  sprintf(dataset_file,"%s",argv[1]);
   int ndims = 0;
-  void *data = NULL;
+  void *data;
   int status = 0;
   size_t nbEle;
   size_t dims[5] = {0};

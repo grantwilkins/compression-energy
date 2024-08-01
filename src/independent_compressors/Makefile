@@ -1,6 +1,6 @@
 CC=gcc
-INCLUDE=-I/home/ac.gwilkins/SZx/intel_build/include
-LIB=-L/home/ac.gwilkins/SZx/intel_build/lib
+INCLUDE=-I/home/ac.gwilkins/SZx/swing_build/include/szx
+LIB=-L/home/ac.gwilkins/SZx/swing_build/lib
 CFLAGS=-O3 -std=c99 -Wall -fPIC -shared
 LDFLAGS=-lm
 OPENMP=-fopenmp
