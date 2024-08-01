@@ -7,7 +7,7 @@ The following are the main components of this repository:
 - `src/compress_decompress`: This directory contains the implementation of the compress and decompress experiments. In this experiment, we will compress and decompress several datasets using different lossy compression algorithms and compare the results.
 - `src/hdf5_transfer`: This directory contains the implementation of transmitting data to a parallel file system using HDF5. We will use this experiment to measure the energy required to transfer data to a parallel file system.
 - `scripts`: This directory contains the scripts to run the experiments and collect the power draw across all CPU cores.
-- `plots`: This directory contains the scripts to generate the plots from the experiment results.
+- `analysis`: This directory contains the scripts to generate the plots from the experiment results.
 
 ## Required Software Packages
 

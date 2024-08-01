@@ -17,6 +17,15 @@ compressors=(
     mgard
 )
 
+error_bounds=(
+    0.1
+    0.01
+    0.001
+    0.0001
+    0.00001
+    0.000001
+)
+
 module load amd-uprof/4.1.424
 module unload amd-uprof/4.1.424
 module load amd-uprof/4.1.424
@@ -24,7 +33,9 @@ cd /home/ac.gwilkins/compression-energy/src/compress_decompress
 make
 for i in ${datasets[@]}; do
 for j in ${compressors[@]}; do
+for k in ${error_bounds[@]}; do
     mkdir -p ./serial-compress/$i-$j
-    AMDuProfCLI timechart --event power --interval 100 --duration 99999 -o ./serial-compress/$i-$j ./compress_cpu $j $i
+    AMDuProfCLI timechart --event power --interval 100 --duration 99999 -o ./serial-compress/$i-$j ./compress_cpu $j $i $k
+done
 done
 done
