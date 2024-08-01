@@ -7,12 +7,15 @@
 #SBATCH --gres=gpu:1
 
 datasets=(
+    s3d/stat_planar.1.1000E-03.field.d64
+    nyx/temperature.f32
     hacc/vx.f32
-    hacc/xx.f32
     miranda/density.f32
 )
 
 compressors=(
+    sz
+    sz3
     zfp
     mgard
 )
@@ -34,8 +37,8 @@ make
 for i in ${datasets[@]}; do
 for j in ${compressors[@]}; do
 for k in ${error_bounds[@]}; do
-    mkdir -p ./serial-compress/$i-$j
-    AMDuProfCLI timechart --event power --interval 100 --duration 99999 -o ./serial-compress/$i-$j ./compress_cpu $j $i $k
+    mkdir -p ./serial-compress/$i-$j-$k
+    AMDuProfCLI timechart --event power --interval 100 --duration 99999 -o ./serial-compress/$i-$j-$k ./compress_cpu $j $i $k
 done
 done
 done

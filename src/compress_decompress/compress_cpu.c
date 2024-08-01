@@ -137,7 +137,7 @@ int main(int argc, char *argv[]) {
 
   // configure the compressor error bound
   struct pressio_options *options = pressio_options_new();
-  pressio_options_set_double(options, "pressio:rel", error_bound);
+  pressio_options_set_double(options, "pressio:abs", error_bound);
 
   // verify that options passed exist
   if (pressio_compressor_check_options(compressor, options)) {
