@@ -8,9 +8,7 @@ import os
 import pandas as pd
 
 # Base path for the energy calculation data
-base_path = os.path.expanduser(
-    "~/compression-energy/analysis/energy-calculation/serial-compress"
-)
+base_path = os.path.expanduser("~/compression-energy/analysis/data/serial-compress")
 
 
 def load_timechart_data(base_path):
@@ -96,12 +94,14 @@ nyx_sz_df = timechart_data["nyx"]["temperature.f32"]["sz"]
 plot_power_over_time(nyx_sz_df, "NYX", "temperature.f32", "SZ")
 
 
-df_comp_metrics = pd.read_csv("compression_metrics.csv")
+df_comp_metrics = pd.read_csv(
+    "/Users/grantwilkins/compression-energy/analysis/data/compression_metrics.csv"
+)
 
 for dataset, dataset_data in timechart_data.items():
     for field, field_data in dataset_data.items():
         for compressor, df in field_data.items():
-            energy = calculate_cpu_energy(df, range(0, 16))
+            energy = calculate_cpu_energy(df, range(0, 127))
             matching_rows = df_comp_metrics[
                 (df_comp_metrics["Dataset"] == dataset)
                 & (df_comp_metrics["Field"].str.contains(field, case=False))
@@ -110,10 +110,10 @@ for dataset, dataset_data in timechart_data.items():
             if not matching_rows.empty:
                 for _, row in matching_rows.iterrows():
                     compression_energy = (
-                        energy * row["Compression Time (ms)"]
+                        energy * row["Compression Runtime (ms)"]
                     ) / total_times[(dataset, field, compressor)]
                     decompression_energy = (
-                        energy * row["Decompression Time (ms)"]
+                        energy * row["Decompression Runtime (ms)"]
                     ) / total_times[(dataset, field, compressor)]
 
                     # Write energy results to the dataframe
