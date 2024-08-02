@@ -98,6 +98,41 @@ int copy_file(const char *src, const char *dst) {
   return result;
 }
 
+// Function to read binary .f32 file
+struct pressio_data *read_binary_file(const char *filename) {
+  FILE *file = fopen(filename, "rb");
+  if (!file) {
+    fprintf(stderr, "Failed to open file: %s\n", filename);
+    return NULL;
+  }
+
+  fseek(file, 0, SEEK_END);
+  long file_size = ftell(file);
+  fseek(file, 0, SEEK_SET);
+
+  size_t num_elements = file_size / sizeof(float);
+  float *buffer = (float *)malloc(file_size);
+  if (!buffer) {
+    fprintf(stderr, "Failed to allocate memory\n");
+    fclose(file);
+    return NULL;
+  }
+
+  size_t elements_read = fread(buffer, sizeof(float), num_elements, file);
+  fclose(file);
+
+  if (elements_read != num_elements) {
+    fprintf(stderr, "Failed to read all elements from file\n");
+    free(buffer);
+    return NULL;
+  }
+
+  size_t dims[] = {num_elements};
+  struct pressio_data *data = pressio_data_new_move(
+      pressio_float_dtype, buffer, 1, dims, pressio_data_libc_free_fn, NULL);
+  return data;
+}
+
 int main(int argc, char *argv[]) {
   if (argc != 5) {
     fprintf(
@@ -150,7 +185,7 @@ int main(int argc, char *argv[]) {
   struct pressio *library = pressio_instance();
   struct pressio_compressor *compressor =
       pressio_get_compressor(library, compressor_id);
-  struct pressio_io *io = pressio_get_io(library, io_method);
+  struct pressio_io *io = pressio_get_io(io_method);
 
   if (compressor == NULL) {
     fprintf(stderr, "Failed to get compressor %s: %s\n", compressor_id,
@@ -212,11 +247,15 @@ int main(int argc, char *argv[]) {
   while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
     // Read input data
     double start_time = get_time();
-    struct pressio_data *input_data = pressio_io_read(io, NULL);
+    struct pressio_data *input_data;
+    if (strstr(field_name, ".f32") != NULL) {
+      input_data = read_binary_file(scratch_dataset);
+    } else {
+      input_data = pressio_io_read(io, NULL);
+    }
     read_times[iteration] = get_time() - start_time;
     if (input_data == NULL) {
-      fprintf(stderr, "Failed to read input data: %s\n",
-              pressio_io_error_msg(io));
+      fprintf(stderr, "Failed to read input data\n");
       fclose(csv_file);
       return 1;
     }
