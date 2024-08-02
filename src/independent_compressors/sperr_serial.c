@@ -80,8 +80,7 @@ int main(int argc, char *argv[]) {
   size_t dims[3] = {0};
   int is_float = 1;
 
-  if (strstr(dataset_file, "nyx") != NULL ||
-      strstr(dataset_file, "miranda") != NULL) {
+  if (strstr(dataset_file, "nyx") != NULL) {
     dims[0] = dims[1] = dims[2] = 512;
   } else if (strstr(dataset_file, "hacc") != NULL) {
     dims[0] = 1073726487;
@@ -89,6 +88,8 @@ int main(int argc, char *argv[]) {
   } else if (strstr(dataset_file, "s3d") != NULL) {
     dims[0] = dims[1] = dims[2] = 500;
     is_float = 0;
+  } else if (strstr(dataset_file, "miranda") != NULL) {
+    dims[0] = dims[1] = dims[2] = 3072;
   } else {
     fprintf(stderr, "Unknown dataset %s\n", dataset_file);
     return 1;

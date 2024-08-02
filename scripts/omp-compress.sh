@@ -16,6 +16,7 @@ datasets=(
 )
 
 compressors=(
+    sz_omp
     sz3
     zfp
     mgard

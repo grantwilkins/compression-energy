@@ -42,9 +42,10 @@ sns.relplot(
     # legend=False,
 )
 
+plt.clf()
 plt.show()
 
-sns.catplot(
+g = sns.catplot(
     x="REL Error Bound",
     y="Total Energy (J)",
     hue="Compressor",
@@ -52,6 +53,28 @@ sns.catplot(
     data=df,
     kind="bar",
     sharey=False,
+    legend=False,
 )
-plt.xticks(rotation=45)
+
+# Rotate x-axis labels for each subplot
+for ax in g.axes.flat:
+    ax.set_xticklabels(
+        ax.get_xticklabels(),
+        rotation=45,
+    )
+plt.legend(bbox_to_anchor=(1.05, 0.5), frameon=False, loc="center left")
+plt.tight_layout()
+plt.show()
+
+sns.relplot(
+    kind="line",
+    x="Bit Rate",
+    y="PSNR",
+    hue="Compressor",
+    col="Dataset",
+    # marker="o",
+    # markersize=12,
+    data=df,
+    # legend=False,
+)
 plt.show()
