@@ -189,10 +189,19 @@ int main(int argc, char *argv[]) {
             "Decompression_Time,Write_Decompressed_Time\n");
   }
 
+  struct pressio_data *input_data =
+      pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+  struct pressio_data *read_compressed_data =
+      pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+  struct pressio_data *compressed_data =
+      pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+  struct pressio_data *decompressed_data;
+  = pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+
   while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
     // Read input data
     double start_time = get_time();
-    struct pressio_data *input_data = pressio_io_read(io, NULL);
+    input_data = pressio_io_read(io, NULL);
     read_times[iteration] = get_time() - start_time;
     if (input_data == NULL) {
       fprintf(stderr, "Failed to read input data: %s\n",
@@ -203,8 +212,7 @@ int main(int argc, char *argv[]) {
 
     // Compress data
     start_time = get_time();
-    struct pressio_data *compressed_data =
-        pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+
     if (pressio_compressor_compress(compressor, input_data, compressed_data)) {
       fprintf(stderr, "Compression failed: %s\n",
               pressio_compressor_error_msg(compressor));
@@ -230,7 +238,7 @@ int main(int argc, char *argv[]) {
 
     // Read compressed data back from persistent storage
     start_time = get_time();
-    struct pressio_data *read_compressed_data = pressio_io_read(io, NULL);
+    read_compressed_data = pressio_io_read(io, NULL);
     read_compressed_times[iteration] = get_time() - start_time;
     if (read_compressed_data == NULL) {
       fprintf(stderr, "Failed to read compressed data: %s\n",
