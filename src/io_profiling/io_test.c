@@ -185,7 +185,7 @@ int main(int argc, char *argv[]) {
   struct pressio *library = pressio_instance();
   struct pressio_compressor *compressor =
       pressio_get_compressor(library, compressor_id);
-  struct pressio_io *io = pressio_get_io(io_method);
+  struct pressio_io *io = pressio_get_io(library, io_method);
 
   if (compressor == NULL) {
     fprintf(stderr, "Failed to get compressor %s: %s\n", compressor_id,
