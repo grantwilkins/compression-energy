@@ -24,24 +24,25 @@ double get_time() {
   clock_gettime(CLOCK_MONOTONIC, &ts);
   return ts.tv_sec + ts.tv_nsec / 1e9;
 }
-double calculate_mean(uint32_t *data, int n) {
+
+double calculate_mean(double *data, int n) {
   double sum = 0.0;
   for (int i = 0; i < n; i++) {
-    sum += (double)data[i];
+    sum += data[i];
   }
   return sum / n;
 }
 
-double calculate_std_dev(uint32_t *data, int n, double mean) {
+double calculate_std_dev(double *data, int n, double mean) {
   double sum_squared_diff = 0.0;
   for (int i = 0; i < n; i++) {
-    double diff = (double)data[i] - mean;
+    double diff = data[i] - mean;
     sum_squared_diff += diff * diff;
   }
   return sqrt(sum_squared_diff / (n - 1));
 }
 
-bool within_confidence_interval(uint32_t *data, int n) {
+bool within_confidence_interval(double *data, int n) {
   if (n < 2)
     return false;
   double mean = calculate_mean(data, n);
@@ -51,7 +52,7 @@ bool within_confidence_interval(uint32_t *data, int n) {
   double upper_bound = mean + margin_of_error;
 
   for (int i = 0; i < n; i++) {
-    if ((double)data[i] < lower_bound || (double)data[i] > upper_bound) {
+    if (data[i] < lower_bound || data[i] > upper_bound) {
       return false;
     }
   }
@@ -108,6 +109,13 @@ int main(int argc, char *argv[]) {
   double error_bound = atof(argv[2]);
   const char *dataset_file = argv[3];
   const char *io_method = argv[4];
+
+  char compressed_filename[512];
+  char decompressed_filename[512];
+
+  // Create directories if they don't exist
+  mkdir(GLOBAL_SCRATCH, 0777);
+  mkdir(PERSISTENT_DIR, 0777);
 
   // Copy dataset to global scratch
   char scratch_dataset[512];
@@ -206,7 +214,6 @@ int main(int argc, char *argv[]) {
     compression_times[iteration] = get_time() - start_time;
 
     // Write compressed data to persistent storage
-    char compressed_filename[512];
     snprintf(compressed_filename, sizeof(compressed_filename),
              "%s/%s.compressed", PERSISTENT_DIR,
              basename((char *)dataset_file));
@@ -245,7 +252,6 @@ int main(int argc, char *argv[]) {
     decompression_times[iteration] = get_time() - start_time;
 
     // Write decompressed data to persistent storage
-    char decompressed_filename[512];
     snprintf(decompressed_filename, sizeof(decompressed_filename),
              "%s/%s.decompressed", PERSISTENT_DIR,
              basename((char *)dataset_file));
@@ -268,12 +274,6 @@ int main(int argc, char *argv[]) {
             decompression_times[iteration],
             write_decompressed_times[iteration]);
 
-    // Clean up iteration-specific data
-    pressio_data_free(input_data);
-    pressio_data_free(compressed_data);
-    pressio_data_free(read_compressed_data);
-    pressio_data_free(decompressed_data);
-
     iteration++;
 
     // Check if we've reached the confidence interval
@@ -291,7 +291,10 @@ int main(int argc, char *argv[]) {
   // Close CSV file
   fclose(csv_file);
 
-  // Clean up
+  pressio_data_free(input_data);
+  pressio_data_free(compressed_data);
+  pressio_data_free(read_compressed_data);
+  pressio_data_free(decompressed_data);
   pressio_options_free(comp_options);
   pressio_options_free(io_options);
   pressio_compressor_release(compressor);
