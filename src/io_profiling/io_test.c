@@ -369,5 +369,31 @@ int main(int argc, char *argv[]) {
   printf("Compressed file: %s\n", compressed_filename);
   printf("Decompressed file: %s\n", decompressed_filename);
 
+  // Cleanup: Remove files from scratch and persistent memory
+  printf("Cleaning up temporary files...\n");
+
+  // Remove the copy in global scratch
+  if (remove(scratch_dataset) == 0) {
+    printf("Removed scratch file: %s\n", scratch_dataset);
+  } else {
+    perror("Failed to remove scratch file");
+  }
+
+  // Remove the compressed file from persistent memory
+  if (remove(compressed_filename) == 0) {
+    printf("Removed compressed file: %s\n", compressed_filename);
+  } else {
+    perror("Failed to remove compressed file");
+  }
+
+  // Remove the decompressed file from persistent memory
+  if (remove(decompressed_filename) == 0) {
+    printf("Removed decompressed file: %s\n", decompressed_filename);
+  } else {
+    perror("Failed to remove decompressed file");
+  }
+
+  printf("Cleanup completed.\n");
+
   return 0;
 }
