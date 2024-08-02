@@ -195,8 +195,8 @@ int main(int argc, char *argv[]) {
       pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
   struct pressio_data *compressed_data =
       pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
-  struct pressio_data *decompressed_data;
-  = pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+  struct pressio_data *decompressed_data =
+      pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
 
   while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
     // Read input data
