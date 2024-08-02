@@ -20,8 +20,83 @@ const char *INPUT_DIR = "/lcrc/project/ECP-EZ/sdrbench";
 const char *GLOBAL_SCRATCH = "/lcrc/globalscratch/ac.gwilkins";
 const char *PERSISTENT_DIR = "/lcrc/project/ECP-EZ/ac.gwilkins";
 
-// ... [keep all the previous functions: get_time, calculate_mean,
-// calculate_std_dev, within_confidence_interval, copy_file] ...
+double get_time() {
+  struct timespec ts;
+  clock_gettime(CLOCK_MONOTONIC, &ts);
+  return ts.tv_sec + ts.tv_nsec / 1e9;
+}
+
+double calculate_mean(double *data, int n) {
+  double sum = 0.0;
+  for (int i = 0; i < n; i++) {
+    sum += data[i];
+  }
+  return sum / n;
+}
+
+double calculate_std_dev(double *data, int n, double mean) {
+  double sum_squared_diff = 0.0;
+  for (int i = 0; i < n; i++) {
+    double diff = data[i] - mean;
+    sum_squared_diff += diff * diff;
+  }
+  return sqrt(sum_squared_diff / (n - 1));
+}
+
+bool within_confidence_interval(double *data, int n) {
+  if (n < 2)
+    return false;
+  double mean = calculate_mean(data, n);
+  double std_dev = calculate_std_dev(data, n, mean);
+  double margin_of_error = CONFIDENCE_LEVEL * (std_dev / sqrt(n));
+  double lower_bound = mean - margin_of_error;
+  double upper_bound = mean + margin_of_error;
+
+  for (int i = 0; i < n; i++) {
+    if (data[i] < lower_bound || data[i] > upper_bound) {
+      return false;
+    }
+  }
+  return true;
+}
+
+int copy_file(const char *src, const char *dst) {
+  int fd_src, fd_dst;
+  char buffer[BUFFER_SIZE];
+  ssize_t bytes_read, bytes_written;
+  int result = 0;
+
+  fd_src = open(src, O_RDONLY);
+  if (fd_src == -1) {
+    perror("Error opening source file");
+    return -1;
+  }
+
+  fd_dst = open(dst, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+  if (fd_dst == -1) {
+    perror("Error opening destination file");
+    close(fd_src);
+    return -1;
+  }
+
+  while ((bytes_read = read(fd_src, buffer, BUFFER_SIZE)) > 0) {
+    bytes_written = write(fd_dst, buffer, bytes_read);
+    if (bytes_written != bytes_read) {
+      perror("Error writing to destination file");
+      result = -1;
+      break;
+    }
+  }
+
+  if (bytes_read == -1) {
+    perror("Error reading from source file");
+    result = -1;
+  }
+
+  close(fd_src);
+  close(fd_dst);
+  return result;
+}
 
 int main(int argc, char *argv[]) {
   if (argc != 5) {
