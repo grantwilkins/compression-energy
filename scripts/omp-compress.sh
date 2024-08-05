@@ -3,20 +3,19 @@
 #SBATCH -J omp-compress
 
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=128
+#SBATCH --ntasks-per-node=64
 #SBATCH --time=12:00:00 
 #SBATCH --gres=gpu:1
 
 
 datasets=(
+    hacc/vx.f32
     s3d/stat_planar.1.1000E-03.field.d64
     nyx/temperature.f32
-    hacc/vx.f32
     miranda/density.f32
 )
 
 compressors=(
-    sz_omp
     sz3
     zfp
     mgard
@@ -31,7 +30,7 @@ error_bounds=(
     0.000001
 )
 
-CORES = (1 2 4 8 16 32 64 128)
+CORES=(1 2 4 8 16 32 64)
 module load amd-uprof/4.1.424
 module unload amd-uprof/4.1.424
 module load amd-uprof/4.1.424
@@ -42,9 +41,9 @@ for d in ${datasets[@]}; do
 for c in ${compressors[@]}; do
 for e in ${error_bounds[@]}; do
 for i in ${CORES[@]}; do
-    mkdir -p ./serial-compress/$d-$c-$e-$i
+    mkdir -p ./omp-compress/$d-$c-$e-$i
     export OMP_NUM_THREADS=$i
-    AMDuProfCLI timechart --event power --interval 100 --duration 99999 -o ./omp-compress ./compress_cpu_omp $c $d $e
+    AMDuProfCLI timechart --event power --interval 500 --duration 99999 -o ./omp-compress/$d-$c-$e-$i ./compress_cpu_omp $c $d $e
 done
 done
 done

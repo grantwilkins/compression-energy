@@ -38,7 +38,7 @@ for i in ${datasets[@]}; do
 for j in ${compressors[@]}; do
 for k in ${error_bounds[@]}; do
     mkdir -p ./serial-compress/$i-$j-$k
-    AMDuProfCLI timechart --event power --interval 100 --duration 99999 -o ./serial-compress/$i-$j-$k ./compress_cpu $j $i $k
+    AMDuProfCLI timechart --event power --interval 500 --duration 99999 -o ./serial-compress/$i-$j-$k ./compress_cpu $j $i $k
 done
 done
 done

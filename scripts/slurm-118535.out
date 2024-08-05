@@ -1,0 +1,2 @@
+/var/spool/slurmd/job118535/slurm_script: line 34: syntax error near unexpected token `('
+/var/spool/slurmd/job118535/slurm_script: line 34: `CORES = (1 2 4 8 16 32 64)'

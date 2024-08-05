@@ -1,0 +1,317 @@
+/gpfs/fs1/soft/swing/spack-0.16.1/opt/spack/linux-ubuntu20.04-x86_64/gcc-9.3.0/gcc-9.2.0-r4tyw54/bin/gcc -std=c99 -lm -fopenmp -g -I/gpfs/fs1/home/ac.gwilkins/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libstdcompat-0.0.21-tjxkw3zafgakjrggt6ttci2qjyc6iksh/include -I/gpfs/fs1/home/ac.gwilkins/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libpressio-0.99.4-deds2jamvi6kuvyjgiblblrfrzzv7niq/include/libpressio -DDATADIR="\"/gpfs/fs1/home/ac.gwilkins/compression-energy/datasets/\""   compress_cpu_omp.c  -L/gpfs/fs1/home/ac.gwilkins/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libstdcompat-0.0.21-tjxkw3zafgakjrggt6ttci2qjyc6iksh/lib -L/gpfs/fs1/home/ac.gwilkins/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libpressio-0.99.4-deds2jamvi6kuvyjgiblblrfrzzv7niq/lib -llibpressio -lstd_compat -o compress_cpu_omp
+compress_cpu_omp.c: In function 'main':
+compress_cpu_omp.c:187:11: warning: implicit declaration of function 'sched_getcpu'; did you mean 'sched_getparam'? [-Wimplicit-function-declaration]
+  187 |     cpu = sched_getcpu();
+      |           ^~~~~~~~~~~~
+      |           sched_getparam
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+only 3d data is supported
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+only 3d data is supported
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-01
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-01
+only 3d data is supported
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+only 3d data is supported
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+only 3d data is supported
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-01
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-01
+only 3d data is supported
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-02
+only 3d data is supported
+only 3d data is supported
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+only 3d data is supported
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-01
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-02
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+only 3d data is supported
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+
+Profile finished
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-01
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-01
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-03
+A power profiling session is already in progress. Please make sure that no other
+instance of AMDuProf GUI or command line tool is performing a power profiling
+session and then start command line power profiling again. (error code 0x80070005)
+Unable to start the profiling.
+ERROR: Unable to Collect Live Power Profiling Data.
+slurmstepd: error: *** JOB 118537 ON gpu1 CANCELLED AT 2024-08-04T22:58:28 ***
+only 3d data is supported
+
+Profile finished
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-02
+only 3d data is supported
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+Error bound: 1.000000e-02
+only 3d data is supported
+only 3d data is supported
