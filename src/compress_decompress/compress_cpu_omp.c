@@ -10,27 +10,33 @@
 #include <string.h>
 #include <time.h>
 
-#define MAX_ITERATIONS 50
+#define MAX_ITERATIONS 25
 #define CONFIDENCE_LEVEL 1.96
 
-double calculate_mean(uint32_t *data, int n) {
+double get_time() {
+  struct timespec ts;
+  clock_gettime(CLOCK_MONOTONIC, &ts);
+  return ts.tv_sec + ts.tv_nsec / 1e9;
+}
+
+double calculate_mean(double *data, int n) {
   double sum = 0.0;
   for (int i = 0; i < n; i++) {
-    sum += (double)data[i];
+    sum += data[i];
   }
   return sum / n;
 }
 
-double calculate_std_dev(uint32_t *data, int n, double mean) {
+double calculate_std_dev(double *data, int n, double mean) {
   double sum_squared_diff = 0.0;
   for (int i = 0; i < n; i++) {
-    double diff = (double)data[i] - mean;
+    double diff = data[i] - mean;
     sum_squared_diff += diff * diff;
   }
   return sqrt(sum_squared_diff / (n - 1));
 }
 
-bool within_confidence_interval(uint32_t *data, int n) {
+bool within_confidence_interval(double *data, int n) {
   if (n < 2)
     return false;
   double mean = calculate_mean(data, n);
@@ -40,7 +46,7 @@ bool within_confidence_interval(uint32_t *data, int n) {
   double upper_bound = mean + margin_of_error;
 
   for (int i = 0; i < n; i++) {
-    if ((double)data[i] < lower_bound || (double)data[i] > upper_bound) {
+    if (data[i] < lower_bound || data[i] > upper_bound) {
       return false;
     }
   }
@@ -66,7 +72,7 @@ int main(int argc, char *argv[]) {
       value_std, bit_rate, nrmse;
   double compression_ratio;
   uint64_t n, compressed_size, decompressed_size, uncompressed_size;
-  uint32_t compression_time, decompression_time;
+  double compression_time, decompression_time;
   int cpu;
 
   int num_threads;
@@ -92,7 +98,7 @@ int main(int argc, char *argv[]) {
 
   // configure metrics for the compressor
   struct pressio_options *metrics_options = pressio_options_new();
-  const char *metrics_ids[] = {"time", "size", "error_stat"};
+  const char *metrics_ids[] = {"size", "error_stat"};
   size_t n_metrics_ids = sizeof(metrics_ids) / sizeof(metrics_ids[0]);
   pressio_options_set_string(metrics_options, "pressio:metric", "composite");
   pressio_options_set_strings(metrics_options, "composite:plugins",
@@ -165,21 +171,30 @@ int main(int argc, char *argv[]) {
   pressio_compressor_set_options(compressor, bound_options);
   pressio_options_free(bound_options);
 
-  uint32_t compression_times[MAX_ITERATIONS];
-  uint32_t decompression_times[MAX_ITERATIONS];
+  double compression_times[MAX_ITERATIONS];
+  double decompression_times[MAX_ITERATIONS];
   int iteration = 0;
   bool confidence_interval_reached = false;
 
   while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
     // run the compression and decompression
+    double start_time, end_time;
+
+    start_time = get_time();
     if (pressio_compressor_compress(compressor, input_data, compressed)) {
       fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
       break;
     }
+    end_time = get_time();
+    compression_times[iteration] = end_time - start_time;
+
+    start_time = get_time();
     if (pressio_compressor_decompress(compressor, compressed, output)) {
       fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
       break;
     }
+    end_time = get_time();
+    decompression_times[iteration] = end_time - start_time;
 
     // get metrics results and write to CSV
     struct pressio_options *metrics_results =
@@ -234,10 +249,9 @@ int main(int argc, char *argv[]) {
                                    &decompressed_size);
     pressio_options_get_uinteger64(metrics_results, "size:uncompressed_size",
                                    &uncompressed_size);
-    pressio_options_get_uinteger(metrics_results, "time:compress",
-                                 &compression_time);
-    pressio_options_get_uinteger(metrics_results, "time:decompress",
-                                 &decompression_time);
+
+    compression_time = compression_times[iteration];
+    decompression_time = decompression_times[iteration];
 
     nrmse = rmse / value_range;
 
@@ -248,7 +262,7 @@ int main(int argc, char *argv[]) {
     } else {
       fprintf(csv_file,
               "%s,%s,%e,%d,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%lu,%e,%e,%e,"
-              "%e,%e,%e,%e,%e,%e,%lu,%e,%lu,%lu,%u,%u,%d,%d\n",
+              "%e,%e,%e,%e,%e,%e,%lu,%e,%lu,%lu,%f,%f,%d,%d\n",
               compressor_id, dataset_file, error_bound, iteration,
               compression_rate, decompression_rate, avg_difference, avg_error,
               diff_range, error_range, max_error, max_pw_rel_error,
@@ -259,8 +273,6 @@ int main(int argc, char *argv[]) {
               decompression_time, cpu, num_threads);
       fclose(csv_file);
     }
-    compression_times[iteration] = compression_time;
-    decompression_times[iteration] = decompression_time;
 
     pressio_options_free(metrics_results);
 
