@@ -8,14 +8,9 @@
 
 datasets=(
     s3d/stat_planar.1.1000E-03.field.d64
-    nyx/temperature.f32
-    hacc/vx.f32
-    miranda/density.f32
 )
 
 compressors=(
-    sz
-    sz3
     zfp
     mgard
 )

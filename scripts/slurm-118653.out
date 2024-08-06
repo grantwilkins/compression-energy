@@ -1,0 +1,3 @@
+make: Nothing to be done for 'all'.
+/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
+slurmstepd: error: *** JOB 118653 ON gpu2 CANCELLED AT 2024-08-05T23:57:46 ***

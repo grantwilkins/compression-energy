@@ -11,14 +11,11 @@
 datasets=(
     hacc/vx.f32
     s3d/stat_planar.1.1000E-03.field.d64
-    nyx/temperature.f32
-    miranda/density.f32
+    nyx/temperature.f32  
 )
 
 compressors=(
     sz3
-    zfp
-    mgard
 )
 
 error_bounds=(
