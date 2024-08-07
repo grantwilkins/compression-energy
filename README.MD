@@ -14,7 +14,6 @@ The following are the main components of this repository:
 This repository requires the following software packages:
 
 - [Libpressio](https://github.com/robertu94/libpressio) to implement several lossy compressors.
-- [HDF5](https://www.hdfgroup.org/solutions/hdf5/) to transfer the compressed data.
 - [AMDuProf](https://developer.amd.com/amd-uprof/) to collect the power draw across all CPU cores.
 - [NVIDIA-smi](https://developer.nvidia.com/nvidia-system-management-interface) to collect the power draw of the GPU.
 
@@ -32,8 +31,6 @@ This repository requires the following software packages:
   - ZFP
   - SZx
   - MGARD
-  - MGARDx
-  - ZFP-X
 - Multi-Threaded Compressors:
   - SZ-OMP 
   - SZ3-OMP
@@ -42,8 +39,12 @@ This repository requires the following software packages:
   - MGARD-OMP
 - GPU Compressors:
   - FZ-GPU
-  - SZ-GPU
   - ZFP-GPU
   - SZx-GPU
   - MGARD-GPU
   - cuSZp
+- I/O Libraries:
+  - HDF5
+  - NetCDF
+  - MPI-IO
+

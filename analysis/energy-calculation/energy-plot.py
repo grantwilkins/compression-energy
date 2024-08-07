@@ -22,10 +22,11 @@ matplotlib.rcParams["ps.fonttype"] = 42
 
 df = pd.read_csv("compression_metrics_with_energy.csv")
 df["Total Energy (J)"] = df["Compression Energy (J)"] + df["Decompression Energy (J)"]
-df["REL Error Bound"] = df["REL Error Bound"].apply(lambda x: f"{x:.0E}")
+df["ABS Error Bound"] = df["ABS Error Bound"].apply(lambda x: f"{x:.0E}")
 df["Compressor"] = df["Compressor"].apply(lambda x: x.upper())
 df["Dataset"] = df["Dataset"].apply(lambda x: x.upper())
 df["Energy per Bit (J/bit)"] = df["Total Energy (J)"] / (df["Number of Elements"] * 32)
+print(df)
 
 sns.set(style="whitegrid", context="talk", font_scale=1.5)
 sns.set_palette("colorblind")
@@ -46,7 +47,7 @@ plt.clf()
 plt.show()
 
 g = sns.catplot(
-    x="REL Error Bound",
+    x="ABS Error Bound",
     y="Total Energy (J)",
     hue="Compressor",
     col="Dataset",
