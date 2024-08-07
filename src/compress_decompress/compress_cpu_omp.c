@@ -10,7 +10,7 @@
 #include <string.h>
 #include <time.h>
 
-#define MAX_ITERATIONS 25
+#define MAX_ITERATIONS 10
 #define CONFIDENCE_LEVEL 1.96
 
 double get_time() {
