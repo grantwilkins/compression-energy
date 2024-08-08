@@ -164,11 +164,7 @@ int main(int argc, char *argv[]) {
   printf("Compressor: %s\n", compressor_id);
   printf("Dataset: %s\n", dataset_file);
   printf("Error bound: %e\n", error_bound);
-  
-  struct pressio_options *thread_options = pressio_options_new();
-  pressio_options_set_uinteger(thread_options, "pressio:nthreads", num_threads);
-  pressio_compressor_set_options(compressor, thread_options);
-  pressio_options_free(thread_options);
+
   // configure the compressor error bound
   struct pressio_options *bound_options = pressio_options_new();
   pressio_options_set_double(bound_options, "pressio:abs", error_bound);
@@ -183,88 +179,99 @@ int main(int argc, char *argv[]) {
   while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
     // run the compression and decompression
     double start_time, end_time;
+#pragma omp parallel
+    {
+#pragma omp single
+      { start_time = get_time(); }
+      if (pressio_compressor_compress(compressor, input_data, compressed)) {
+        fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
+        break;
+      }
+#pragma omp barrier
+#pragma omp single
+      { end_time = get_time(); }
+      compression_times[iteration] = end_time - start_time;
 
-    start_time = get_time();
-    if (pressio_compressor_compress(compressor, input_data, compressed)) {
-      fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
-      break;
-    }
-    end_time = get_time();
-    compression_times[iteration] = end_time - start_time;
+#pragma omp single
+      { start_time = get_time(); }
 
-    start_time = get_time();
-    if (pressio_compressor_decompress(compressor, compressed, output)) {
-      fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
-      break;
-    }
-    end_time = get_time();
-    decompression_times[iteration] = end_time - start_time;
+      if (pressio_compressor_decompress(compressor, compressed, output)) {
+        fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
+        break;
+      }
+#pragma omp barrier
+#pragma omp single
+      {
+        end_time = get_time();
+        decompression_times[iteration] = end_time - start_time;
 
-    // get metrics results and write to CSV
-    struct pressio_options *metrics_results =
-        pressio_compressor_get_metrics_results(compressor);
-    cpu = sched_getcpu();
-    // Extract metrics and store them in variables
+        // get metrics results and write to CSV
+        struct pressio_options *metrics_results =
+            pressio_compressor_get_metrics_results(compressor);
+        cpu = sched_getcpu();
+        // Extract metrics and store them in variables
 
-    pressio_options_get_double(metrics_results, "composite:compression_rate",
-                               &compression_rate);
-    pressio_options_get_double(metrics_results, "composite:decompression_rate",
-                               &decompression_rate);
-    pressio_options_get_double(metrics_results, "error_stat:average_difference",
-                               &avg_difference);
-    pressio_options_get_double(metrics_results, "error_stat:average_error",
-                               &avg_error);
-    pressio_options_get_double(metrics_results, "error_stat:difference_range",
-                               &diff_range);
-    pressio_options_get_double(metrics_results, "error_stat:error_range",
-                               &error_range);
-    pressio_options_get_double(metrics_results, "error_stat:max_error",
-                               &max_error);
-    pressio_options_get_double(metrics_results, "error_stat:max_pw_rel_error",
-                               &max_pw_rel_error);
-    pressio_options_get_double(metrics_results, "error_stat:max_rel_error",
-                               &max_rel_error);
-    pressio_options_get_double(metrics_results, "error_stat:min_error",
-                               &min_error);
-    pressio_options_get_double(metrics_results, "error_stat:min_pw_rel_error",
-                               &min_pw_rel_error);
-    pressio_options_get_double(metrics_results, "error_stat:min_rel_error",
-                               &min_rel_error);
-    pressio_options_get_double(metrics_results, "error_stat:mse", &mse);
-    pressio_options_get_uinteger64(metrics_results, "error_stat:n", &n);
-    pressio_options_get_double(metrics_results, "error_stat:psnr", &psnr);
-    pressio_options_get_double(metrics_results, "error_stat:rmse", &rmse);
-    pressio_options_get_double(metrics_results, "error_stat:value_max",
-                               &value_max);
-    pressio_options_get_double(metrics_results, "error_stat:value_mean",
-                               &value_mean);
-    pressio_options_get_double(metrics_results, "error_stat:value_min",
-                               &value_min);
-    pressio_options_get_double(metrics_results, "error_stat:value_range",
-                               &value_range);
-    pressio_options_get_double(metrics_results, "error_stat:value_std",
-                               &value_std);
-    pressio_options_get_double(metrics_results, "size:bit_rate", &bit_rate);
-    pressio_options_get_uinteger64(metrics_results, "size:compressed_size",
-                                   &compressed_size);
-    pressio_options_get_double(metrics_results, "size:compression_ratio",
-                               &compression_ratio);
-    pressio_options_get_uinteger64(metrics_results, "size:decompressed_size",
-                                   &decompressed_size);
-    pressio_options_get_uinteger64(metrics_results, "size:uncompressed_size",
-                                   &uncompressed_size);
+        pressio_options_get_double(
+            metrics_results, "composite:compression_rate", &compression_rate);
+        pressio_options_get_double(metrics_results,
+                                   "composite:decompression_rate",
+                                   &decompression_rate);
+        pressio_options_get_double(
+            metrics_results, "error_stat:average_difference", &avg_difference);
+        pressio_options_get_double(metrics_results, "error_stat:average_error",
+                                   &avg_error);
+        pressio_options_get_double(metrics_results,
+                                   "error_stat:difference_range", &diff_range);
+        pressio_options_get_double(metrics_results, "error_stat:error_range",
+                                   &error_range);
+        pressio_options_get_double(metrics_results, "error_stat:max_error",
+                                   &max_error);
+        pressio_options_get_double(
+            metrics_results, "error_stat:max_pw_rel_error", &max_pw_rel_error);
+        pressio_options_get_double(metrics_results, "error_stat:max_rel_error",
+                                   &max_rel_error);
+        pressio_options_get_double(metrics_results, "error_stat:min_error",
+                                   &min_error);
+        pressio_options_get_double(
+            metrics_results, "error_stat:min_pw_rel_error", &min_pw_rel_error);
+        pressio_options_get_double(metrics_results, "error_stat:min_rel_error",
+                                   &min_rel_error);
+        pressio_options_get_double(metrics_results, "error_stat:mse", &mse);
+        pressio_options_get_uinteger64(metrics_results, "error_stat:n", &n);
+        pressio_options_get_double(metrics_results, "error_stat:psnr", &psnr);
+        pressio_options_get_double(metrics_results, "error_stat:rmse", &rmse);
+        pressio_options_get_double(metrics_results, "error_stat:value_max",
+                                   &value_max);
+        pressio_options_get_double(metrics_results, "error_stat:value_mean",
+                                   &value_mean);
+        pressio_options_get_double(metrics_results, "error_stat:value_min",
+                                   &value_min);
+        pressio_options_get_double(metrics_results, "error_stat:value_range",
+                                   &value_range);
+        pressio_options_get_double(metrics_results, "error_stat:value_std",
+                                   &value_std);
+        pressio_options_get_double(metrics_results, "size:bit_rate", &bit_rate);
+        pressio_options_get_uinteger64(metrics_results, "size:compressed_size",
+                                       &compressed_size);
+        pressio_options_get_double(metrics_results, "size:compression_ratio",
+                                   &compression_ratio);
+        pressio_options_get_uinteger64(
+            metrics_results, "size:decompressed_size", &decompressed_size);
+        pressio_options_get_uinteger64(
+            metrics_results, "size:uncompressed_size", &uncompressed_size);
 
-    compression_time = compression_times[iteration];
-    decompression_time = decompression_times[iteration];
+        compression_time = compression_times[iteration];
+        decompression_time = decompression_times[iteration];
 
-    nrmse = rmse / value_range;
+        nrmse = rmse / value_range;
 
-    // Write metrics to CSV file
-    FILE *csv_file = fopen("compression_metrics_omp.csv", "a");
-    if (csv_file == NULL) {
-      fprintf(stderr, "Error opening CSV file\n");
-    } else {
-      fprintf(csv_file,
+        // Write metrics to CSV file
+        FILE *csv_file = fopen("compression_metrics_omp.csv", "a");
+        if (csv_file == NULL) {
+          fprintf(stderr, "Error opening CSV file\n");
+        } else {
+          fprintf(
+              csv_file,
               "%s,%s,%e,%d,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%lu,%e,%e,%e,"
               "%e,%e,%e,%e,%e,%e,%lu,%e,%lu,%lu,%f,%f,%d,%d\n",
               compressor_id, dataset_file, error_bound, iteration,
@@ -275,29 +282,31 @@ int main(int argc, char *argv[]) {
               value_std, bit_rate, compressed_size, compression_ratio,
               decompressed_size, uncompressed_size, compression_time,
               decompression_time, cpu, num_threads);
-      fclose(csv_file);
+          fclose(csv_file);
+        }
+
+        pressio_options_free(metrics_results);
+      }
+
+      iteration++;
+
+      // check if we've reached the confidence interval
+      if (iteration >= 5) {
+        confidence_interval_reached =
+            within_confidence_interval(compression_times, iteration) &&
+            within_confidence_interval(decompression_times, iteration);
+      }
     }
 
-    pressio_options_free(metrics_results);
+    // Clean up
+    pressio_data_free(metadata);
+    pressio_data_free(input_data);
+    pressio_data_free(compressed);
+    pressio_data_free(output);
+    pressio_options_free(metrics_options);
+    pressio_compressor_release(compressor);
+    pressio_release(library);
 
-    iteration++;
-
-    // check if we've reached the confidence interval
-    if (iteration >= 5) {
-      confidence_interval_reached =
-          within_confidence_interval(compression_times, iteration) &&
-          within_confidence_interval(decompression_times, iteration);
-    }
+    return 0;
   }
-
-  // Clean up
-  pressio_data_free(metadata);
-  pressio_data_free(input_data);
-  pressio_data_free(compressed);
-  pressio_data_free(output);
-  pressio_options_free(metrics_options);
-  pressio_compressor_release(compressor);
-  pressio_release(library);
-
-  return 0;
 }
