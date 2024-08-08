@@ -96,6 +96,10 @@ int main(int argc, char *argv[]) {
     size_t dims[] = {3072, 3072, 3072};
     ndims = sizeof(dims) / sizeof(dims[0]);
     metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
+  } else if (strstr(dataset_file, "cesm") != NULL) {
+    size_t dims[] = {26, 1800, 3600};
+    ndims = sizeof(dims) / sizeof(dims[0]);
+    metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
   } else {
     fprintf(stderr, "Unknown dataset %s\n", dataset_file);
     pressio_compressor_release(compressor);
