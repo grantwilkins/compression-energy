@@ -9,8 +9,9 @@
 
 
 datasets=(
-    s3d/stat_planar.1.1000E-03.field.d64
-    nyx/temperature.f32  
+    s3d/stat_planar.1.3000E-03.field.d64
+    nyx/baryon_density.f32
+    hacc/vy.f32
 )
 
 compressors=(
@@ -18,18 +19,13 @@ compressors=(
 )
 
 error_bounds=(
-    0.1
-    0.01
     0.001
-    0.0001
-    0.00001
-    0.000001
 )
 
 CORES=(1 2 4 8 16 32 64)
-module load amd-uprof/4.1.424
-module unload amd-uprof/4.1.424
-module load amd-uprof/4.1.424
+module load amd-uprof/4.2.850
+module unload amd-uprof/4.2.850
+module load amd-uprof/4.2.850
 cd /home/ac.gwilkins/compression-energy/src/compress_decompress
 mkdir -p ./omp-compress/
 make

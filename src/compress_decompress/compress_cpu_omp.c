@@ -164,7 +164,11 @@ int main(int argc, char *argv[]) {
   printf("Compressor: %s\n", compressor_id);
   printf("Dataset: %s\n", dataset_file);
   printf("Error bound: %e\n", error_bound);
-
+  
+  struct pressio_options *thread_options = pressio_options_new();
+  pressio_options_set_uinteger(thread_options, "pressio:nthreads", num_threads);
+  pressio_compressor_set_options(compressor, thread_options);
+  pressio_options_free(thread_options);
   // configure the compressor error bound
   struct pressio_options *bound_options = pressio_options_new();
   pressio_options_set_double(bound_options, "pressio:abs", error_bound);
