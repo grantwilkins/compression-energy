@@ -9,13 +9,12 @@
 
 
 datasets=(
-    s3d/stat_planar.1.3000E-03.field.d64
-    nyx/baryon_density.f32
     hacc/vy.f32
+    cesm/V_1_26_1800_3600.f32
 )
 
 compressors=(
-    sz3
+    zfp
 )
 
 error_bounds=(

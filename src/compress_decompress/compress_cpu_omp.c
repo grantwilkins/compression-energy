@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
   const char *compressor_id = argv[1];
   const char *dataset_file = argv[2];
   double error_bound = atof(argv[3]);
-  const char *datadir = "/home/runderwood/git/datasets/";
+  const char *datadir = "/lcrc/project/ECP-EZ/sdrbench/";
   // TODO consider initializing these
   double compression_rate, decompression_rate, avg_difference, avg_error,
       diff_range, error_range;
