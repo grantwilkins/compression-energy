@@ -1,8 +1,0 @@
-/gpfs/fs1/soft/swing/spack-0.16.1/opt/spack/linux-ubuntu20.04-x86_64/gcc-9.3.0/gcc-9.2.0-r4tyw54/bin/gcc -std=c99 -lm -fopenmp -g -I/gpfs/fs1/home/ac.gwilkins/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libstdcompat-0.0.21-tjxkw3zafgakjrggt6ttci2qjyc6iksh/include -I/gpfs/fs1/home/ac.gwilkins/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libpressio-0.99.4-deds2jamvi6kuvyjgiblblrfrzzv7niq/include/libpressio -DDATADIR="\"/gpfs/fs1/home/ac.gwilkins/compression-energy/datasets/\""   compress_cpu.c  -L/gpfs/fs1/home/ac.gwilkins/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libstdcompat-0.0.21-tjxkw3zafgakjrggt6ttci2qjyc6iksh/lib -L/gpfs/fs1/home/ac.gwilkins/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libpressio-0.99.4-deds2jamvi6kuvyjgiblblrfrzzv7niq/lib -llibpressio -lstd_compat -o compress_cpu
-compress_cpu.c: In function 'main':
-compress_cpu.c:164:15: warning: implicit declaration of function 'sched_getcpu'; did you mean 'sched_getparam'? [-Wimplicit-function-declaration]
-  164 |     int cpu = sched_getcpu();
-      |               ^~~~~~~~~~~~
-      |               sched_getparam
-/gpfs/fs1/soft/swing/manual/amd-uprof/4.1.424/bin/AMDuProfCLI
-slurmstepd: error: *** JOB 118959 ON gpu2 CANCELLED AT 2024-08-07T10:20:26 ***
