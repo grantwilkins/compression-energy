@@ -1,0 +1,306 @@
+make: Nothing to be done for 'all'.
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 1 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 2 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 4 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 8 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 16 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 32 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 64 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 1 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 2 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 4 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 8 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 16 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 32 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 64 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 1 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 2 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 4 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 8 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 16 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 32 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.0000E-03.field.d64
+Running with 64 OpenMP threads
+Running with 1 OpenMP threads
+Compressor: zfp
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 2 OpenMP threads
+Compressor: zfp
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 4 OpenMP threads
+Compressor: zfp
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 8 OpenMP threads
+Compressor: zfp
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 16 OpenMP threads
+Compressor: zfp
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 32 OpenMP threads
+Compressor: zfp
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 64 OpenMP threads
+Compressor: zfp
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 1 OpenMP threads
+Compressor: sz3
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 2 OpenMP threads
+Compressor: sz3
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 4 OpenMP threads
+Compressor: sz3
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 8 OpenMP threads
+Compressor: sz3
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 16 OpenMP threads
+Compressor: sz3
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 32 OpenMP threads
+Compressor: sz3
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+Running with 64 OpenMP threads
+Compressor: sz3
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+free(): invalid pointer
+/var/spool/slurm/d/job25032030/slurm_script: line 34: 80571 Aborted                 (core dumped) ./compress_cpu_omp $c $d $e
+corrupted size vs. prev_size
+/var/spool/slurm/d/job25032030/slurm_script: line 34: 80579 Aborted                 (core dumped) ./compress_cpu_omp $c $d $e
+Running with 4 OpenMP threads
+Compressor: mgard
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+Running with 8 OpenMP threads
+Compressor: mgard
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+Running with 16 OpenMP threads
+Compressor: mgard
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+Running with 32 OpenMP threads
+Compressor: mgard
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+Running with 64 OpenMP threads
+Compressor: mgard
+Dataset: nyx/baryon_density.f32
+REL Error bound: 1.000000e-03
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 0.536871 GB, compressed size: 0.018491 GB, leftover buffer space: 0.000004 GB)
+Running with 1 OpenMP threads
+Compressor: zfp
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 2 OpenMP threads
+Compressor: zfp
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 4 OpenMP threads
+Compressor: zfp
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 8 OpenMP threads
+Compressor: zfp
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 16 OpenMP threads
+Compressor: zfp
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 32 OpenMP threads
+Compressor: zfp
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 64 OpenMP threads
+Compressor: zfp
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 1 OpenMP threads
+Compressor: sz3
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 2 OpenMP threads
+Compressor: sz3
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 4 OpenMP threads
+Compressor: sz3
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 8 OpenMP threads
+Compressor: sz3
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 16 OpenMP threads
+Compressor: sz3
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 32 OpenMP threads
+Compressor: sz3
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+Running with 64 OpenMP threads
+Compressor: sz3
+Dataset: hacc/vy.f32
+REL Error bound: 1.000000e-03
+free(): invalid pointer
+/var/spool/slurm/d/job25032030/slurm_script: line 34: 96290 Aborted                 (core dumped) ./compress_cpu_omp $c $d $e
+double free or corruption (!prev)
+/var/spool/slurm/d/job25032030/slurm_script: line 34: 96407 Aborted                 (core dumped) ./compress_cpu_omp $c $d $e
+double free or corruption (!prev)
+/var/spool/slurm/d/job25032030/slurm_script: line 34: 96489 Aborted                 (core dumped) ./compress_cpu_omp $c $d $e
+slurmstepd: error: *** JOB 25032030 ON e004 CANCELLED AT 2024-08-15T11:24:05 DUE TO TIME LIMIT ***

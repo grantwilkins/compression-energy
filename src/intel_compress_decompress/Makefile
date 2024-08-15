@@ -1,10 +1,14 @@
 DATADIR=/ocean/projects/cis240100p/gwilkins/
-LDLIBS=$(shell pkg-config --libs libpressio)
-CFLAGS=-std=c99 -lm -lpapi -fopenmp -g -lpapi $(shell pkg-config --cflags libpressio)
+LDLIBS=$(shell pkg-config --libs libpressio papi)
+CFLAGS=-std=c99 -lm -lpapi -fopenmp -g -lpapi $(shell pkg-config --cflags libpressio papi)
 CPPFLAGS=-DDATADIR="\"$(DATADIR)\""
-ALL=get_compressor_options compress_cpu list_compressors compress_cpu_omp
+ALL=compress_cpu compress_cpu_omp
 .PHONY: all clean
 
 all:  $(ALL)
+
+compress_cpu_omp: compress_cpu_omp.c
+	mpicc $(CFLAGS) -o $@ $< $(LDLIBS) 
+
 clean:
 	$(RM) $(ALL) $(wildcard *.o)

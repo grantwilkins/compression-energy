@@ -1,7 +1,9 @@
+#include <assert.h>
 #include <libpressio.h>
 #include <libpressio_ext/io/posix.h>
 #include <math.h>
 #include <omp.h>
+#include <papi.h>
 #include <sched.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -12,6 +14,7 @@
 
 #define MAX_ITERATIONS 25
 #define CONFIDENCE_LEVEL 1.96
+#define MAX_powercap_EVENTS 64
 
 double get_time() {
   struct timespec ts;
@@ -179,41 +182,8 @@ int main(int argc, char *argv[]) {
     pressio_release(library);
     return 1;
   }
-  double data_min, data_max, data_range;
-  size_t num_elements = pressio_data_num_elements(input_data);
-  void *data_ptr = pressio_data_ptr(input_data, NULL);
-  pressio_dtype dtype = pressio_data_dtype(input_data);
-
-  if (dtype == pressio_float_dtype) {
-    float *float_data = (float *)data_ptr;
-    data_min = data_max = float_data[0];
-    for (size_t i = 1; i < num_elements; i++) {
-      if (float_data[i] < data_min)
-        data_min = float_data[i];
-      if (float_data[i] > data_max)
-        data_max = float_data[i];
-    }
-  } else if (dtype == pressio_double_dtype) {
-    double *double_data = (double *)data_ptr;
-    data_min = data_max = double_data[0];
-    for (size_t i = 1; i < num_elements; i++) {
-      if (double_data[i] < data_min)
-        data_min = double_data[i];
-      if (double_data[i] > data_max)
-        data_max = double_data[i];
-    }
-  } else {
-    fprintf(stderr, "Unsupported data type\n");
-    pressio_compressor_release(compressor);
-    pressio_release(library);
-    pressio_data_free(metadata);
-    pressio_data_free(input_data);
-    return 1;
-  }
-
-  data_range = data_max - data_min;
-  double absolute_error_bound = relative_error_bound * data_range;
-
+  
+  
   char full_path[1024];
   snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
   input_data = pressio_io_data_path_read(metadata, full_path);
@@ -229,9 +199,35 @@ int main(int argc, char *argv[]) {
       pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
   struct pressio_data *output = pressio_data_new_clone(input_data);
 
+  double data_min, data_max, data_range;
+  size_t num_elements = pressio_data_num_elements(input_data);
+  void *data_ptr = pressio_data_ptr(input_data, NULL);
+
+  if (strstr(dataset_file, "s3d") == NULL) {
+    float *float_data = (float *)data_ptr;
+    data_min = data_max = float_data[0];
+    for (size_t i = 1; i < num_elements; i++) {
+      if (float_data[i] < data_min)
+        data_min = float_data[i];
+      if (float_data[i] > data_max)
+        data_max = float_data[i];
+    }
+  } else {
+    double *double_data = (double *)data_ptr;
+    data_min = data_max = double_data[0];
+    for (size_t i = 1; i < num_elements; i++) {
+      if (double_data[i] < data_min)
+        data_min = double_data[i];
+      if (double_data[i] > data_max)
+        data_max = double_data[i];
+    }
+  } 
+  data_range = data_max - data_min;
+  double absolute_error_bound = relative_error_bound * data_range;
+
   printf("Compressor: %s\n", compressor_id);
   printf("Dataset: %s\n", dataset_file);
-  printf("Error bound: %e\n", error_bound);
+  printf("REL Error bound: %e\n", relative_error_bound);
 
   // configure the compressor error bound
   struct pressio_options *bound_options = pressio_options_new();
@@ -260,14 +256,14 @@ int main(int argc, char *argv[]) {
     double start_time, end_time;
 
     assert(PAPI_start(EventSet) == PAPI_OK);
-    double start_time = get_time();
+    start_time = get_time();
 
     if (pressio_compressor_compress(compressor, input_data, compressed)) {
       fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
       break;
     }
 
-    double end_time = get_time();
+    end_time = get_time();
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
 
     double cpu_energy_compression = 0.0, dram_energy_compression = 0.0;
@@ -399,8 +395,8 @@ int main(int argc, char *argv[]) {
           value_min, value_range, value_std, bit_rate, compressed_size,
           compression_ratio, decompressed_size, uncompressed_size,
           compression_time, decompression_time, cpu, num_threads,
-          cpu_energy_compression[iteration],
-          cpu_energy_decompression[iteration]);
+          cpu_energy_compression,
+          cpu_energy_decompression);
       fclose(csv_file);
     }
 

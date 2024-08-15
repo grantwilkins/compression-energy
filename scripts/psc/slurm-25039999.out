@@ -1,0 +1,61 @@
+make: Nothing to be done for 'all'.
+Compressor: sz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-01
+Compressor: sz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-02
+Compressor: sz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-03
+Compressor: sz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-04
+Compressor: sz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-05
+Compressor: sz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-06
+Compressor: sz3
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-01
+Compressor: sz3
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-02
+Compressor: sz3
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-03
+Compressor: sz3
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-04
+Compressor: sz3
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-05
+Compressor: sz3
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-06
+Compressor: zfp
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-01
+Compressor: zfp
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-02
+Compressor: zfp
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-03
+Compressor: zfp
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-04
+Compressor: zfp
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-05
+Compressor: zfp
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-06
+Compressor: mgard
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-01
+[31m[ERR][0m  Output too large (original size: 11.000000 GB, compressed size: 0.538823 GB, leftover buffer space: 0.000004 GB)
+[31m[ERR][0m  Output too large (original size: 11.000000 GB, compressed size: 0.538823 GB, leftover buffer space: 0.000004 GB)
+slurmstepd: error: *** JOB 25039999 ON e004 CANCELLED AT 2024-08-15T15:31:49 DUE TO TIME LIMIT ***

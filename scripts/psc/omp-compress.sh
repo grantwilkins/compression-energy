@@ -1,16 +1,14 @@
 #!/bin/bash
 
+#SBATCH -p EM
 #SBATCH -J omp-compress
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=72
-#SBATCH --time=2:00:00
+#SBATCH -n 72
+#SBATCH --time=5:00:00
 
 
 datasets=(
-    s3d/stat_planar.1.0000E-03.field.d64
-    nyx/baryon_density.f32
-    hacc/vy.f32
-    cesm/V_1_26_1800_3600.f32
+    s3d/stat_planar.1.7000E-03.field.d64
 )
 
 compressors=(

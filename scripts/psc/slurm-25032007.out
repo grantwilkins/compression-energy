@@ -1,0 +1,631 @@
+make: Nothing to be done for 'all'.
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 1 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 2 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 4 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 8 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 16 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 32 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 64 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 1 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 2 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 4 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 8 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 16 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 32 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 64 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 1 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 2 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 4 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 8 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 16 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 32 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 64 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 1 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 2 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 4 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 8 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 16 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 32 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 64 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 1 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 2 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 4 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 8 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 16 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 32 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 64 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 1 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 2 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 4 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 8 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 16 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 32 OpenMP threads
+Failed to read dataset s3d/stat_planar.1.000E-03.field.d64
+Running with 64 OpenMP threads
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+only 3d data is supported
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-01
+only 3d data is supported
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-01
+only 3d data is supported
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-01
+only 3d data is supported
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-01
+only 3d data is supported
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-01
+only 3d data is supported
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-01
+only 3d data is supported
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-01
+only 3d data is supported
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-02
+only 3d data is supported
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-02
+only 3d data is supported
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-02
+only 3d data is supported
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-02
+only 3d data is supported
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-02
+only 3d data is supported
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-02
+only 3d data is supported
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-02
+only 3d data is supported
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-03
+only 3d data is supported
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-03
+only 3d data is supported
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-03
+only 3d data is supported
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-03
+only 3d data is supported
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-03
+only 3d data is supported
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-03
+only 3d data is supported
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-03
+only 3d data is supported
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-04
+only 3d data is supported
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-04
+only 3d data is supported
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-04
+only 3d data is supported
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-04
+only 3d data is supported
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-04
+only 3d data is supported
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-04
+only 3d data is supported
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-04
+only 3d data is supported
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-05
+only 3d data is supported
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-05
+only 3d data is supported
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-05
+only 3d data is supported
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-05
+only 3d data is supported
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-05
+only 3d data is supported
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-05
+only 3d data is supported
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-05
+only 3d data is supported
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-06
+only 3d data is supported
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-06
+only 3d data is supported
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-06
+only 3d data is supported
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-06
+only 3d data is supported
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-06
+only 3d data is supported
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-06
+only 3d data is supported
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-06

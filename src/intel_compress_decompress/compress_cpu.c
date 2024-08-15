@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <libpressio.h>
 #include <libpressio_ext/io/posix.h>
 #include <math.h>
@@ -20,7 +21,7 @@ double get_time() {
   return ts.tv_sec + ts.tv_nsec / 1e9;
 }
 
-double calculate_mean(uint32_t *data, int n) {
+double calculate_mean(double *data, int n) {
   double sum = 0.0;
   for (int i = 0; i < n; i++) {
     sum += (double)data[i];
@@ -28,16 +29,16 @@ double calculate_mean(uint32_t *data, int n) {
   return sum / n;
 }
 
-double calculate_std_dev(uint32_t *data, int n, double mean) {
+double calculate_std_dev(double *data, int n, double mean) {
   double sum_squared_diff = 0.0;
   for (int i = 0; i < n; i++) {
-    double diff = (double)data[i] - mean;
+    double diff = data[i] - mean;
     sum_squared_diff += diff * diff;
   }
   return sqrt(sum_squared_diff / (n - 1));
 }
 
-bool within_confidence_interval(uint32_t *data, int n) {
+bool within_confidence_interval(double *data, int n) {
   if (n < 2)
     return false;
   double mean = calculate_mean(data, n);
@@ -64,7 +65,7 @@ int main(int argc, char *argv[]) {
   const char *compressor_id = argv[1];
   const char *dataset_file = argv[2];
   double relative_error_bound = atof(argv[3]);
-  const char *datadir = "/ocean/projects/cis240100p/gwilkins";
+  const char *datadir = "/ocean/projects/cis240100p/gwilkins/";
 
   double compression_rate = 0.0, decompression_rate = 0.0, avg_difference = 0.0,
          avg_error = 0.0, diff_range = 0.0, error_range = 0.0;
@@ -206,9 +207,8 @@ int main(int argc, char *argv[]) {
   double data_min, data_max, data_range;
   size_t num_elements = pressio_data_num_elements(input_data);
   void *data_ptr = pressio_data_ptr(input_data, NULL);
-  pressio_dtype dtype = pressio_data_dtype(input_data);
-
-  if (dtype == pressio_float_dtype) {
+ 
+  if (strstr(dataset_file, "s3d") == NULL) {
     float *float_data = (float *)data_ptr;
     data_min = data_max = float_data[0];
     for (size_t i = 1; i < num_elements; i++) {
@@ -217,7 +217,7 @@ int main(int argc, char *argv[]) {
       if (float_data[i] > data_max)
         data_max = float_data[i];
     }
-  } else if (dtype == pressio_double_dtype) {
+  } else {
     double *double_data = (double *)data_ptr;
     data_min = data_max = double_data[0];
     for (size_t i = 1; i < num_elements; i++) {
@@ -226,13 +226,6 @@ int main(int argc, char *argv[]) {
       if (double_data[i] > data_max)
         data_max = double_data[i];
     }
-  } else {
-    fprintf(stderr, "Unsupported data type\n");
-    pressio_compressor_release(compressor);
-    pressio_release(library);
-    pressio_data_free(metadata);
-    pressio_data_free(input_data);
-    return 1;
   }
 
   data_range = data_max - data_min;
@@ -240,7 +233,7 @@ int main(int argc, char *argv[]) {
 
   printf("Compressor: %s\n", compressor_id);
   printf("Dataset: %s\n", dataset_file);
-  printf("Error bound: %e\n", error_bound);
+  printf("REL Error bound: %e\n", relative_error_bound);
   struct pressio_data *compressed =
       pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
   struct pressio_data *output = pressio_data_new_clone(input_data);
