@@ -21,7 +21,7 @@
     }                                                                          \
   } while (0)
 
-void lp_cuda_free(void *ptr, void * metadata) { cudaFree(ptr); }
+void lp_cuda_free(void *ptr, void *metadata) { cudaFree(ptr); }
 
 void lp_check_cuda(cudaError_t err) {
   if (err != cudaSuccess) {
@@ -74,7 +74,8 @@ int main(int argc, char *argv[]) {
   const char *compressor_id = argv[1];
   const char *dataset_file = argv[2];
   double relative_error_bound = atof(argv[3]);
-  nvmlDevice_t device;
+  nvmlDevice_t nvml_device;
+  int cuda_device;
   unsigned long long start_gpu_energy = 0, end_gpu_energy = 0;
   double compression_rate = 0.0, decompression_rate = 0.0, avg_difference = 0.0,
          avg_error = 0.0, diff_range = 0.0, error_range = 0.0;
@@ -93,7 +94,7 @@ int main(int argc, char *argv[]) {
   CHECK_NVML(nvmlInit());
 
   // Get the handle for the first GPU (index 0)
-  CHECK_NVML(nvmlDeviceGetHandleByIndex(0, &device));
+  CHECK_NVML(nvmlDeviceGetHandleByIndex(0, &nvml_device));
 
   // Initialize the library
   struct pressio *library = pressio_instance();
@@ -125,13 +126,13 @@ int main(int argc, char *argv[]) {
   cudaMallocManaged((void **)&d_output, buf_size, 0);
   struct pressio_data *output_shared = pressio_data_new_move(
       pressio_float_dtype, d_output, ndims, dims, lp_cuda_free, NULL);
-  
+
   double data_min, data_max, data_range;
   size_t num_elements = 1;
   for (int t = 0; t < ndims; t++)
-  	num_elements *= dims[t];
-  void *data_ptr = (void *) d_input;
-  
+    num_elements *= dims[t];
+  void *data_ptr = (void *)d_input;
+
   if (strstr(dataset_file, "s3d") == NULL) {
     float *float_data = (float *)data_ptr;
     data_min = data_max = float_data[0];
@@ -150,7 +151,7 @@ int main(int argc, char *argv[]) {
       if (double_data[i] > data_max)
         data_max = double_data[i];
     }
-  } 
+  }
 
   data_range = data_max - data_min;
   double absolute_error_bound = relative_error_bound * data_range;
@@ -177,8 +178,8 @@ int main(int argc, char *argv[]) {
       pressio_byte_dtype, d_compressed, 1, &comp_buf_size, lp_cuda_free, NULL);
 
   // Put the memory on the device
-  cudaGetDevice(&device);
-  cudaMemPrefetchAsync(d_input, buf_size, device, NULL);
+  cudaGetDevice(&cuda_device);
+  cudaMemPrefetchAsync(d_input, buf_size, cuda_device, NULL);
 
   // Set compressor options
   struct pressio_options *options = pressio_options_new();
@@ -194,7 +195,7 @@ int main(int argc, char *argv[]) {
   size_t n_plugins = sizeof(plugins) / sizeof(plugins[0]);
   pressio_options_set_strings(options, "composite:plugins", n_plugins, plugins);
   pressio_options_set_double(options, "pressio:abs", absolute_error_bound);
-  
+
   pressio_compressor_set_options(comp, options);
   double compression_times[MAX_ITERATIONS];
   double decompression_times[MAX_ITERATIONS];
@@ -203,25 +204,29 @@ int main(int argc, char *argv[]) {
 
   while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
     // Compression
-    CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &start_gpu_energy));
+    CHECK_NVML(
+        nvmlDeviceGetTotalEnergyConsumption(nvml_device, &start_gpu_energy));
     if (pressio_compressor_compress(comp, input_data_shared, comp_shared)) {
       fprintf(stderr, "Compression error: %s\n",
               pressio_compressor_error_msg(comp));
       exit(1);
     }
-    CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &end_gpu_energy));
+    CHECK_NVML(
+        nvmlDeviceGetTotalEnergyConsumption(nvml_device, &end_gpu_energy));
 
     unsigned long long compression_energy_consumed =
         end_gpu_energy - start_gpu_energy;
 
     // Decompression
-    CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &start_gpu_energy));
+    CHECK_NVML(
+        nvmlDeviceGetTotalEnergyConsumption(nvml_device, &start_gpu_energy));
     if (pressio_compressor_decompress(comp, comp_shared, output_shared)) {
       fprintf(stderr, "Decompression error: %s\n",
               pressio_compressor_error_msg(comp));
       exit(1);
     }
-    CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &end_gpu_energy));
+    CHECK_NVML(
+        nvmlDeviceGetTotalEnergyConsumption(nvml_device, &end_gpu_energy));
 
     unsigned long long decompression_energy_consumed =
         end_gpu_energy - start_gpu_energy;
