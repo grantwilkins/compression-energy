@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <fcntl.h>
 #include <libgen.h>
 #include <libpressio.h>
@@ -16,6 +17,7 @@
 #define MAX_ITERATIONS 25
 #define CONFIDENCE_LEVEL 1.96
 #define BUFFER_SIZE 8192
+#define MAX_powercap_EVENTS 64
 
 // Get current time in seconds
 double get_time() {
@@ -62,7 +64,7 @@ bool within_confidence_interval(double *data, int n) {
 }
 
 // Calculate total energy consumption from powercap events in Joules
-double calculate_energy(long long *values, int num_events) {
+double calculate_energy(long long *values, int num_events, char event_names[][PAPI_MAX_STR_LEN], int * data_type) {
   double total_energy = 0.0;
   for (int i = 0; i < num_events; i++) {
     if (strstr(event_names[i], "ENERGY_UJ")) {
@@ -91,10 +93,10 @@ int main(int argc, char *argv[]) {
   long long *values;
   int num_events = 0;
   int code;
-  char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
-  char event_descrs[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
-  char units[MAX_POWERCAP_EVENTS][PAPI_MIN_STR_LEN];
-  int data_type[MAX_POWERCAP_EVENTS];
+  char event_names[MAX_powercap_EVENTS][PAPI_MAX_STR_LEN];
+  char event_descrs[MAX_powercap_EVENTS][PAPI_MAX_STR_LEN];
+  char units[MAX_powercap_EVENTS][PAPI_MIN_STR_LEN];
+  int data_type[MAX_powercap_EVENTS];
   int r, i;
 
   assert(PAPI_library_init(PAPI_VER_CURRENT) == PAPI_VER_CURRENT);
@@ -280,7 +282,7 @@ int main(int argc, char *argv[]) {
     input_data = pressio_io_data_path_read(metadata, scratch_dataset);
     read_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    read_energy[iteration] = calculate_energy(values, num_events);
+    read_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
 
     if (input_data == NULL) {
       fprintf(stderr, "Failed to read dataset %s\n", scratch_dataset);
@@ -301,7 +303,7 @@ int main(int argc, char *argv[]) {
     }
     compression_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    compression_energy[iteration] = calculate_energy(values, num_events);
+    compression_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
 
     // Write compressed data to persistent storage
     assert(PAPI_start(EventSet) == PAPI_OK);
@@ -317,7 +319,7 @@ int main(int argc, char *argv[]) {
     }
     write_compressed_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    write_compressed_energy[iteration] = calculate_energy(values, num_events);
+    write_compressed_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
 
     // Read compressed data back from persistent storage
     assert(PAPI_start(EventSet) == PAPI_OK);
@@ -325,7 +327,7 @@ int main(int argc, char *argv[]) {
     struct pressio_data *read_compressed_data = pressio_io_read(io, NULL);
     read_compressed_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    read_compressed_energy[iteration] = calculate_energy(values, num_events);
+    read_compressed_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
 
     if (read_compressed_data == NULL) {
       fprintf(stderr, "Failed to read compressed data: %s\n",
@@ -345,7 +347,7 @@ int main(int argc, char *argv[]) {
     }
     decompression_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    decompression_energy[iteration] = calculate_energy(values, num_events);
+    decompression_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
 
     // Write original data to persistent storage
     assert(PAPI_start(EventSet) == PAPI_OK);
@@ -361,7 +363,7 @@ int main(int argc, char *argv[]) {
     }
     write_original_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    write_original_energy[iteration] = calculate_energy(values, num_events);
+    write_original_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
 
     // Write results to CSV file for this iteration
     FILE *csv_file = fopen("io_test_results.csv", "a");
