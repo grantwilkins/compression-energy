@@ -14,7 +14,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#define MAX_ITERATIONS 25
+#define MAX_ITERATIONS 10
 #define CONFIDENCE_LEVEL 1.96
 #define BUFFER_SIZE 8192
 #define MAX_powercap_EVENTS 64
@@ -64,15 +64,20 @@ bool within_confidence_interval(double *data, int n) {
 }
 
 // Calculate total energy consumption from powercap events in Joules
-double calculate_energy(long long *values, int num_events, char event_names[][PAPI_MAX_STR_LEN], int * data_type) {
-  double total_energy = 0.0;
+void calculate_energy(long long *values, int num_events,
+                      char event_names[][PAPI_MAX_STR_LEN], int *data_type,
+                      double *cpu_energy, double *dram_energy) {
+  *cpu_energy = 0.0;
+  *dram_energy = 0.0;
   for (int i = 0; i < num_events; i++) {
     if (strstr(event_names[i], "ENERGY_UJ")) {
       if (data_type[i] == PAPI_DATATYPE_UINT64) {
-        if (strstr(event_names[i], "SUBZONE") ==
-            NULL) {                          // Ignore subzone events
-          total_energy += values[i] / 1.0e6; // Convert from uJ to J
+        if (strstr(event_names[i], "SUBZONE") == NULL) {
+          *cpu_energy += values[i] / 1.0e6; // Convert from uJ to J
+        } else {
+          *dram_energy += values[i] / 1.0e6;
         }
+        å
       }
     }
   }
@@ -139,7 +144,7 @@ int main(int argc, char *argv[]) {
   values = (long long *)calloc(num_events, sizeof(long long));
 
   const char *compressor_id = argv[1];
-  double error_bound = atof(argv[2]);
+  double relative_error_bound = atof(argv[2]);
   const char *dataset_field = argv[3];
   const char *io_method = argv[4];
 
@@ -192,15 +197,6 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  // Configure compressor
-  struct pressio_options *comp_options = pressio_options_new();
-  pressio_options_set_double(comp_options, "pressio:abs", error_bound);
-  if (pressio_compressor_set_options(compressor, comp_options)) {
-    fprintf(stderr, "Failed to set compressor options: %s\n",
-            pressio_compressor_error_msg(compressor));
-    return 1;
-  }
-
   // Configure I/O
   struct pressio_options *io_options = pressio_options_new();
   pressio_options_set_string(io_options, "io:path", scratch_dataset);
@@ -211,40 +207,6 @@ int main(int argc, char *argv[]) {
   }
   pressio_io_set_options(io, io_options);
 
-  double read_times[MAX_ITERATIONS] = {0};
-  double compression_times[MAX_ITERATIONS] = {0};
-  double write_compressed_times[MAX_ITERATIONS] = {0};
-  double read_compressed_times[MAX_ITERATIONS] = {0};
-  double decompression_times[MAX_ITERATIONS] = {0};
-  double write_original_times[MAX_ITERATIONS] = {0};
-  double read_energy[MAX_ITERATIONS] = {0};
-  double compression_energy[MAX_ITERATIONS] = {0};
-  double write_compressed_energy[MAX_ITERATIONS] = {0};
-  double read_compressed_energy[MAX_ITERATIONS] = {0};
-  double decompression_energy[MAX_ITERATIONS] = {0};
-  double write_original_energy[MAX_ITERATIONS] = {0};
-
-  int iteration = 0;
-  bool confidence_interval_reached = false;
-
-  // Open CSV file for writing
-  FILE *csv_file = fopen("compression_results.csv", "a");
-  if (csv_file == NULL) {
-    fprintf(stderr, "Error opening CSV file\n");
-    return 1;
-  }
-
-  // Write CSV header if file is empty
-  fseek(csv_file, 0, SEEK_END);
-  if (ftell(csv_file) == 0) {
-    fprintf(csv_file,
-            "Compressor,Dataset,IO Method,Error Bound,Iteration,"
-            "Read Time,Compression Time,Write Compressed Time,Read Compressed "
-            "Time,Decompression Time,Write Original Time,"
-            "Read Energy,Compression Energy,Write Compressed Energy,Read "
-            "Compressed Energy,Decompression Energy,Write Original Energy\n");
-  }
-  fclose(csv_file);
   size_t ndims;
   struct pressio_data *metadata, *input_data;
   if (strstr(dataset_field, "nyx") != NULL) {
@@ -273,6 +235,100 @@ int main(int argc, char *argv[]) {
     pressio_release(library);
     return 1;
   }
+
+  input_data = pressio_io_data_path_read(metadata, full_path);
+  if (input_data == NULL) {
+    fprintf(stderr, "Failed to read dataset %s\n", dataset_file);
+    pressio_compressor_release(compressor);
+    pressio_release(library);
+    return 1;
+  }
+
+  double data_min, data_max, data_range;
+  size_t num_elements = pressio_data_num_elements(input_data);
+  void *data_ptr = pressio_data_ptr(input_data, NULL);
+
+  if (strstr(dataset_file, "s3d") == NULL) {
+    float *float_data = (float *)data_ptr;
+    data_min = data_max = float_data[0];
+    for (size_t i = 1; i < num_elements; i++) {
+      if (float_data[i] < data_min)
+        data_min = float_data[i];
+      if (float_data[i] > data_max)
+        data_max = float_data[i];
+    }
+  } else {
+    double *double_data = (double *)data_ptr;
+    data_min = data_max = double_data[0];
+    for (size_t i = 1; i < num_elements; i++) {
+      if (double_data[i] < data_min)
+        data_min = double_data[i];
+      if (double_data[i] > data_max)
+        data_max = double_data[i];
+    }
+  }
+  data_range = data_max - data_min;
+  double absolute_error_bound = relative_error_bound * data_range;
+
+  // Configure compressor
+  struct pressio_options *comp_options = pressio_options_new();
+  pressio_options_set_double(comp_options, "pressio:abs", absolute_error_bound);
+
+  const char *metrics_ids[] = {"size"};
+  size_t n_metrics_ids = sizeof(metrics_ids) / sizeof(metrics_ids[0]);
+  pressio_options_set_string(comp_options, "pressio:metric", "composite");
+  pressio_options_set_strings(comp_options, "composite:plugins", n_metrics_ids,
+                              metrics_ids);
+  if (pressio_compressor_set_options(compressor, comp_options)) {
+    fprintf(stderr, "Failed to set compressor options: %s\n",
+            pressio_compressor_error_msg(compressor));
+    return 1;
+  }
+
+  pressio_options_free(comp_options);
+  pressio_data_free(input_data);
+  free(data_ptr);
+
+  double read_times[MAX_ITERATIONS] = {0};
+  double compression_times[MAX_ITERATIONS] = {0};
+  double write_compressed_times[MAX_ITERATIONS] = {0};
+  double decompression_times[MAX_ITERATIONS] = {0};
+  double write_original_times[MAX_ITERATIONS] = {0};
+  double read_cpu_energy[MAX_ITERATIONS] = {0};
+  double read_dram_energy[MAX_ITERATIONS] = {0};
+  double compression_cpu_energy[MAX_ITERATIONS] = {0};
+  double compression_dram_energy[MAX_ITERATIONS] = {0};
+  double write_compressed_cpu_energy[MAX_ITERATIONS] = {0};
+  double write_compressed_dram_energy[MAX_ITERATIONS] = {0};
+  double decompression_cpu_energy[MAX_ITERATIONS] = {0};
+  double decompression_dram_energy[MAX_ITERATIONS] = {0};
+  double write_original_cpu_energy[MAX_ITERATIONS] = {0};
+  double write_original_dram_energy[MAX_ITERATIONS] = {0};
+  double cpu_energy, dram_energy;
+  int iteration = 0;
+  bool confidence_interval_reached = false;
+  struct pressio_data *compressed_data = NULL;
+  struct pressio_data *read_compressed_data = NULL;
+  struct pressio_data *decompressed_data = NULL;
+
+  // Open CSV file for writing
+  FILE *csv_file = fopen("compression_results.csv", "a");
+  if (csv_file == NULL) {
+    fprintf(stderr, "Error opening CSV file\n");
+    return 1;
+  }
+
+  // Write CSV header if file is empty
+  fseek(csv_file, 0, SEEK_END);
+  if (ftell(csv_file) == 0) {
+    fprintf(csv_file,
+            "Compressor,Dataset,IO Method,Error Bound,Iteration,"
+            "Read Time,Compression Time,Write Compressed Time,Read Compressed "
+            "Time,Decompression Time,Write Original Time,"
+            "Read Energy,Compression Energy,Write Compressed Energy,Read "
+            "Compressed Energy,Decompression Energy,Write Original Energy\n");
+  }
+  fclose(csv_file);
   double start_time = 0.0;
 
   while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
@@ -282,7 +338,11 @@ int main(int argc, char *argv[]) {
     input_data = pressio_io_data_path_read(metadata, scratch_dataset);
     read_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    read_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
+
+    calculate_energy(values, num_events, event_names, data_type, &cpu_energy,
+                     &dram_energy);
+    read_cpu_energy[iteration] = cpu_energy;
+    read_dram_energy[iteration] = dram_energy;
 
     if (input_data == NULL) {
       fprintf(stderr, "Failed to read dataset %s\n", scratch_dataset);
@@ -294,8 +354,7 @@ int main(int argc, char *argv[]) {
     // Compress data
     assert(PAPI_start(EventSet) == PAPI_OK);
     start_time = get_time();
-    struct pressio_data *compressed_data =
-        pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+    compressed_data = pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
     if (pressio_compressor_compress(compressor, input_data, compressed_data)) {
       fprintf(stderr, "Compression failed: %s\n",
               pressio_compressor_error_msg(compressor));
@@ -303,7 +362,11 @@ int main(int argc, char *argv[]) {
     }
     compression_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    compression_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
+
+    calculate_energy(values, num_events, event_names, data_type, &cpu_energy,
+                     &dram_energy);
+    compression_cpu_energy[iteration] = cpu_energy;
+    compression_dram_energy[iteration] = dram_energy;
 
     // Write compressed data to persistent storage
     assert(PAPI_start(EventSet) == PAPI_OK);
@@ -319,26 +382,17 @@ int main(int argc, char *argv[]) {
     }
     write_compressed_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    write_compressed_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
 
-    // Read compressed data back from persistent storage
-    assert(PAPI_start(EventSet) == PAPI_OK);
-    start_time = get_time();
-    struct pressio_data *read_compressed_data = pressio_io_read(io, NULL);
-    read_compressed_times[iteration] = get_time() - start_time;
-    assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    read_compressed_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
+    calculate_energy(values, num_events, event_names, data_type, &cpu_energy,
+                     &dram_energy);
+    write_compressed_cpu_energy[iteration] = cpu_energy;
+    write_compressed_dram_energy[iteration] = dram_energy;
 
-    if (read_compressed_data == NULL) {
-      fprintf(stderr, "Failed to read compressed data: %s\n",
-              pressio_io_error_msg(io));
-      return 1;
-    }
-
+    read_compressed_data = pressio_io_read(io, NULL);
     // Decompress data
     assert(PAPI_start(EventSet) == PAPI_OK);
     start_time = get_time();
-    struct pressio_data *decompressed_data = pressio_data_new_clone(input_data);
+    decompressed_data = pressio_data_new_clone(input_data);
     if (pressio_compressor_decompress(compressor, read_compressed_data,
                                       decompressed_data)) {
       fprintf(stderr, "Decompression failed: %s\n",
@@ -347,7 +401,10 @@ int main(int argc, char *argv[]) {
     }
     decompression_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    decompression_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
+    calculate_energy(values, num_events, event_names, data_type, &cpu_energy,
+                     &dram_energy);
+    decompression_cpu_energy[iteration] = cpu_energy;
+    decompression_dram_energy[iteration] = dram_energy;
 
     // Write original data to persistent storage
     assert(PAPI_start(EventSet) == PAPI_OK);
@@ -363,23 +420,33 @@ int main(int argc, char *argv[]) {
     }
     write_original_times[iteration] = get_time() - start_time;
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
-    write_original_energy[iteration] = calculate_energy(values, num_events, event_names, data_type);
+
+    calculate_energy(values, num_events, event_names, data_type, &cpu_energy,
+                     &dram_energy);
+    write_original_cpu_energy[iteration] = cpu_energy;
+    write_original_dram_energy[iteration] = dram_energy;
 
     // Write results to CSV file for this iteration
-    FILE *csv_file = fopen("io_test_results.csv", "a");
+    csv_file = fopen("io_test_results.csv", "a");
     if (csv_file == NULL) {
       fprintf(stderr, "Error opening CSV file\n");
       return 1;
     }
-    fprintf(csv_file, "%s,%s,%s,%e,%d,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e\n",
-            compressor_id, dataset_field, io_method, error_bound, iteration,
-            read_times[iteration], compression_times[iteration],
-            write_compressed_times[iteration], read_compressed_times[iteration],
+    fprintf(csv_file,
+            "%s,%s,%s,%e,%e,%d,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e\n",
+            compressor_id, dataset_field, io_method, relative_error_bound,
+            absolute_error_bound, iteration, read_times[iteration],
+            compression_times[iteration], write_compressed_times[iteration],
             decompression_times[iteration], write_original_times[iteration],
-            read_energy[iteration], compression_energy[iteration],
-            write_compressed_energy[iteration],
-            read_compressed_energy[iteration], decompression_energy[iteration],
-            write_original_energy[iteration]);
+            read_cpu_energy[iteration], read_dram_energy[iteration],
+            compression_cpu_energy[iteration],
+            compression_dram_energy[iteration],
+            write_compressed_cpu_energy[iteration],
+            write_compressed_dram_energy[iteration],
+            decompression_cpu_energy[iteration],
+            decompression_dram_energy[iteration],
+            write_original_cpu_energy[iteration],
+            write_original_dram_energy[iteration]);
     fclose(csv_file);
 
     // Clean up iteration-specific data
@@ -396,13 +463,9 @@ int main(int argc, char *argv[]) {
           within_confidence_interval(read_times, iteration) &&
           within_confidence_interval(compression_times, iteration) &&
           within_confidence_interval(write_compressed_times, iteration) &&
-          within_confidence_interval(read_compressed_times, iteration) &&
           within_confidence_interval(decompression_times, iteration);
     }
   }
-
-  // Close CSV file
-  fclose(csv_file);
 
   // Clean up
   pressio_options_free(comp_options);
