@@ -79,7 +79,7 @@ void calculate_energy(long long *values, int num_events,
         }
       }
     }
-}  
+  }
 }
 
 int main(int argc, char *argv[]) {
@@ -302,6 +302,8 @@ int main(int argc, char *argv[]) {
   struct pressio_data *compressed_data = NULL;
   struct pressio_data *read_compressed_data = NULL;
   struct pressio_data *decompressed_data = NULL;
+  uint64_t compressed_size, decompressed_size, uncompressed_size;
+  double bit_rate, compression_ratio;
 
   // Open CSV file for writing
   FILE *csv_file = fopen("compression_results.csv", "a");
@@ -420,6 +422,15 @@ int main(int argc, char *argv[]) {
 
     struct pressio_options *metrics_results =
         pressio_compressor_get_metrics_results(compressor);
+    pressio_options_get_double(metrics_results, "size:bit_rate", &bit_rate);
+    pressio_options_get_uinteger64(metrics_results, "size:compressed_size",
+                                   &compressed_size);
+    pressio_options_get_double(metrics_results, "size:compression_ratio",
+                               &compression_ratio);
+    pressio_options_get_uinteger64(metrics_results, "size:decompressed_size",
+                                   &decompressed_size);
+    pressio_options_get_uinteger64(metrics_results, "size:uncompressed_size",
+                                   &uncompressed_size);
     // Write results to CSV file for this iteration
     csv_file = fopen("io_test_results.csv", "a");
     if (csv_file == NULL) {
@@ -427,7 +438,8 @@ int main(int argc, char *argv[]) {
       return 1;
     }
     fprintf(csv_file,
-            "%s,%s,%s,%e,%e,%d,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e\n",
+            "%s,%s,%s,%e,%e,%d,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,"
+            "%d,%e,%d,%d\n",
             compressor_id, dataset_field, io_method, relative_error_bound,
             absolute_error_bound, iteration, read_times[iteration],
             compression_times[iteration], write_compressed_times[iteration],
@@ -440,7 +452,8 @@ int main(int argc, char *argv[]) {
             decompression_cpu_energy[iteration],
             decompression_dram_energy[iteration],
             write_original_cpu_energy[iteration],
-            write_original_dram_energy[iteration]);
+            write_original_dram_energy[iteration], bit_rate, compressed_size,
+            compression_ratio, decompressed_size, uncompressed_size);
     fclose(csv_file);
 
     // Clean up iteration-specific data
