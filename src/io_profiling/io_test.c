@@ -77,11 +77,9 @@ void calculate_energy(long long *values, int num_events,
         } else {
           *dram_energy += values[i] / 1.0e6;
         }
-        å
       }
     }
-  }
-  return total_energy;
+}  
 }
 
 int main(int argc, char *argv[]) {
@@ -236,19 +234,13 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  input_data = pressio_io_data_path_read(metadata, full_path);
-  if (input_data == NULL) {
-    fprintf(stderr, "Failed to read dataset %s\n", dataset_file);
-    pressio_compressor_release(compressor);
-    pressio_release(library);
-    return 1;
-  }
+  input_data = pressio_io_data_path_read(metadata, scratch_dataset);
 
   double data_min, data_max, data_range;
   size_t num_elements = pressio_data_num_elements(input_data);
   void *data_ptr = pressio_data_ptr(input_data, NULL);
 
-  if (strstr(dataset_file, "s3d") == NULL) {
+  if (strstr(dataset_field, "s3d") == NULL) {
     float *float_data = (float *)data_ptr;
     data_min = data_max = float_data[0];
     for (size_t i = 1; i < num_elements; i++) {
