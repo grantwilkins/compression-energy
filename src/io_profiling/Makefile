@@ -1,5 +1,5 @@
-LDLIBS=$(shell pkg-config --libs libpressio)
-CFLAGS=-std=c99 -lm -fopenmp -g $(shell pkg-config --cflags libpressio)
+LDLIBS=$(shell pkg-config --libs libpressio papi)
+CFLAGS=-std=c99 -lm -fopenmp -g -lpapi $(shell pkg-config --cflags libpressio papi)
 ALL=io_test
 .PHONY: all clean
 

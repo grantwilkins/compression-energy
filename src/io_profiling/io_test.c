@@ -17,12 +17,14 @@
 #define CONFIDENCE_LEVEL 1.96
 #define BUFFER_SIZE 8192
 
+// Get current time in seconds
 double get_time() {
   struct timespec ts;
   clock_gettime(CLOCK_MONOTONIC, &ts);
   return ts.tv_sec + ts.tv_nsec / 1e9;
 }
 
+// Calculate mean of data
 double calculate_mean(double *data, int n) {
   double sum = 0.0;
   for (int i = 0; i < n; i++) {
@@ -31,6 +33,7 @@ double calculate_mean(double *data, int n) {
   return sum / n;
 }
 
+// Calculate standard deviation of data
 double calculate_std_dev(double *data, int n, double mean) {
   double sum_squared_diff = 0.0;
   for (int i = 0; i < n; i++) {
