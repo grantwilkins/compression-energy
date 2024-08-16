@@ -418,6 +418,8 @@ int main(int argc, char *argv[]) {
     write_original_cpu_energy[iteration] = cpu_energy;
     write_original_dram_energy[iteration] = dram_energy;
 
+    struct pressio_options *metrics_results =
+        pressio_compressor_get_metrics_results(compressor);
     // Write results to CSV file for this iteration
     csv_file = fopen("io_test_results.csv", "a");
     if (csv_file == NULL) {
