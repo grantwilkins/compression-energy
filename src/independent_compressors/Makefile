@@ -1,4 +1,5 @@
 CC=gcc
+SZX_DIR := /jet/home/gwilkins/SZx
 INCLUDE=-I/home/ac.gwilkins/SZx/swing_build/include/szx
 LIB=-L/home/ac.gwilkins/SZx/swing_build/lib
 CFLAGS=-O3 -std=c99 -Wall -fPIC -shared

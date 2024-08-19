@@ -66,6 +66,7 @@ int main(int argc, char *argv[]) {
   const char *dataset_file = argv[2];
   double relative_error_bound = atof(argv[3]);
   const char *datadir = "/ocean/projects/cis240100p/gwilkins/";
+  const char *cluster_name = getenv("CLUSTER_NAME");
 
   double compression_rate = 0.0, decompression_rate = 0.0, avg_difference = 0.0,
          avg_error = 0.0, diff_range = 0.0, error_range = 0.0;
@@ -207,7 +208,7 @@ int main(int argc, char *argv[]) {
   double data_min, data_max, data_range;
   size_t num_elements = pressio_data_num_elements(input_data);
   void *data_ptr = pressio_data_ptr(input_data, NULL);
- 
+
   if (strstr(dataset_file, "s3d") == NULL) {
     float *float_data = (float *)data_ptr;
     data_min = data_max = float_data[0];

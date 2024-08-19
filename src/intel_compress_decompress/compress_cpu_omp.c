@@ -67,6 +67,7 @@ int main(int argc, char *argv[]) {
   const char *dataset_file = argv[2];
   double relative_error_bound = atof(argv[3]);
   const char *datadir = "/ocean/projects/cis240100p/gwilkins/";
+  const char *cluster_name = getenv("CLUSTER_NAME");
 
   double compression_rate = 0.0, decompression_rate = 0.0, avg_difference = 0.0,
          avg_error = 0.0, diff_range = 0.0, error_range = 0.0;
@@ -182,8 +183,7 @@ int main(int argc, char *argv[]) {
     pressio_release(library);
     return 1;
   }
-  
-  
+
   char full_path[1024];
   snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
   input_data = pressio_io_data_path_read(metadata, full_path);
@@ -221,7 +221,7 @@ int main(int argc, char *argv[]) {
       if (double_data[i] > data_max)
         data_max = double_data[i];
     }
-  } 
+  }
   data_range = data_max - data_min;
   double absolute_error_bound = relative_error_bound * data_range;
 
@@ -395,8 +395,7 @@ int main(int argc, char *argv[]) {
           value_min, value_range, value_std, bit_rate, compressed_size,
           compression_ratio, decompressed_size, uncompressed_size,
           compression_time, decompression_time, cpu, num_threads,
-          cpu_energy_compression,
-          cpu_energy_decompression);
+          cpu_energy_compression, cpu_energy_decompression);
       fclose(csv_file);
     }
 
