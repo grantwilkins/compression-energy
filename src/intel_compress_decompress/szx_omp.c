@@ -337,7 +337,7 @@ int main(int argc, char *argv[]) {
 
           if (double_data[i] < value_min)
             value_min = double_data[i];
-          if (float_data[i] > value_max)
+          if (double_data[i] > value_max)
             value_max = double_data[i];
         }
       }
