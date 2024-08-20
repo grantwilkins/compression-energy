@@ -354,7 +354,8 @@ int main(int argc, char *argv[]) {
     bit_rate = (double)compressed_size * 8 / nbEle;
 
     double compression_ratio = (double)decompressed_size / compressed_size;
-
+    printf("ENERGY: %e\n", decompression_energy[iteration]);
+    printf("TIME: %e\n", decompression_times[iteration]);
     // Write metrics to CSV file
     FILE *csv_file = fopen("compression_metrics_szx_serial.csv", "a");
     if (csv_file == NULL) {
@@ -362,15 +363,13 @@ int main(int argc, char *argv[]) {
     } else {
       fprintf(
           csv_file,
-          "SZx,%s,%e,%e,%d,%f,%f,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%zu,%e,%e,%e,"
-          "%e,%e,%e,%e,%e,%e,%zu,%f,%zu,%zu,%f,%f,%f,%f\n",
+          "SZx,%s,%e,%e,%d,%f,%f,%e,%e,%e,%e,%e,%zu,%e,%e,%e,"
+          "%zu,%f,%zu,%f,%f,%f,%f\n",
           dataset_file, relative_error_bound, absolute_error_bound, iteration,
           compression_rate, decompression_rate, avg_difference, avg_error,
-          diff_range, error_range, max_error, max_pw_rel_error, max_rel_error,
-          min_error, min_pw_rel_error, min_rel_error, mse, nbEle, psnr, nrmse,
-          value_max, value_mean, value_min, value_range, value_std, bit_rate,
+          diff_range, error_range,mse, nbEle, psnr, nrmse, bit_rate,
           compressed_size, compression_ratio, decompressed_size,
-          uncompressed_size, compression_times[iteration],
+          compression_times[iteration],
           decompression_times[iteration], compression_energy[iteration],
           decompression_energy[iteration]);
       fclose(csv_file);

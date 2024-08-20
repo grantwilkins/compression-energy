@@ -1,0 +1,26 @@
+g++ -std=c99 -lm -g -lpapi -I/jet/home/gwilkins/papi/src/include  -o mgardx mgardx.cpp -I/jet/home/gwilkins/MGARD/include -L/jet/home/gwilkins/MGARD/build-openmp-cpu/mgard/lib64 -L/jet/home/gwilkins/papi/src/lib -lpapi  -D_POSIX_C_SOURCE=199309L -lmgard
+cc1plus: warning: command line option '-std=c99' is valid for C/ObjC but not for C++
+In file included from /jet/home/gwilkins/MGARD/include/mgard-x/Config/Config.h:4,
+                 from /jet/home/gwilkins/MGARD/include/compress_x.hpp:8,
+                 from mgardx.cpp:8:
+/jet/home/gwilkins/MGARD/include/mgard-x/Config/../RuntimeX/RuntimeXPublic.h:7:10: fatal error: MGARDXConfig.h: No such file or directory
+ #include "MGARDXConfig.h"
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Makefile:40: mgardx] Error 1
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+ABS Error bound: 4.780303e+05
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+ABS Error bound: 4.780303e+04
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+ABS Error bound: 4.780303e+03
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+ABS Error bound: 4.780303e+02
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+ABS Error bound: 4.780303e+01
+slurmstepd: error: *** JOB 25158242 ON e004 CANCELLED AT 2024-08-20T11:14:03 ***

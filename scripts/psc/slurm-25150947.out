@@ -1,0 +1,41 @@
+mpicc -std=c99 -lm -g -lpapi -I/jet/home/gwilkins/papi/src/include  -o szx_omp szx_omp.c -I/jet/home/gwilkins/SZx/include -L/jet/home/gwilkins/SZx/lib -L/jet/home/gwilkins/papi/src/lib -lpapi  -lSZx -fopenmp -L/jet/home/gwilkins/papi/src/lib -lpapi  
+szx_omp.c: In function 'main':
+szx_omp.c:221:15: warning: implicit declaration of function 'sched_getcpu'; did you mean 'sched_getparam'? [-Wimplicit-function-declaration]
+  221 |     int cpu = sched_getcpu();
+      |               ^~~~~~~~~~~~
+      |               sched_getparam
+gcc -std=c99 -lm -g -lpapi -I/jet/home/gwilkins/papi/src/include  -o szx_serial szx_serial.c -I/jet/home/gwilkins/SZx/include -L/jet/home/gwilkins/SZx/lib -L/jet/home/gwilkins/papi/src/lib -lpapi  -lSZx
+szx_serial.c: In function 'get_time':
+szx_serial.c:20:3: warning: implicit declaration of function 'clock_gettime'; did you mean 'localtime'? [-Wimplicit-function-declaration]
+   clock_gettime(CLOCK_MONOTONIC, &ts);
+   ^~~~~~~~~~~~~
+   localtime
+szx_serial.c:20:17: error: 'CLOCK_MONOTONIC' undeclared (first use in this function)
+   clock_gettime(CLOCK_MONOTONIC, &ts);
+                 ^~~~~~~~~~~~~~~
+szx_serial.c:20:17: note: each undeclared identifier is reported only once for each function it appears in
+szx_serial.c: In function 'main':
+szx_serial.c:212:15: warning: implicit declaration of function 'sched_getcpu'; did you mean 'sched_getparam'? [-Wimplicit-function-declaration]
+     int cpu = sched_getcpu();
+               ^~~~~~~~~~~~
+               sched_getparam
+make: *** [Makefile:37: szx_serial] Error 1
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+ABS Error bound: 4.780303e+05
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+ABS Error bound: 4.780303e+04
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+ABS Error bound: 4.780303e+03
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+ABS Error bound: 4.780303e+02
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+ABS Error bound: 4.780303e+01
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+ABS Error bound: 4.780303e+00
+slurmstepd: error: *** JOB 25150947 ON e003 CANCELLED AT 2024-08-19T23:32:05 ***
