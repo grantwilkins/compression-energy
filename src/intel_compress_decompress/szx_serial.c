@@ -70,9 +70,9 @@ int main(int argc, char *argv[]) {
       diff_range, error_range, max_pw_rel_error, max_rel_error, min_error,
       min_pw_rel_error, min_rel_error, value_mean, value_std, bit_rate;
   uint64_t compressed_size, decompressed_size, uncompressed_size;
-  double max_error = 0.0, mse = 0.0, psnr, nrmse;
+  double max_error, mse, psnr, nrmse;
   double value_range, value_min, value_max;
-  double sum_squared_diff = 0.0, sum_diff = 0.0;
+  double sum_squared_diff, sum_diff, sum, sum_squared;
 
   // PAPI initialization
   int EventSet = PAPI_NULL;
@@ -210,6 +210,18 @@ int main(int argc, char *argv[]) {
   while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
     size_t outSize;
     int cpu = sched_getcpu();
+    max_error = 0.0;
+    min_error = INFINITY;
+    max_rel_error = 0.0;
+    min_rel_error = INFINITY;
+    max_pw_rel_error = 0.0;
+    min_pw_rel_error = INFINITY;
+    sum_squared_diff = 0.0;
+    sum_diff = 0.0;
+    sum = 0.0;
+    sum_squared = 0.0;
+    value_min = INFINITY;
+    value_max = -INFINITY;
 
     // Compression
     assert(PAPI_start(EventSet) == PAPI_OK);
@@ -235,7 +247,8 @@ int main(int argc, char *argv[]) {
         }
       }
     }
-    compression_energy[iteration] = cpu_energy_compression;
+    compression_energy[iteration] =
+        cpu_energy_compression + dram_energy_compression;
     compression_times[iteration] = (end_time - start_time);
 
     // Decompression
@@ -261,62 +274,63 @@ int main(int argc, char *argv[]) {
         }
       }
     }
-    decompression_energy[iteration] = cpu_energy_decompression;
+    decompression_energy[iteration] =
+        cpu_energy_decompression + dram_energy_decompression;
     decompression_times[iteration] = (end_time - start_time);
 
     if (data_type_szx == SZx_FLOAT) {
       float *float_data = (float *)data;
       float *float_decompressed = (float *)decompressed_data;
-      value_range = value_min = value_max = float_data[0];
 
       for (size_t i = 0; i < nbEle; i++) {
-        double diff = float_decompressed[i] - float_data[i];
+        double orig = float_data[i];
+        double decomp = float_decompressed[i];
+        double diff = decomp - orig;
         double abs_diff = fabs(diff);
-        double rel_diff = abs_diff / (fabs(float_data[i]) + 1e-6);
+        double rel_diff = abs_diff / (fabs(orig) + 1e-6);
+        double pw_rel_diff = abs_diff / (fabs(orig) + 1e-6);
 
-        if (abs_diff > max_error)
-          max_error = abs_diff;
-        if (rel_diff > max_rel_error)
-          max_rel_error = rel_diff;
-        if (abs_diff < min_error)
-          min_error = abs_diff;
-        if (rel_diff < min_rel_error)
-          min_rel_error = rel_diff;
+        max_error = fmax(max_error, abs_diff);
+        min_error = fmin(min_error, abs_diff);
+        max_rel_error = fmax(max_rel_error, rel_diff);
+        min_rel_error = fmin(min_rel_error, rel_diff);
+        max_pw_rel_error = fmax(max_pw_rel_error, pw_rel_diff);
+        min_pw_rel_error = fmin(min_pw_rel_error, pw_rel_diff);
 
         sum_squared_diff += diff * diff;
         sum_diff += diff;
+        sum += orig;
+        sum_squared += orig * orig;
 
-        if (float_data[i] < value_min)
-          value_min = float_data[i];
-        if (float_data[i] > value_max)
-          value_max = float_data[i];
+        value_min = fmin(value_min, orig);
+        value_max = fmax(value_max, orig);
       }
     } else { // SZx_DOUBLE
       double *double_data = (double *)data;
       double *double_decompressed = (double *)decompressed_data;
-      value_range = value_min = value_max = double_data[0];
 
       for (size_t i = 0; i < nbEle; i++) {
-        double diff = double_decompressed[i] - double_data[i];
+        double orig = double_data[i];
+        double decomp = double_decompressed[i];
+        double diff = decomp - orig;
         double abs_diff = fabs(diff);
-        double rel_diff = abs_diff / (fabs(double_data[i]) + 1e-6);
+        double rel_diff = abs_diff / (fabs(orig) + 1e-6);
+        double pw_rel_diff = abs_diff / (fabs(orig) + 1e-6);
 
-        if (abs_diff > max_error)
-          max_error = abs_diff;
-        if (rel_diff > max_rel_error)
-          max_rel_error = rel_diff;
-        if (abs_diff < min_error)
-          min_error = abs_diff;
-        if (rel_diff < min_rel_error)
-          min_rel_error = rel_diff;
+        max_error = fmax(max_error, abs_diff);
+        min_error = fmin(min_error, abs_diff);
+        max_rel_error = fmax(max_rel_error, rel_diff);
+        min_rel_error = fmin(min_rel_error, rel_diff);
+        max_pw_rel_error = fmax(max_pw_rel_error, pw_rel_diff);
+        min_pw_rel_error = fmin(min_pw_rel_error, pw_rel_diff);
 
         sum_squared_diff += diff * diff;
         sum_diff += diff;
+        sum += orig;
+        sum_squared += orig * orig;
 
-        if (double_data[i] < value_min)
-          value_min = double_data[i];
-        if (double_data[i] > value_max)
-          value_max = double_data[i];
+        value_min = fmin(value_min, orig);
+        value_max = fmax(value_max, orig);
       }
     }
 
@@ -332,6 +346,9 @@ int main(int argc, char *argv[]) {
     diff_range = max_error - min_error;
     error_range = max_rel_error - min_rel_error;
 
+    value_mean = sum / nbEle;
+    value_std = sqrt(sum_squared / nbEle - value_mean * value_mean);
+
     compressed_size = outSize;
     decompressed_size = uncompressed_size =
         nbEle * (data_type_szx == SZx_FLOAT ? sizeof(float) : sizeof(double));
@@ -344,19 +361,19 @@ int main(int argc, char *argv[]) {
     if (csv_file == NULL) {
       fprintf(stderr, "Error opening CSV file\n");
     } else {
-      fprintf(csv_file,
-              "SZx,%s,%e,%e,%d,%f,%f,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%zu,%e,"
-              "%e,%e,"
-              "%e,%e,%e,%e,%e,%e,%zu,%f,%zu,%zu,%f,%f,%d,%f,%f\n",
-              dataset_file, relative_error_bound, absolute_error_bound,
-              iteration, compression_rate, decompression_rate, avg_difference,
-              avg_error, diff_range, error_range, max_error, max_pw_rel_error,
-              max_rel_error, min_error, min_pw_rel_error, min_rel_error, mse,
-              nbEle, psnr, nrmse, value_max, value_mean, value_min, value_range,
-              value_std, bit_rate, compressed_size, compression_ratio,
-              decompressed_size, uncompressed_size,
-              compression_times[iteration], decompression_times[iteration], cpu,
-              compression_energy[iteration], decompression_energy[iteration]);
+      fprintf(
+          csv_file,
+          "SZx,%s,%e,%e,%d,%f,%f,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%zu,%e,%e,%e,"
+          "%e,%e,%e,%e,%e,%e,%zu,%f,%zu,%zu,%f,%f,%d,%f,%f\n",
+          dataset_file, relative_error_bound, absolute_error_bound, iteration,
+          compression_rate, decompression_rate, avg_difference, avg_error,
+          diff_range, error_range, max_error, max_pw_rel_error, max_rel_error,
+          min_error, min_pw_rel_error, min_rel_error, mse, nbEle, psnr, nrmse,
+          value_max, value_mean, value_min, value_range, value_std, bit_rate,
+          compressed_size, compression_ratio, decompressed_size,
+          uncompressed_size, compression_times[iteration],
+          decompression_times[iteration], cpu, compression_energy[iteration],
+          decompression_energy[iteration]);
       fclose(csv_file);
     }
 
