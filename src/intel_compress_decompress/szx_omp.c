@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
   double relative_error_bound = atof(argv[2]);
   const char *datadir = "/ocean/projects/cis240100p/gwilkins/";
   const char *cluster_name = getenv("CLUSTER_NAME");
-
+  int blockSize = 64;
   int num_threads = omp_get_max_threads();
 #pragma omp parallel
   {
@@ -225,9 +225,9 @@ int main(int argc, char *argv[]) {
     double start_time = get_time();
 
     unsigned char *compressed_data =
-        SZx_fast_compress_args(SZx_OPENMP_FAST_CMPR, data_type_szx, data,
-                               &outSize, REL, absolute_error_bound, 0.001, 0, 0,
-                               dims[4], dims[3], dims[2], dims[1], dims[0]);
+        SZx_fast_compress_args_unpredictable_blocked_randomaccess_openmp(
+            data, data_type_szx, &outSize, absolute_error_bound, nbEle,
+            blockSize);
 
     double end_time = get_time();
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
@@ -251,9 +251,9 @@ int main(int argc, char *argv[]) {
     assert(PAPI_start(EventSet) == PAPI_OK);
     start_time = get_time();
 
-    void *decompressed_data = SZx_fast_decompress(
-        SZx_NO_BLOCK_FAST_CMPR, data_type_szx, compressed_data, outSize,
-        dims[4], dims[3], dims[2], dims[1], dims[0]);
+    void *decompressed_data =
+        SZx_fast_decompress_args_unpredictable_blocked_randomaccess_openmp(
+            data_type_szx, nbEle, compressed_data);
 
     end_time = get_time();
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
