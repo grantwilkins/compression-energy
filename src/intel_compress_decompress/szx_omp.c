@@ -252,8 +252,8 @@ int main(int argc, char *argv[]) {
     start_time = get_time();
 
     void *decompressed_data = SZx_fast_decompress(
-        SZx_OPENMP_FAST_CMPR, data_type_szx, compressed_data, outSize, dims[4],
-        dims[3], dims[2], dims[1], dims[0]);
+        SZx_NO_BLOCK_FAST_CMPR, data_type_szx, compressed_data, outSize,
+        dims[4], dims[3], dims[2], dims[1], dims[0]);
 
     end_time = get_time();
     assert(PAPI_stop(EventSet, values) == PAPI_OK);
@@ -270,7 +270,8 @@ int main(int argc, char *argv[]) {
         }
       }
     }
-    decompression_energy[iteration] = cpu_energy_decompression;
+    decompression_energy[iteration] =
+        cpu_energy_decompression + dram_energy_decompression;
     decompression_times[iteration] = (end_time - start_time);
 
     // Calculate metrics

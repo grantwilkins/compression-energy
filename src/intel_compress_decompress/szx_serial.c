@@ -229,7 +229,7 @@ int main(int argc, char *argv[]) {
 
     unsigned char *compressed_data =
         SZx_fast_compress_args(SZx_NO_BLOCK_FAST_CMPR, data_type_szx, data,
-                               &outSize, ABS, absolute_error_bound, 0, 0, 0,
+                               &outSize, REL, relative_error_bound, 0, 0, 0,
                                dims[4], dims[3], dims[2], dims[1], dims[0]);
 
     double end_time = get_time();
