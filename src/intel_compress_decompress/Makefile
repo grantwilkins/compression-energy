@@ -7,18 +7,18 @@ SZX_DIR := /jet/home/gwilkins/SZx
 SZX_INC := $(SZX_DIR)/include
 SZX_LIB := $(SZX_DIR)/lib
 
-LIBPRESSIO_CFLAGS := $(shell pkg-config --cflagslibpressio)
+LIBPRESSIO_CFLAGS := $(shell pkg-config --cflags libpressio)
 LIBPRESSIO_LDLIBS := $(shell pkg-config --libs libpressio)
 
-MGARDX_DIR := /jet/home/gwilkins/MGARD/build-openmp-cpu/mgard
+MGARDX_DIR := /jet/home/gwilkins/MGARD
 MGARDX_INC := $(MGARDX_DIR)/include
-MGARDX_LIB := $(MGARDX_DIR)/lib64
+MGARDX_LIB := $(MGARDX_DIR)/build-openmp-cpu/mgard/lib64
 
 DATADIR=/ocean/projects/cis240100p/gwilkins/
-LDLIBS=$(shell pkg-config --libs papi)
+LDLIBS=$(shell pkg-config --libs papi) -D_POSIX_C_SOURCE=199309L
 CFLAGS=-std=c99 -lm -g -lpapi $(shell pkg-config --cflags papi)
 CPPFLAGS=-DDATADIR="\"$(DATADIR)\""
-ALL=compress_cpu compress_cpu_omp szx_omp szx_serial mgard-x mgard-x_omp
+ALL=compress_cpu compress_cpu_omp szx_omp szx_serial mgardx mgardx_omp
 
 .PHONY: all clean
 

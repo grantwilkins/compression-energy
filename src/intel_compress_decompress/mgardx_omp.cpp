@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <limits>
-#include <mgard/compress_x.hpp>
+#include <compress_x.hpp>
 #include <omp.h>
 #include <papi.h>
 #include <string>

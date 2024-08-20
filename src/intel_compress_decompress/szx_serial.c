@@ -228,7 +228,7 @@ int main(int argc, char *argv[]) {
 
     unsigned char *compressed_data =
         SZx_fast_compress_args(SZx_NO_BLOCK_FAST_CMPR, data_type_szx, data,
-                               &outSize, REL, relative_error_bound, 0, 0, 0,
+                               &outSize, REL, absolute_error_bound,relative_error_bound, 0, 0,
                                dims[4], dims[3], dims[2], dims[1], dims[0]);
 
     double end_time = get_time();
@@ -363,7 +363,7 @@ int main(int argc, char *argv[]) {
       fprintf(
           csv_file,
           "SZx,%s,%e,%e,%d,%f,%f,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%zu,%e,%e,%e,"
-          "%e,%e,%e,%e,%e,%e,%zu,%f,%zu,%zu,%f,%f,%d,%f,%f\n",
+          "%e,%e,%e,%e,%e,%e,%zu,%f,%zu,%f,%f,%f,%f\n",
           dataset_file, relative_error_bound, absolute_error_bound, iteration,
           compression_rate, decompression_rate, avg_difference, avg_error,
           diff_range, error_range, max_error, max_pw_rel_error, max_rel_error,
