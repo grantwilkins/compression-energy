@@ -357,11 +357,11 @@ int main(int argc, char *argv[]) {
     error_range = max_rel_error - min_rel_error;
 
     compressed_size = outSize;
-    decompressed_size = uncompressed_size =
+    decompressed_size =
         nbEle * (data_type_szx == SZx_FLOAT ? sizeof(float) : sizeof(double));
     bit_rate = (double)compressed_size * 8 / nbEle;
 
-    double compression_ratio = (double)uncompressed_size / compressed_size;
+    double compression_ratio = (double)decompressed_size / compressed_size;
 
     // Write metrics to CSV file
     FILE *csv_file = fopen("compression_metrics_szx_omp.csv", "a");
@@ -379,9 +379,9 @@ int main(int argc, char *argv[]) {
           min_error, min_pw_rel_error, min_rel_error, mse, nbEle, psnr, nrmse,
           value_max, value_mean, value_min, value_range, value_std, bit_rate,
           compressed_size, compression_ratio, decompressed_size,
-          uncompressed_size, compression_times[iteration],
-          decompression_times[iteration], cpu, num_threads,
-          compression_energy[iteration], decompression_energy[iteration]);
+          compression_times[iteration], decompression_times[iteration], cpu,
+          num_threads, compression_energy[iteration],
+          decompression_energy[iteration]);
       fclose(csv_file);
     }
     free(compressed_data);
