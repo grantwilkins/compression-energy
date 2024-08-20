@@ -226,7 +226,7 @@ int main(int argc, char *argv[]) {
 
     unsigned char *compressed_data =
         SZx_fast_compress_args(SZx_OPENMP_FAST_CMPR, data_type_szx, data,
-                               &outSize, ABS, absolute_error_bound, 0.001, 0, 0,
+                               &outSize, REL, absolute_error_bound, 0.001, 0, 0,
                                dims[4], dims[3], dims[2], dims[1], dims[0]);
 
     double end_time = get_time();
@@ -368,20 +368,16 @@ int main(int argc, char *argv[]) {
     if (csv_file == NULL) {
       fprintf(stderr, "Error opening CSV file\n");
     } else {
-      fprintf(
-          csv_file,
-          "SZx-OMP,%s,%e,%e,%d,%f,%f,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%zu,%e,"
-          "%e,%e,"
-          "%e,%e,%e,%e,%e,%e,%zu,%f,%zu,%zu,%f,%f,%d,%d,%f,%f\n",
-          dataset_file, relative_error_bound, absolute_error_bound, iteration,
-          compression_rate, decompression_rate, avg_difference, avg_error,
-          diff_range, error_range, max_error, max_pw_rel_error, max_rel_error,
-          min_error, min_pw_rel_error, min_rel_error, mse, nbEle, psnr, nrmse,
-          value_max, value_mean, value_min, value_range, value_std, bit_rate,
-          compressed_size, compression_ratio, decompressed_size,
-          compression_times[iteration], decompression_times[iteration], cpu,
-          num_threads, compression_energy[iteration],
-          decompression_energy[iteration]);
+      fprintf(csv_file,
+              "SZx-OMP,%s,%e,%e,%d,%f,%f,%e,%e,%e,%e,%e,%zu,%e,%e,%e,"
+              "%zu,%f,%zu,%f,%f,%f,%f,%d\n",
+              dataset_file, relative_error_bound, absolute_error_bound,
+              iteration, compression_rate, decompression_rate, avg_difference,
+              avg_error, diff_range, error_range, mse, nbEle, psnr, nrmse,
+              bit_rate, compressed_size, compression_ratio, decompressed_size,
+              compression_times[iteration], decompression_times[iteration],
+              compression_energy[iteration], decompression_energy[iteration],
+              num_threads);
       fclose(csv_file);
     }
     free(compressed_data);
