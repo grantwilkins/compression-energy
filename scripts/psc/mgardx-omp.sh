@@ -7,7 +7,6 @@
 #SBATCH --time=6:00:00 
 
 datasets=(
-    s3d/stat_planar.1.1000E-03.field.d64
     hacc/vx.f32
 )
 
@@ -16,7 +15,7 @@ error_bounds=(
     0.001
 )
 
-CORES=(1 2 4 8 16 32 64)
+CORES=(32 64)
 cd /jet/home/gwilkins/compression-energy/src/intel_compress_decompress
 for d in ${datasets[@]}; do
 for eb in ${error_bounds[@]}; do

@@ -4,11 +4,9 @@
 #SBATCH -J mgardx-compress
 #SBATCH --nodes=1
 #SBATCH -n 24
-#SBATCH --time=6:00:00 
+#SBATCH --time=12:00:00 
 
 datasets=(
-    nyx/temperature.f32
-    cesm/V_1_26_1800_3600.f32
     s3d/stat_planar.1.1000E-03.field.d64
     hacc/vx.f32
 )
