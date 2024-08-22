@@ -10,6 +10,7 @@
 #include <papi.h>
 #include <string>
 #include <vector>
+#include <cstring>
 
 #define MAX_ITERATIONS 10
 #define CONFIDENCE_LEVEL 1.96
@@ -66,32 +67,52 @@ int main(int argc, char *argv[]) {
 
   const char *dataset_file = argv[1];
   double error_bound = std::atof(argv[2]);
-  const char *datadir = "/path/to/datasets/"; // Update this path
+  const char *datadir = "/ocean/projects/cis240100p/gwilkins/"; // Update this path
 
   // PAPI initialization
   int EventSet = PAPI_NULL;
   long long values[MAX_POWERCAP_EVENTS];
-  int num_events = 0;
-  char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
-  int data_type[MAX_POWERCAP_EVENTS];
+    int num_events = 0;
+    int code;
+    char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
+    char event_descrs[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
+    char units[MAX_POWERCAP_EVENTS][PAPI_MIN_STR_LEN];
+    int data_type[MAX_POWERCAP_EVENTS];
+    PAPI_event_info_t evinfo;
 
   assert(PAPI_library_init(PAPI_VER_CURRENT) == PAPI_VER_CURRENT);
   assert(PAPI_create_eventset(&EventSet) == PAPI_OK);
 
-  // Find and add powercap events
-  int code = PAPI_NATIVE_MASK;
-  PAPI_event_info_t info;
-  while (PAPI_enum_cmp_event(&code, PAPI_ENUM_FIRST, 0) == PAPI_OK) {
-    if (PAPI_get_event_info(code, &info) == PAPI_OK) {
-      if (strstr(info.symbol, "powercap")) {
-        if (PAPI_add_event(EventSet, code) == PAPI_OK) {
-          strncpy(event_names[num_events], info.symbol, PAPI_MAX_STR_LEN);
-          data_type[num_events] = info.data_type;
-          num_events++;
+ int numcmp = PAPI_num_components();
+    int cid, powercap_cid = -1;
+    const PAPI_component_info_t *cmpinfo;
+    for (cid = 0; cid < numcmp; cid++) {
+        cmpinfo = PAPI_get_component_info(cid);
+        assert(cmpinfo != NULL);
+        if (strstr(cmpinfo->name, "powercap")) {
+            powercap_cid = cid;
+            break;
         }
-      }
     }
-  }
+    assert(powercap_cid != -1);
+
+  // Find and add powercap events
+  code = PAPI_NATIVE_MASK;
+    int r = PAPI_enum_cmp_event(&code, PAPI_ENUM_FIRST, powercap_cid);
+    while (r == PAPI_OK && num_events < MAX_POWERCAP_EVENTS) {
+        assert(PAPI_event_code_to_name(code, event_names[num_events]) == PAPI_OK);
+        assert(PAPI_get_event_info(code, &evinfo) == PAPI_OK);
+        strncpy(event_descrs[num_events], evinfo.long_descr, sizeof(event_descrs[0]) - 1);
+        strncpy(units[num_events], evinfo.units, sizeof(units[0]) - 1);
+        units[num_events][sizeof(units[0]) - 1] = '\0';
+        data_type[num_events] = evinfo.data_type;
+        
+        if (PAPI_add_event(EventSet, code) != PAPI_OK) {
+            break; // We've hit an event limit
+        }
+        num_events++;
+        r = PAPI_enum_cmp_event(&code, PAPI_ENUM_EVENTS, powercap_cid);
+    }
 
   // Read dataset
   std::vector<mgard_x::SIZE> shape;
@@ -109,11 +130,11 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  if (strstr(dataset_file, "nyx") != NULL) {
+    if (strstr(dataset_file, "nyx") != NULL) {
     dataset_name = "NYX";
     shape = {512, 512, 512};
     dtype = mgard_x::data_type::Float;
-    num_elements = 512 * 512 * 512;
+    num_elements = 512ULL * 512ULL * 512ULL;
   } else if (strstr(dataset_file, "hacc") != NULL) {
     dataset_name = "HACC";
     shape = {1073726487};
@@ -123,23 +144,22 @@ int main(int argc, char *argv[]) {
     dataset_name = "S3D";
     shape = {11, 500, 500, 500};
     dtype = mgard_x::data_type::Double;
-    num_elements = 11 * 500 * 500 * 500;
+    num_elements = 11ULL * 500ULL * 500ULL * 500ULL;
   } else if (strstr(dataset_file, "miranda") != NULL) {
     dataset_name = "Miranda";
     shape = {3072, 3072, 3072};
     dtype = mgard_x::data_type::Float;
-    num_elements = 3072 * 3072 * 3072;
+    num_elements = 3072ULL * 3072ULL * 3072ULL;
   } else if (strstr(dataset_file, "cesm") != NULL) {
     dataset_name = "CESM";
     shape = {26, 1800, 3600};
     dtype = mgard_x::data_type::Float;
-    num_elements = 26 * 1800 * 3600;
+    num_elements = 26ULL * 1800ULL * 3600ULL;
   } else {
     std::cerr << "Unknown dataset: " << dataset_file << std::endl;
     fclose(file);
     return 1;
   }
-
   size_t data_size =
       (dtype == mgard_x::data_type::Float) ? sizeof(float) : sizeof(double);
   data = malloc(num_elements * data_size);
@@ -156,9 +176,7 @@ int main(int argc, char *argv[]) {
   // Prepare for compression
   mgard_x::Config config;
   config.dev_type =
-      mgard_x::device_type::OPENMP; // Use OpenMP for multi-threaded CPU
-                                    // compression
-  config.num_threads = omp_get_num_threads();
+      mgard_x::device_type::OPENMP; // Use OpenMP for multi-threaded CPU:
 
   std::vector<double> compression_times;
   std::vector<double> decompression_times;
@@ -174,14 +192,15 @@ int main(int argc, char *argv[]) {
 
     // Compression
     assert(PAPI_start(EventSet) == PAPI_OK);
-    double start_time = get_time();
+    double start_time = get_time(); 
 
-    mgard_x::compress_status_type compress_status =
-        mgard_x::compress(shape.size(), dtype, shape, error_bound, 0,
-                          mgard_x::error_bound_type::REL, data, compressed_data,
-                          compressed_size, config);
-    double end_time = get_time();
-    assert(PAPI_stop(EventSet, values) == PAPI_OK);
+  mgard_x::compress_status_type compress_status = mgard_x::compress(
+      shape.size(), dtype, shape, error_bound, 0,
+      mgard_x::error_bound_type::REL, data, compressed_data,
+      compressed_size, config, false); // Added 'false' for output_pre_allocated
+
+  double end_time = get_time();
+  assert(PAPI_stop(EventSet, values) == PAPI_OK);
 
     if (compress_status != mgard_x::compress_status_type::Success) {
       std::cerr << "Compression failed" << std::endl;
@@ -202,14 +221,14 @@ int main(int argc, char *argv[]) {
     // Decompression
     void *decompressed_data = nullptr;
 
-    assert(PAPI_start(EventSet) == PAPI_OK);
-    start_time = get_time();
+      assert(PAPI_start(EventSet) == PAPI_OK);
+  start_time = get_time();
 
-    mgard_x::compress_status_type decompress_status = mgard_x::decompress(
-        compressed_data, compressed_size, decompressed_data, config);
+  mgard_x::compress_status_type decompress_status = mgard_x::decompress(
+      compressed_data, compressed_size, decompressed_data, config, false); // Added 'false' for output_pre_allocated
 
-    end_time = get_time();
-    assert(PAPI_stop(EventSet, values) == PAPI_OK);
+  end_time = get_time();
+  assert(PAPI_stop(EventSet, values) == PAPI_OK);
 
     if (decompress_status != mgard_x::compress_status_type::Success) {
       std::cerr << "Decompression failed" << std::endl;
@@ -287,29 +306,28 @@ int main(int argc, char *argv[]) {
         std::sqrt(sum_squared / num_elements - value_mean * value_mean);
 
     // Write metrics to CSV file
-    FILE *csv_file = fopen("compression_metrics_omp.csv", "a");
-    if (csv_file) {
-      fprintf(csv_file,
-              "MGARD-X-OMP,%s,%s,%e,%d,%f,%f,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%"
-              "e,%zu,%e,%e,%e,"
-              "%e,%e,%e,%e,%e,%e,%zu,%f,%zu,%zu,%f,%f,%f,%f,%d\n",
-              dataset_name.c_str(), dataset_file, error_bound, iteration,
-              num_elements / compression_times.back(),   // compression_rate
-              num_elements / decompression_times.back(), // decompression_rate
-              avg_difference, avg_error,
-              max_error - min_error,         // diff_range
-              max_rel_error - min_rel_error, // error_range
-              max_error, max_pw_rel_error, max_rel_error, min_error,
-              min_pw_rel_error, min_rel_error, mse, num_elements, psnr, nrmse,
-              data_max, value_mean, data_min, value_range, value_std, bit_rate,
-              compressed_size, compression_ratio, num_elements * data_size,
-              compressed_size, compression_times.back(),
-              decompression_times.back(), compression_energy.back(),
-              decompression_energy.back(), config.num_threads);
-      fclose(csv_file);
-    } else {
-      std::cerr << "Error opening CSV file" << std::endl;
-    }
+      FILE *csv_file = fopen("compression_metrics_omp.csv", "a");
+  if (csv_file) {
+    fprintf(csv_file,
+            "MGARD-X-OMP,%s,%e,%d,%f,%f,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%zu,%e,%e,%e,"
+            "%e,%e,%e,%e,%e,%zu,%f,%zu,%zu,%f,%f,%f,%f,%d\n",
+            dataset_file, error_bound, iteration,
+            num_elements / compression_times.back(),   // compression_rate
+            num_elements / decompression_times.back(), // decompression_rate
+            avg_difference, avg_error,
+            max_error - min_error,         // diff_range
+            max_rel_error - min_rel_error, // error_range
+            max_error, max_pw_rel_error, max_rel_error, min_error,
+            min_pw_rel_error, min_rel_error, mse, num_elements, psnr, nrmse,
+            data_max, value_mean, data_min, value_range, value_std, bit_rate,
+            compressed_size, compression_ratio, num_elements * data_size,
+            compressed_size, compression_times.back(),
+            decompression_times.back(), compression_energy.back(),
+            decompression_energy.back(), omp_get_max_threads()); // Use omp_get_max_threads() instead of config.num_threads
+    fclose(csv_file);
+  } else {
+    std::cerr << "Error opening CSV file" << std::endl;
+  }
 
     // Clean up
     free(compressed_data);
@@ -328,4 +346,8 @@ int main(int argc, char *argv[]) {
   // Clean up
   free(data);
   PAPI_cleanup_eventset(EventSet);
-  P
+  PAPI_destroy_eventset(&EventSet);
+
+  return 0;
+}
+

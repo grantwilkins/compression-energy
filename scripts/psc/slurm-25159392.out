@@ -1,0 +1,815 @@
+mpicc -std=c99 -lm -g -lpapi -I/jet/home/gwilkins/papi/src/include  -o szx_omp szx_omp.c -I/jet/home/gwilkins/SZx/include -L/jet/home/gwilkins/SZx/lib -L/jet/home/gwilkins/papi/src/lib -lpapi  -D_POSIX_C_SOURCE=199309L -lSZx -fopenmp -L/jet/home/gwilkins/papi/src/lib -lpapi  -D_POSIX_C_SOURCE=199309L 
+szx_omp.c: In function 'main':
+szx_omp.c:221:15: warning: implicit declaration of function 'sched_getcpu'; did you mean 'sched_getparam'? [-Wimplicit-function-declaration]
+  221 |     int cpu = sched_getcpu();
+      |               ^~~~~~~~~~~~
+      |               sched_getparam
+g++ -std=c99 -lm -g -lpapi -I/jet/home/gwilkins/papi/src/include  -o mgardx mgardx.cpp -I/jet/home/gwilkins/MGARD/include -L/jet/home/gwilkins/MGARD/build-openmp-cpu/mgard/lib64 -L/jet/home/gwilkins/papi/src/lib -lpapi  -D_POSIX_C_SOURCE=199309L -lmgard
+cc1plus: warning: command line option '-std=c99' is valid for C/ObjC but not for C++
+In file included from /jet/home/gwilkins/MGARD/include/mgard-x/Config/Config.h:4,
+                 from /jet/home/gwilkins/MGARD/include/compress_x.hpp:8,
+                 from mgardx.cpp:8:
+/jet/home/gwilkins/MGARD/include/mgard-x/Config/../RuntimeX/RuntimeXPublic.h:7:10: fatal error: MGARDXConfig.h: No such file or directory
+ #include "MGARDXConfig.h"
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Makefile:40: mgardx] Error 1
+Running with 1 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+ABS Error bound: 4.780303e+05
+[e001:80535:0:80535] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80535) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1487e27a75c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1487e27a77a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x1487e27a7a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x1487e4a29cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1487e533a257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1487e5334133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1487e468cd85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80535 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 2 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+ABS Error bound: 4.780303e+05
+[e001:80538:0:80538] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80538) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1486d4c675c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1486d4c677a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x1486d4c67a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x1486d6ee9cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1486d77fa257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1486d77f4133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1486d6b4cd85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80538 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 4 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+ABS Error bound: 4.780303e+05
+[e001:80551:0:80551] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80551) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14e19d72d5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14e19d72d7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14e19d72da7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14e19f9afcf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14e1a02c0257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14e1a02ba133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14e19f612d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80551 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 8 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+ABS Error bound: 4.780303e+05
+[e001:80573:0:80573] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80573) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1479507b95c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1479507b97a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x1479507b9a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x147952a3bcf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14795334c257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x147953346133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14795269ed85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80573 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 16 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+ABS Error bound: 4.780303e+05
+[e001:80589:0:80589] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80589) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14687078e5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14687078e7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14687078ea7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x146872a10cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x146873321257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14687331b133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x146872673d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80589 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 32 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+ABS Error bound: 4.780303e+05
+[e001:80612:0:80612] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80612) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x15341d2615c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x15341d2617a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x15341d261a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x15341f4e3cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x15341fdf4257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x15341fdee133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x15341f146d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80612 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 64 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+ABS Error bound: 4.780303e+05
+[e001:80652:0:80652] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80652) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x150351fb25c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x150351fb27a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x150351fb2a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x150354234cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x150354b45257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x150354b3f133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x150353e97d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80652 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 1 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+ABS Error bound: 4.780303e+04
+[e001:80724:0:80724] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80724) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1467689095c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1467689097a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x146768909a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14676ab8bcf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14676b49c257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14676b496133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14676a7eed85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80724 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 2 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+ABS Error bound: 4.780303e+04
+[e001:80733:0:80733] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80733) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14f8433f05c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14f8433f07a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14f8433f0a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14f845672cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14f845f83257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14f845f7d133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14f8452d5d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80733 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 4 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+ABS Error bound: 4.780303e+04
+[e001:80743:0:80743] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80743) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x15519eda35c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x15519eda37a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x15519eda3a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x1551a1025cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1551a1936257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1551a1930133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1551a0c88d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80743 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 8 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+ABS Error bound: 4.780303e+04
+[e001:80754:0:80754] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80754) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14874937d5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14874937d7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14874937da7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14874b5ffcf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14874bf10257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14874bf0a133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14874b262d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80754 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 16 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+ABS Error bound: 4.780303e+04
+[e001:80769:0:80769] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80769) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14e9383955c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14e9383957a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14e938395a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14e93a617cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14e93af28257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14e93af22133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14e93a27ad85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80769 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 32 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+ABS Error bound: 4.780303e+04
+[e001:80792:0:80792] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80792) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x145d8b4625c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x145d8b4627a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x145d8b462a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x145d8d6e4cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x145d8dff5257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x145d8dfef133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x145d8d347d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80792 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 64 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+ABS Error bound: 4.780303e+04
+[e001:80831:0:80831] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80831) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14bda6bd15c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14bda6bd17a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14bda6bd1a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14bda8e53cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14bda9764257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14bda975e133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14bda8ab6d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80831 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 1 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+ABS Error bound: 4.780303e+03
+[e001:80902:0:80902] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80902) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1486dfd895c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1486dfd897a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x1486dfd89a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x1486e200bcf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1486e291c257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1486e2916133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1486e1c6ed85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80902 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 2 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+ABS Error bound: 4.780303e+03
+[e001:80911:0:80911] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80911) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14fcbe7eb5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14fcbe7eb7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14fcbe7eba7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14fcc0a6dcf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14fcc137e257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14fcc1378133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14fcc06d0d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80911 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 4 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+ABS Error bound: 4.780303e+03
+[e001:80920:0:80920] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80920) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14678cce55c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14678cce57a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14678cce5a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14678ef67cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14678f878257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14678f872133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14678ebcad85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80920 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 8 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+ABS Error bound: 4.780303e+03
+[e001:80931:0:80931] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80931) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14e0864065c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14e0864067a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14e086406a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14e088688cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14e088f99257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14e088f93133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14e0882ebd85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80931 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 16 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+ABS Error bound: 4.780303e+03
+[e001:80946:0:80946] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80946) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14c5b30c55c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14c5b30c57a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14c5b30c5a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14c5b5347cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14c5b5c58257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14c5b5c52133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14c5b4faad85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80946 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 32 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+ABS Error bound: 4.780303e+03
+[e001:80969:0:80969] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  80969) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14b25382f5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14b25382f7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14b25382fa7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14b255ab1cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14b2563c2257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14b2563bc133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14b255714d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 80969 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 64 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+ABS Error bound: 4.780303e+03
+[e001:81009:0:81009] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81009) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x146d437605c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x146d437607a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x146d43760a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x146d459e2cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x146d462f3257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x146d462ed133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x146d45645d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81009 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 1 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+ABS Error bound: 4.780303e+02
+[e001:81080:0:81080] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81080) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14fbed4ee5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14fbed4ee7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14fbed4eea7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14fbef770cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14fbf0081257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14fbf007b133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14fbef3d3d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81080 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 2 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+ABS Error bound: 4.780303e+02
+[e001:81090:0:81090] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81090) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x145df7bb95c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x145df7bb97a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x145df7bb9a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x145df9e3bcf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x145dfa74c257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x145dfa746133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x145df9a9ed85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81090 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 4 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+ABS Error bound: 4.780303e+02
+[e001:81100:0:81100] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81100) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x154e62a015c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x154e62a017a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x154e62a01a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x154e64c83cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x154e65594257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x154e6558e133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x154e648e6d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81100 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 8 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+ABS Error bound: 4.780303e+02
+[e001:81111:0:81111] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81111) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x153a089b35c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x153a089b37a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x153a089b3a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x153a0ac35cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x153a0b546257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x153a0b540133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x153a0a898d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81111 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 16 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+ABS Error bound: 4.780303e+02
+[e001:81126:0:81126] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81126) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x150f0cb1a5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x150f0cb1a7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x150f0cb1aa7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x150f0ed9ccf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x150f0f6ad257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x150f0f6a7133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x150f0e9ffd85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81126 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 32 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+ABS Error bound: 4.780303e+02
+[e001:81149:0:81149] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81149) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14c53d6135c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14c53d6137a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14c53d613a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14c53f895cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14c5401a6257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14c5401a0133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14c53f4f8d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81149 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 64 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+ABS Error bound: 4.780303e+02
+[e001:81189:0:81189] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81189) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1505dcdbc5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1505dcdbc7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x1505dcdbca7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x1505df03ecf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1505df94f257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1505df949133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1505deca1d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81189 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 1 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+ABS Error bound: 4.780303e+01
+[e001:81260:0:81260] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81260) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x15400673d5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x15400673d7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x15400673da7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x1540089bfcf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1540092d0257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1540092ca133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x154008622d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81260 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 2 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+ABS Error bound: 4.780303e+01
+[e001:81269:0:81269] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81269) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x150aa6d615c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x150aa6d617a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x150aa6d61a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x150aa8fe3cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x150aa98f4257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x150aa98ee133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x150aa8c46d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81269 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 4 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+ABS Error bound: 4.780303e+01
+[e001:81278:0:81278] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81278) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14988eaea5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14988eaea7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14988eaeaa7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x149890d6ccf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14989167d257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x149891677133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1498909cfd85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81278 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 8 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+ABS Error bound: 4.780303e+01
+[e001:81289:0:81289] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81289) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1466639295c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1466639297a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x146663929a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x146665babcf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1466664bc257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1466664b6133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14666580ed85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81289 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 16 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+ABS Error bound: 4.780303e+01
+[e001:81305:0:81305] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81305) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14a81486c5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14a81486c7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14a81486ca7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14a816aeecf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14a8173ff257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14a8173f9133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14a816751d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81305 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 32 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+ABS Error bound: 4.780303e+01
+[e001:81328:0:81328] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81328) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x155513c915c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x155513c917a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x155513c91a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x155515f13cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x155516824257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x15551681e133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x155515b76d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81328 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 64 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+ABS Error bound: 4.780303e+01
+[e001:81367:0:81367] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81367) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1499ca7185c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1499ca7187a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x1499ca718a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x1499cc99acf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1499cd2ab257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1499cd2a5133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1499cc5fdd85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81367 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 1 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+ABS Error bound: 4.780303e+00
+[e001:81438:0:81438] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81438) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1458a21b65c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1458a21b67a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x1458a21b6a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x1458a4438cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1458a4d49257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1458a4d43133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1458a409bd85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81438 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 2 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+ABS Error bound: 4.780303e+00
+[e001:81447:0:81447] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81447) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x15163a27f5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x15163a27f7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x15163a27fa7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x15163c501cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x15163ce12257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x15163ce0c133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x15163c164d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81447 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 4 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+ABS Error bound: 4.780303e+00
+[e001:81456:0:81456] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81456) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1472a5faf5c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1472a5faf7a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x1472a5fafa7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x1472a8231cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1472a8b42257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1472a8b3c133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1472a7e94d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81456 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 8 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+ABS Error bound: 4.780303e+00
+[e001:81467:0:81467] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81467) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x1553e8ad95c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x1553e8ad97a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x1553e8ad9a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x1553ead5bcf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x1553eb66c257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x1553eb666133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1553ea9bed85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81467 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 16 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+ABS Error bound: 4.780303e+00
+[e001:81482:0:81482] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81482) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14de4b1925c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14de4b1927a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14de4b192a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14de4d414cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14de4dd25257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14de4dd1f133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14de4d077d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81482 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 32 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+ABS Error bound: 4.780303e+00
+[e001:81505:0:81505] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81505) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x14d5ceb655c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x14d5ceb657a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x14d5ceb65a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x14d5d0de7cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x14d5d16f8257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x14d5d16f2133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14d5d0a4ad85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81505 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Running with 64 OpenMP threads
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+ABS Error bound: 4.780303e+00
+[e001:81544:0:81544] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  81544) ====
+ 0  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(ucs_handle_error+0x254) [0x154fa3f905c4]
+ 1  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x257a7) [0x154fa3f907a7]
+ 2  /jet/packages/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/ucx-1.9.0-hcxgpzalplefzn5amy3nzwdix4cpbift/lib/libucs.so.0(+0x25a7e) [0x154fa3f90a7e]
+ 3  /lib64/libpthread.so.0(+0x12cf0) [0x154fa6212cf0]
+ 4  /jet/home/gwilkins/SZx/lib/libSZx.so.1(_ZN3szx44SZx_fast_decompress_args_unpredictable_floatEPPfmmmmmPhm+0x137) [0x154fa6b23257]
+ 5  /jet/home/gwilkins/SZx/lib/libSZx.so.1(SZx_fast_decompress+0x113) [0x154fa6b1d133]
+ 6  ./szx_omp() [0x4024b4]
+ 7  /lib64/libc.so.6(__libc_start_main+0xe5) [0x154fa5e75d85]
+ 8  ./szx_omp() [0x4016de]
+=================================
+/var/spool/slurm/d/job25159392/slurm_script: line 32: 81544 Segmentation fault      (core dumped) ./szx_omp $d $eb
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 1 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 2 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 4 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 8 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 16 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 32 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 64 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 1 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 2 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 4 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 8 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 16 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 32 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 64 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 1 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 2 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 4 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 8 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 16 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 32 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 64 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 1 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 2 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 4 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 8 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 16 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 32 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 64 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 1 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 2 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 4 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 8 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 16 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 32 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 64 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 1 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 2 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 4 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 8 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 16 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 32 OpenMP threads
+Unknown dataset cesm/V_1_26_1800_3600.f32
+Running with 64 OpenMP threads
+slurmstepd: error: *** JOB 25159392 ON e001 CANCELLED AT 2024-08-20T11:55:13 ***

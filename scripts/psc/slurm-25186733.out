@@ -1,0 +1,13 @@
+g++ -std=c99 -lm -g -lpapi -I/jet/home/gwilkins/papi/src/include  -o mgardx mgardx.cpp -I/jet/home/gwilkins/MGARD/build/include -L/jet/home/gwilkins/MGARD/build/lib64 -L/jet/home/gwilkins/papi/src/lib -lpapi  -D_POSIX_C_SOURCE=199309L -lmgard
+cc1plus: warning: command line option '-std=c99' is valid for C/ObjC but not for C++
+In file included from /jet/home/gwilkins/mgard/include/mgard-x/Config/Config.h:4,
+                 from /jet/home/gwilkins/mgard/include/compress_x.hpp:8,
+                 from mgardx.cpp:8:
+/jet/home/gwilkins/mgard/include/mgard-x/Config/../RuntimeX/RuntimeXPublic.h:7:10: fatal error: MGARDXConfig.h: No such file or directory
+ #include "MGARDXConfig.h"
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Makefile:40: mgardx] Error 1
+/var/spool/slurm/d/job25186733/slurm_script: line 30: 103658 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurm/d/job25186733/slurm_script: line 30:   626 Floating point exception(core dumped) ./compress_cpu $j $i $k
+slurmstepd: error: *** JOB 25186733 ON e003 CANCELLED AT 2024-08-21T11:26:16 ***

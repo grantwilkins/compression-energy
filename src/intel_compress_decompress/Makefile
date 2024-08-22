@@ -11,8 +11,8 @@ LIBPRESSIO_CFLAGS := $(shell pkg-config --cflags libpressio)
 LIBPRESSIO_LDLIBS := $(shell pkg-config --libs libpressio)
 
 MGARDX_DIR := /jet/home/gwilkins/MGARD
-MGARDX_INC := $(MGARDX_DIR)/include
-MGARDX_LIB := $(MGARDX_DIR)/build-openmp-cpu/mgard/lib64
+MGARDX_INC := $(MGARDX_DIR)/build/include
+MGARDX_LIB := $(MGARDX_DIR)/build/lib64
 
 DATADIR=/ocean/projects/cis240100p/gwilkins/
 LDLIBS=$(shell pkg-config --libs papi) -D_POSIX_C_SOURCE=199309L

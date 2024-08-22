@@ -1,0 +1,76 @@
+gcc -std=c99 -lm -g -lpapi -I/jet/home/gwilkins/papi/src/include  -I/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libpressio-0.99.4-k3qsayver6zix5khuxwdioxg47qck2ge/include/libpressio -I/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libstdcompat-0.0.21-6pym4effyvx3e6iet5xpr4pvqpu3r2f5/include  -o compress_cpu compress_cpu.c -L/jet/home/gwilkins/papi/src/lib -lpapi  -D_POSIX_C_SOURCE=199309L -L/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libpressio-0.99.4-k3qsayver6zix5khuxwdioxg47qck2ge/lib64 -llibpressio -L/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libstdcompat-0.0.21-6pym4effyvx3e6iet5xpr4pvqpu3r2f5/lib64 -lstd_compat -lpthread 
+compress_cpu.c: In function 'main':
+compress_cpu.c:270:15: warning: implicit declaration of function 'sched_getcpu'; did you mean 'sched_getparam'? [-Wimplicit-function-declaration]
+     int cpu = sched_getcpu();
+               ^~~~~~~~~~~~
+               sched_getparam
+g++ -std=c99 -lm -g -lpapi -I/jet/home/gwilkins/papi/src/include  -o mgardx mgardx.cpp -I/jet/home/gwilkins/MGARD/build/include -L/jet/home/gwilkins/MGARD/build/lib64 -L/jet/home/gwilkins/papi/src/lib -lpapi  -D_POSIX_C_SOURCE=199309L -lmgard
+cc1plus: warning: command line option '-std=c99' is valid for C/ObjC but not for C++
+In file included from /jet/home/gwilkins/mgard/include/mgard-x/Config/Config.h:4,
+                 from /jet/home/gwilkins/mgard/include/compress_x.hpp:8,
+                 from mgardx.cpp:8:
+/jet/home/gwilkins/mgard/include/mgard-x/Config/../RuntimeX/RuntimeXPublic.h:7:10: fatal error: MGARDXConfig.h: No such file or directory
+ #include "MGARDXConfig.h"
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Makefile:40: mgardx] Error 1
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Compressor: qoz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-01
+Compressor: qoz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-02
+Compressor: qoz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-03
+Compressor: qoz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-04
+Compressor: qoz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-05
+Compressor: qoz
+Dataset: s3d/stat_planar.1.1000E-03.field.d64
+REL Error bound: 1.000000e-06
+/var/spool/slurm/d/job25185651/slurm_script: line 33: 75534 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurm/d/job25185651/slurm_script: line 33: 76099 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurm/d/job25185651/slurm_script: line 33: 76136 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurm/d/job25185651/slurm_script: line 33: 76315 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurm/d/job25185651/slurm_script: line 33: 76357 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurm/d/job25185651/slurm_script: line 33: 76389 Floating point exception(core dumped) ./compress_cpu $j $i $k

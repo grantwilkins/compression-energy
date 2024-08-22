@@ -379,7 +379,7 @@ int main(int argc, char *argv[]) {
 #endif
 
     // Write metrics to CSV file
-    FILE *csv_file = fopen("compression_metrics_omp.csv", "a");
+    FILE *csv_file = fopen("compression_metrics_qoz_omp.csv", "a");
     if (csv_file == NULL) {
       fprintf(stderr, "Error opening CSV file\n");
     } else {
