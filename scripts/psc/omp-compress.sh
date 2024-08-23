@@ -8,13 +8,12 @@
 
 
 datasets=(
-    nyx/temperature.f32
-    cesm/V_1_26_1800_3600.f32
-    s3d/stat_planar.1.7000E-03.field.d64
-)
+        cesm/V_1_26_1800_3600.f32
+ )
 
 compressors=(
-    qoz
+    sz3
+    zfp
 )
 
 error_bounds=(
