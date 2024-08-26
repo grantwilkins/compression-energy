@@ -134,11 +134,11 @@ std::cout << "HERE" << std::endl;
     shape = {11, 500, 500, 500};
     dtype = mgard_x::data_type::Double;
     num_elements = 11 * 500 * 500 * 500;
-  } else if (strstr(dataset_file, "miranda") != NULL) {
-    dataset_name = "Miranda";
-    shape = {3072, 3072, 3072};
+  } else if (strstr(dataset_file, "cesm") != NULL) {
+    dataset_name = "CESM";
+    shape = {26,1800,3600};
     dtype = mgard_x::data_type::Float;
-    num_elements = 3072ULL * 3072ULL * 3072ULL; // Use ULL to avoid overflow
+    num_elements = 26ULL * 1800ULL * 3600ULL; // Use ULL to avoid overflow
   } else {
     std::cerr << "Unknown dataset: " << dataset_file << std::endl;
     return 1;

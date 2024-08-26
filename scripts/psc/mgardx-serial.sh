@@ -7,8 +7,7 @@
 #SBATCH --time=12:00:00 
 
 datasets=(
-    s3d/stat_planar.1.1000E-03.field.d64
-    hacc/vx.f32
+    cesm/V_1_26_1800_3600.f32
 )
 
 error_bounds=(
