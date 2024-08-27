@@ -1,0 +1,199 @@
+make: Nothing to be done for 'all'.
+Compressor: sz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Compressor: sz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Compressor: sz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Compressor: sz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Compressor: sz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Compressor: sz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Compressor: sz3
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Compressor: sz3
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Compressor: sz3
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Compressor: sz3
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Compressor: sz3
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Compressor: sz3
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Compressor: zfp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Compressor: zfp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Compressor: zfp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Compressor: zfp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Compressor: zfp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Compressor: zfp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-02
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-03
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-04
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-05
+Compressor: qoz
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-06
+Compressor: sz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Compressor: sz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Compressor: sz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Compressor: sz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Compressor: sz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Compressor: sz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Compressor: sz3
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Compressor: sz3
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Compressor: sz3
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Compressor: sz3
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Compressor: sz3
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Compressor: sz3
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Compressor: zfp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Compressor: zfp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Compressor: zfp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Compressor: zfp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Compressor: zfp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Compressor: zfp
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-01
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-02
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-03
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-04
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-05
+Compressor: qoz
+Dataset: cesm/V_1_26_1800_3600.f32
+REL Error bound: 1.000000e-06
+Compressor: sz
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-01
+Compressor: sz
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-02
+Compressor: sz
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-03
+Compressor: sz
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-04
+Compressor: sz
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-05
+Compressor: sz
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-06
+Compressor: sz3
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-01
+Compressor: sz3
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-02
+Compressor: sz3
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-03
+Compressor: sz3
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-04
+Compressor: sz3
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-05
+Compressor: sz3
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-06
+Compressor: zfp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-01
+Compressor: zfp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-02
+Compressor: zfp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-03
+Compressor: zfp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-04
+Compressor: zfp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-05
+Compressor: zfp
+Dataset: hacc/vx.f32
+REL Error bound: 1.000000e-06

@@ -5,7 +5,7 @@ project(MGARDX CXX)
 find_package(mgard REQUIRED)
 
 # Set up PAPI
-set(PAPI_ROOT_DIR "/jet/home/gwilkins/papi/src" CACHE PATH "Root directory of PAPI installation")
+set(PAPI_ROOT_DIR "/home1/10191/gfw/papi/src" CACHE PATH "Root directory of PAPI installation")
 
 find_path(PAPI_INCLUDE_DIR
     NAMES papi.h

@@ -1,0 +1,15 @@
+mpicc -std=c99 -lm -g -lpapi  -I/home1/10191/gfw/spack/opt/spack/linux-rocky9-sapphirerapids/gcc-11.4.1/libstdcompat-0.0.21-3p4ltkcg3xdval7v6icoxpnokdgonjpt/include   -o compress_cpu_omp compress_cpu_omp.c -L/home1/10191/gfw/papi/src/lib -lpapi  -D_POSIX_C_SOURCE=199309L -L/home1/10191/gfw/spack/opt/spack/linux-rocky9-sapphirerapids/gcc-11.4.1/libpressio-0.99.4-vhf5sj2d3tfsj73nxyy2j6xqibey4zfl/lib64 -llibpressio -L/home1/10191/gfw/spack/opt/spack/linux-rocky9-sapphirerapids/gcc-11.4.1/libstdcompat-0.0.21-3p4ltkcg3xdval7v6icoxpnokdgonjpt/lib64 -lstd_compat  -fopenmp
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.
+[31m[ERR][0m  MemoryManager<OPENMP>::Malloc1D error.

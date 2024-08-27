@@ -3,23 +3,16 @@ CXX=g++
 MPICC=mpicc
 MPICXX=mpicxx
 
-SZX_DIR := /jet/home/gwilkins/SZx
+SZX_DIR := /home1/10191/gfw/SZx/build
 SZX_INC := $(SZX_DIR)/include
 SZX_LIB := $(SZX_DIR)/lib
 
 LIBPRESSIO_CFLAGS := $(shell pkg-config --cflags libpressio)
 LIBPRESSIO_LDLIBS := $(shell pkg-config --libs libpressio)
 
-MGARDX_DIR := /jet/home/gwilkins/MGARD
-MGARDX_INC := $(MGARDX_DIR)/build/include
-MGARDX_LIB := $(MGARDX_DIR)/build/lib64
-
-DATADIR=/ocean/projects/cis240100p/gwilkins/
 LDLIBS=$(shell pkg-config --libs papi) -D_POSIX_C_SOURCE=199309L
 CFLAGS=-std=c99 -lm -g -lpapi $(shell pkg-config --cflags papi)
-CPPFLAGS=-DDATADIR="\"$(DATADIR)\""
-ALL=compress_cpu compress_cpu_omp szx_omp szx_serial mgardx mgardx_omp
-
+ALL=compress_cpu compress_cpu_omp szx_omp szx_serial
 .PHONY: all clean
 
 all: $(ALL)
@@ -35,12 +28,6 @@ szx_omp: szx_omp.c
 
 szx_serial: szx_serial.c
 	$(CC) $(CFLAGS) -o szx_serial szx_serial.c -I$(SZX_INC) -L$(SZX_LIB) $(LDLIBS) -lSZx
-
-mgardx: mgardx.cpp
-	$(CXX) $(CFLAGS) -o mgardx mgardx.cpp -I$(MGARDX_INC) -L$(MGARDX_LIB) $(LDLIBS) -lmgard
-
-mgardx_omp: mgardx-omp.cpp
-	$(MPICXX) $(CFLAGS) -o mgardx-omp mgardx-omp.cpp -I$(MGARDX_INC) -L$(MGARDX_LIB) $(LDLIBS) -fopenmp -lmgard
 
 clean:
 	rm -f compress_cpu compress_cpu_omp szx_omp szx_serial mgardx mgard-x-omp

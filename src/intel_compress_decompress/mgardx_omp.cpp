@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 
   const char *dataset_file = argv[1];
   double error_bound = std::atof(argv[2]);
-  const char *datadir = "/ocean/projects/cis240100p/gwilkins/"; // Update this path
+  const char *datadir = "/work2/10191/gfw/stampede3/"; // Update this path
 
   // PAPI initialization
   int EventSet = PAPI_NULL;
@@ -306,7 +306,7 @@ int main(int argc, char *argv[]) {
         std::sqrt(sum_squared / num_elements - value_mean * value_mean);
 
     // Write metrics to CSV file
-      FILE *csv_file = fopen("compression_metrics_omp.csv", "a");
+      FILE *csv_file = fopen("compression_metrics_mgardx_omp.csv", "a");
   if (csv_file) {
     fprintf(csv_file,
             "MGARD-X-OMP,%s,%e,%d,%f,%f,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%zu,%e,%e,%e,"
