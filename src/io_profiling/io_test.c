@@ -21,9 +21,9 @@ double get_time() {
   return ts.tv_sec + ts.tv_nsec / 1e9;
 }
 
-// Function to calculate energy consumption from PAPI counters
-void calculate_energy(long long *values, double *cpu_energy,
-                      double *dram_energy) {
+void calculate_energy(long long *values, int num_events,
+                      char event_names[][PAPI_MAX_STR_LEN], int *data_type,
+                      double *cpu_energy, double *dram_energy) {
   *cpu_energy = 0.0;
   *dram_energy = 0.0;
   for (int i = 0; i < num_events; i++) {
@@ -41,7 +41,8 @@ void calculate_energy(long long *values, double *cpu_energy,
 
 void perform_io(const char *method, const void *data, size_t data_size,
                 const char *output_file, int mpi_rank, int mpi_size,
-                int EventSet) {
+                int EventSet, int num_events,
+                char event_names[][PAPI_MAX_STR_LEN], int *data_type) {
   double start_time, end_time, io_time;
   long long values[MAX_POWERCAP_EVENTS];
   double cpu_energy, dram_energy;
@@ -284,9 +285,11 @@ int main(int argc, char *argv[]) {
              dataset_file, compressor_id, relative_error_bound,
              (strstr(methods[i], "hdf5") ? "h5" : "nc"));
     for (int iter = 0; iter < MAX_ITERATIONS; iter++) {
-      perform_io(methods[i], compressed_ptr, compressed_size, output_file,
-                 mpi_rank, mpi_size, EventSet);
-      MPI_Barrier(MPI_COMM_WORLD);
+      void perform_io(const char *method, const void *data, size_t data_size,
+                      const char *output_file, int mpi_rank, int mpi_size,
+                      int EventSet, int num_events,
+                      char event_names[][PAPI_MAX_STR_LEN], int *data_type)
+          MPI_Barrier(MPI_COMM_WORLD);
     }
   }
 
