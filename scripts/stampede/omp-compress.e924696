@@ -1,0 +1,49 @@
+icx: warning: Use of '-qopenmp' recommended over '-fopenmp' [-Wrecommended-option]
+icx: remark: Note that use of '-g' without any optimization-level option will turn off most compiler optimizations similar to use of '-O0'; use '-Rno-debug-disables-optimization' to disable this remark [-Rdebug-disables-optimization]
+compress_cpu_omp.c:314:11: error: call to undeclared function 'sched_getcpu'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  314 |     cpu = sched_getcpu();
+      |           ^
+1 error generated.
+make: *** [Makefile:24: compress_cpu_omp] Error 1
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+only 3d data is supported
+only 3d data is supported
+only 3d data is supported
+only 3d data is supported
+only 3d data is supported
+only 3d data is supported
+only 3d data is supported
+/var/spool/slurmd/job924696/slurm_script: line 35: 1056820 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job924696/slurm_script: line 35: 1056830 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job924696/slurm_script: line 35: 1056837 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job924696/slurm_script: line 35: 1056848 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job924696/slurm_script: line 35: 1056861 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job924696/slurm_script: line 35: 1056883 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job924696/slurm_script: line 35: 1056921 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k

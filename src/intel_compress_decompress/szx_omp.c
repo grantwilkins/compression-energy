@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
   uint64_t compressed_size, decompressed_size, uncompressed_size;
   const char *dataset_file = argv[1];
   double relative_error_bound = atof(argv[2]);
-  const char *datadir = "/ocean/projects/cis240100p/gwilkins/";
+  const char *datadir = "/work2/10191/gfw/stampede3/";
   const char *cluster_name = getenv("CLUSTER_NAME");
   int blockSize = 64;
   int num_threads = omp_get_max_threads();

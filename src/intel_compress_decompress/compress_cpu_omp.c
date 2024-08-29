@@ -12,7 +12,7 @@
 #include <string.h>
 #include <time.h>
 
-#define MAX_ITERATIONS 25
+#define MAX_ITERATIONS 10
 #define CONFIDENCE_LEVEL 1.96
 #define MAX_powercap_EVENTS 64
 
@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
   const char *compressor_id = argv[1];
   const char *dataset_file = argv[2];
   double relative_error_bound = atof(argv[3]);
-  const char *datadir = "/ocean/projects/cis240100p/gwilkins/";
+  const char *datadir = "/work2/10191/gfw/stampede3/";
   const char *cluster_name = getenv("CLUSTER_NAME");
 
   double compression_rate = 0.0, decompression_rate = 0.0, avg_difference = 0.0,

@@ -1,0 +1,29 @@
+make: Nothing to be done for 'all'.
+Running with 1 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 2 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 4 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 8 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 16 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 32 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01
+Running with 64 OpenMP threads
+Compressor: sz_omp
+Dataset: nyx/temperature.f32
+REL Error bound: 1.000000e-01

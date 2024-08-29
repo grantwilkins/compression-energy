@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
 
   const char *dataset_file = argv[1];
   double relative_error_bound = atof(argv[2]);
-  const char *datadir = "/ocean/projects/cis240100p/gwilkins/";
+  const char *datadir = "/work2/10191/gfw/stampede3/";
   const char *cluster_name = getenv("CLUSTER_NAME");
 
   double compression_rate, decompression_rate, avg_difference, avg_error,

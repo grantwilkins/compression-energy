@@ -1,0 +1,31 @@
+icx: warning: Use of '-qopenmp' recommended over '-fopenmp' [-Wrecommended-option]
+icx: remark: Note that use of '-g' without any optimization-level option will turn off most compiler optimizations similar to use of '-O0'; use '-Rno-debug-disables-optimization' to disable this remark [-Rdebug-disables-optimization]
+compress_cpu_omp.c:314:11: error: call to undeclared function 'sched_getcpu'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  314 |     cpu = sched_getcpu();
+      |           ^
+1 error generated.
+make: *** [Makefile:24: compress_cpu_omp] Error 1
+double free or corruption (out)
+/var/spool/slurmd/job929063/slurm_script: line 27: 3197611 Aborted                 (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job929063/slurm_script: line 27: 3197622 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k
+munmap_chunk(): invalid pointer
+/var/spool/slurmd/job929063/slurm_script: line 27: 3197632 Aborted                 (core dumped) ./build/mgardx_omp $i $k
+Error opening file: /work2/10191/gfw/stampede3/stat_planar.1.1000E-03.field.d64
+Error opening file: /work2/10191/gfw/stampede3/stat_planar.1.1000E-03.field.d64
+Error opening file: /work2/10191/gfw/stampede3/stat_planar.1.1000E-03.field.d64
+Error opening file: /work2/10191/gfw/stampede3/stat_planar.1.1000E-03.field.d64
+Error opening file: /work2/10191/gfw/stampede3/stat_planar.1.1000E-03.field.d64
+Error opening file: /work2/10191/gfw/stampede3/stat_planar.1.1000E-03.field.d64
+Error opening file: /work2/10191/gfw/stampede3/stat_planar.1.1000E-03.field.d64
+free(): invalid pointer
+/var/spool/slurmd/job929063/slurm_script: line 27: 3198930 Aborted                 (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job929063/slurm_script: line 27: 3198943 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k
+double free or corruption (!prev)
+/var/spool/slurmd/job929063/slurm_script: line 27: 3198956 Aborted                 (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job929063/slurm_script: line 27: 3200199 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job929063/slurm_script: line 27: 3200213 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job929063/slurm_script: line 27: 3200223 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job929063/slurm_script: line 27: 3200235 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job929063/slurm_script: line 27: 3200250 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job929063/slurm_script: line 27: 3200272 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job929063/slurm_script: line 27: 3200311 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k

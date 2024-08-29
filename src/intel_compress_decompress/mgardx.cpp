@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <limits>
-#include "/jet/home/gwilkins/mgard/include/compress_x.hpp"
+#include "/home1/10191/gfw/MGARD/include/compress_x.hpp"
 
 #include <vector>
 #include <cstring> // Added for strstr and strncpy
@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
 
   const char *dataset_file = argv[1];
   double relative_error_bound = std::atof(argv[2]);
-  const char *datadir = "/ocean/projects/cis240100p/gwilkins/"; // Update this path
+  const char *datadir = "/work2/10191/gfw/stampede3/"; // Update this path
 
   // PAPI initialization
   int EventSet = PAPI_NULL;
@@ -176,9 +176,18 @@ std::cout << "HERE" << std::endl;
     }
   }
 
+  std::cout << "Dataset: " << dataset_name << std::endl;
+std::cout << "Shape: ";
+for (auto dim : shape) std::cout << dim << " ";
+std::cout << std::endl;
+std::cout << "Number of elements: " << num_elements << std::endl;
+std::cout << "Data type: " << (dtype == mgard_x::data_type::Double ? "Double" : "Float") << std::endl;
+
   while (iteration < MAX_ITERATIONS && !confidence_interval_reached) {
-    void *compressed_data = nullptr;
-    size_t compressed_size = 0;
+    size_t max_compressed_size = num_elements * (dtype == mgard_x::data_type::Double ? sizeof(double) : sizeof(float));
+void *compressed_data = malloc(max_compressed_size);
+size_t compressed_size = max_compressed_size;
+    //size_t compressed_size = 0;
 
     // Compression
     assert(PAPI_start(EventSet) == PAPI_OK);
@@ -195,7 +204,7 @@ std::cout << "HERE" << std::endl;
         compressed_data,
         compressed_size,
         config,
-        false  // output_pre_allocated
+        true  // output_pre_allocated
     );
 
     double end_time = get_time();

@@ -1,4 +1,4 @@
-LDLIBS=$(shell pkg-config --libs libpressio) -lzfp
+LDLIBS=$(shell pkg-config --libs libpressio)
 CFLAGS= -lm -fopenmp -g $(shell pkg-config --cflags libpressio)
 ALL=get_compressor_options compress_cpu list_compressors compress_cpu_omp compress_gpu
 
@@ -7,7 +7,7 @@ ALL=get_compressor_options compress_cpu list_compressors compress_cpu_omp compre
 all: $(ALL)
 
 compress_gpu: compress_gpu.c
-    nvcc compress_gpu.c -o $@ -g $(shell pkg-config --cflags libpressio) $(LDLIBS) -lm -g -lnvml
+	nvcc compress_gpu.c -o $@ -g $(shell pkg-config --cflags libpressio) $(LDLIBS) -lm -g -lnvml
 
 clean:
-    $(RM) $(ALL) $(wildcard *.o)
+	$(RM) $(ALL) $(wildcard *.o)

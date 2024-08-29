@@ -1,0 +1,30 @@
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+Unknown dataset stat_planar.1.1000E-03.field.d64
+/var/spool/slurmd/job923520/slurm_script: line 38: 2160066 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurmd/job923520/slurm_script: line 38: 2160076 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurmd/job923520/slurm_script: line 38: 2160085 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurmd/job923520/slurm_script: line 38: 2160092 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurmd/job923520/slurm_script: line 38: 2160099 Floating point exception(core dumped) ./compress_cpu $j $i $k
+/var/spool/slurmd/job923520/slurm_script: line 38: 2160107 Floating point exception(core dumped) ./compress_cpu $j $i $k
