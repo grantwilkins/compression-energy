@@ -6,6 +6,7 @@
 #include <mpi.h>
 #include <netcdf.h>
 #include <papi.h>
+#include <pnetcdf.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
