@@ -1,27 +1,19 @@
 #include <assert.h>
-#include <fcntl.h>
 #include <hdf5.h>
+#include <libpressio.h>
+#include <libpressio_ext/io/posix.h>
+#include <math.h>
 #include <mpi.h>
 #include <netcdf.h>
-#include <netcdf_par.h>
 #include <papi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/stat.h>
 #include <time.h>
-#include <unistd.h>
 
 #define MAX_ITERATIONS 10
 #define MAX_POWERCAP_EVENTS 64
 
-// PAPI related variables
-int EventSet = PAPI_NULL;
-int num_events = 0;
-char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
-int data_type[MAX_POWERCAP_EVENTS];
-
-// Function to get current time in seconds
 double get_time() {
   struct timespec ts;
   clock_gettime(CLOCK_MONOTONIC, &ts);
@@ -46,40 +38,9 @@ void calculate_energy(long long *values, double *cpu_energy,
   }
 }
 
-// Function to read raw binary file
-void *read_raw_file(const char *filename, size_t *size) {
-  FILE *file = fopen(filename, "rb");
-  if (!file) {
-    fprintf(stderr, "Error opening file: %s\n", filename);
-    return NULL;
-  }
-
-  fseek(file, 0, SEEK_END);
-  *size = ftell(file);
-  fseek(file, 0, SEEK_SET);
-
-  void *buffer = malloc(*size);
-  if (!buffer) {
-    fprintf(stderr, "Error allocating memory for file: %s\n", filename);
-    fclose(file);
-    return NULL;
-  }
-
-  size_t bytes_read = fread(buffer, 1, *size, file);
-  if (bytes_read != *size) {
-    fprintf(stderr, "Error reading file: %s\n", filename);
-    free(buffer);
-    fclose(file);
-    return NULL;
-  }
-
-  fclose(file);
-  return buffer;
-}
-
-// Function to perform I/O operation and measure performance
 void perform_io(const char *method, const void *data, size_t data_size,
-                const char *output_file, int mpi_rank, int mpi_size) {
+                const char *output_file, int mpi_rank, int mpi_size,
+                int EventSet) {
   double start_time, end_time, io_time;
   long long values[MAX_POWERCAP_EVENTS];
   double cpu_energy, dram_energy;
@@ -169,38 +130,49 @@ void perform_io(const char *method, const void *data, size_t data_size,
   assert(PAPI_stop(EventSet, values) == PAPI_OK);
 
   io_time = end_time - start_time;
-  calculate_energy(values, &cpu_energy, &dram_energy);
+  calculate_energy(values, num_events, event_names, data_type, &cpu_energy,
+                   &dram_energy);
 
   if (mpi_rank == 0) {
-    printf("%s,%f,%f,%f\n", method, io_time, cpu_energy, dram_energy);
+    FILE *csv_file = fopen("io_results.csv", "a");
+    if (csv_file) {
+      fprintf(csv_file, "%s,%s,%f,%f,%f\n", method, output_file, io_time,
+              cpu_energy, dram_energy);
+      fclose(csv_file);
+    } else {
+      fprintf(stderr, "Error opening CSV file for writing results\n");
+    }
   }
 }
 
 int main(int argc, char *argv[]) {
-  if (argc != 3) {
-    fprintf(stderr, "Usage: %s <input_file> <output_dir>\n", argv[0]);
+  if (argc != 4) {
+    fprintf(stderr, "Usage: %s <compressor> <dataset_file> <error_bound>\n",
+            argv[0]);
     return 1;
   }
 
-  const char *input_file = argv[1];
-  const char *output_dir = argv[2];
+  const char *compressor_id = argv[1];
+  const char *dataset_file = argv[2];
+  double relative_error_bound = atof(argv[3]);
+  const char *datadir = "/work2/10191/gfw/stampede3/";
+  const char *output_dir = "/work2/10191/gfw/stampede3/compressed/";
 
-  // Initialize MPI
-  int mpi_rank, mpi_size;
-  MPI_Init(&argc, &argv);
-  MPI_Comm_rank(MPI_COMM_WORLD, &mpi_rank);
-  MPI_Comm_size(MPI_COMM_WORLD, &mpi_size);
+  // PAPI initialization
+  int EventSet = PAPI_NULL;
+  long long *values;
+  int num_events = 0;
+  char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
+  int data_type[MAX_POWERCAP_EVENTS];
 
-  // Initialize PAPI
   assert(PAPI_library_init(PAPI_VER_CURRENT) == PAPI_VER_CURRENT);
   assert(PAPI_create_eventset(&EventSet) == PAPI_OK);
 
   // Find powercap component and add events
   int numcmp = PAPI_num_components();
   int cid, powercap_cid = -1;
-  const PAPI_component_info_t *cmpinfo = NULL;
   for (cid = 0; cid < numcmp; cid++) {
-    cmpinfo = PAPI_get_component_info(cid);
+    const PAPI_component_info_t *cmpinfo = PAPI_get_component_info(cid);
     if (strstr(cmpinfo->name, "powercap")) {
       powercap_cid = cid;
       break;
@@ -221,44 +193,110 @@ int main(int argc, char *argv[]) {
     r = PAPI_enum_cmp_event(&code, PAPI_ENUM_EVENTS, powercap_cid);
   }
 
-  // Read input file
-  size_t data_size;
-  void *data = NULL;
-  if (mpi_rank == 0) {
-    data = read_raw_file(input_file, &data_size);
-    if (!data) {
-      MPI_Abort(MPI_COMM_WORLD, 1);
-      return 1;
+  values = (long long *)calloc(num_events, sizeof(long long));
+
+  // LibPressio initialization
+  struct pressio *library = pressio_instance();
+  struct pressio_compressor *compressor =
+      pressio_get_compressor(library, compressor_id);
+  if (compressor == NULL) {
+    fprintf(stderr, "Failed to get compressor %s: %s\n", compressor_id,
+            pressio_error_msg(library));
+    pressio_release(library);
+    return 1;
+  }
+
+  // Read input data
+  char full_path[1024];
+  snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
+  struct pressio_data *input_data = pressio_io_data_path_read(NULL, full_path);
+  if (input_data == NULL) {
+    fprintf(stderr, "Failed to read dataset %s\n", full_path);
+    pressio_compressor_release(compressor);
+    pressio_release(library);
+    return 1;
+  }
+
+  // Calculate absolute error bound
+  size_t num_elements = pressio_data_num_elements(input_data);
+  void *data_ptr = pressio_data_ptr(input_data, NULL);
+  double data_min, data_max, data_range;
+
+  if (pressio_data_dtype(input_data) == pressio_float_dtype) {
+    float *float_data = (float *)data_ptr;
+    data_min = data_max = float_data[0];
+    for (size_t i = 1; i < num_elements; i++) {
+      if (float_data[i] < data_min)
+        data_min = float_data[i];
+      if (float_data[i] > data_max)
+        data_max = float_data[i];
+    }
+  } else {
+    double *double_data = (double *)data_ptr;
+    data_min = data_max = double_data[0];
+    for (size_t i = 1; i < num_elements; i++) {
+      if (double_data[i] < data_min)
+        data_min = double_data[i];
+      if (double_data[i] > data_max)
+        data_max = double_data[i];
     }
   }
-  MPI_Bcast(&data_size, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
+  data_range = data_max - data_min;
+  double absolute_error_bound = relative_error_bound * data_range;
 
-  // Allocate memory for all ranks
-  if (mpi_rank != 0) {
-    data = malloc(data_size);
+  // Configure compressor
+  struct pressio_options *options = pressio_options_new();
+  pressio_options_set_double(options, "pressio:abs", absolute_error_bound);
+  if (pressio_compressor_set_options(compressor, options)) {
+    fprintf(stderr, "Failed to set compressor options: %s\n",
+            pressio_compressor_error_msg(compressor));
+    return 1;
   }
-  MPI_Bcast(data, data_size, MPI_BYTE, 0, MPI_COMM_WORLD);
+  pressio_options_free(options);
+
+  // Compress data
+  struct pressio_data *compressed_data =
+      pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+  if (pressio_compressor_compress(compressor, input_data, compressed_data)) {
+    fprintf(stderr, "Compression failed: %s\n",
+            pressio_compressor_error_msg(compressor));
+    return 1;
+  }
+
+  // Get compressed data pointer and size
+  void *compressed_ptr = pressio_data_ptr(compressed_data, NULL);
+  size_t compressed_size = pressio_data_get_bytes(compressed_data);
 
   // Perform I/O operations
   const char *methods[] = {"hdf5", "phdf5", "netcdf", "pnetcdf"};
   int num_methods = sizeof(methods) / sizeof(methods[0]);
 
-  if (mpi_rank == 0) {
-    printf("Method,Time(s),CPU_Energy(J),DRAM_Energy(J)\n");
-  }
+  // Initialize MPI
+  int mpi_rank, mpi_size;
+  MPI_Init(&argc, &argv);
+  MPI_Comm_rank(MPI_COMM_WORLD, &mpi_rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &mpi_size);
 
   char output_file[256];
   for (int i = 0; i < num_methods; i++) {
-    snprintf(output_file, sizeof(output_file), "%s/%s_output.%s", output_dir,
-             methods[i], (strstr(methods[i], "hdf5") ? "h5" : "nc"));
+    snprintf(output_file, sizeof(output_file), "%s%s_%s_%g.%s", output_dir,
+             dataset_file, compressor_id, relative_error_bound,
+             (strstr(methods[i], "hdf5") ? "h5" : "nc"));
     for (int iter = 0; iter < MAX_ITERATIONS; iter++) {
-      perform_io(methods[i], data, data_size, output_file, mpi_rank, mpi_size);
+      perform_io(methods[i], compressed_ptr, compressed_size, output_file,
+                 mpi_rank, mpi_size, EventSet);
       MPI_Barrier(MPI_COMM_WORLD);
     }
   }
 
   // Clean up
-  free(data);
+  pressio_data_free(input_data);
+  pressio_data_free(compressed_data);
+  pressio_compressor_release(compressor);
+  pressio_release(library);
+  free(values);
   MPI_Finalize();
+  PAPI_shutdown();
+
   return 0;
 }
