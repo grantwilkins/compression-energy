@@ -111,21 +111,6 @@ void perform_io(const char *method, const void *data, size_t data_size,
     nc_put_var_uchar(ncid, varid, data);
 
     nc_close(ncid);
-  } else if (strcmp(method, "pnetcdf") == 0) {
-    int ncid, varid, dimid;
-    MPI_Offset start, count;
-
-    ncmpi_create(MPI_COMM_WORLD, output_file, NC_CLOBBER, MPI_INFO_NULL, &ncid);
-    ncmpi_def_dim(ncid, "size", data_size, &dimid);
-    ncmpi_def_var(ncid, "data", NC_BYTE, 1, &dimid, &varid);
-    ncmpi_enddef(ncid);
-
-    start = mpi_rank * (data_size / mpi_size);
-    count = data_size / mpi_size;
-    ncmpi_put_vara_uchar_all(ncid, varid, &start, &count,
-                             (const unsigned char *)data + start);
-
-    ncmpi_close(ncid);
   }
 
   end_time = get_time();
@@ -285,8 +270,10 @@ int main(int argc, char *argv[]) {
              dataset_file, compressor_id, relative_error_bound,
              (strstr(methods[i], "hdf5") ? "h5" : "nc"));
     for (int iter = 0; iter < MAX_ITERATIONS; iter++) {
-              perform_io(methods[i], compressed_ptr, compressed_size, output_file, mpi_rank, mpi_size, EventSet, num_events, event_names, data_type);
-              MPI_Barrier(MPI_COMM_WORLD);
+      perform_io(methods[i], compressed_ptr, compressed_size, output_file,
+                 mpi_rank, mpi_size, EventSet, num_events, event_names,
+                 data_type);
+      MPI_Barrier(MPI_COMM_WORLD);
     }
   }
 
