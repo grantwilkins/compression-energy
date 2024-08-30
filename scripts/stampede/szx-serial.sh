@@ -9,10 +9,7 @@
 #SBATCH -t 6:00:00        # Run time (hh:mm:ss)
 
 datasets=(
-    nyx/baryon_density.f32
-    stat_planar.1.3000E-03.field.d64
-    cesm/V_1_26_1800_3600.f32
-    hacc/vz.f32
+    s3d/stat_planar.2.3500E-03.field.d64
 )
 
 error_bounds=(
