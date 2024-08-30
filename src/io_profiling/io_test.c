@@ -28,6 +28,7 @@ void calculate_energy(long long *values, int num_events,
     if (strstr(event_names[i], "ENERGY_UJ")) {
       if (data_type[i] == PAPI_DATATYPE_UINT64) {
         if (strstr(event_names[i], "PACKAGE_ENERGY") != NULL) {
+          printf("HERE");
           *cpu_energy += values[i] / 1.0e6; // Convert from uJ to J
         } else if (strstr(event_names[i], "DRAM_ENERGY") != NULL) {
           *dram_energy += values[i] / 1.0e6;
@@ -301,7 +302,7 @@ int main(int argc, char *argv[]) {
              (strstr(methods[i], "hdf5") ? "h5" : "nc"));
     for (int iter = 0; iter < MAX_ITERATIONS; iter++) {
       perform_io(methods[i], compressed_ptr, compressed_size, output_file,
-                 mpi_rank, mpi_size, EventSet, num_events, event_names,
+                 0, 0, EventSet, num_events, event_names,
                  data_type);
       // MPI_Barrier(MPI_COMM_WORLD);
     }
