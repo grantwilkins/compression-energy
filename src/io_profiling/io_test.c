@@ -19,36 +19,9 @@ double get_time() {
   return ts.tv_sec + ts.tv_nsec / 1e9;
 }
 
-void calculate_energy(long long *values, int num_events,
-                      char event_names[][PAPI_MAX_STR_LEN], int *data_type,
-                      double *cpu_energy, double *dram_energy) {
-  *cpu_energy = 0.0;
-  *dram_energy = 0.0;
-  for (int i = 0; i < num_events; i++) {
-    if (strstr(event_names[i], "ENERGY_UJ")) {
-      if (data_type[i] == PAPI_DATATYPE_UINT64) {
-        if (strstr(event_names[i], "PACKAGE_ENERGY") != NULL) {
-          printf("HERE");
-          *cpu_energy += values[i] / 1.0e6; // Convert from uJ to J
-        } else if (strstr(event_names[i], "DRAM_ENERGY") != NULL) {
-          *dram_energy += values[i] / 1.0e6;
-        }
-      }
-    }
-  }
-}
-
 void perform_io(const char *method, const void *data, size_t data_size,
-                const char *output_file, int mpi_rank, int mpi_size,
-                int EventSet, int num_events,
-                char event_names[][PAPI_MAX_STR_LEN], int *data_type) {
-  double start_time, end_time, io_time;
+                const char *output_file, int mpi_rank, int mpi_size) {
   long long values[MAX_POWERCAP_EVENTS];
-  double cpu_energy, dram_energy;
-
-  // Start PAPI
-  assert(PAPI_start(EventSet) == PAPI_OK);
-  start_time = get_time();
 
   if (strcmp(method, "hdf5") == 0) {
     hid_t file_id, dataset_id, dataspace_id;
@@ -115,24 +88,6 @@ void perform_io(const char *method, const void *data, size_t data_size,
     nc_put_var_uchar(ncid, varid, data);
 
     nc_close(ncid);
-  }
-
-  end_time = get_time();
-  assert(PAPI_stop(EventSet, values) == PAPI_OK);
-
-  io_time = end_time - start_time;
-  calculate_energy(values, num_events, event_names, data_type, &cpu_energy,
-                   &dram_energy);
-
-  if (mpi_rank == 0) {
-    FILE *csv_file = fopen("io_results.csv", "a");
-    if (csv_file) {
-      fprintf(csv_file, "%s,%s,%f,%f,%f\n", method, output_file, io_time,
-              cpu_energy, dram_energy);
-      fclose(csv_file);
-    } else {
-      fprintf(stderr, "Error opening CSV file for writing results\n");
-    }
   }
 }
 
@@ -296,14 +251,41 @@ int main(int argc, char *argv[]) {
   // MPI_Comm_size(MPI_COMM_WORLD, &mpi_size);
 
   char output_file[256];
+  double start_time, end_time;
+  double cpu_energy_compression = 0.0, dram_energy_compression = 0.0;
+  FILE *fp = fopen("io_results.csv", "a");
   for (int i = 0; i < num_methods; i++) {
     snprintf(output_file, sizeof(output_file), "%s%s_%s_%g.%s", output_dir,
              dataset_file, compressor_id, relative_error_bound,
              (strstr(methods[i], "hdf5") ? "h5" : "nc"));
     for (int iter = 0; iter < MAX_ITERATIONS; iter++) {
-      perform_io(methods[i], compressed_ptr, compressed_size, output_file,
-                 0, 0, EventSet, num_events, event_names,
-                 data_type);
+      start_time = get_time();
+      assert(PAPI_start(EventSet) == PAPI_OK);
+      perform_io(methods[i], compressed_ptr, compressed_size, output_file, 0,
+                 0);
+      assert(PAPI_stop(EventSet, values) == PAPI_OK);
+      end_time = get_time();
+      cpu_energy_compression = 0.0;
+      dram_energy_compression = 0.0;
+      for (i = 0; i < num_events; i++) {
+        if (strstr(event_names[i], "ENERGY_UJ")) {
+          if (data_type[i] == PAPI_DATATYPE_UINT64) {
+            if (strstr(event_names[i], "SUBZONE")) {
+              dram_energy_compression += values[i] / 1.0e6;
+            } else {
+              cpu_energy_compression += values[i] / 1.0e6;
+            }
+          }
+        }
+      }
+      if (fp) {
+        fprintf(fp, "%s,%s,%g,%d,%e,%e,%e", methods[i], dataset_file,
+                compressor_id, relative_error_bound, iter,
+                end_time - start_time, cpu_energy_compression,
+                dram_energy_compression);
+      } else {
+        fprintf(stderr, "Failed to open file io_results.csv\n");
+      }
       // MPI_Barrier(MPI_COMM_WORLD);
     }
   }
