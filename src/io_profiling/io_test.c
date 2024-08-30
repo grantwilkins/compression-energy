@@ -193,21 +193,48 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  // Read input data
-  char full_path[1024];
-  snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
-  struct pressio_data *input_data = pressio_io_data_path_read(NULL, full_path);
-  if (input_data == NULL) {
-    fprintf(stderr, "Failed to read dataset %s\n", full_path);
+  size_t ndims;
+  struct pressio_data *metadata, *input_data;
+  if (strstr(dataset_file, "nyx") != NULL) {
+    size_t dims[] = {512, 512, 512};
+    ndims = sizeof(dims) / sizeof(dims[0]);
+    metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
+  } else if (strstr(dataset_file, "hacc") != NULL) {
+    size_t dims[] = {1073726487};
+    ndims = sizeof(dims) / sizeof(dims[0]);
+    metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
+  } else if (strstr(dataset_file, "s3d") != NULL) {
+    size_t dims[] = {11, 500, 500, 500};
+    ndims = sizeof(dims) / sizeof(dims[0]);
+    metadata = pressio_data_new_empty(pressio_double_dtype, ndims, dims);
+  } else if (strstr(dataset_file, "miranda") != NULL) {
+    size_t dims[] = {3072, 3072, 3072};
+    ndims = sizeof(dims) / sizeof(dims[0]);
+    metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
+  } else if (strstr(dataset_file, "cesm") != NULL) {
+    size_t dims[] = {26, 1800, 3600};
+    ndims = sizeof(dims) / sizeof(dims[0]);
+    metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
+  } else {
+    fprintf(stderr, "Unknown dataset %s\n", dataset_file);
     pressio_compressor_release(compressor);
     pressio_release(library);
     return 1;
   }
 
-  // Calculate absolute error bound
+  char full_path[1024];
+  snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
+  input_data = pressio_io_data_path_read(metadata, full_path);
+  if (input_data == NULL) {
+    fprintf(stderr, "Failed to read dataset %s\n", dataset_file);
+    pressio_compressor_release(compressor);
+    pressio_release(library);
+    return 1;
+  }
+
+  double data_min, data_max, data_range;
   size_t num_elements = pressio_data_num_elements(input_data);
   void *data_ptr = pressio_data_ptr(input_data, NULL);
-  double data_min, data_max, data_range;
 
   if (pressio_data_dtype(input_data) == pressio_float_dtype) {
     float *float_data = (float *)data_ptr;
