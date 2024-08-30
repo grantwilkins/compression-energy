@@ -282,7 +282,7 @@ int main(int argc, char *argv[]) {
   size_t compressed_size = pressio_data_get_bytes(compressed_data);
 
   // Perform I/O operations
-  const char *methods[] = {"hdf5", "phdf5", "netcdf", "pnetcdf"};
+  const char *methods[] = {"hdf5", "phdf5", "netcdf"};
   int num_methods = sizeof(methods) / sizeof(methods[0]);
 
   // Initialize MPI
