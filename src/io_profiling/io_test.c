@@ -285,11 +285,8 @@ int main(int argc, char *argv[]) {
              dataset_file, compressor_id, relative_error_bound,
              (strstr(methods[i], "hdf5") ? "h5" : "nc"));
     for (int iter = 0; iter < MAX_ITERATIONS; iter++) {
-      void perform_io(const char *method, const void *data, size_t data_size,
-                      const char *output_file, int mpi_rank, int mpi_size,
-                      int EventSet, int num_events,
-                      char event_names[][PAPI_MAX_STR_LEN], int *data_type)
-          MPI_Barrier(MPI_COMM_WORLD);
+              perform_io(methods[i], compressed_ptr, compressed_size, output_file, mpi_rank, mpi_size, EventSet, num_events, event_names, data_type);
+              MPI_Barrier(MPI_COMM_WORLD);
     }
   }
 
