@@ -3,10 +3,8 @@
 #include <libpressio.h>
 #include <libpressio_ext/io/posix.h>
 #include <math.h>
-#include <mpi.h>
 #include <netcdf.h>
 #include <papi.h>
-#include <pnetcdf.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -65,42 +63,47 @@ void perform_io(const char *method, const void *data, size_t data_size,
     H5Dclose(dataset_id);
     H5Sclose(dataspace_id);
     H5Fclose(file_id);
-  } else if (strcmp(method, "phdf5") == 0) {
-    hid_t plist_id, file_id, dataset_id, dataspace_id;
-    hsize_t dims[1] = {data_size};
-    hsize_t chunk_dims[1] = {data_size / mpi_size};
+  }
+  // else if (strcmp(method, "phdf5") == 0) {
+  //   hid_t plist_id, file_id, dataset_id, dataspace_id;
+  //   hsize_t dims[1] = {data_size};
+  //   hsize_t chunk_dims[1] = {data_size / mpi_size};
 
-    plist_id = H5Pcreate(H5P_FILE_ACCESS);
-    H5Pset_fapl_mpio(plist_id, MPI_COMM_WORLD, MPI_INFO_NULL);
-    file_id = H5Fcreate(output_file, H5F_ACC_TRUNC, H5P_DEFAULT, plist_id);
-    H5Pclose(plist_id);
+  //   plist_id = H5Pcreate(H5P_FILE_ACCESS);
+  //   H5Pset_fapl_mpio(plist_id, MPI_COMM_WORLD, MPI_INFO_NULL);
+  //   file_id = H5Fcreate(output_file, H5F_ACC_TRUNC, H5P_DEFAULT, plist_id);
+  //   H5Pclose(plist_id);
 
-    dataspace_id = H5Screate_simple(1, dims, NULL);
-    plist_id = H5Pcreate(H5P_DATASET_CREATE);
-    H5Pset_chunk(plist_id, 1, chunk_dims);
+  //   dataspace_id = H5Screate_simple(1, dims, NULL);
+  //   plist_id = H5Pcreate(H5P_DATASET_CREATE);
+  //   H5Pset_chunk(plist_id, 1, chunk_dims);
 
-    dataset_id = H5Dcreate2(file_id, "/data", H5T_NATIVE_UCHAR, dataspace_id,
-                            H5P_DEFAULT, plist_id, H5P_DEFAULT);
-    H5Pclose(plist_id);
+  //   dataset_id = H5Dcreate2(file_id, "/data", H5T_NATIVE_UCHAR,
+  //   dataspace_id,
+  //                           H5P_DEFAULT, plist_id, H5P_DEFAULT);
+  //   H5Pclose(plist_id);
 
-    hsize_t offset[1] = {mpi_rank * chunk_dims[0]};
-    H5Sselect_hyperslab(dataspace_id, H5S_SELECT_SET, offset, NULL, chunk_dims,
-                        NULL);
+  //   hsize_t offset[1] = {mpi_rank * chunk_dims[0]};
+  //   H5Sselect_hyperslab(dataspace_id, H5S_SELECT_SET, offset, NULL,
+  //   chunk_dims,
+  //                       NULL);
 
-    hid_t memspace_id = H5Screate_simple(1, chunk_dims, NULL);
+  //   hid_t memspace_id = H5Screate_simple(1, chunk_dims, NULL);
 
-    plist_id = H5Pcreate(H5P_DATASET_XFER);
-    H5Pset_dxpl_mpio(plist_id, H5FD_MPIO_COLLECTIVE);
+  //   plist_id = H5Pcreate(H5P_DATASET_XFER);
+  //   H5Pset_dxpl_mpio(plist_id, H5FD_MPIO_COLLECTIVE);
 
-    H5Dwrite(dataset_id, H5T_NATIVE_UCHAR, memspace_id, dataspace_id, plist_id,
-             (const unsigned char *)data + offset[0]);
+  //   H5Dwrite(dataset_id, H5T_NATIVE_UCHAR, memspace_id, dataspace_id,
+  //   plist_id,
+  //            (const unsigned char *)data + offset[0]);
 
-    H5Pclose(plist_id);
-    H5Sclose(memspace_id);
-    H5Dclose(dataset_id);
-    H5Sclose(dataspace_id);
-    H5Fclose(file_id);
-  } else if (strcmp(method, "netcdf") == 0) {
+  //   H5Pclose(plist_id);
+  //   H5Sclose(memspace_id);
+  //   H5Dclose(dataset_id);
+  //   H5Sclose(dataspace_id);
+  //   H5Fclose(file_id);
+  //}
+  else if (strcmp(method, "netcdf") == 0) {
     int ncid, varid, dimid;
 
     nc_create(output_file, NC_CLOBBER, &ncid);
@@ -282,7 +285,7 @@ int main(int argc, char *argv[]) {
   size_t compressed_size = pressio_data_get_bytes(compressed_data);
 
   // Perform I/O operations
-  const char *methods[] = {"hdf5", "phdf5", "netcdf"};
+  const char *methods[] = {"hdf5", "netcdf"};
   int num_methods = sizeof(methods) / sizeof(methods[0]);
 
   // Initialize MPI

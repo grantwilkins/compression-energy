@@ -10,7 +10,7 @@ ALL=io_test
 .PHONY: all clean
 
 io_test: io_test.c
-	$(MPICC) $(CFLAGS) -o io_test io_test.c -I$(HDF5_INC) -L$(HDF5_LIB) $(LDLIBS) -lhdf5 -lmpi
+	$(CC) $(CFLAGS) -o io_test io_test.c -I$(HDF5_INC) -L$(HDF5_LIB) $(LDLIBS) -lhdf5
 
 clean:
 	rm io_test
