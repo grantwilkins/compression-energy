@@ -288,11 +288,11 @@ int main(int argc, char *argv[]) {
   const char *methods[] = {"hdf5", "netcdf"};
   int num_methods = sizeof(methods) / sizeof(methods[0]);
 
-  // Initialize MPI
-  int mpi_rank, mpi_size;
-  MPI_Init(&argc, &argv);
-  MPI_Comm_rank(MPI_COMM_WORLD, &mpi_rank);
-  MPI_Comm_size(MPI_COMM_WORLD, &mpi_size);
+  // // Initialize MPI
+  // int mpi_rank, mpi_size;
+  // MPI_Init(&argc, &argv);
+  // MPI_Comm_rank(MPI_COMM_WORLD, &mpi_rank);
+  // MPI_Comm_size(MPI_COMM_WORLD, &mpi_size);
 
   char output_file[256];
   for (int i = 0; i < num_methods; i++) {
@@ -303,7 +303,7 @@ int main(int argc, char *argv[]) {
       perform_io(methods[i], compressed_ptr, compressed_size, output_file,
                  mpi_rank, mpi_size, EventSet, num_events, event_names,
                  data_type);
-      MPI_Barrier(MPI_COMM_WORLD);
+      // MPI_Barrier(MPI_COMM_WORLD);
     }
   }
 
@@ -313,7 +313,7 @@ int main(int argc, char *argv[]) {
   pressio_compressor_release(compressor);
   pressio_release(library);
   free(values);
-  MPI_Finalize();
+  // MPI_Finalize();
   PAPI_shutdown();
 
   return 0;
