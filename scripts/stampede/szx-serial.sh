@@ -9,7 +9,7 @@
 #SBATCH -t 6:00:00        # Run time (hh:mm:ss)
 
 datasets=(
-    s3d/stat_planar.2.3500E-03.field.d64
+    s3d/stat_planar.2.9000E-03.field.d64
 )
 
 error_bounds=(

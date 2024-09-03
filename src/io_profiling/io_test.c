@@ -20,7 +20,7 @@ double get_time() {
 }
 
 void perform_io(const char *method, const void *data, size_t data_size,
-                const char *output_file, int mpi_rank, int mpi_size) {
+                const char *output_file) {
   long long values[MAX_POWERCAP_EVENTS];
 
   if (strcmp(method, "hdf5") == 0) {
@@ -261,28 +261,26 @@ int main(int argc, char *argv[]) {
     for (int iter = 0; iter < MAX_ITERATIONS; iter++) {
       start_time = get_time();
       assert(PAPI_start(EventSet) == PAPI_OK);
-      perform_io(methods[i], compressed_ptr, compressed_size, output_file, 0,
-                 0);
+      perform_io(methods[i], compressed_ptr, compressed_size, output_file);
       assert(PAPI_stop(EventSet, values) == PAPI_OK);
       end_time = get_time();
       cpu_energy_compression = 0.0;
       dram_energy_compression = 0.0;
-      for (i = 0; i < num_events; i++) {
-        if (strstr(event_names[i], "ENERGY_UJ")) {
-          if (data_type[i] == PAPI_DATATYPE_UINT64) {
-            if (strstr(event_names[i], "SUBZONE")) {
-              dram_energy_compression += values[i] / 1.0e6;
+      for (int d = 0; d < num_events; d++) {
+        if (strstr(event_names[d], "ENERGY_UJ")) {
+          if (data_type[d] == PAPI_DATATYPE_UINT64) {
+            if (strstr(event_names[d], "SUBZONE")) {
+              dram_energy_compression += values[d] / 1.0e6;
             } else {
-              cpu_energy_compression += values[i] / 1.0e6;
+              cpu_energy_compression += values[d] / 1.0e6;
             }
           }
         }
       }
       if (fp) {
-        fprintf(fp, "%s,%s,%g,%d,%e,%e,%e", methods[i], dataset_file,
+        fprintf(fp, "%s,%s,%g,%d,%e,%e\n", methods[i], dataset_file,
                 compressor_id, relative_error_bound, iter,
-                end_time - start_time, cpu_energy_compression,
-                dram_energy_compression);
+                end_time - start_time, cpu_energy_compression);
       } else {
         fprintf(stderr, "Failed to open file io_results.csv\n");
       }
