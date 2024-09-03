@@ -240,10 +240,6 @@ int main(int argc, char *argv[]) {
   void *compressed_ptr = pressio_data_ptr(compressed_data, NULL);
   size_t compressed_size = pressio_data_get_bytes(compressed_data);
 
-  double compression_ratio =
-      (double)(num_elements * pressio_data_dtype_size(input_data)) /
-      compressed_size;
-
   // Perform I/O operations
   const char *methods[] = {"hdf5", "netcdf"};
   int num_methods = sizeof(methods) / sizeof(methods[0]);
@@ -282,8 +278,8 @@ int main(int argc, char *argv[]) {
         }
       }
       if (fp) {
-        fprintf(fp, "%s,%s,%s,%e,%e,%d,%e,%e", methods[i], dataset_file,
-                compressor_id, compression_ratio, relative_error_bound, iter,
+        fprintf(fp, "%s,%s,%g,%d,%e,%e\n", methods[i], dataset_file,
+                compressor_id, relative_error_bound, iter,
                 end_time - start_time, cpu_energy_compression);
       } else {
         fprintf(stderr, "Failed to open file io_results.csv\n");
