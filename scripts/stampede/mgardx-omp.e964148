@@ -1,0 +1,15 @@
+icx: warning: Use of '-qopenmp' recommended over '-fopenmp' [-Wrecommended-option]
+icx: remark: Note that use of '-g' without any optimization-level option will turn off most compiler optimizations similar to use of '-O0'; use '-Rno-debug-disables-optimization' to disable this remark [-Rdebug-disables-optimization]
+compress_cpu_omp.c:314:11: error: call to undeclared function 'sched_getcpu'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  314 |     cpu = sched_getcpu();
+      |           ^
+1 error generated.
+make: *** [Makefile:24: compress_cpu_omp] Error 1
+double free or corruption (out)
+/var/spool/slurmd/job964148/slurm_script: line 25: 937027 Aborted                 (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job964148/slurm_script: line 25: 937038 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k
+/var/spool/slurmd/job964148/slurm_script: line 25: 937049 Segmentation fault      (core dumped) ./build/mgardx_omp $i $k
+free(): invalid pointer
+/var/spool/slurmd/job964148/slurm_script: line 25: 937650 Aborted                 (core dumped) ./build/mgardx_omp $i $k
+double free or corruption (!prev)
+/var/spool/slurmd/job964148/slurm_script: line 25: 937661 Aborted                 (core dumped) ./build/mgardx_omp $i $k
