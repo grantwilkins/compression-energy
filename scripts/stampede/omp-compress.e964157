@@ -1,0 +1,28 @@
+icx: warning: Use of '-qopenmp' recommended over '-fopenmp' [-Wrecommended-option]
+icx: remark: Note that use of '-g' without any optimization-level option will turn off most compiler optimizations similar to use of '-O0'; use '-Rno-debug-disables-optimization' to disable this remark [-Rdebug-disables-optimization]
+compress_cpu_omp.c:314:11: error: call to undeclared function 'sched_getcpu'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  314 |     cpu = sched_getcpu();
+      |           ^
+1 error generated.
+make: *** [Makefile:24: compress_cpu_omp] Error 1
+only floating point data is supported
+only floating point data is supported
+only floating point data is supported
+only floating point data is supported
+only floating point data is supported
+only floating point data is supported
+only floating point data is supported
+only 3d data is supported
+only 3d data is supported
+only 3d data is supported
+only 3d data is supported
+only 3d data is supported
+only 3d data is supported
+only 3d data is supported
+/var/spool/slurmd/job964157/slurm_script: line 35: 154696 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job964157/slurm_script: line 35: 154718 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job964157/slurm_script: line 35: 154726 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job964157/slurm_script: line 35: 154735 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job964157/slurm_script: line 35: 154749 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job964157/slurm_script: line 35: 154834 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k
+/var/spool/slurmd/job964157/slurm_script: line 35: 154873 Floating point exception(core dumped) ./compress_cpu_omp $j $i $k

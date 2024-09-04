@@ -3,13 +3,16 @@
 #SBATCH -J serial-compress           # Job name
 #SBATCH -o serial-compress.o%j       # Name of stdout output file
 #SBATCH -e serial-compress.e%j       # Name of stderr error file
-#SBATCH -p spr             # Queue (partition) name
+#SBATCH -p skx             # Queue (partition) name
 #SBATCH -N 1               # Total # of nodes 
 #SBATCH -n 1             # Total # of mpi tasks
 #SBATCH -t 6:00:00        # Run time (hh:mm:ss)
 
 datasets=(
     s3d/stat_planar.1.7000E-03.field.d64
+    nyx/temperature.f32
+    cesm/V_1_26_1800_3600.f32
+    hacc/vx.f32
 )
 
 compressors=(
