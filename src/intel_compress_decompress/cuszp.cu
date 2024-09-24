@@ -16,7 +16,7 @@
 #define CONFIDENCE_LEVEL 1.96
 #define MAX_POWERCAP_EVENTS 64
 #define CHECK_NVML(call) { nvmlReturn_t result = call; if (result != NVML_SUCCESS) { fprintf(stderr, "NVML Error: %s\n", nvmlErrorString(result)); exit(1); } }
-#define CHECK_PAPI(call) { int retval = call; if (retval != PAPI_OK) { fprintf(stderr, "PAPI Error: %s\n", PAPI_strerror(retval)); exit(1); } }
+#define CHECK_CUDA(call) { cudaError_t error = call; if (error != cudaSuccess) { fprintf(stderr, "CUDA Error: %s\n", cudaGetErrorString(error)); exit(1); } }
 
 typedef struct {
     double compression_time;
@@ -122,10 +122,10 @@ int main(int argc, char *argv[]) {
     double error_bound = atof(argv[3]);
 
     // Initialize CUDA
-    cudaSetDevice(0);
+    CHECK_CUDA(cudaSetDevice(0));
 
     // Initialize NVML
-    nvmlInit();
+    CHECK_NVML(nvmlInit());
     nvmlDevice_t device;
     CHECK_NVML(nvmlDeviceGetHandleByIndex(0, &device));
 
@@ -136,22 +136,50 @@ int main(int argc, char *argv[]) {
     char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
     int data_type[MAX_POWERCAP_EVENTS];
 
-    CHECK_PAPI(PAPI_library_init(PAPI_VER_CURRENT));
-    CHECK_PAPI(PAPI_create_eventset(&EventSet));
+    if (PAPI_library_init(PAPI_VER_CURRENT) != PAPI_VER_CURRENT) {
+        fprintf(stderr, "PAPI library init error!\n");
+        exit(1);
+    }
+
+    // Find powercap component
+    int numcmp = PAPI_num_components();
+    int cid, powercap_cid = -1;
+    const PAPI_component_info_t *cmpinfo = NULL;
+    for (cid = 0; cid < numcmp; cid++) {
+        cmpinfo = PAPI_get_component_info(cid);
+        if (cmpinfo == NULL) {
+            fprintf(stderr, "PAPI: Failed to get component info\n");
+            exit(1);
+        }
+        if (strstr(cmpinfo->name, "powercap")) {
+            powercap_cid = cid;
+            break;
+        }
+    }
+    if (cid == numcmp) {
+        fprintf(stderr, "PAPI: Failed to find powercap component\n");
+        exit(1);
+    }
+
+    // Create EventSet
+    if (PAPI_create_eventset(&EventSet) != PAPI_OK) {
+        fprintf(stderr, "PAPI: Failed to create event set\n");
+        exit(1);
+    }
 
     // Find and add powercap events
     int code = PAPI_NATIVE_MASK;
     PAPI_event_info_t info;
-    while (PAPI_enum_cmp_event(&code, PAPI_ENUM_FIRST, 0) == PAPI_OK) {
+    int r = PAPI_enum_cmp_event(&code, PAPI_ENUM_FIRST, powercap_cid);
+    while (r == PAPI_OK && num_events < MAX_POWERCAP_EVENTS) {
         if (PAPI_get_event_info(code, &info) == PAPI_OK) {
-            if (strstr(info.symbol, "powercap")) {
-                if (PAPI_add_event(EventSet, code) == PAPI_OK) {
-                    strncpy(event_names[num_events], info.symbol, PAPI_MAX_STR_LEN);
-                    data_type[num_events] = info.data_type;
-                    num_events++;
-                }
+            if (PAPI_add_event(EventSet, code) == PAPI_OK) {
+                strncpy(event_names[num_events], info.symbol, PAPI_MAX_STR_LEN);
+                data_type[num_events] = info.data_type;
+                num_events++;
             }
         }
+        r = PAPI_enum_cmp_event(&code, PAPI_ENUM_EVENTS, powercap_cid);
     }
 
     // Read dataset
@@ -179,14 +207,14 @@ int main(int argc, char *argv[]) {
     // Allocate memory on GPU
     void *d_data, *d_compressed, *d_decompressed;
     size_t data_size = num_elements * (comp_data_type == 0 ? sizeof(float) : sizeof(double));
-    cudaMalloc(&d_data, data_size);
-    cudaMalloc(&d_compressed, data_size);
-    cudaMalloc(&d_decompressed, data_size);
-    cudaMemcpy(d_data, data, data_size, cudaMemcpyHostToDevice);
+    CHECK_CUDA(cudaMalloc(&d_data, data_size));
+    CHECK_CUDA(cudaMalloc(&d_compressed, data_size));
+    CHECK_CUDA(cudaMalloc(&d_decompressed, data_size));
+    CHECK_CUDA(cudaMemcpy(d_data, data, data_size, cudaMemcpyHostToDevice));
 
     // Prepare for compression
     cudaStream_t stream;
-    cudaStreamCreate(&stream);
+    CHECK_CUDA(cudaStreamCreate(&stream));
 
     // Metrics arrays
     double compression_times[MAX_ITERATIONS];
@@ -202,7 +230,10 @@ int main(int argc, char *argv[]) {
         
         // Start CPU and GPU energy measurement for compression
         unsigned long long gpu_energy_start, gpu_energy_end;
-        CHECK_PAPI(PAPI_start(EventSet));
+        if (PAPI_start(EventSet) != PAPI_OK) {
+            fprintf(stderr, "PAPI: Failed to start EventSet\n");
+            exit(1);
+        }
         CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_start));
 
         double start_time = get_time();
@@ -211,11 +242,14 @@ int main(int argc, char *argv[]) {
         } else {
             SZp_compress_deviceptr_f64((double *)d_data, (unsigned char *)d_compressed, num_elements, &compressed_size, error_bound, stream);
         }
-        cudaStreamSynchronize(stream);
+        CHECK_CUDA(cudaStreamSynchronize(stream));
         double end_time = get_time();
         
         CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_end));
-        CHECK_PAPI(PAPI_stop(EventSet, values));
+        if (PAPI_stop(EventSet, values) != PAPI_OK) {
+            fprintf(stderr, "PAPI: Failed to stop EventSet\n");
+            exit(1);
+        }
 
         compression_times[iteration] = end_time - start_time;
         metrics[iteration].gpu_comp_energy = gpu_energy_end - gpu_energy_start;
@@ -230,20 +264,26 @@ int main(int argc, char *argv[]) {
 
         // Decompression
         // Start CPU and GPU energy measurement for decompression
-        CHECK_PAPI(PAPI_start(EventSet));
+        if (PAPI_start(EventSet) != PAPI_OK) {
+            fprintf(stderr, "PAPI: Failed to start EventSet\n");
+            exit(1);
+        }
         CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_start));
 
         start_time = get_time();
-        if (data_type == 0) {
+        if (comp_data_type == 0) {
             SZp_decompress_deviceptr_f32((float *)d_decompressed, (unsigned char *)d_compressed, num_elements, compressed_size, error_bound, stream);
         } else {
             SZp_decompress_deviceptr_f64((double *)d_decompressed, (unsigned char *)d_compressed, num_elements, compressed_size, error_bound, stream);
         }
-        cudaStreamSynchronize(stream);
+        CHECK_CUDA(cudaStreamSynchronize(stream));
         end_time = get_time();
 
         CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_end));
-        CHECK_PAPI(PAPI_stop(EventSet, values));
+        if (PAPI_stop(EventSet, values) != PAPI_OK) {
+            fprintf(stderr, "PAPI: Failed to stop EventSet\n");
+            exit(1);
+        }
 
         decompression_times[iteration] = end_time - start_time;
         metrics[iteration].gpu_decomp_energy = gpu_energy_end - gpu_energy_start;
@@ -258,7 +298,7 @@ int main(int argc, char *argv[]) {
 
         // Calculate metrics
         void *h_decompressed = malloc(data_size);
-        cudaMemcpy(h_decompressed, d_decompressed, data_size, cudaMemcpyDeviceToHost);
+        CHECK_CUDA(cudaMemcpy(h_decompressed, d_decompressed, data_size, cudaMemcpyDeviceToHost));
 
         calculate_error_metrics(data, h_decompressed, num_elements, comp_data_type, &metrics[iteration]);
 
@@ -270,7 +310,6 @@ int main(int argc, char *argv[]) {
         metrics[iteration].compressed_size = compressed_size;
 
         free(h_decompressed);
-
         // Write metrics to CSV file
         FILE *csv_file = fopen("cuszip_compression_metrics.csv", "a");
         if (csv_file == NULL) {
@@ -306,15 +345,22 @@ int main(int argc, char *argv[]) {
         }
     }
         
+    // Clean up
     free(data);
-    cudaFree(d_data);
-    cudaFree(d_compressed);
-    cudaFree(d_decompressed);
-    cudaStreamDestroy(stream);
-    nvmlShutdown();
-    PAPI_cleanup_eventset(EventSet);
-    PAPI_destroy_eventset(&EventSet);
+    CHECK_CUDA(cudaFree(d_data));
+    CHECK_CUDA(cudaFree(d_compressed));
+    CHECK_CUDA(cudaFree(d_decompressed));
+    CHECK_CUDA(cudaStreamDestroy(stream));
+    CHECK_NVML(nvmlShutdown());
+
+    // PAPI cleanup
+    if (PAPI_cleanup_eventset(EventSet) != PAPI_OK) {
+        fprintf(stderr, "PAPI: Failed to cleanup EventSet\n");
+    }
+    if (PAPI_destroy_eventset(&EventSet) != PAPI_OK) {
+        fprintf(stderr, "PAPI: Failed to destroy EventSet\n");
+    }
     PAPI_shutdown();
 
+    return 0;
 }
-
