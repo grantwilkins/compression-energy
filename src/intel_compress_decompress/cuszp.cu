@@ -124,10 +124,24 @@ int main(int argc, char *argv[]) {
     // Initialize CUDA
     CHECK_CUDA(cudaSetDevice(0));
 
-    // Initialize NVML
-    CHECK_NVML(nvmlInit());
+    nvmlReturn_t nvml_result = nvmlInit();
+    if (nvml_result != NVML_SUCCESS) {
+        fprintf(stderr, "Failed to initialize NVML: %s\n", nvmlErrorString(nvml_result));
+        // Continue execution, but GPU energy measurements will be disabled
+    }
+
     nvmlDevice_t device;
-    CHECK_NVML(nvmlDeviceGetHandleByIndex(0, &device));
+    unsigned int device_count;
+    if (nvmlDeviceGetCount(&device_count) == NVML_SUCCESS && device_count > 0) {
+        nvml_result = nvmlDeviceGetHandleByIndex(0, &device);
+        if (nvml_result != NVML_SUCCESS) {
+            fprintf(stderr, "Failed to get device handle: %s\n", nvmlErrorString(nvml_result));
+            // Continue execution, but GPU energy measurements will be disabled
+        }
+    } else {
+        fprintf(stderr, "No NVIDIA devices found or failed to get device count\n");
+        // Continue execution, but GPU energy measurements will be disabled
+    }
 
     // Initialize PAPI
     int EventSet = PAPI_NULL;
@@ -229,12 +243,14 @@ int main(int argc, char *argv[]) {
         size_t compressed_size;
         
         // Start CPU and GPU energy measurement for compression
-        unsigned long long gpu_energy_start, gpu_energy_end;
+        unsigned long long gpu_energy_start = 0, gpu_energy_end = 0;
         if (PAPI_start(EventSet) != PAPI_OK) {
             fprintf(stderr, "PAPI: Failed to start EventSet\n");
             exit(1);
         }
-        CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_start));
+        if (nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_start) != NVML_SUCCESS) {
+            fprintf(stderr, "Failed to get initial GPU energy consumption\n");
+        }
 
         double start_time = get_time();
         if (comp_data_type == 0) {
@@ -245,14 +261,16 @@ int main(int argc, char *argv[]) {
         CHECK_CUDA(cudaStreamSynchronize(stream));
         double end_time = get_time();
         
-        CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_end));
+        if (nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_end) != NVML_SUCCESS) {
+            fprintf(stderr, "Failed to get initial GPU energy consumption\n");
+        }
         if (PAPI_stop(EventSet, values) != PAPI_OK) {
             fprintf(stderr, "PAPI: Failed to stop EventSet\n");
             exit(1);
         }
 
         compression_times[iteration] = end_time - start_time;
-        metrics[iteration].gpu_comp_energy = gpu_energy_end - gpu_energy_start;
+        metrics[iteration].gpu_comp_energy =(gpu_energy_end > gpu_energy_start) ? (gpu_energy_end - gpu_energy_start) : 0;
 
         // Calculate CPU energy for compression
         metrics[iteration].cpu_comp_energy = 0.0;
@@ -268,7 +286,9 @@ int main(int argc, char *argv[]) {
             fprintf(stderr, "PAPI: Failed to start EventSet\n");
             exit(1);
         }
-        CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_start));
+         if (nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_start) != NVML_SUCCESS) {
+            fprintf(stderr, "Failed to get initial GPU energy consumption\n");
+        }
 
         start_time = get_time();
         if (comp_data_type == 0) {
@@ -279,14 +299,16 @@ int main(int argc, char *argv[]) {
         CHECK_CUDA(cudaStreamSynchronize(stream));
         end_time = get_time();
 
-        CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_end));
+        if (nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_end) != NVML_SUCCESS) {
+            fprintf(stderr, "Failed to get final GPU energy consumption\n");
+        }
         if (PAPI_stop(EventSet, values) != PAPI_OK) {
             fprintf(stderr, "PAPI: Failed to stop EventSet\n");
             exit(1);
         }
 
         decompression_times[iteration] = end_time - start_time;
-        metrics[iteration].gpu_decomp_energy = gpu_energy_end - gpu_energy_start;
+        metrics[iteration].gpu_decomp_energy = (gpu_energy_end > gpu_energy_start) ? (gpu_energy_end - gpu_energy_start) : 0;
 
         // Calculate CPU energy for decompression
         metrics[iteration].cpu_decomp_energy = 0.0;
@@ -311,12 +333,15 @@ int main(int argc, char *argv[]) {
 
         free(h_decompressed);
         // Write metrics to CSV file
-        FILE *csv_file = fopen("cuszip_compression_metrics.csv", "a");
+        FILE *csv_file = fopen("cuszp_compression_metrics.csv", "a");
         if (csv_file == NULL) {
             fprintf(stderr, "Error opening CSV file\n");
         } else {
-            fprintf(csv_file, "cuSZp,%s,%s,%e,%d,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%lu,%f,%f,%lu,%lu\n",
-                    dataset_file, error_mode, error_bound, iteration,
+            fprintf(csv_file, "cuSZp,%s,%s,%e,%d,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%lu,%e,%e,%lu,%lu\n",
+                    dataset_file,
+                    error_mode,
+                    error_bound,
+                    iteration,
                     metrics[iteration].compression_time,
                     metrics[iteration].decompression_time,
                     metrics[iteration].compression_throughput,
