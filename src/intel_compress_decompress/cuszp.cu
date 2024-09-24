@@ -117,8 +117,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    const char *dataset_file = argv[1];
-    const char *error_mode = argv[2];
+    char *dataset_file = argv[1];
+    char *error_mode = argv[2];
     double error_bound = atof(argv[3]);
 
     // Initialize CUDA
@@ -158,14 +158,14 @@ int main(int argc, char *argv[]) {
     size_t num_elements;
     int status = 0;
     void *data = NULL;
-    int data_type;
+    int comp_data_type;
 
     if (strstr(dataset_file, "nyx") != NULL || strstr(dataset_file, "hacc") != NULL || strstr(dataset_file, "miranda") != NULL) {
         data = (void *)readFloatData_Yafan(dataset_file, &num_elements, &status);
-        data_type = 0; // float
+        comp_data_type = 0; // float
     } else if (strstr(dataset_file, "s3d") != NULL) {
         data = (void *)readDoubleData_Yafan(dataset_file, &num_elements, &status);
-        data_type = 1; // double
+        comp_data_type = 1; // double
     } else {
         fprintf(stderr, "Unknown dataset %s\n", dataset_file);
         return 1;
@@ -178,7 +178,7 @@ int main(int argc, char *argv[]) {
 
     // Allocate memory on GPU
     void *d_data, *d_compressed, *d_decompressed;
-    size_t data_size = num_elements * (data_type == 0 ? sizeof(float) : sizeof(double));
+    size_t data_size = num_elements * (comp_data_type == 0 ? sizeof(float) : sizeof(double));
     cudaMalloc(&d_data, data_size);
     cudaMalloc(&d_compressed, data_size);
     cudaMalloc(&d_decompressed, data_size);
@@ -206,7 +206,7 @@ int main(int argc, char *argv[]) {
         CHECK_NVML(nvmlDeviceGetTotalEnergyConsumption(device, &gpu_energy_start));
 
         double start_time = get_time();
-        if (data_type == 0) {
+        if (comp_data_type == 0) {
             SZp_compress_deviceptr_f32((float *)d_data, (unsigned char *)d_compressed, num_elements, &compressed_size, error_bound, stream);
         } else {
             SZp_compress_deviceptr_f64((double *)d_data, (unsigned char *)d_compressed, num_elements, &compressed_size, error_bound, stream);
@@ -260,7 +260,7 @@ int main(int argc, char *argv[]) {
         void *h_decompressed = malloc(data_size);
         cudaMemcpy(h_decompressed, d_decompressed, data_size, cudaMemcpyDeviceToHost);
 
-        calculate_error_metrics(data, h_decompressed, num_elements, data_type, &metrics[iteration]);
+        calculate_error_metrics(data, h_decompressed, num_elements, comp_data_type, &metrics[iteration]);
 
         metrics[iteration].compression_time = compression_times[iteration];
         metrics[iteration].decompression_time = decompression_times[iteration];
