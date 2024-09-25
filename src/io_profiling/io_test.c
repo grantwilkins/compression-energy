@@ -223,6 +223,7 @@ int main(int argc, char *argv[]) {
 
   struct pressio_data *compressed_data = NULL;
   void *compressed_ptr = NULL;
+  size_t data_size = pressio_data_get_bytes(input_data);
   size_t compressed_size = 0;
 
   if (compressor) {
