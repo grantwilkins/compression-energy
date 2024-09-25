@@ -1,0 +1,1590 @@
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/s3d/stat_planar.1.1000E-03.field.d64_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/cesm/V_1_26_1800_3600.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 660 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: H5F.c line 614 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: H5VLcallback.c line 3605 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: H5VLcallback.c line 3571 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: H5Fint.c line 1852 in H5F_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', tent_flags = 13
+    major: File accessibility
+    minor: Unable to open file
+  #006: H5FD.c line 769 in H5FD_open(): open failed
+    major: Virtual File Layer
+    minor: Unable to initialize object
+  #007: H5FDsec2.c line 326 in H5FD__sec2_open(): unable to open file: name = '/work2/10191/gfw/stampede3/compressed/hacc/vx.f32_uncompressed_0.h5', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 187 in H5Dcreate2(): unable to synchronously create dataset
+    major: Dataset
+    minor: Unable to create file
+  #001: H5D.c line 111 in H5D__create_api_common(): can't set object access arguments
+    major: Dataset
+    minor: Can't set value
+  #002: H5VLint.c line 2602 in H5VL_setup_acc_args(): invalid location identifier
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+  #003: H5VLint.c line 1741 in H5VL_vol_object(): invalid identifier type to function
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 1371 in H5Dwrite(): can't synchronously write data
+    major: Dataset
+    minor: Write failed
+  #001: H5D.c line 1286 in H5D__write_api_common(): dset_id is not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5D.c line 475 in H5Dclose(): not a dataset ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.14.3) thread 0:
+  #000: H5F.c line 1054 in H5Fclose(): not a file ID
+    major: Invalid arguments to routine
+    minor: Inappropriate type
