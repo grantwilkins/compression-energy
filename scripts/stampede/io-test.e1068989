@@ -1,0 +1,6 @@
+/var/spool/slurmd/job1068989/slurm_script: line 39: 1102441 Floating point exception(core dumped) ./io_test $c $d $eb
+/var/spool/slurmd/job1068989/slurm_script: line 39: 1102458 Floating point exception(core dumped) ./io_test $c $d $eb
+/var/spool/slurmd/job1068989/slurm_script: line 39: 1102477 Floating point exception(core dumped) ./io_test $c $d $eb
+/var/spool/slurmd/job1068989/slurm_script: line 39: 1102562 Floating point exception(core dumped) ./io_test $c $d $eb
+/var/spool/slurmd/job1068989/slurm_script: line 39: 1102583 Floating point exception(core dumped) ./io_test $c $d $eb
+/var/spool/slurmd/job1068989/slurm_script: line 39: 1102601 Floating point exception(core dumped) ./io_test $c $d $eb

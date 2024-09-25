@@ -16,11 +16,19 @@ datasets=(
 )
 
 compressors=(
-    None
+    sz
+    sz3
+    qoz
+    zfp
 )
 
 error_bounds=(
-    0.0
+    0.1
+    0.01
+    0.001
+    0.0001
+    0.00001
+    0.000001
 )
 
 cd $HOME/compression-energy/src/io_profiling
