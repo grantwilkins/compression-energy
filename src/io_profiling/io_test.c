@@ -91,6 +91,12 @@ void perform_io(const char *method, const void *data, size_t data_size,
   }
 }
 
+void delete_file(const char *filename) {
+  if (remove(filename) != 0) {
+    fprintf(stderr, "Failed to delete file %s\n", filename);
+  }
+}
+
 int main(int argc, char *argv[]) {
   if (argc != 4) {
     fprintf(stderr, "Usage: %s <compressor> <dataset_file> <error_bound>\n",
@@ -276,6 +282,7 @@ int main(int argc, char *argv[]) {
       perform_io(methods[i], compressed_ptr, compressed_size, output_file);
       assert(PAPI_stop(EventSet, values) == PAPI_OK);
       end_time = get_time();
+      delete_file(output_file);
 
       cpu_energy_compression = 0.0;
       dram_energy_compression = 0.0;
