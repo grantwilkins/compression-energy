@@ -1,0 +1,123 @@
+icx: warning: Use of '-qopenmp' recommended over '-fopenmp' [-Wrecommended-option]
+icx: remark: Note that use of '-g' without any optimization-level option will turn off most compiler optimizations similar to use of '-O0'; use '-Rno-debug-disables-optimization' to disable this remark [-Rdebug-disables-optimization]
+io_test.c:282:17: warning: format specifies type 'double' but the argument has type 'const char *' [-Wformat]
+  281 |         fprintf(fp, "%s,%s,%g,%d,%e,%e\n", methods[i], dataset_file,
+      |                            ~~
+      |                            %s
+  282 |                 compressor_id, relative_error_bound, iter,
+      |                 ^~~~~~~~~~~~~
+io_test.c:282:32: warning: format specifies type 'int' but the argument has type 'double' [-Wformat]
+  281 |         fprintf(fp, "%s,%s,%g,%d,%e,%e\n", methods[i], dataset_file,
+      |                               ~~
+      |                               %f
+  282 |                 compressor_id, relative_error_bound, iter,
+      |                                ^~~~~~~~~~~~~~~~~~~~
+io_test.c:282:54: warning: format specifies type 'double' but the argument has type 'int' [-Wformat]
+  281 |         fprintf(fp, "%s,%s,%g,%d,%e,%e\n", methods[i], dataset_file,
+      |                                  ~~
+      |                                  %d
+  282 |                 compressor_id, relative_error_bound, iter,
+      |                                                      ^~~~
+io_test.c:283:40: warning: data argument not used by format string [-Wformat-extra-args]
+  281 |         fprintf(fp, "%s,%s,%g,%d,%e,%e\n", methods[i], dataset_file,
+      |                     ~~~~~~~~~~~~~~~~~~~~~
+  282 |                 compressor_id, relative_error_bound, iter,
+  283 |                 end_time - start_time, cpu_energy_compression);
+      |                                        ^
+4 warnings generated.
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>
+Usage: ./io_test <compressor> <dataset_file> <error_bound>

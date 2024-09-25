@@ -278,7 +278,7 @@ int main(int argc, char *argv[]) {
         }
       }
       if (fp) {
-        fprintf(fp, "%s,%s,%g,%d,%e,%e\n", methods[i], dataset_file,
+        fprintf(fp, "%s,%s,%s,%f,%d,%e,%e\n", methods[i], dataset_file,
                 compressor_id, relative_error_bound, iter,
                 end_time - start_time, cpu_energy_compression);
       } else {

@@ -34,10 +34,10 @@ error_bounds=(
 cd $HOME/compression-energy/src/io_profiling
 make
 CORES=(1 2 4 8 16 32 64)
-for i in ${datasets[@]}; do
+for d in ${datasets[@]}; do
 for eb in ${error_bounds[@]}; do
 for c in ${compressors[@]}; do
-    mpirun -np 1 ./io_test $c $d $eb
+	./io_test $c $d $eb
 done
 done
 done
