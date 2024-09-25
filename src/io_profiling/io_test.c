@@ -143,13 +143,16 @@ int main(int argc, char *argv[]) {
 
   // LibPressio initialization
   struct pressio *library = pressio_instance();
-  struct pressio_compressor *compressor =
-      pressio_get_compressor(library, compressor_id);
-  if (compressor == NULL) {
-    fprintf(stderr, "Failed to get compressor %s: %s\n", compressor_id,
-            pressio_error_msg(library));
-    pressio_release(library);
-    return 1;
+  struct pressio_compressor *compressor = NULL;
+  pressio_get_compressor(library, compressor_id);
+  if (strcmp(compressor_id, "None") != 0) {
+    compressor = pressio_get_compressor(library, compressor_id);
+    if (compressor == NULL) {
+      fprintf(stderr, "Failed to get compressor %s: %s\n", compressor_id,
+              pressio_error_msg(library));
+      pressio_release(library);
+      return 1;
+    }
   }
 
   size_t ndims;
@@ -186,7 +189,8 @@ int main(int argc, char *argv[]) {
   input_data = pressio_io_data_path_read(metadata, full_path);
   if (input_data == NULL) {
     fprintf(stderr, "Failed to read dataset %s\n", dataset_file);
-    pressio_compressor_release(compressor);
+    if (compressor)
+      pressio_compressor_release(compressor);
     pressio_release(library);
     return 1;
   }
@@ -217,28 +221,39 @@ int main(int argc, char *argv[]) {
   data_range = data_max - data_min;
   double absolute_error_bound = relative_error_bound * data_range;
 
-  // Configure compressor
-  struct pressio_options *options = pressio_options_new();
-  pressio_options_set_double(options, "pressio:abs", absolute_error_bound);
-  if (pressio_compressor_set_options(compressor, options)) {
-    fprintf(stderr, "Failed to set compressor options: %s\n",
-            pressio_compressor_error_msg(compressor));
-    return 1;
-  }
-  pressio_options_free(options);
+  void *data_ptr = pressio_data_ptr(input_data, NULL);
+  size_t data_size = pressio_data_get_bytes(input_data);
+  pressio_dtype dtype = pressio_data_dtype(input_data);
 
-  // Compress data
-  struct pressio_data *compressed_data =
-      pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
-  if (pressio_compressor_compress(compressor, input_data, compressed_data)) {
-    fprintf(stderr, "Compression failed: %s\n",
-            pressio_compressor_error_msg(compressor));
-    return 1;
-  }
+  struct pressio_data *compressed_data = NULL;
+  void *compressed_ptr = NULL;
+  size_t compressed_size = 0;
 
-  // Get compressed data pointer and size
-  void *compressed_ptr = pressio_data_ptr(compressed_data, NULL);
-  size_t compressed_size = pressio_data_get_bytes(compressed_data);
+  if (compressor) {
+    // Configure compressor
+    struct pressio_options *options = pressio_options_new();
+    pressio_options_set_double(options, "pressio:abs", absolute_error_bound);
+    if (pressio_compressor_set_options(compressor, options)) {
+      fprintf(stderr, "Failed to set compressor options: %s\n",
+              pressio_compressor_error_msg(compressor));
+      return 1;
+    }
+    pressio_options_free(options);
+
+    // Compress data
+    compressed_data = pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+    if (pressio_compressor_compress(compressor, input_data, compressed_data)) {
+      fprintf(stderr, "Compression failed: %s\n",
+              pressio_compressor_error_msg(compressor));
+      return 1;
+    }
+
+    compressed_ptr = pressio_data_ptr(compressed_data, NULL);
+    compressed_size = pressio_data_get_bytes(compressed_data);
+  } else {
+    compressed_ptr = data_ptr;
+    compressed_size = data_size;
+  }
 
   // Perform I/O operations
   const char *methods[] = {"hdf5", "netcdf"};
@@ -250,20 +265,25 @@ int main(int argc, char *argv[]) {
   // MPI_Comm_rank(MPI_COMM_WORLD, &mpi_rank);
   // MPI_Comm_size(MPI_COMM_WORLD, &mpi_size);
 
+  const char *methods[] = {"hdf5", "netcdf"};
+  int num_methods = sizeof(methods) / sizeof(methods[0]);
+
   char output_file[256];
   double start_time, end_time;
   double cpu_energy_compression = 0.0, dram_energy_compression = 0.0;
   FILE *fp = fopen("io_results.csv", "a");
   for (int i = 0; i < num_methods; i++) {
     snprintf(output_file, sizeof(output_file), "%s%s_%s_%g.%s", output_dir,
-             dataset_file, compressor_id, relative_error_bound,
-             (strstr(methods[i], "hdf5") ? "h5" : "nc"));
+             dataset_file, compressor ? compressor_id : "uncompressed",
+             relative_error_bound, (strstr(methods[i], "hdf5") ? "h5" : "nc"));
     for (int iter = 0; iter < MAX_ITERATIONS; iter++) {
       start_time = get_time();
       assert(PAPI_start(EventSet) == PAPI_OK);
-      perform_io(methods[i], compressed_ptr, compressed_size, output_file);
+      perform_io(methods[i], compressed_ptr, compressed_size, output_file,
+                 compressor ? pressio_byte_dtype : dtype);
       assert(PAPI_stop(EventSet, values) == PAPI_OK);
       end_time = get_time();
+
       cpu_energy_compression = 0.0;
       dram_energy_compression = 0.0;
       for (int d = 0; d < num_events; d++) {
@@ -279,8 +299,9 @@ int main(int argc, char *argv[]) {
       }
       if (fp) {
         fprintf(fp, "%s,%s,%s,%f,%d,%e,%e\n", methods[i], dataset_file,
-                compressor_id, relative_error_bound, iter,
-                end_time - start_time, cpu_energy_compression);
+                compressor ? compressor_id : "uncompressed",
+                relative_error_bound, iter, end_time - start_time,
+                cpu_energy_compression);
       } else {
         fprintf(stderr, "Failed to open file io_results.csv\n");
       }
@@ -290,8 +311,10 @@ int main(int argc, char *argv[]) {
 
   // Clean up
   pressio_data_free(input_data);
-  pressio_data_free(compressed_data);
-  pressio_compressor_release(compressor);
+  if (compressed_data)
+    pressio_data_free(compressed_data);
+  if (compressor)
+    pressio_compressor_release(compressor);
   pressio_release(library);
   free(values);
   // MPI_Finalize();
