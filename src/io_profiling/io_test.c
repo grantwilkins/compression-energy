@@ -221,10 +221,6 @@ int main(int argc, char *argv[]) {
   data_range = data_max - data_min;
   double absolute_error_bound = relative_error_bound * data_range;
 
-  void *data_ptr = pressio_data_ptr(input_data, NULL);
-  size_t data_size = pressio_data_get_bytes(input_data);
-  pressio_dtype dtype = pressio_data_dtype(input_data);
-
   struct pressio_data *compressed_data = NULL;
   void *compressed_ptr = NULL;
   size_t compressed_size = 0;
@@ -265,9 +261,6 @@ int main(int argc, char *argv[]) {
   // MPI_Comm_rank(MPI_COMM_WORLD, &mpi_rank);
   // MPI_Comm_size(MPI_COMM_WORLD, &mpi_size);
 
-  const char *methods[] = {"hdf5", "netcdf"};
-  int num_methods = sizeof(methods) / sizeof(methods[0]);
-
   char output_file[256];
   double start_time, end_time;
   double cpu_energy_compression = 0.0, dram_energy_compression = 0.0;
@@ -279,8 +272,7 @@ int main(int argc, char *argv[]) {
     for (int iter = 0; iter < MAX_ITERATIONS; iter++) {
       start_time = get_time();
       assert(PAPI_start(EventSet) == PAPI_OK);
-      perform_io(methods[i], compressed_ptr, compressed_size, output_file,
-                 compressor ? pressio_byte_dtype : dtype);
+      perform_io(methods[i], compressed_ptr, compressed_size, output_file);
       assert(PAPI_stop(EventSet, values) == PAPI_OK);
       end_time = get_time();
 
