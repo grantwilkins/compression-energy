@@ -30,9 +30,9 @@ df = df.fillna(0)
 
 df["REL Error Bound"] = df["REL Error Bound"].apply(lambda x: f"{x:.0E}")
 df["Dataset"] = df["Dataset"].apply(lambda x: x.upper())
-df["I/O Method"] = df["I/O Method"].apply(lambda x: x.upper())
 df = df[df["REL Error Bound"] != "1E-06"]
 
+plt.figure(figsize=(10, 6))
 sns.set(style="whitegrid", context="talk", font_scale=1.5, font="Times New Roman")
 
 sns.catplot(
@@ -40,8 +40,9 @@ sns.catplot(
     x="REL Error Bound",
     y="I/O Energy (J)",
     hue="Compressor",
-    col="I/O Method",
-    row="Dataset",
+    row="I/O Method",
+    col="Dataset",
+    hue_order=["SZ2", "SZ3", "ZFP", "QoZ"],
     sharey=False,
     data=df,
 )
