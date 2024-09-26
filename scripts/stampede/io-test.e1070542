@@ -1,0 +1,8 @@
+icx: warning: Use of '-qopenmp' recommended over '-fopenmp' [-Wrecommended-option]
+icx: remark: Note that use of '-g' without any optimization-level option will turn off most compiler optimizations similar to use of '-O0'; use '-Rno-debug-disables-optimization' to disable this remark [-Rdebug-disables-optimization]
+/var/spool/slurmd/job1070542/slurm_script: line 39: 1612196 Floating point exception(core dumped) ./io_test $c $d $eb
+/var/spool/slurmd/job1070542/slurm_script: line 39: 1612211 Floating point exception(core dumped) ./io_test $c $d $eb
+/var/spool/slurmd/job1070542/slurm_script: line 39: 1612229 Floating point exception(core dumped) ./io_test $c $d $eb
+/var/spool/slurmd/job1070542/slurm_script: line 39: 1612249 Floating point exception(core dumped) ./io_test $c $d $eb
+/var/spool/slurmd/job1070542/slurm_script: line 39: 1612332 Floating point exception(core dumped) ./io_test $c $d $eb
+/var/spool/slurmd/job1070542/slurm_script: line 39: 1612355 Floating point exception(core dumped) ./io_test $c $d $eb
