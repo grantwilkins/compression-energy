@@ -1,4 +1,4 @@
-I/O Method,Dataset,Field,Compressor,REL Error Bound,Iteration,Runtime (s),I/O Energy (J)
+I/O Method,Dataset,Field,Compressor,REL Error Bound,Iteration,Runtime (s),I/O Energy (J),Cluster,Chip,File System
 hdf5,nyx,temperature.f32,SZ2,0.100000,0,1.367918e-02,2.440545e+00
 hdf5,nyx,temperature.f32,SZ2,0.100000,1,2.416290e-03,4.439080e-01
 hdf5,nyx,temperature.f32,SZ2,0.100000,2,2.316913e-03,4.624620e-01
