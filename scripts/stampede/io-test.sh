@@ -3,7 +3,7 @@
 #SBATCH -J io-test          # Job name
 #SBATCH -o io-test.o%j       # Name of stdout output file
 #SBATCH -e io-test.e%j       # Name of stderr error file
-#SBATCH -p spr             # Queue (partition) name
+#SBATCH -p skx             # Queue (partition) name
 #SBATCH -N 1               # Total # of nodes 
 #SBATCH -n 1             # Total # of mpi tasks
 #SBATCH -t 6:00:00        # Run time (hh:mm:ss)
@@ -20,6 +20,7 @@ compressors=(
     sz3
     qoz
     zfp
+    None
 )
 
 error_bounds=(
