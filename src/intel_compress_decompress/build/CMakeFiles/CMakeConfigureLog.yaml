@@ -854,3 +854,70 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/apps/cmake/3.28.1/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/opt/apps/cmake/3.28.1/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/opt/apps/cmake/3.28.1/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "CMakeLists.txt:27 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-Gslrvu"
+      binary: "/home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-Gslrvu"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-Gslrvu'
+        
+        Run Build Command(s): /opt/apps/cmake/3.28.1/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_d9705/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_d9705.dir/build.make CMakeFiles/cmTC_d9705.dir/build
+        gmake[1]: Entering directory '/home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-Gslrvu'
+        Building CXX object CMakeFiles/cmTC_d9705.dir/test_mpi.cpp.o
+        /opt/apps/gcc/13.2.0/bin/c++  -isystem /opt/intel/oneapi/mpi/2021.11/include  -o CMakeFiles/cmTC_d9705.dir/test_mpi.cpp.o -c /home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-Gslrvu/test_mpi.cpp
+        Linking CXX executable cmTC_d9705
+        /opt/apps/cmake/3.28.1/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9705.dir/link.txt --verbose=1
+        /opt/apps/gcc/13.2.0/bin/c++ -Xlinker --enable-new-dtags -Xlinker -rpath -Xlinker /opt/intel/oneapi/mpi/2021.11/lib -Xlinker -rpath -Xlinker /opt/intel/oneapi/mpi/2021.11/lib -Xlinker --enable-new-dtags CMakeFiles/cmTC_d9705.dir/test_mpi.cpp.o -o cmTC_d9705  /opt/intel/oneapi/mpi/2021.11/lib/libmpicxx.so /opt/intel/oneapi/mpi/2021.11/lib/libmpi.so /lib64/librt.a /lib64/libpthread.a /lib64/libdl.a 
+        gmake[1]: Leaving directory '/home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-Gslrvu'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/apps/cmake/3.28.1/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/opt/apps/cmake/3.28.1/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "CMakeLists.txt:27 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-izciAU"
+      binary: "/home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-izciAU"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-izciAU'
+        
+        Run Build Command(s): /opt/apps/cmake/3.28.1/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_43a25/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_43a25.dir/build.make CMakeFiles/cmTC_43a25.dir/build
+        gmake[1]: Entering directory '/home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-izciAU'
+        Building CXX object CMakeFiles/cmTC_43a25.dir/test_mpi.cpp.o
+        /opt/apps/gcc/13.2.0/bin/c++  -isystem /opt/intel/oneapi/mpi/2021.11/include  -o CMakeFiles/cmTC_43a25.dir/test_mpi.cpp.o -c /home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-izciAU/test_mpi.cpp
+        Linking CXX executable cmTC_43a25
+        /opt/apps/cmake/3.28.1/bin/cmake -E cmake_link_script CMakeFiles/cmTC_43a25.dir/link.txt --verbose=1
+        /opt/apps/gcc/13.2.0/bin/c++ -Xlinker --enable-new-dtags -Xlinker -rpath -Xlinker /opt/intel/oneapi/mpi/2021.11/lib -Xlinker -rpath -Xlinker /opt/intel/oneapi/mpi/2021.11/lib -Xlinker --enable-new-dtags CMakeFiles/cmTC_43a25.dir/test_mpi.cpp.o -o cmTC_43a25  /opt/intel/oneapi/mpi/2021.11/lib/libmpicxx.so /opt/intel/oneapi/mpi/2021.11/lib/libmpi.so /lib64/librt.a /lib64/libpthread.a /lib64/libdl.a 
+        gmake[1]: Leaving directory '/home1/10191/gfw/compression-energy/src/intel_compress_decompress/build/CMakeFiles/CMakeScratch/TryCompile-izciAU'
+        
+      exitCode: 0
+...
