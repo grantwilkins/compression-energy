@@ -80,7 +80,7 @@ void perform_io(const char *method, const void *data, size_t data_size,
   else if (strcmp(method, "netcdf") == 0) {
     int ncid, varid, dimid;
 
-    nc_create(output_file, NC_CLOBBER, &ncid);
+    nc_create(output_file, NC_NETCDF4 | NC_CLOBBER, &ncid);
     nc_def_dim(ncid, "size", data_size, &dimid);
     nc_def_var(ncid, "data", NC_BYTE, 1, &dimid, &varid);
     nc_enddef(ncid);

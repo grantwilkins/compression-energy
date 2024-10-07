@@ -1,0 +1,24 @@
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+/var/spool/slurmd/job1100826/slurm_script: line 39: 2000607 Floating point exception(core dumped) ./io_test $c $d $eb
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+/var/spool/slurmd/job1100826/slurm_script: line 39: 2000623 Floating point exception(core dumped) ./io_test $c $d $eb
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+/var/spool/slurmd/job1100826/slurm_script: line 39: 2000712 Floating point exception(core dumped) ./io_test $c $d $eb
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+/var/spool/slurmd/job1100826/slurm_script: line 39: 2000731 Floating point exception(core dumped) ./io_test $c $d $eb
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+/var/spool/slurmd/job1100826/slurm_script: line 39: 2000750 Floating point exception(core dumped) ./io_test $c $d $eb
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+/var/spool/slurmd/job1100826/slurm_script: line 39: 2000838 Floating point exception(core dumped) ./io_test $c $d $eb
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+slurmstepd: error: _get_joules_task: can't get info from slurmd

@@ -3,7 +3,7 @@
 #SBATCH -J mgard-serial           # Job name
 #SBATCH -o mgard-serial.o%j       # Name of stdout output file
 #SBATCH -e mgard-serial.e%j       # Name of stderr error file
-#SBATCH -p skx             # Queue (partition) name
+#SBATCH -p icx             # Queue (partition) name
 #SBATCH -N 1               # Total # of nodes 
 #SBATCH -n 1             # Total # of mpi tasks
 #SBATCH -t 6:00:00        # Run time (hh:mm:ss)

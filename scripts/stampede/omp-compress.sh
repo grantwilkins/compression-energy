@@ -3,7 +3,7 @@
 #SBATCH -J omp-compress           # Job name
 #SBATCH -o omp-compress.o%j       # Name of stdout output file
 #SBATCH -e omp-compress.e%j       # Name of stderr error file
-#SBATCH -p skx             # Queue (partition) name
+#SBATCH -p icx             # Queue (partition) name
 #SBATCH -N 1               # Total # of nodes 
 #SBATCH -n 1             # Total # of mpi tasks
 #SBATCH -t 12:00:00        # Run time (hh:mm:ss)
