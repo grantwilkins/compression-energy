@@ -89,6 +89,8 @@ int main(int argc, char **argv) {
   const char *compressor_id = argv[1];
   const char *dataset_file = argv[2];
   double error_bound = atof(argv[3]);
+  const char *datadir = "/work2/10191/gfw/stampede3/";
+  const char *output_dir = "/work2/10191/gfw/stampede3/compressed/";
 
   // Initialize PAPI
   int EventSet = PAPI_NULL;
@@ -141,12 +143,14 @@ int main(int argc, char **argv) {
   }
 
   // Read input data (only on rank 0 of each node)
+  char full_path[1024];
+  snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
   struct pressio_data *input_data = NULL;
   size_t data_size = 0;
   if (node_rank == 0) {
     struct pressio_data *metadata = pressio_data_new_empty(
         pressio_float_dtype, 3, (size_t[]){512, 512, 512});
-    input_data = pressio_io_data_path_read(metadata, dataset_file);
+    input_data = pressio_io_data_path_read(metadata, full_path);
     if (input_data == NULL) {
       fprintf(stderr, "Failed to read dataset %s\n", dataset_file);
       MPI_Abort(MPI_COMM_WORLD, 1);
@@ -223,9 +227,9 @@ int main(int argc, char **argv) {
       // Write compressed data to file
       char output_filename[256];
       snprintf(output_filename, sizeof(output_filename),
-               "%s_%s_%g_%d_%d_%s_%d.%s", dataset_file, compressor_id,
-               error_bound, rank, node_rank, io_methods[method], iteration,
-               (method == 0 ? "h5" : "nc"));
+               "%s/%s_%s_%g_%d_%d_%s_%d.%s", output_dir, dataset_file,
+               compressor_id, error_bound, rank, node_rank, io_methods[method],
+               iteration, (method == 0 ? "h5" : "nc"));
 
       if (method == 0) {
         write_to_hdf5(output_filename, pressio_data_ptr(compressed_data, NULL),
