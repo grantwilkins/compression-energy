@@ -5,6 +5,7 @@
 #include <mpi.h>
 #include <netcdf.h>
 #include <papi.h>
+#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,6 +14,18 @@
 
 #define MAX_POWERCAP_EVENTS 64
 #define NUM_ITERATIONS 10
+
+#ifndef NDEBUG
+#define PAPI_CHECK(PAPI_CMD, MSG)                                              \
+  do {                                                                         \
+    int retval = (PAPI_CMD);                                                   \
+    if ((retval) != PAPI_OK) {                                                 \
+      PAPI_perror(MSG);                                                        \
+    }                                                                          \
+  } while (0);
+#else /* NDEBUG */
+#define PAPI_CHECK(PAPI_CMD, MSG) (PAPI_CMD);
+#endif /* NDEBUG */
 
 // Function to get current time
 double get_time() {
@@ -99,9 +112,16 @@ int main(int argc, char **argv) {
   char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
   int data_type[MAX_POWERCAP_EVENTS];
 
-  if (node_rank == 0) { // Only measure energy on one rank per node
-    assert(PAPI_library_init(PAPI_VER_CURRENT) == PAPI_VER_CURRENT);
-    assert(PAPI_create_eventset(&EventSet) == PAPI_OK);
+  if (node_rank == 0) { // Only initialize PAPI on one rank per node
+    if (PAPI_library_init(PAPI_VER_CURRENT) != PAPI_VER_CURRENT) {
+      fprintf(stderr, "PAPI library init error!\n");
+      MPI_Abort(MPI_COMM_WORLD, 1);
+    }
+    PAPI_CHECK(PAPI_thread_init(pthread_self),
+               "Error initializing PAPI thread support");
+
+    PAPI_CHECK(PAPI_create_eventset(&EventSet),
+               "Error creating PAPI event set");
 
     // Find powercap component
     int numcmp = PAPI_num_components();
@@ -113,23 +133,18 @@ int main(int argc, char **argv) {
         break;
       }
     }
-    assert(powercap_cid != -1);
+    if (powercap_cid == -1) {
+      fprintf(stderr, "No powercap component found\n");
+      MPI_Abort(MPI_COMM_WORLD, 1);
+    }
 
     // Add powercap events
     int code = PAPI_NATIVE_MASK;
     int r = PAPI_enum_cmp_event(&code, PAPI_ENUM_FIRST, powercap_cid);
     while (r == PAPI_OK) {
-      PAPI_event_info_t evinfo;
-      assert(PAPI_event_code_to_name(code, event_names[num_events]) == PAPI_OK);
-      assert(PAPI_get_event_info(code, &evinfo) == PAPI_OK);
-      data_type[num_events] = evinfo.data_type;
-      if (PAPI_add_event(EventSet, code) != PAPI_OK)
-        break;
-      num_events++;
+      PAPI_CHECK(PAPI_add_event(EventSet, code), "Error adding PAPI event");
       r = PAPI_enum_cmp_event(&code, PAPI_ENUM_EVENTS, powercap_cid);
     }
-
-    values = (long long *)calloc(num_events, sizeof(long long));
   }
 
   // Initialize LibPressio
@@ -171,10 +186,10 @@ int main(int argc, char **argv) {
   }
   int mpi_err;
   mpi_err = MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
-if (mpi_err != MPI_SUCCESS) {
+  if (mpi_err != MPI_SUCCESS) {
     fprintf(stderr, "MPI_Bcast error on rank %d\n", rank);
     MPI_Abort(MPI_COMM_WORLD, mpi_err);
-}
+  }
   printf("bcast data: %d %d\n", node_rank, rank);
   // Create pressio_data object for each rank
   struct pressio_data *rank_input_data = pressio_data_new_move(
@@ -192,11 +207,12 @@ if (mpi_err != MPI_SUCCESS) {
 
   // Compression phase
   double compress_start_time, compress_end_time;
-  long long compress_values[MAX_POWERCAP_EVENTS];
+  long long *compress_values = NULL;
 
   if (node_rank == 0) {
-    printf("PAPI problem\n");
-    assert(PAPI_start(EventSet) == PAPI_OK);
+    num_events = PAPI_num_events(EventSet);
+    compress_values = (long long *)calloc(num_events, sizeof(long long));
+    PAPI_CHECK(PAPI_start(EventSet), "Failed starting PAPI counters");
   }
 
   compress_start_time = get_time();
@@ -209,7 +225,8 @@ if (mpi_err != MPI_SUCCESS) {
 
   // Stop energy measurement for compression
   if (node_rank == 0) {
-    assert(PAPI_stop(EventSet, compress_values) == PAPI_OK);
+    PAPI_CHECK(PAPI_stop(EventSet, compress_values),
+               "Failed stopping PAPI counters");
   }
 
   // Synchronize all processes after compression
@@ -222,11 +239,12 @@ if (mpi_err != MPI_SUCCESS) {
   for (int method = 0; method < num_methods; method++) {
     for (int iteration = 0; iteration < NUM_ITERATIONS; iteration++) {
       double write_start_time, write_end_time;
-      long long write_values[MAX_POWERCAP_EVENTS];
+      long long *write_values = NULL;
 
       // Start energy measurement for writing
       if (node_rank == 0) {
-        assert(PAPI_start(EventSet) == PAPI_OK);
+        write_values = (long long *)calloc(num_events, sizeof(long long));
+        PAPI_CHECK(PAPI_start(EventSet), "Failed starting PAPI counters");
       }
 
       write_start_time = get_time();
@@ -251,7 +269,8 @@ if (mpi_err != MPI_SUCCESS) {
 
       // Stop energy measurement for writing
       if (node_rank == 0) {
-        assert(PAPI_stop(EventSet, write_values) == PAPI_OK);
+        PAPI_CHECK(PAPI_stop(EventSet, write_values),
+                   "Failed stopping PAPI counters");
 
         // Calculate energy consumption for writing
         double write_cpu_energy = 0.0, write_dram_energy = 0.0;
