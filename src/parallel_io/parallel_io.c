@@ -164,13 +164,18 @@ int main(int argc, char **argv) {
 
   // Allocate memory for data on all ranks
   void *data_buffer = malloc(data_size);
-
+  MPI_Barrier(MPI_COMM_WORLD);
   // Broadcast data to all ranks within the node
   if (node_rank == 0) {
     memcpy(data_buffer, pressio_data_ptr(input_data, NULL), data_size);
   }
-  MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
-
+  int mpi_err;
+  mpi_err = MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
+if (mpi_err != MPI_SUCCESS) {
+    fprintf(stderr, "MPI_Bcast error on rank %d\n", rank);
+    MPI_Abort(MPI_COMM_WORLD, mpi_err);
+}
+  printf("bcast data: %d %d\n", node_rank, rank);
   // Create pressio_data object for each rank
   struct pressio_data *rank_input_data = pressio_data_new_move(
       pressio_float_dtype, data_buffer, 3, (size_t[]){512, 512, 512},
@@ -190,6 +195,7 @@ int main(int argc, char **argv) {
   long long compress_values[MAX_POWERCAP_EVENTS];
 
   if (node_rank == 0) {
+    printf("PAPI problem\n");
     assert(PAPI_start(EventSet) == PAPI_OK);
   }
 
@@ -197,6 +203,7 @@ int main(int argc, char **argv) {
 
   // Perform compression
   compress_data(compressor, rank_input_data, compressed_data);
+  printf("Compress %d %d\n", node_rank, rank);
 
   compress_end_time = get_time();
 
