@@ -15,18 +15,6 @@
 #define MAX_POWERCAP_EVENTS 64
 #define NUM_ITERATIONS 10
 
-#ifndef NDEBUG
-#define PAPI_CHECK(PAPI_CMD, MSG)                                              \
-  do {                                                                         \
-    int retval = (PAPI_CMD);                                                   \
-    if ((retval) != PAPI_OK) {                                                 \
-      PAPI_perror(MSG);                                                        \
-    }                                                                          \
-  } while (0);
-#else /* NDEBUG */
-#define PAPI_CHECK(PAPI_CMD, MSG) (PAPI_CMD);
-#endif /* NDEBUG */
-
 // Function to get current time
 double get_time() {
   struct timespec ts;
@@ -212,21 +200,21 @@ int main(int argc, char **argv) {
   if (node_rank == 0) {
     num_events = PAPI_num_events(EventSet);
     compress_values = (long long *)calloc(num_events, sizeof(long long));
-    PAPI_CHECK(PAPI_start(EventSet), "Failed starting PAPI counters");
+    assert(PAPI_start(EventSet) == PAPI_OK);
   }
 
   compress_start_time = get_time();
 
   // Perform compression
+  printf("Compress before %d %d\n", node_rank, rank);
   compress_data(compressor, rank_input_data, compressed_data);
-  printf("Compress %d %d\n", node_rank, rank);
+  printf("Compress after %d %d\n", node_rank, rank);
 
   compress_end_time = get_time();
 
   // Stop energy measurement for compression
   if (node_rank == 0) {
-    PAPI_CHECK(PAPI_stop(EventSet, compress_values),
-               "Failed stopping PAPI counters");
+    assert(PAPI_stop(EventSet, compress_values) == PAPI_OK);
   }
 
   // Synchronize all processes after compression
@@ -244,7 +232,7 @@ int main(int argc, char **argv) {
       // Start energy measurement for writing
       if (node_rank == 0) {
         write_values = (long long *)calloc(num_events, sizeof(long long));
-        PAPI_CHECK(PAPI_start(EventSet), "Failed starting PAPI counters");
+        assert(PAPI_start(EventSet) == PAPI_OK);
       }
 
       write_start_time = get_time();
@@ -269,8 +257,7 @@ int main(int argc, char **argv) {
 
       // Stop energy measurement for writing
       if (node_rank == 0) {
-        PAPI_CHECK(PAPI_stop(EventSet, write_values),
-                   "Failed stopping PAPI counters");
+        assert(PAPI_stop(EventSet, write_values) == PAPI_OK);
 
         // Calculate energy consumption for writing
         double write_cpu_energy = 0.0, write_dram_energy = 0.0;
