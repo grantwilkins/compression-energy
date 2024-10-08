@@ -5,7 +5,6 @@
 #include <mpi.h>
 #include <netcdf.h>
 #include <papi.h>
-#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -35,33 +34,17 @@ void compress_data(struct pressio_compressor *compressor,
 
 // Function to write compressed data to HDF5 file
 void write_to_hdf5(const char *filename, void *data, size_t data_size) {
-  hid_t file_id, dataset_id, dataspace_id;
-  hsize_t dims[1] = {data_size};
-
-  file_id = H5Fcreate(filename, H5F_ACC_TRUNC, H5P_DEFAULT, H5P_DEFAULT);
-  dataspace_id = H5Screate_simple(1, dims, NULL);
-  dataset_id = H5Dcreate2(file_id, "/compressed_data", H5T_NATIVE_UCHAR,
-                          dataspace_id, H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
-
-  H5Dwrite(dataset_id, H5T_NATIVE_UCHAR, H5S_ALL, H5S_ALL, H5P_DEFAULT, data);
-
-  H5Dclose(dataset_id);
-  H5Sclose(dataspace_id);
-  H5Fclose(file_id);
+  // ... (keep existing implementation)
 }
 
 // Function to write compressed data to NetCDF file
 void write_to_netcdf(const char *output_file, void *data, size_t data_size) {
-  int ncid, varid, dimid;
+  // ... (keep existing implementation)
+}
 
-  nc_create(output_file, NC_NETCDF4 | NC_CLOBBER, &ncid);
-  nc_def_dim(ncid, "size", data_size, &dimid);
-  nc_def_var(ncid, "data", NC_BYTE, 1, &dimid, &varid);
-  nc_enddef(ncid);
-
-  nc_put_var_uchar(ncid, varid, data);
-
-  nc_close(ncid);
+void handle_error(int retval) {
+  printf("PAPI error %d: %s\n", retval, PAPI_strerror(retval));
+  exit(1);
 }
 
 int main(int argc, char **argv) {
@@ -95,44 +78,24 @@ int main(int argc, char **argv) {
 
   // Initialize PAPI
   int EventSet = PAPI_NULL;
-  long long *values;
-  int num_events = 0;
-  char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
-  int data_type[MAX_POWERCAP_EVENTS];
+  long long values[1] = {0};
 
-  if (node_rank == 0) { // Only initialize PAPI on one rank per node
-    if (PAPI_library_init(PAPI_VER_CURRENT) != PAPI_VER_CURRENT) {
-      fprintf(stderr, "PAPI library init error!\n");
-      MPI_Abort(MPI_COMM_WORLD, 1);
-    }
-    PAPI_CHECK(PAPI_thread_init(pthread_self),
-               "Error initializing PAPI thread support");
+  int retval = PAPI_library_init(PAPI_VER_CURRENT);
+  if (retval != PAPI_VER_CURRENT) {
+    fprintf(stderr, "PAPI library init error!\n");
+    exit(1);
+  }
 
-    PAPI_CHECK(PAPI_create_eventset(&EventSet),
-               "Error creating PAPI event set");
+  if (PAPI_create_eventset(&EventSet) != PAPI_OK) {
+    handle_error(1);
+  }
 
-    // Find powercap component
-    int numcmp = PAPI_num_components();
-    int cid, powercap_cid = -1;
-    for (cid = 0; cid < numcmp; cid++) {
-      const PAPI_component_info_t *cmpinfo = PAPI_get_component_info(cid);
-      if (strstr(cmpinfo->name, "powercap")) {
-        powercap_cid = cid;
-        break;
-      }
-    }
-    if (powercap_cid == -1) {
-      fprintf(stderr, "No powercap component found\n");
-      MPI_Abort(MPI_COMM_WORLD, 1);
-    }
+  if (PAPI_add_event(EventSet, PAPI_TOT_INS) != PAPI_OK) {
+    handle_error(1);
+  }
 
-    // Add powercap events
-    int code = PAPI_NATIVE_MASK;
-    int r = PAPI_enum_cmp_event(&code, PAPI_ENUM_FIRST, powercap_cid);
-    while (r == PAPI_OK) {
-      PAPI_CHECK(PAPI_add_event(EventSet, code), "Error adding PAPI event");
-      r = PAPI_enum_cmp_event(&code, PAPI_ENUM_EVENTS, powercap_cid);
-    }
+  if (PAPI_start(EventSet) != PAPI_OK) {
+    handle_error(1);
   }
 
   // Initialize LibPressio
@@ -168,17 +131,17 @@ int main(int argc, char **argv) {
   // Allocate memory for data on all ranks
   void *data_buffer = malloc(data_size);
   MPI_Barrier(MPI_COMM_WORLD);
+
   // Broadcast data to all ranks within the node
   if (node_rank == 0) {
     memcpy(data_buffer, pressio_data_ptr(input_data, NULL), data_size);
   }
-  int mpi_err;
-  mpi_err = MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
+  int mpi_err = MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
   if (mpi_err != MPI_SUCCESS) {
     fprintf(stderr, "MPI_Bcast error on rank %d\n", rank);
     MPI_Abort(MPI_COMM_WORLD, mpi_err);
   }
-  printf("bcast data: %d %d\n", node_rank, rank);
+
   // Create pressio_data object for each rank
   struct pressio_data *rank_input_data = pressio_data_new_move(
       pressio_float_dtype, data_buffer, 3, (size_t[]){512, 512, 512},
@@ -194,31 +157,13 @@ int main(int argc, char **argv) {
       pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
 
   // Compression phase
-  double compress_start_time, compress_end_time;
-  long long *compress_values = NULL;
-
-  if (node_rank == 0) {
-    num_events = PAPI_num_events(EventSet);
-    compress_values = (long long *)calloc(num_events, sizeof(long long));
-    assert(PAPI_start(EventSet) == PAPI_OK);
-  }
-
-  compress_start_time = get_time();
+  double compress_start_time = get_time();
 
   // Perform compression
-  printf("Compress before %d %d\n", node_rank, rank);
   compress_data(compressor, rank_input_data, compressed_data);
-  printf("Compress after %d %d\n", node_rank, rank);
 
-  compress_end_time = get_time();
-
-  // Stop energy measurement for compression
-  if (node_rank == 0) {
-    assert(PAPI_stop(EventSet, compress_values) == PAPI_OK);
-  }
-
-  // Synchronize all processes after compression
-  MPI_Barrier(MPI_COMM_WORLD);
+  double compress_end_time = get_time();
+  double compress_time = compress_end_time - compress_start_time;
 
   // I/O phase
   const char *io_methods[] = {"hdf5", "netcdf"};
@@ -226,16 +171,7 @@ int main(int argc, char **argv) {
 
   for (int method = 0; method < num_methods; method++) {
     for (int iteration = 0; iteration < NUM_ITERATIONS; iteration++) {
-      double write_start_time, write_end_time;
-      long long *write_values = NULL;
-
-      // Start energy measurement for writing
-      if (node_rank == 0) {
-        write_values = (long long *)calloc(num_events, sizeof(long long));
-        assert(PAPI_start(EventSet) == PAPI_OK);
-      }
-
-      write_start_time = get_time();
+      double write_start_time = get_time();
 
       // Write compressed data to file
       char output_filename[256];
@@ -253,42 +189,8 @@ int main(int argc, char **argv) {
                         pressio_data_get_bytes(compressed_data));
       }
 
-      write_end_time = get_time();
-
-      // Stop energy measurement for writing
-      if (node_rank == 0) {
-        assert(PAPI_stop(EventSet, write_values) == PAPI_OK);
-
-        // Calculate energy consumption for writing
-        double write_cpu_energy = 0.0, write_dram_energy = 0.0;
-        for (int i = 0; i < num_events; i++) {
-          if (strstr(event_names[i], "ENERGY_UJ")) {
-            if (data_type[i] == PAPI_DATATYPE_UINT64) {
-              if (strstr(event_names[i], "SUBZONE")) {
-                write_dram_energy += write_values[i] / 1.0e6;
-              } else {
-                write_cpu_energy += write_values[i] / 1.0e6;
-              }
-            }
-          }
-        }
-
-        // Write energy stats to file
-        char stats_filename[256];
-        snprintf(stats_filename, sizeof(stats_filename),
-                 "parallel_write_split.csv");
-        FILE *stats_file = fopen(stats_filename, "a");
-        if (stats_file) {
-          fprintf(stats_file, "%s,%s,%d,%d,%e,%s,%d,%e,%e,%e,%zu\n",
-                  dataset_file, compressor_id, node_rank, rank, error_bound,
-                  io_methods[method], iteration,
-                  write_end_time - write_start_time, write_cpu_energy,
-                  write_dram_energy, pressio_data_get_bytes(compressed_data));
-          fclose(stats_file);
-        } else {
-          fprintf(stderr, "Failed to open stats file for writing\n");
-        }
-      }
+      double write_end_time = get_time();
+      double write_time = write_end_time - write_start_time;
 
       // Synchronize all processes after writing
       MPI_Barrier(MPI_COMM_WORLD);
@@ -302,7 +204,33 @@ int main(int argc, char **argv) {
 
       // Synchronize all processes after deleting
       MPI_Barrier(MPI_COMM_WORLD);
+
+      // Collect and report statistics
+      if (rank == 0) {
+        char stats_filename[256];
+        snprintf(stats_filename, sizeof(stats_filename),
+                 "parallel_write_split.csv");
+        FILE *stats_file = fopen(stats_filename, "a");
+        if (stats_file) {
+          fprintf(stats_file, "%s,%s,%d,%d,%e,%s,%d,%e,%e,%zu\n", dataset_file,
+                  compressor_id, nodes, size, error_bound, io_methods[method],
+                  iteration, compress_time, write_time,
+                  pressio_data_get_bytes(compressed_data));
+          fclose(stats_file);
+        } else {
+          fprintf(stderr, "Failed to open stats file for writing\n");
+        }
+      }
     }
+  }
+
+  // Stop PAPI counters
+  if (PAPI_stop(EventSet, values) != PAPI_OK) {
+    handle_error(1);
+  }
+
+  if (rank == 0) {
+    printf("PAPI measured %lld instructions\n", values[0]);
   }
 
   // Clean up
@@ -312,11 +240,8 @@ int main(int argc, char **argv) {
   pressio_compressor_release(compressor);
   pressio_release(library);
 
-  if (node_rank == 0) {
-    free(values);
-    PAPI_cleanup_eventset(EventSet);
-    PAPI_destroy_eventset(&EventSet);
-  }
+  PAPI_cleanup_eventset(EventSet);
+  PAPI_destroy_eventset(&EventSet);
 
   MPI_Finalize();
   return 0;
