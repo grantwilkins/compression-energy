@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include <unistd.h>
 
 #define MAX_POWERCAP_EVENTS 64
@@ -76,12 +77,10 @@ int main(int argc, char **argv) {
   MPI_Comm_size(node_comm, &ranks_per_node);
   nodes = size / ranks_per_node;
 
-  if (argc != 5) {
+  if (argc != 4) {
     if (rank == 0) {
-      fprintf(
-          stderr,
-          "Usage: %s <compressor> <dataset_file> <error_bound> <output_dir>\n",
-          argv[0]);
+      fprintf(stderr, "Usage: %s <compressor> <dataset_file> <error_bound>\n",
+              argv[0]);
     }
     MPI_Finalize();
     return 1;
@@ -90,7 +89,6 @@ int main(int argc, char **argv) {
   const char *compressor_id = argv[1];
   const char *dataset_file = argv[2];
   double error_bound = atof(argv[3]);
-  const char *output_dir = argv[4];
 
   // Initialize PAPI
   int EventSet = PAPI_NULL;
@@ -225,9 +223,9 @@ int main(int argc, char **argv) {
       // Write compressed data to file
       char output_filename[256];
       snprintf(output_filename, sizeof(output_filename),
-               "%s%s_%s_%g_%d_%d_%s_%d.%s", output_dir, dataset_file,
-               compressor_id, error_bound, rank, node_rank, io_methods[method],
-               iteration, (method == 0 ? "h5" : "nc"));
+               "%s_%s_%g_%d_%d_%s_%d.%s", dataset_file, compressor_id,
+               error_bound, rank, node_rank, io_methods[method], iteration,
+               (method == 0 ? "h5" : "nc"));
 
       if (method == 0) {
         write_to_hdf5(output_filename, pressio_data_ptr(compressed_data, NULL),
