@@ -34,12 +34,33 @@ void compress_data(struct pressio_compressor *compressor,
 
 // Function to write compressed data to HDF5 file
 void write_to_hdf5(const char *filename, void *data, size_t data_size) {
-  // ... (keep existing implementation)
+  hid_t file_id, dataset_id, dataspace_id;
+  hsize_t dims[1] = {data_size};
+
+  file_id = H5Fcreate(filename, H5F_ACC_TRUNC, H5P_DEFAULT, H5P_DEFAULT);
+  dataspace_id = H5Screate_simple(1, dims, NULL);
+  dataset_id = H5Dcreate2(file_id, "/compressed_data", H5T_NATIVE_UCHAR,
+                          dataspace_id, H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
+
+  H5Dwrite(dataset_id, H5T_NATIVE_UCHAR, H5S_ALL, H5S_ALL, H5P_DEFAULT, data);
+
+  H5Dclose(dataset_id);
+  H5Sclose(dataspace_id);
+  H5Fclose(file_id);
 }
 
 // Function to write compressed data to NetCDF file
 void write_to_netcdf(const char *output_file, void *data, size_t data_size) {
-  // ... (keep existing implementation)
+  int ncid, varid, dimid;
+
+  nc_create(output_file, NC_NETCDF4 | NC_CLOBBER, &ncid);
+  nc_def_dim(ncid, "size", data_size, &dimid);
+  nc_def_var(ncid, "data", NC_BYTE, 1, &dimid, &varid);
+  nc_enddef(ncid);
+
+  nc_put_var_uchar(ncid, varid, data);
+
+  nc_close(ncid);
 }
 
 void handle_error(int retval) {
@@ -78,44 +99,106 @@ int main(int argc, char **argv) {
 
   // Initialize PAPI
   int EventSet = PAPI_NULL;
-  long long values[1] = {0};
+  long long *values;
+  int num_events = 0;
+  char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
+  int data_type[MAX_POWERCAP_EVENTS];
 
-  int retval = PAPI_library_init(PAPI_VER_CURRENT);
-  if (retval != PAPI_VER_CURRENT) {
-    fprintf(stderr, "PAPI library init error!\n");
-    exit(1);
+  if (PAPI_library_init(PAPI_VER_CURRENT) != PAPI_VER_CURRENT) {
+    handle_error(1);
   }
-
   if (PAPI_create_eventset(&EventSet) != PAPI_OK) {
     handle_error(1);
   }
 
-  if (PAPI_add_event(EventSet, PAPI_TOT_INS) != PAPI_OK) {
-    handle_error(1);
+  // Find powercap component and add events
+  int numcmp = PAPI_num_components();
+  int cid, powercap_cid = -1;
+  for (cid = 0; cid < numcmp; cid++) {
+    const PAPI_component_info_t *cmpinfo = PAPI_get_component_info(cid);
+    if (strstr(cmpinfo->name, "powercap")) {
+      powercap_cid = cid;
+      break;
+    }
+  }
+  assert(powercap_cid != -1);
+
+  int code = PAPI_NATIVE_MASK;
+  int r = PAPI_enum_cmp_event(&code, PAPI_ENUM_FIRST, powercap_cid);
+  while (r == PAPI_OK) {
+    PAPI_event_info_t evinfo;
+    assert(PAPI_event_code_to_name(code, event_names[num_events]) == PAPI_OK);
+    assert(PAPI_get_event_info(code, &evinfo) == PAPI_OK);
+    data_type[num_events] = evinfo.data_type;
+    if (PAPI_add_event(EventSet, code) != PAPI_OK) {
+      break;
+    }
+    num_events++;
+    r = PAPI_enum_cmp_event(&code, PAPI_ENUM_EVENTS, powercap_cid);
   }
 
-  if (PAPI_start(EventSet) != PAPI_OK) {
-    handle_error(1);
-  }
+  long long *compress_values =
+      (long long *)calloc(num_events, sizeof(long long));
+  long long *write_values = (long long *)calloc(num_events, sizeof(long long));
 
   // Initialize LibPressio
   struct pressio *library = pressio_instance();
-  struct pressio_compressor *compressor =
-      pressio_get_compressor(library, compressor_id);
-  if (compressor == NULL) {
-    fprintf(stderr, "Failed to get compressor %s: %s\n", compressor_id,
-            pressio_error_msg(library));
-    MPI_Abort(MPI_COMM_WORLD, 1);
+  struct pressio_compressor *compressor = NULL;
+  pressio_get_compressor(library, compressor_id);
+  if (strcmp(compressor_id, "None") != 0) {
+    compressor = pressio_get_compressor(library, compressor_id);
+    if (compressor == NULL) {
+      fprintf(stderr, "Failed to get compressor %s: %s\n", compressor_id,
+              pressio_error_msg(library));
+      pressio_release(library);
+      return 1;
+    }
   }
 
-  // Read input data (only on rank 0 of each node)
-  char full_path[1024];
-  snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
   struct pressio_data *input_data = NULL;
   size_t data_size = 0;
+  size_t dims[4] = {0};
+  size_t ndims = 0;
+  enum pressio_dtype dtype;
+
   if (node_rank == 0) {
-    struct pressio_data *metadata = pressio_data_new_empty(
-        pressio_float_dtype, 3, (size_t[]){512, 512, 512});
+    if (strstr(dataset_file, "nyx") != NULL) {
+      dims[0] = 512;
+      dims[1] = 512;
+      dims[2] = 512;
+      ndims = 3;
+      dtype = pressio_float_dtype;
+    } else if (strstr(dataset_file, "hacc") != NULL) {
+      dims[0] = 1073726487;
+      ndims = 1;
+      dtype = pressio_float_dtype;
+    } else if (strstr(dataset_file, "s3d") != NULL) {
+      dims[0] = 11;
+      dims[1] = 500;
+      dims[2] = 500;
+      dims[3] = 500;
+      ndims = 4;
+      dtype = pressio_double_dtype;
+    } else if (strstr(dataset_file, "miranda") != NULL) {
+      dims[0] = 3072;
+      dims[1] = 3072;
+      dims[2] = 3072;
+      ndims = 3;
+      dtype = pressio_float_dtype;
+    } else if (strstr(dataset_file, "cesm") != NULL) {
+      dims[0] = 26;
+      dims[1] = 1800;
+      dims[2] = 3600;
+      ndims = 3;
+      dtype = pressio_float_dtype;
+    } else {
+      fprintf(stderr, "Unknown dataset %s\n", dataset_file);
+      MPI_Abort(MPI_COMM_WORLD, 1);
+    }
+
+    struct pressio_data *metadata = pressio_data_new_empty(dtype, ndims, dims);
+    char full_path[1024];
+    snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
     input_data = pressio_io_data_path_read(metadata, full_path);
     if (input_data == NULL) {
       fprintf(stderr, "Failed to read dataset %s\n", dataset_file);
@@ -125,27 +208,33 @@ int main(int argc, char **argv) {
     pressio_data_free(metadata);
   }
 
-  // Broadcast data size to all ranks
+  // Broadcast metadata to all ranks in the node
   MPI_Bcast(&data_size, 1, MPI_UNSIGNED_LONG, 0, node_comm);
+  MPI_Bcast(&ndims, 1, MPI_UNSIGNED_LONG, 0, node_comm);
+  MPI_Bcast(dims, 4, MPI_UNSIGNED_LONG, 0, node_comm);
+  int dtype_int;
+  if (node_rank == 0) {
+    dtype_int = (int)dtype;
+  }
+  MPI_Bcast(&dtype_int, 1, MPI_INT, 0, node_comm);
+  dtype = (enum pressio_dtype)dtype_int;
 
   // Allocate memory for data on all ranks
   void *data_buffer = malloc(data_size);
-  MPI_Barrier(MPI_COMM_WORLD);
+  if (data_buffer == NULL) {
+    fprintf(stderr, "Failed to allocate memory on rank %d\n", rank);
+    MPI_Abort(MPI_COMM_WORLD, 1);
+  }
 
   // Broadcast data to all ranks within the node
   if (node_rank == 0) {
     memcpy(data_buffer, pressio_data_ptr(input_data, NULL), data_size);
   }
-  int mpi_err = MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
-  if (mpi_err != MPI_SUCCESS) {
-    fprintf(stderr, "MPI_Bcast error on rank %d\n", rank);
-    MPI_Abort(MPI_COMM_WORLD, mpi_err);
-  }
+  MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
 
   // Create pressio_data object for each rank
   struct pressio_data *rank_input_data = pressio_data_new_move(
-      pressio_float_dtype, data_buffer, 3, (size_t[]){512, 512, 512},
-      pressio_data_libc_free_fn, NULL);
+      dtype, data_buffer, ndims, dims, pressio_data_libc_free_fn, NULL);
 
   // Set compressor options
   struct pressio_options *options = pressio_options_new();
