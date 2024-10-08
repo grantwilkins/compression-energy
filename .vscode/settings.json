@@ -9,6 +9,7 @@
         "locale": "cpp",
         "algorithm": "cpp",
         "stdbool.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "__node_handle": "c"
     }
 }

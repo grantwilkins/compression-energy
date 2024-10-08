@@ -3,6 +3,7 @@
 #include <libpressio.h>
 #include <libpressio_ext/io/posix.h>
 #include <mpi.h>
+#include <netcdf.h>
 #include <papi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,6 +11,7 @@
 #include <unistd.h>
 
 #define MAX_POWERCAP_EVENTS 64
+#define NUM_ITERATIONS 10
 
 // Function to get current time
 double get_time() {
@@ -44,6 +46,20 @@ void write_to_hdf5(const char *filename, void *data, size_t data_size) {
   H5Dclose(dataset_id);
   H5Sclose(dataspace_id);
   H5Fclose(file_id);
+}
+
+// Function to write compressed data to NetCDF file
+void write_to_netcdf(const char *output_file, void *data, size_t data_size) {
+  int ncid, varid, dimid;
+
+  nc_create(output_file, NC_NETCDF4 | NC_CLOBBER, &ncid);
+  nc_def_dim(ncid, "size", data_size, &dimid);
+  nc_def_var(ncid, "data", NC_BYTE, 1, &dimid, &varid);
+  nc_enddef(ncid);
+
+  nc_put_var_uchar(ncid, varid, data);
+
+  nc_close(ncid);
 }
 
 int main(int argc, char **argv) {
@@ -160,65 +176,117 @@ int main(int argc, char **argv) {
 
   // Set compressor options
   struct pressio_options *options = pressio_options_new();
-  pressio_options_set_double(options, "pressio:abs", error_bound);
+  pressio_options_set_double(options, "pressio:rel", error_bound);
   pressio_compressor_set_options(compressor, options);
 
   // Prepare for compression
   struct pressio_data *compressed_data =
       pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
 
-  // Start energy measurement
+  // Compression phase
+  double compress_start_time, compress_end_time;
+  long long compress_values[MAX_POWERCAP_EVENTS];
+
   if (node_rank == 0) {
     assert(PAPI_start(EventSet) == PAPI_OK);
   }
 
-  double start_time = get_time();
+  compress_start_time = get_time();
 
   // Perform compression
   compress_data(compressor, rank_input_data, compressed_data);
 
-  // Write compressed data to HDF5 file
-  char output_filename[256];
-  snprintf(output_filename, sizeof(output_filename),
-           "%s/compressed_data_node%d_rank%d.h5", output_dir,
-           rank / ranks_per_node, rank % ranks_per_node);
-  write_to_hdf5(output_filename, pressio_data_ptr(compressed_data, NULL),
-                pressio_data_get_bytes(compressed_data));
+  compress_end_time = get_time();
 
-  double end_time = get_time();
-
-  // Stop energy measurement
+  // Stop energy measurement for compression
   if (node_rank == 0) {
-    assert(PAPI_stop(EventSet, values) == PAPI_OK);
+    assert(PAPI_stop(EventSet, compress_values) == PAPI_OK);
+  }
 
-    // Calculate energy consumption
-    double cpu_energy = 0.0, dram_energy = 0.0;
-    for (int i = 0; i < num_events; i++) {
-      if (strstr(event_names[i], "ENERGY_UJ")) {
-        if (data_type[i] == PAPI_DATATYPE_UINT64) {
-          if (strstr(event_names[i], "SUBZONE")) {
-            dram_energy += values[i] / 1.0e6;
-          } else {
-            cpu_energy += values[i] / 1.0e6;
+  // Synchronize all processes after compression
+  MPI_Barrier(MPI_COMM_WORLD);
+
+  // I/O phase
+  const char *io_methods[] = {"hdf5", "netcdf"};
+  int num_methods = sizeof(io_methods) / sizeof(io_methods[0]);
+
+  for (int method = 0; method < num_methods; method++) {
+    for (int iteration = 0; iteration < NUM_ITERATIONS; iteration++) {
+      double write_start_time, write_end_time;
+      long long write_values[MAX_POWERCAP_EVENTS];
+
+      // Start energy measurement for writing
+      if (node_rank == 0) {
+        assert(PAPI_start(EventSet) == PAPI_OK);
+      }
+
+      write_start_time = get_time();
+
+      // Write compressed data to file
+      char output_filename[256];
+      snprintf(output_filename, sizeof(output_filename),
+               "%s%s_%s_%g_%d_%d_%s_%d.%s", output_dir, dataset_file,
+               compressor_id, error_bound, rank, node_rank, io_methods[method],
+               iteration, (method == 0 ? "h5" : "nc"));
+
+      if (method == 0) {
+        write_to_hdf5(output_filename, pressio_data_ptr(compressed_data, NULL),
+                      pressio_data_get_bytes(compressed_data));
+      } else {
+        write_to_netcdf(output_filename,
+                        pressio_data_ptr(compressed_data, NULL),
+                        pressio_data_get_bytes(compressed_data));
+      }
+
+      write_end_time = get_time();
+
+      // Stop energy measurement for writing
+      if (node_rank == 0) {
+        assert(PAPI_stop(EventSet, write_values) == PAPI_OK);
+
+        // Calculate energy consumption for writing
+        double write_cpu_energy = 0.0, write_dram_energy = 0.0;
+        for (int i = 0; i < num_events; i++) {
+          if (strstr(event_names[i], "ENERGY_UJ")) {
+            if (data_type[i] == PAPI_DATATYPE_UINT64) {
+              if (strstr(event_names[i], "SUBZONE")) {
+                write_dram_energy += write_values[i] / 1.0e6;
+              } else {
+                write_cpu_energy += write_values[i] / 1.0e6;
+              }
+            }
           }
         }
-      }
-    }
 
-    // Write energy stats to file
-    char stats_filename[256];
-    snprintf(stats_filename, sizeof(stats_filename),
-             "%s/energy_stats_node%d.txt", output_dir, rank / ranks_per_node);
-    FILE *stats_file = fopen(stats_filename, "w");
-    if (stats_file) {
-      fprintf(stats_file, "Node: %d\n", rank / ranks_per_node);
-      fprintf(stats_file, "CPU Energy: %.6f J\n", cpu_energy);
-      fprintf(stats_file, "DRAM Energy: %.6f J\n", dram_energy);
-      fprintf(stats_file, "Total Energy: %.6f J\n", cpu_energy + dram_energy);
-      fprintf(stats_file, "Compression Time: %.6f s\n", end_time - start_time);
-      fclose(stats_file);
-    } else {
-      fprintf(stderr, "Failed to open stats file for writing\n");
+        // Write energy stats to file
+        char stats_filename[256];
+        snprintf(stats_filename, sizeof(stats_filename),
+                 "parallel_write_split.csv");
+        FILE *stats_file = fopen(stats_filename, "a");
+        if (stats_file) {
+          fprintf(stats_file, "%s,%s,%d,%d,%e,%s,%d,%e,%e,%e,%zu\n",
+                  dataset_file, compressor_id, node_rank, rank, error_bound,
+                  io_methods[method], iteration,
+                  write_end_time - write_start_time, write_cpu_energy,
+                  write_dram_energy, pressio_data_get_bytes(compressed_data));
+          fclose(stats_file);
+        } else {
+          fprintf(stderr, "Failed to open stats file for writing\n");
+        }
+      }
+
+      // Synchronize all processes after writing
+      MPI_Barrier(MPI_COMM_WORLD);
+
+      // Delete the file after writing
+      if (rank == 0) {
+        if (remove(output_filename) != 0) {
+          fprintf(stderr, "Error deleting file: %s\n", output_filename);
+        }
+      }
+
+      // Synchronize all processes after deleting
+      MPI_Barrier(MPI_COMM_WORLD);
     }
   }
 

@@ -12,7 +12,6 @@ matplotlib.rcParams["font.family"] = "Times New Roman"
 csv_files = [
     "compression_metrics.csv",
     "compression_metrics_szx_serial.csv",
-    "compression_metrics_mgard_x.csv",
 ]
 
 # Read and combine all CSV files
@@ -43,15 +42,36 @@ df["Dataset"] = df["Dataset"].apply(lambda x: x.upper())
 df["Energy per Bit (J/bit)"] = df["Total Energy (J)"] / (df["Number of Elements"] * 32)
 df = df[df["REL Error Bound"] != "1E-06"]
 
+
 sns.set(style="whitegrid", context="talk", font_scale=1.5, font="Times New Roman")
 df = df[(df["Compressor"] != "MGARD") & (df["Compressor"] != "MGARD-X")]
 
 # Define the desired order of compressors
-compressor_order = ["SZ2", "SZ3", "ZFP", "QoZ", "SZx", "MGARD-X"]
+compressor_order = [
+    "SZ2",
+    "SZ3",
+    "ZFP",
+    "QoZ",
+    "SZx",
+]
+
+
+def create_common_legend():
+    fig, ax = plt.subplots(figsize=(2, 2))
+    palette = sns.color_palette("colorblind", n_colors=len(compressor_order))
+    for compressor, color in zip(compressor_order, palette):
+        ax.bar(0, 0, color=color, label=compressor)
+    handles, labels = ax.get_legend_handles_labels()
+    plt.close(fig)
+    return handles, labels
+
+
+# Create common legend
+common_handles, common_labels = create_common_legend()
 
 
 # Function to create and save a stacked bar plot
-def create_stacked_energy_plot(data, chip, dataset):
+def create_stacked_energy_plot(data, chip, dataset, common_handles, common_labels):
     # Group by REL Error Bound and Compressor, then calculate mean energies
     grouped = (
         data.groupby(["REL Error Bound", "Compressor"])
@@ -125,10 +145,9 @@ def create_stacked_energy_plot(data, chip, dataset):
 
     # Create a more succinct legend
     if dataset == "S3D":
-        handles, labels = ax.get_legend_handles_labels()
         ax.legend(
-            handles,
-            labels,
+            common_handles,
+            common_labels,
             title="Compressor",
             bbox_to_anchor=(1.05, 1),
             loc="upper left",
@@ -159,6 +178,42 @@ for chip in df["Chip"].unique():
             continue
 
         # Create stacked bar plot for Compression and Decompression Energy
-        create_stacked_energy_plot(subset, chip, dataset)
+        create_stacked_energy_plot(subset, chip, dataset, common_handles, common_labels)
 
 print("Stacked bar plots have been created and saved.")
+
+# Calculate and print mean metrics for each compressor, dataset, chip, and error bound
+print("\nMean Metrics for each Compressor, Dataset, Chip, and Error Bound:")
+print("=" * 100)
+
+metrics = [
+    "Compression Ratio",
+    "PSNR",
+    "Compression Runtime (s)",
+    "Decompression Runtime (s)",
+    "Bit Rate",
+]
+
+df = df[df["Chip"] == "Intel Xeon CPU Max 9480"]
+for dataset in df["Dataset"].unique():
+    for error_bound in df["REL Error Bound"].unique():
+        print(
+            f"\nChip: Intel Xeon CPU Max 9480, Dataset: {dataset}, Error Bound: {error_bound}"
+        )
+        print("-" * 80)
+        for compressor in df["Compressor"].unique():
+            subset = df[
+                (df["Dataset"] == dataset)
+                & (df["Compressor"] == compressor)
+                & (df["REL Error Bound"] == error_bound)
+            ]
+            if not subset.empty:
+                print(f"  {compressor}:")
+                for metric in metrics:
+                    mean_value = subset[metric].mean()
+                    print(f"    {metric}: {mean_value:.4f}")
+            else:
+                print(f"  {compressor}: No data available")
+        print()
+
+print("Mean metrics calculation complete.")
