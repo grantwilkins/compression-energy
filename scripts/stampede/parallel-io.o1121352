@@ -1,0 +1,25 @@
+make: 'parallel_io' is up to date.
+TACC:  Starting up job 1121352 
+TACC:  Starting parallel tasks... 
+TACC:  MPI job exited with code: 255 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1121352 
+TACC:  Starting parallel tasks... 
+TACC:  MPI job exited with code: 255 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1121352 
+TACC:  Starting parallel tasks... 
+TACC:  MPI job exited with code: 255 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1121352 
+TACC:  Starting parallel tasks... 
+TACC:  MPI job exited with code: 255 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1121352 
+TACC:  Starting parallel tasks... 
+TACC:  MPI job exited with code: 255 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1121352 
+TACC:  Starting parallel tasks... 
+TACC:  MPI job exited with code: 255 
+TACC:  Shutdown complete. Exiting. 

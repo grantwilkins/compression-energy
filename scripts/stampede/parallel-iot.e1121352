@@ -1,0 +1,86 @@
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error: Unable to run bstrap_proxy on c513-072 (pid 2071140, exit code 65280)
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] poll_for_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:157): check exit codes error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_dmx_poll_wait_for_proxy_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:206): poll for event error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_bstrap_setup (../../../../../src/pm/i_hydra/libhydra/bstrap/src/intel/i_hydra_bstrap.c:1063): error waiting for event
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error setting up the bootstrap proxies
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Possible reasons:
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 1. Host is unavailable. Please check that all hosts are available.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 2. Cannot launch hydra_bstrap_proxy or it crashed on one of the hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure hydra_bstrap_proxy is available on all hosts and it has right permissions.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 3. Firewall refused connection.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Check that enough ports are allowed in the firewall and specify them with the I_MPI_PORT_RANGE variable.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 4. Ssh bootstrap cannot launch processes on remote host.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure that passwordless ssh connection is established across compute hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    You may try using -bootstrap option to select alternative launcher.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error: Unable to run bstrap_proxy on c513-072 (pid 2071206, exit code 65280)
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] poll_for_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:157): check exit codes error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_dmx_poll_wait_for_proxy_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:206): poll for event error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_bstrap_setup (../../../../../src/pm/i_hydra/libhydra/bstrap/src/intel/i_hydra_bstrap.c:1063): error waiting for event
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error setting up the bootstrap proxies
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Possible reasons:
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 1. Host is unavailable. Please check that all hosts are available.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 2. Cannot launch hydra_bstrap_proxy or it crashed on one of the hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure hydra_bstrap_proxy is available on all hosts and it has right permissions.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 3. Firewall refused connection.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Check that enough ports are allowed in the firewall and specify them with the I_MPI_PORT_RANGE variable.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 4. Ssh bootstrap cannot launch processes on remote host.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure that passwordless ssh connection is established across compute hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    You may try using -bootstrap option to select alternative launcher.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error: Unable to run bstrap_proxy on c513-072 (pid 2071271, exit code 65280)
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] poll_for_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:157): check exit codes error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_dmx_poll_wait_for_proxy_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:206): poll for event error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_bstrap_setup (../../../../../src/pm/i_hydra/libhydra/bstrap/src/intel/i_hydra_bstrap.c:1063): error waiting for event
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error setting up the bootstrap proxies
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Possible reasons:
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 1. Host is unavailable. Please check that all hosts are available.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 2. Cannot launch hydra_bstrap_proxy or it crashed on one of the hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure hydra_bstrap_proxy is available on all hosts and it has right permissions.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 3. Firewall refused connection.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Check that enough ports are allowed in the firewall and specify them with the I_MPI_PORT_RANGE variable.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 4. Ssh bootstrap cannot launch processes on remote host.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure that passwordless ssh connection is established across compute hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    You may try using -bootstrap option to select alternative launcher.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error: Unable to run bstrap_proxy on c513-072 (pid 2071336, exit code 65280)
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] poll_for_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:157): check exit codes error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_dmx_poll_wait_for_proxy_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:206): poll for event error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_bstrap_setup (../../../../../src/pm/i_hydra/libhydra/bstrap/src/intel/i_hydra_bstrap.c:1063): error waiting for event
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error setting up the bootstrap proxies
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Possible reasons:
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 1. Host is unavailable. Please check that all hosts are available.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 2. Cannot launch hydra_bstrap_proxy or it crashed on one of the hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure hydra_bstrap_proxy is available on all hosts and it has right permissions.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 3. Firewall refused connection.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Check that enough ports are allowed in the firewall and specify them with the I_MPI_PORT_RANGE variable.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 4. Ssh bootstrap cannot launch processes on remote host.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure that passwordless ssh connection is established across compute hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    You may try using -bootstrap option to select alternative launcher.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error: Unable to run bstrap_proxy on c513-072 (pid 2071401, exit code 65280)
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] poll_for_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:157): check exit codes error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_dmx_poll_wait_for_proxy_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:206): poll for event error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_bstrap_setup (../../../../../src/pm/i_hydra/libhydra/bstrap/src/intel/i_hydra_bstrap.c:1063): error waiting for event
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error setting up the bootstrap proxies
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Possible reasons:
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 1. Host is unavailable. Please check that all hosts are available.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 2. Cannot launch hydra_bstrap_proxy or it crashed on one of the hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure hydra_bstrap_proxy is available on all hosts and it has right permissions.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 3. Firewall refused connection.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Check that enough ports are allowed in the firewall and specify them with the I_MPI_PORT_RANGE variable.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 4. Ssh bootstrap cannot launch processes on remote host.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure that passwordless ssh connection is established across compute hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    You may try using -bootstrap option to select alternative launcher.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error: Unable to run bstrap_proxy on c513-072 (pid 2071466, exit code 65280)
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] poll_for_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:157): check exit codes error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_dmx_poll_wait_for_proxy_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:206): poll for event error
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] HYD_bstrap_setup (../../../../../src/pm/i_hydra/libhydra/bstrap/src/intel/i_hydra_bstrap.c:1063): error waiting for event
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Error setting up the bootstrap proxies
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] Possible reasons:
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 1. Host is unavailable. Please check that all hosts are available.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 2. Cannot launch hydra_bstrap_proxy or it crashed on one of the hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure hydra_bstrap_proxy is available on all hosts and it has right permissions.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 3. Firewall refused connection.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Check that enough ports are allowed in the firewall and specify them with the I_MPI_PORT_RANGE variable.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu] 4. Ssh bootstrap cannot launch processes on remote host.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    Make sure that passwordless ssh connection is established across compute hosts.
+[mpiexec@c513-071.stampede3.tacc.utexas.edu]    You may try using -bootstrap option to select alternative launcher.
+slurmstepd: error: _get_joules_task: can't get info from slurmd

@@ -96,6 +96,7 @@ int main(int argc, char **argv) {
   double relative_error_bound = atof(argv[3]);
   const char *datadir = "/work2/10191/gfw/stampede3/";
   const char *output_dir = "/work2/10191/gfw/stampede3/compressed/";
+  int i;
 
   // Initialize PAPI
   int EventSet = PAPI_NULL;
@@ -333,11 +334,12 @@ int main(int argc, char **argv) {
       }
     }
   }
-
+  
+  double cpu_energy_compression_max, compress_time_max;
   MPI_Barrier(MPI_COMM_WORLD);
-  MPI_Reduce(&cpu_energy_compression, &cpu_energy_compression, 1, MPI_DOUBLE,
+  MPI_Reduce(&cpu_energy_compression, &cpu_energy_compression_max, 1, MPI_DOUBLE,
              MPI_MAX, 0, node_comm);
-  MPI_Reduce(&compress_time, &compress_time, 1, MPI_DOUBLE, MPI_MAX, 0,
+  MPI_Reduce(&compress_time, &compress_time_max, 1, MPI_DOUBLE, MPI_MAX, 0,
              node_comm);
 
   // I/O phase
@@ -385,10 +387,12 @@ int main(int argc, char **argv) {
         }
       }
 
+   
+      double cpu_energy_writing_max, write_time_max;
       MPI_Barrier(MPI_COMM_WORLD);
-      MPI_Reduce(&cpu_energy_writing, &cpu_energy_writing, 1, MPI_DOUBLE,
+      MPI_Reduce(&cpu_energy_writing, &cpu_energy_writing_max, 1, MPI_DOUBLE,
                  MPI_MAX, 0, node_comm);
-      MPI_Reduce(&write_time, &write_time, 1, MPI_DOUBLE, MPI_MAX, 0,
+      MPI_Reduce(&write_time, &write_time_max, 1, MPI_DOUBLE, MPI_MAX, 0,
                  node_comm);
 
       // Delete the file after writing
@@ -410,8 +414,8 @@ int main(int argc, char **argv) {
           fprintf(stats_file, "%s,%s,%d,%d,%d,%e,%s,%d,%e,%e,%e,%e,%zu\n",
                   dataset_file, compressor_id, node_num, nodes, size,
                   relative_error_bound, io_methods[method], iteration,
-                  compress_time, write_time, cpu_energy_compression,
-                  cpu_energy_writing, pressio_data_get_bytes(compressed_data));
+                  compress_time_max, write_time_max, cpu_energy_compression_max,
+                  cpu_energy_writing_max, pressio_data_get_bytes(compressed_data));
           fclose(stats_file);
         } else {
           fprintf(stderr, "Failed to open stats file for writing\n");
