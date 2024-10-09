@@ -104,42 +104,47 @@ int main(int argc, char **argv) {
   char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
   int data_type[MAX_POWERCAP_EVENTS];
 
-  if (PAPI_library_init(PAPI_VER_CURRENT) != PAPI_VER_CURRENT) {
-    handle_error(1);
-  }
-  if (PAPI_create_eventset(&EventSet) != PAPI_OK) {
-    handle_error(1);
-  }
+  if (node_rank == 0) {
+    if (PAPI_library_init(PAPI_VER_CURRENT) != PAPI_VER_CURRENT) {
+      handle_error(1);
+    }
+    if (PAPI_create_eventset(&EventSet) != PAPI_OK) {
+      handle_error(1);
+    }
 
-  // Find powercap component and add events
-  int numcmp = PAPI_num_components();
-  int cid, powercap_cid = -1;
-  for (cid = 0; cid < numcmp; cid++) {
-    const PAPI_component_info_t *cmpinfo = PAPI_get_component_info(cid);
-    if (strstr(cmpinfo->name, "powercap")) {
-      powercap_cid = cid;
-      break;
+    // Find powercap component and add events
+    int numcmp = PAPI_num_components();
+    int cid, powercap_cid = -1;
+    for (cid = 0; cid < numcmp; cid++) {
+      const PAPI_component_info_t *cmpinfo = PAPI_get_component_info(cid);
+      if (strstr(cmpinfo->name, "powercap")) {
+        powercap_cid = cid;
+        break;
+      }
+    }
+    assert(powercap_cid != -1);
+
+    int code = PAPI_NATIVE_MASK;
+    int r = PAPI_enum_cmp_event(&code, PAPI_ENUM_FIRST, powercap_cid);
+    while (r == PAPI_OK) {
+      PAPI_event_info_t evinfo;
+      assert(PAPI_event_code_to_name(code, event_names[num_events]) == PAPI_OK);
+      assert(PAPI_get_event_info(code, &evinfo) == PAPI_OK);
+      data_type[num_events] = evinfo.data_type;
+      if (PAPI_add_event(EventSet, code) != PAPI_OK) {
+        break;
+      }
+      num_events++;
+      r = PAPI_enum_cmp_event(&code, PAPI_ENUM_EVENTS, powercap_cid);
     }
   }
-  assert(powercap_cid != -1);
 
-  int code = PAPI_NATIVE_MASK;
-  int r = PAPI_enum_cmp_event(&code, PAPI_ENUM_FIRST, powercap_cid);
-  while (r == PAPI_OK) {
-    PAPI_event_info_t evinfo;
-    assert(PAPI_event_code_to_name(code, event_names[num_events]) == PAPI_OK);
-    assert(PAPI_get_event_info(code, &evinfo) == PAPI_OK);
-    data_type[num_events] = evinfo.data_type;
-    if (PAPI_add_event(EventSet, code) != PAPI_OK) {
-      break;
-    }
-    num_events++;
-    r = PAPI_enum_cmp_event(&code, PAPI_ENUM_EVENTS, powercap_cid);
+  long long *compress_values = NULL;
+  long long *write_values = NULL;
+  if (node_rank == 0) {
+    compress_values = (long long *)calloc(num_events, sizeof(long long));
+    write_values = (long long *)calloc(num_events, sizeof(long long));
   }
-
-  long long *compress_values =
-      (long long *)calloc(num_events, sizeof(long long));
-  long long *write_values = (long long *)calloc(num_events, sizeof(long long));
 
   // Initialize LibPressio
   struct pressio *library = pressio_instance();
@@ -310,35 +315,40 @@ int main(int argc, char **argv) {
          rank, pressio_data_get_bytes(input_data));
   fflush(stdout);
 
-  if (PAPI_start(EventSet) != PAPI_OK) {
-    handle_error(1);
+  if (node_rank == 0) {
+    if (PAPI_start(EventSet) != PAPI_OK) {
+      handle_error(1);
+    }
   }
   if (pressio_compressor_compress(compressor, input_data, compressed_data)) {
     fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
   }
-  if (PAPI_stop(EventSet, compress_values) != PAPI_OK) {
-    handle_error(1);
-  }
-  printf("Rank %d: Finished compression\n", rank);
 
+  printf("Rank %d: Finished compression\n", rank);
+  MPI_Barrier(MPI_COMM_WORLD);
+  if (node_rank == 0) {
+    if (PAPI_stop(EventSet, compress_values) != PAPI_OK) {
+      handle_error(1);
+    }
+  }
   double compress_end_time = get_time();
   double compress_time = compress_end_time - compress_start_time;
 
   double cpu_energy_compression = 0.0;
-  for (i = 0; i < num_events; i++) {
-    if (strstr(event_names[i], "ENERGY_UJ")) {
-      if (data_type[i] == PAPI_DATATYPE_UINT64) {
-        if (!strstr(event_names[i], "SUBZONE")) {
-          cpu_energy_compression += compress_values[i] / 1.0e6;
+  if (node_rank == 0) {
+    for (i = 0; i < num_events; i++) {
+      if (strstr(event_names[i], "ENERGY_UJ")) {
+        if (data_type[i] == PAPI_DATATYPE_UINT64) {
+          if (!strstr(event_names[i], "SUBZONE")) {
+            cpu_energy_compression += compress_values[i] / 1.0e6;
+          }
         }
       }
     }
   }
-  
+
   double cpu_energy_compression_max, compress_time_max;
   MPI_Barrier(MPI_COMM_WORLD);
-  MPI_Reduce(&cpu_energy_compression, &cpu_energy_compression_max, 1, MPI_DOUBLE,
-             MPI_MAX, 0, node_comm);
   MPI_Reduce(&compress_time, &compress_time_max, 1, MPI_DOUBLE, MPI_MAX, 0,
              node_comm);
 
@@ -355,8 +365,10 @@ int main(int argc, char **argv) {
                "%s/%s_%s_%g_%d_%d_%s_%d.%s", output_dir, dataset_file,
                compressor_id, relative_error_bound, rank, node_rank,
                io_methods[method], iteration, (method == 0 ? "h5" : "nc"));
-      if (PAPI_start(EventSet) != PAPI_OK) {
-        handle_error(1);
+      if (node_rank == 0) {
+        if (PAPI_start(EventSet) != PAPI_OK) {
+          handle_error(1);
+        }
       }
       if (method == 0) {
         write_to_hdf5(output_filename, pressio_data_ptr(compressed_data, NULL),
@@ -366,32 +378,33 @@ int main(int argc, char **argv) {
                         pressio_data_ptr(compressed_data, NULL),
                         pressio_data_get_bytes(compressed_data));
       }
-      if (PAPI_stop(EventSet, write_values) != PAPI_OK) {
-        handle_error(1);
+
+      MPI_Barrier(MPI_COMM_WORLD);
+      if (node_rank == 0) {
+        if (PAPI_stop(EventSet, write_values) != PAPI_OK) {
+          handle_error(1);
+        }
       }
 
       double write_end_time = get_time();
       double write_time = write_end_time - write_start_time;
 
       // Synchronize all processes after writing
-      MPI_Barrier(MPI_COMM_WORLD);
 
       double cpu_energy_writing = 0.0;
-      for (i = 0; i < num_events; i++) {
-        if (strstr(event_names[i], "ENERGY_UJ")) {
-          if (data_type[i] == PAPI_DATATYPE_UINT64) {
-            if (!strstr(event_names[i], "SUBZONE")) {
-              cpu_energy_writing += write_values[i] / 1.0e6;
+      if (node_rank == 0) {
+        for (i = 0; i < num_events; i++) {
+          if (strstr(event_names[i], "ENERGY_UJ")) {
+            if (data_type[i] == PAPI_DATATYPE_UINT64) {
+              if (!strstr(event_names[i], "SUBZONE")) {
+                cpu_energy_writing += write_values[i] / 1.0e6;
+              }
             }
           }
         }
       }
 
-   
-      double cpu_energy_writing_max, write_time_max;
-      MPI_Barrier(MPI_COMM_WORLD);
-      MPI_Reduce(&cpu_energy_writing, &cpu_energy_writing_max, 1, MPI_DOUBLE,
-                 MPI_MAX, 0, node_comm);
+      double write_time_max;
       MPI_Reduce(&write_time, &write_time_max, 1, MPI_DOUBLE, MPI_MAX, 0,
                  node_comm);
 
@@ -414,8 +427,8 @@ int main(int argc, char **argv) {
           fprintf(stats_file, "%s,%s,%d,%d,%d,%e,%s,%d,%e,%e,%e,%e,%zu\n",
                   dataset_file, compressor_id, node_num, nodes, size,
                   relative_error_bound, io_methods[method], iteration,
-                  compress_time_max, write_time_max, cpu_energy_compression_max,
-                  cpu_energy_writing_max, pressio_data_get_bytes(compressed_data));
+                  compress_time_max, write_time_max, cpu_energy_compression,
+                  cpu_energy_writing, pressio_data_get_bytes(compressed_data));
           fclose(stats_file);
         } else {
           fprintf(stderr, "Failed to open stats file for writing\n");
@@ -430,11 +443,13 @@ int main(int argc, char **argv) {
   pressio_options_free(options);
   pressio_compressor_release(compressor);
   pressio_release(library);
-  free(compress_values);
-  free(write_values);
+  if (node_rank == 0) {
+    free(compress_values);
+    free(write_values);
 
-  PAPI_cleanup_eventset(EventSet);
-  PAPI_destroy_eventset(&EventSet);
+    PAPI_cleanup_eventset(EventSet);
+    PAPI_destroy_eventset(&EventSet);
+  }
 
   MPI_Finalize();
   return 0;
