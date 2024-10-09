@@ -235,11 +235,11 @@ int main(int argc, char **argv) {
     memcpy(data_buffer, pressio_data_ptr(input_data, NULL), data_size);
   }
   MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
-
+  MPI_Barrier(MPI_COMM_WORLD);
   // Create pressio_data object for each rank
   struct pressio_data *rank_input_data = pressio_data_new_move(
       dtype, data_buffer, ndims, dims, pressio_data_libc_free_fn, NULL);
-
+  MPI_Barrier(MPI_COMM_WORLD);
   // Set compressor options
   struct pressio_options *options = pressio_options_new();
   pressio_options_set_double(options, "pressio:rel", error_bound);
@@ -248,7 +248,7 @@ int main(int argc, char **argv) {
   // Prepare for compression
   struct pressio_data *compressed_data =
       pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
-
+  MPI_Barrier(MPI_COMM_WORLD);
   // Compression phase
   double compress_start_time = get_time();
 
