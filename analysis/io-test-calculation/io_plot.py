@@ -31,10 +31,11 @@ df = df.fillna(0)
 df["REL Error Bound"] = df["REL Error Bound"].apply(lambda x: f"{x:.0E}")
 df["Dataset"] = df["Dataset"].apply(lambda x: x.upper())
 df = df[df["REL Error Bound"] != "1E-06"]
+df = df[df["Chip"] != "Intel Xeon Platinum 8160"]
 
 
 # Set the style for all plots
-sns.set(style="whitegrid", context="talk", font_scale=1.2, font="Times New Roman")
+sns.set(style="whitegrid", context="talk", font_scale=1.55, font="Times New Roman")
 
 # Get unique combinations of I/O Method and Dataset
 chips = df["Chip"].unique()
@@ -42,13 +43,17 @@ datasets = df["Dataset"].unique()
 error_bounds = sorted(df["REL Error Bound"].unique())
 io_methods = df["I/O Method"].unique()
 print(df["Compressor"].unique())
+print(df["I/O Method"].unique())
+print(df["Chip"].unique())
 
 # Create a separate plot for each combination
 for io_method in io_methods:
     for chip in chips:
         for dataset in datasets:
-            plt.figure(figsize=(5, 5))
-
+            plt.figure(figsize=(7, 7))
+            if dataset == "S3D":
+                plt.figure(figsize=(9, 7))
+            print(f"Creating plot for {io_method} - {chip} - {dataset}")
             # Filter data for current I/O Method and Dataset
             data = df[
                 (df["Chip"] == chip)
@@ -76,27 +81,40 @@ for io_method in io_methods:
                 y=uncompressed_mean,
                 color="r",
                 linestyle="--",
-                label="Uncompressed Mean",
+                label="Original",
             )
 
             # Customize the plot
-            plt.title(f"{io_method} - {chip}")
+            plt.title(f"{io_method}")
             plt.xlabel("REL Error Bound")
             plt.ylabel("I/O Energy (J)")
-            plt.ylim(0, uncompressed_mean * 1.1)
+            # plt.ylim(0, uncompressed_mean * 1.1)
+            plt.yscale("log")
+
+            # Add minor gridlines on the y axis
+            ax.yaxis.grid(
+                True, which="minor", linestyle=":", linewidth="0.5", color="gray"
+            )
 
             # Create a legend outside the plot
             handles, labels = ax.get_legend_handles_labels()
 
             # Add the uncompressed line to the legend
-            handles.append(plt.Line2D([0], [0], color="r", linestyle="--"))
-            labels.append("Uncompressed Mean")
+            if uncompressed_mean < 100:
+                plt.ylim(0, 100)
+            elif uncompressed_mean < 1000:
+                plt.ylim(0, 1000)
+            elif uncompressed_mean < 10000:
+                plt.ylim(0, 10000)
 
             # Place the legend outside the plot
             plt.legend(handles, labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
             # Remove the legend
-            ax.get_legend().remove()
+            if dataset != "S3D":
+                handles.append(plt.Line2D([0], [0], color="r", linestyle="--"))
+                labels.append("Original")
+                ax.get_legend().remove()
 
             # Adjust layout and save the plot
             plt.tight_layout()

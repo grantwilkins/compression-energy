@@ -219,6 +219,10 @@ int main(int argc, char **argv) {
   MPI_Bcast(&dtype_int, 1, MPI_INT, 0, node_comm);
   dtype = (enum pressio_dtype)dtype_int;
 
+  printf("Rank %d: data_size = %zu, ndims = %zu, dims = {%zu, %zu, %zu}, "
+         "dtype = %d\n",
+         rank, data_size, ndims, dims[0], dims[1], dims[2], dtype);
+
   // Allocate memory for data on all ranks
   void *data_buffer = malloc(data_size);
   if (data_buffer == NULL) {
