@@ -13,7 +13,7 @@ datasets=(
 )
 
 compressors=(
-    sz
+    zfp
 )
 
 error_bounds=(

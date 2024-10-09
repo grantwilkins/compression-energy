@@ -1,0 +1,3655 @@
+mpicc -std=c99 -lm -g -lpapi -fopenmp -I/home1/10191/gfw/spack/opt/spack/linux-rocky9-sapphirerapids/gcc-11.4.1/libstdcompat-0.0.21-3p4ltkcg3xdval7v6icoxpnokdgonjpt/include  -o parallel_io parallel_io.c -I/opt/apps/intel24/impi21/phdf5/1.14.3/x86_64/include -L/opt/apps/intel24/impi21/phdf5/1.14.3/x86_64/lib -L/home1/10191/gfw/spack/opt/spack/linux-rocky9-sapphirerapids/gcc-11.4.1/libpressio-0.99.4-vhf5sj2d3tfsj73nxyy2j6xqibey4zfl/lib64 -llibpressio -L/home1/10191/gfw/spack/opt/spack/linux-rocky9-sapphirerapids/gcc-11.4.1/libstdcompat-0.0.21-3p4ltkcg3xdval7v6icoxpnokdgonjpt/lib64 -lstd_compat -L/home1/10191/gfw/papi/src/lib -lpapi -L/opt/apps/intel24/netcdf/4.9.2/x86_64/lib -lnetcdf  -D_POSIX_C_SOURCE=199309L -lhdf5 -lmpi
+TACC:  Starting up job 1120413 
+TACC:  Starting parallel tasks... 
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+Rank 0: About to start compression. Input data size: 536870912 bytes
+Rank 1: About to start compression. Input data size: 536870912 bytes
+Rank 75: About to start compression. Input data size: 536870912 bytes
+Rank 2: About to start compression. Input data size: 536870912 bytes
+Rank 76: About to start compression. Input data size: 536870912 bytes
+Rank 3: About to start compression. Input data size: 536870912 bytes
+Rank 77: About to start compression. Input data size: 536870912 bytes
+Rank 4: About to start compression. Input data size: 536870912 bytes
+Rank 78: About to start compression. Input data size: 536870912 bytes
+Rank 5: About to start compression. Input data size: 536870912 bytes
+Rank 79: About to start compression. Input data size: 536870912 bytes
+Rank 6: About to start compression. Input data size: 536870912 bytes
+Rank 80: About to start compression. Input data size: 536870912 bytes
+Rank 7: About to start compression. Input data size: 536870912 bytes
+Rank 81: About to start compression. Input data size: 536870912 bytes
+Rank 8: About to start compression. Input data size: 536870912 bytes
+Rank 82: About to start compression. Input data size: 536870912 bytes
+Rank 9: About to start compression. Input data size: 536870912 bytes
+Rank 83: About to start compression. Input data size: 536870912 bytes
+Rank 10: About to start compression. Input data size: 536870912 bytes
+Rank 84: About to start compression. Input data size: 536870912 bytes
+Rank 11: About to start compression. Input data size: 536870912 bytes
+Rank 85: About to start compression. Input data size: 536870912 bytes
+Rank 12: About to start compression. Input data size: 536870912 bytes
+Rank 86: About to start compression. Input data size: 536870912 bytes
+Rank 13: About to start compression. Input data size: 536870912 bytes
+Rank 87: About to start compression. Input data size: 536870912 bytes
+Rank 14: About to start compression. Input data size: 536870912 bytes
+Rank 88: About to start compression. Input data size: 536870912 bytes
+Rank 15: About to start compression. Input data size: 536870912 bytes
+Rank 89: About to start compression. Input data size: 536870912 bytes
+Rank 16: About to start compression. Input data size: 536870912 bytes
+Rank 90: About to start compression. Input data size: 536870912 bytes
+Rank 17: About to start compression. Input data size: 536870912 bytes
+Rank 91: About to start compression. Input data size: 536870912 bytes
+Rank 18: About to start compression. Input data size: 536870912 bytes
+Rank 92: About to start compression. Input data size: 536870912 bytes
+Rank 19: About to start compression. Input data size: 536870912 bytes
+Rank 93: About to start compression. Input data size: 536870912 bytes
+Rank 20: About to start compression. Input data size: 536870912 bytes
+Rank 94: About to start compression. Input data size: 536870912 bytes
+Rank 21: About to start compression. Input data size: 536870912 bytes
+Rank 95: About to start compression. Input data size: 536870912 bytes
+Rank 22: About to start compression. Input data size: 536870912 bytes
+Rank 96: About to start compression. Input data size: 536870912 bytes
+Rank 23: About to start compression. Input data size: 536870912 bytes
+Rank 97: About to start compression. Input data size: 536870912 bytes
+Rank 24: About to start compression. Input data size: 536870912 bytes
+Rank 98: About to start compression. Input data size: 536870912 bytes
+Rank 25: About to start compression. Input data size: 536870912 bytes
+Rank 99: About to start compression. Input data size: 536870912 bytes
+Rank 26: About to start compression. Input data size: 536870912 bytes
+Rank 100: About to start compression. Input data size: 536870912 bytes
+Rank 27: About to start compression. Input data size: 536870912 bytes
+Rank 101: About to start compression. Input data size: 536870912 bytes
+Rank 28: About to start compression. Input data size: 536870912 bytes
+Rank 102: About to start compression. Input data size: 536870912 bytes
+Rank 29: About to start compression. Input data size: 536870912 bytes
+Rank 103: About to start compression. Input data size: 536870912 bytes
+Rank 30: About to start compression. Input data size: 536870912 bytes
+Rank 104: About to start compression. Input data size: 536870912 bytes
+Rank 31: About to start compression. Input data size: 536870912 bytes
+Rank 105: About to start compression. Input data size: 536870912 bytes
+Rank 32: About to start compression. Input data size: 536870912 bytes
+Rank 106: About to start compression. Input data size: 536870912 bytes
+Rank 33: About to start compression. Input data size: 536870912 bytes
+Rank 107: About to start compression. Input data size: 536870912 bytes
+Rank 34: About to start compression. Input data size: 536870912 bytes
+Rank 108: About to start compression. Input data size: 536870912 bytes
+Rank 35: About to start compression. Input data size: 536870912 bytes
+Rank 109: About to start compression. Input data size: 536870912 bytes
+Rank 36: About to start compression. Input data size: 536870912 bytes
+Rank 110: About to start compression. Input data size: 536870912 bytes
+Rank 37: About to start compression. Input data size: 536870912 bytes
+Rank 111: About to start compression. Input data size: 536870912 bytes
+Rank 38: About to start compression. Input data size: 536870912 bytes
+Rank 112: About to start compression. Input data size: 536870912 bytes
+Rank 39: About to start compression. Input data size: 536870912 bytes
+Rank 113: About to start compression. Input data size: 536870912 bytes
+Rank 40: About to start compression. Input data size: 536870912 bytes
+Rank 114: About to start compression. Input data size: 536870912 bytes
+Rank 41: About to start compression. Input data size: 536870912 bytes
+Rank 115: About to start compression. Input data size: 536870912 bytes
+Rank 42: About to start compression. Input data size: 536870912 bytes
+Rank 116: About to start compression. Input data size: 536870912 bytes
+Rank 43: About to start compression. Input data size: 536870912 bytes
+Rank 117: About to start compression. Input data size: 536870912 bytes
+Rank 44: About to start compression. Input data size: 536870912 bytes
+Rank 118: About to start compression. Input data size: 536870912 bytes
+Rank 45: About to start compression. Input data size: 536870912 bytes
+Rank 119: About to start compression. Input data size: 536870912 bytes
+Rank 46: About to start compression. Input data size: 536870912 bytes
+Rank 120: About to start compression. Input data size: 536870912 bytes
+Rank 47: About to start compression. Input data size: 536870912 bytes
+Rank 121: About to start compression. Input data size: 536870912 bytes
+Rank 48: About to start compression. Input data size: 536870912 bytes
+Rank 122: About to start compression. Input data size: 536870912 bytes
+Rank 49: About to start compression. Input data size: 536870912 bytes
+Rank 123: About to start compression. Input data size: 536870912 bytes
+Rank 50: About to start compression. Input data size: 536870912 bytes
+Rank 124: About to start compression. Input data size: 536870912 bytes
+Rank 51: About to start compression. Input data size: 536870912 bytes
+Rank 125: About to start compression. Input data size: 536870912 bytes
+Rank 52: About to start compression. Input data size: 536870912 bytes
+Rank 126: About to start compression. Input data size: 536870912 bytes
+Rank 53: About to start compression. Input data size: 536870912 bytes
+Rank 127: About to start compression. Input data size: 536870912 bytes
+Rank 54: About to start compression. Input data size: 536870912 bytes
+Rank 128: About to start compression. Input data size: 536870912 bytes
+Rank 55: About to start compression. Input data size: 536870912 bytes
+Rank 129: About to start compression. Input data size: 536870912 bytes
+Rank 56: About to start compression. Input data size: 536870912 bytes
+Rank 130: About to start compression. Input data size: 536870912 bytes
+Rank 57: About to start compression. Input data size: 536870912 bytes
+Rank 131: About to start compression. Input data size: 536870912 bytes
+Rank 58: About to start compression. Input data size: 536870912 bytes
+Rank 132: About to start compression. Input data size: 536870912 bytes
+Rank 59: About to start compression. Input data size: 536870912 bytes
+Rank 133: About to start compression. Input data size: 536870912 bytes
+Rank 60: About to start compression. Input data size: 536870912 bytes
+Rank 134: About to start compression. Input data size: 536870912 bytes
+Rank 61: About to start compression. Input data size: 536870912 bytes
+Rank 135: About to start compression. Input data size: 536870912 bytes
+Rank 62: About to start compression. Input data size: 536870912 bytes
+Rank 136: About to start compression. Input data size: 536870912 bytes
+Rank 63: About to start compression. Input data size: 536870912 bytes
+Rank 137: About to start compression. Input data size: 536870912 bytes
+Rank 64: About to start compression. Input data size: 536870912 bytes
+Rank 138: About to start compression. Input data size: 536870912 bytes
+Rank 65: About to start compression. Input data size: 536870912 bytes
+Rank 139: About to start compression. Input data size: 536870912 bytes
+Rank 66: About to start compression. Input data size: 536870912 bytes
+Rank 140: About to start compression. Input data size: 536870912 bytes
+Rank 67: About to start compression. Input data size: 536870912 bytes
+Rank 141: About to start compression. Input data size: 536870912 bytes
+Rank 68: About to start compression. Input data size: 536870912 bytes
+Rank 142: About to start compression. Input data size: 536870912 bytes
+Rank 69: About to start compression. Input data size: 536870912 bytes
+Rank 143: About to start compression. Input data size: 536870912 bytes
+Rank 70: About to start compression. Input data size: 536870912 bytes
+Rank 144: About to start compression. Input data size: 536870912 bytes
+Rank 71: About to start compression. Input data size: 536870912 bytes
+Rank 145: About to start compression. Input data size: 536870912 bytes
+Rank 72: About to start compression. Input data size: 536870912 bytes
+Rank 146: About to start compression. Input data size: 536870912 bytes
+Rank 73: About to start compression. Input data size: 536870912 bytes
+Rank 147: About to start compression. Input data size: 536870912 bytes
+Rank 74: About to start compression. Input data size: 536870912 bytes
+Rank 148: About to start compression. Input data size: 536870912 bytes
+Rank 149: About to start compression. Input data size: 536870912 bytes
+rank 51: Finished compression
+rank 55: Finished compression
+rank 46: Finished compression
+rank 65: Finished compression
+rank 69: Finished compression
+rank 130: Finished compression
+rank 142: Finished compression
+rank 73: Finished compression
+rank 146: Finished compression
+rank 8: Finished compression
+rank 118: Finished compression
+rank 138: Finished compression
+rank 40: Finished compression
+rank 44: Finished compression
+rank 56: Finished compression
+rank 47: Finished compression
+rank 99: Finished compression
+rank 114: Finished compression
+rank 122: Finished compression
+rank 63: Finished compression
+rank 41: Finished compression
+rank 134: Finished compression
+rank 83: Finished compression
+rank 92: Finished compression
+rank 36: Finished compression
+rank 109: Finished compression
+rank 85: Finished compression
+rank 19: Finished compression
+rank 29: Finished compression
+rank 104: Finished compression
+rank 107: Finished compression
+rank 53: Finished compression
+rank 28: Finished compression
+rank 79: Finished compression
+rank 39: Finished compression
+rank 48: Finished compression
+rank 21: Finished compression
+rank 98: Finished compression
+rank 77: Finished compression
+rank 20: Finished compression
+rank 18: Finished compression
+rank 87: Finished compression
+rank 72: Finished compression
+rank 74: Finished compression
+rank 12: Finished compression
+rank 126: Finished compression
+rank 148: Finished compression
+rank 147: Finished compression
+rank 145: Finished compression
+rank 60: Finished compression
+rank 49: Finished compression
+rank 131: Finished compression
+rank 61: Finished compression
+rank 119: Finished compression
+rank 143: Finished compression
+rank 68: Finished compression
+rank 96: Finished compression
+rank 140: Finished compression
+rank 59: Finished compression
+rank 144: Finished compression
+rank 141: Finished compression
+rank 67: Finished compression
+rank 45: Finished compression
+rank 121: Finished compression
+rank 58: Finished compression
+rank 124: Finished compression
+rank 52: Finished compression
+rank 84: Finished compression
+rank 57: Finished compression
+rank 127: Finished compression
+rank 70: Finished compression
+rank 135: Finished compression
+rank 137: Finished compression
+rank 128: Finished compression
+rank 71: Finished compression
+rank 62: Finished compression
+rank 43: Finished compression
+rank 149: Finished compression
+rank 66: Finished compression
+rank 42: Finished compression
+rank 139: Finished compression
+rank 132: Finished compression
+rank 125: Finished compression
+rank 120: Finished compression
+rank 91: Finished compression
+rank 50: Finished compression
+rank 116: Finished compression
+rank 123: Finished compression
+rank 117: Finished compression
+rank 54: Finished compression
+rank 115: Finished compression
+rank 133: Finished compression
+rank 129: Finished compression
+rank 136: Finished compression
+rank 64: Finished compression
+rank 103: Finished compression
+rank 113: Finished compression
+rank 86: Finished compression
+rank 101: Finished compression
+rank 89: Finished compression
+rank 102: Finished compression
+rank 112: Finished compression
+rank 108: Finished compression
+rank 82: Finished compression
+rank 106: Finished compression
+rank 27: Finished compression
+rank 0: Finished compression
+rank 110: Finished compression
+rank 105: Finished compression
+rank 16: Finished compression
+rank 111: Finished compression
+rank 33: Finished compression
+rank 38: Finished compression
+rank 35: Finished compression
+rank 80: Finished compression
+rank 90: Finished compression
+rank 94: Finished compression
+rank 95: Finished compression
+rank 100: Finished compression
+rank 31: Finished compression
+rank 93: Finished compression
+rank 17: Finished compression
+rank 81: Finished compression
+rank 26: Finished compression
+rank 13: Finished compression
+rank 78: Finished compression
+rank 7: Finished compression
+rank 25: Finished compression
+rank 97: Finished compression
+rank 34: Finished compression
+rank 88: Finished compression
+rank 11: Finished compression
+rank 24: Finished compression
+rank 5: Finished compression
+rank 22: Finished compression
+rank 76: Finished compression
+rank 10: Finished compression
+rank 37: Finished compression
+rank 30: Finished compression
+rank 32: Finished compression
+rank 15: Finished compression
+rank 4: Finished compression
+rank 23: Finished compression
+rank 14: Finished compression
+rank 1: Finished compression
+rank 6: Finished compression
+rank 2: Finished compression
+rank 3: Finished compression
+rank 9: Finished compression
+rank 75: Finished compression
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 137 PID 1712094 RUNNING AT c513-132
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+TACC:  MPI job exited with code: 255 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1120413 
+TACC:  Starting parallel tasks... 
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+Rank 75: About to start compression. Input data size: 536870912 bytes
+Rank 0: About to start compression. Input data size: 536870912 bytes
+Rank 76: About to start compression. Input data size: 536870912 bytes
+Rank 1: About to start compression. Input data size: 536870912 bytes
+Rank 77: About to start compression. Input data size: 536870912 bytes
+Rank 2: About to start compression. Input data size: 536870912 bytes
+Rank 78: About to start compression. Input data size: 536870912 bytes
+Rank 3: About to start compression. Input data size: 536870912 bytes
+Rank 79: About to start compression. Input data size: 536870912 bytes
+Rank 4: About to start compression. Input data size: 536870912 bytes
+Rank 80: About to start compression. Input data size: 536870912 bytes
+Rank 5: About to start compression. Input data size: 536870912 bytes
+Rank 81: About to start compression. Input data size: 536870912 bytes
+Rank 6: About to start compression. Input data size: 536870912 bytes
+Rank 82: About to start compression. Input data size: 536870912 bytes
+Rank 7: About to start compression. Input data size: 536870912 bytes
+Rank 83: About to start compression. Input data size: 536870912 bytes
+Rank 8: About to start compression. Input data size: 536870912 bytes
+Rank 84: About to start compression. Input data size: 536870912 bytes
+Rank 9: About to start compression. Input data size: 536870912 bytes
+Rank 85: About to start compression. Input data size: 536870912 bytes
+Rank 10: About to start compression. Input data size: 536870912 bytes
+Rank 86: About to start compression. Input data size: 536870912 bytes
+Rank 11: About to start compression. Input data size: 536870912 bytes
+Rank 87: About to start compression. Input data size: 536870912 bytes
+Rank 12: About to start compression. Input data size: 536870912 bytes
+Rank 88: About to start compression. Input data size: 536870912 bytes
+Rank 13: About to start compression. Input data size: 536870912 bytes
+Rank 89: About to start compression. Input data size: 536870912 bytes
+Rank 14: About to start compression. Input data size: 536870912 bytes
+Rank 90: About to start compression. Input data size: 536870912 bytes
+Rank 15: About to start compression. Input data size: 536870912 bytes
+Rank 91: About to start compression. Input data size: 536870912 bytes
+Rank 16: About to start compression. Input data size: 536870912 bytes
+Rank 92: About to start compression. Input data size: 536870912 bytes
+Rank 17: About to start compression. Input data size: 536870912 bytes
+Rank 93: About to start compression. Input data size: 536870912 bytes
+Rank 18: About to start compression. Input data size: 536870912 bytes
+Rank 94: About to start compression. Input data size: 536870912 bytes
+Rank 19: About to start compression. Input data size: 536870912 bytes
+Rank 95: About to start compression. Input data size: 536870912 bytes
+Rank 20: About to start compression. Input data size: 536870912 bytes
+Rank 96: About to start compression. Input data size: 536870912 bytes
+Rank 21: About to start compression. Input data size: 536870912 bytes
+Rank 97: About to start compression. Input data size: 536870912 bytes
+Rank 22: About to start compression. Input data size: 536870912 bytes
+Rank 98: About to start compression. Input data size: 536870912 bytes
+Rank 23: About to start compression. Input data size: 536870912 bytes
+Rank 99: About to start compression. Input data size: 536870912 bytes
+Rank 24: About to start compression. Input data size: 536870912 bytes
+Rank 100: About to start compression. Input data size: 536870912 bytes
+Rank 25: About to start compression. Input data size: 536870912 bytes
+Rank 101: About to start compression. Input data size: 536870912 bytes
+Rank 26: About to start compression. Input data size: 536870912 bytes
+Rank 102: About to start compression. Input data size: 536870912 bytes
+Rank 27: About to start compression. Input data size: 536870912 bytes
+Rank 103: About to start compression. Input data size: 536870912 bytes
+Rank 28: About to start compression. Input data size: 536870912 bytes
+Rank 104: About to start compression. Input data size: 536870912 bytes
+Rank 29: About to start compression. Input data size: 536870912 bytes
+Rank 105: About to start compression. Input data size: 536870912 bytes
+Rank 30: About to start compression. Input data size: 536870912 bytes
+Rank 106: About to start compression. Input data size: 536870912 bytes
+Rank 31: About to start compression. Input data size: 536870912 bytes
+Rank 107: About to start compression. Input data size: 536870912 bytes
+Rank 32: About to start compression. Input data size: 536870912 bytes
+Rank 108: About to start compression. Input data size: 536870912 bytes
+Rank 33: About to start compression. Input data size: 536870912 bytes
+Rank 109: About to start compression. Input data size: 536870912 bytes
+Rank 34: About to start compression. Input data size: 536870912 bytes
+Rank 110: About to start compression. Input data size: 536870912 bytes
+Rank 35: About to start compression. Input data size: 536870912 bytes
+Rank 111: About to start compression. Input data size: 536870912 bytes
+Rank 36: About to start compression. Input data size: 536870912 bytes
+Rank 112: About to start compression. Input data size: 536870912 bytes
+Rank 37: About to start compression. Input data size: 536870912 bytes
+Rank 113: About to start compression. Input data size: 536870912 bytes
+Rank 38: About to start compression. Input data size: 536870912 bytes
+Rank 114: About to start compression. Input data size: 536870912 bytes
+Rank 39: About to start compression. Input data size: 536870912 bytes
+Rank 115: About to start compression. Input data size: 536870912 bytes
+Rank 40: About to start compression. Input data size: 536870912 bytes
+Rank 116: About to start compression. Input data size: 536870912 bytes
+Rank 41: About to start compression. Input data size: 536870912 bytes
+Rank 117: About to start compression. Input data size: 536870912 bytes
+Rank 42: About to start compression. Input data size: 536870912 bytes
+Rank 118: About to start compression. Input data size: 536870912 bytes
+Rank 43: About to start compression. Input data size: 536870912 bytes
+Rank 119: About to start compression. Input data size: 536870912 bytes
+Rank 44: About to start compression. Input data size: 536870912 bytes
+Rank 120: About to start compression. Input data size: 536870912 bytes
+Rank 45: About to start compression. Input data size: 536870912 bytes
+Rank 121: About to start compression. Input data size: 536870912 bytes
+Rank 46: About to start compression. Input data size: 536870912 bytes
+Rank 122: About to start compression. Input data size: 536870912 bytes
+Rank 47: About to start compression. Input data size: 536870912 bytes
+Rank 123: About to start compression. Input data size: 536870912 bytes
+Rank 48: About to start compression. Input data size: 536870912 bytes
+Rank 124: About to start compression. Input data size: 536870912 bytes
+Rank 49: About to start compression. Input data size: 536870912 bytes
+Rank 125: About to start compression. Input data size: 536870912 bytes
+Rank 50: About to start compression. Input data size: 536870912 bytes
+Rank 126: About to start compression. Input data size: 536870912 bytes
+Rank 51: About to start compression. Input data size: 536870912 bytes
+Rank 127: About to start compression. Input data size: 536870912 bytes
+Rank 52: About to start compression. Input data size: 536870912 bytes
+Rank 128: About to start compression. Input data size: 536870912 bytes
+Rank 53: About to start compression. Input data size: 536870912 bytes
+Rank 129: About to start compression. Input data size: 536870912 bytes
+Rank 54: About to start compression. Input data size: 536870912 bytes
+Rank 130: About to start compression. Input data size: 536870912 bytes
+Rank 55: About to start compression. Input data size: 536870912 bytes
+Rank 131: About to start compression. Input data size: 536870912 bytes
+Rank 56: About to start compression. Input data size: 536870912 bytes
+Rank 132: About to start compression. Input data size: 536870912 bytes
+Rank 57: About to start compression. Input data size: 536870912 bytes
+Rank 133: About to start compression. Input data size: 536870912 bytes
+Rank 58: About to start compression. Input data size: 536870912 bytes
+Rank 134: About to start compression. Input data size: 536870912 bytes
+Rank 59: About to start compression. Input data size: 536870912 bytes
+Rank 135: About to start compression. Input data size: 536870912 bytes
+Rank 60: About to start compression. Input data size: 536870912 bytes
+Rank 136: About to start compression. Input data size: 536870912 bytes
+Rank 61: About to start compression. Input data size: 536870912 bytes
+Rank 137: About to start compression. Input data size: 536870912 bytes
+Rank 62: About to start compression. Input data size: 536870912 bytes
+Rank 138: About to start compression. Input data size: 536870912 bytes
+Rank 63: About to start compression. Input data size: 536870912 bytes
+Rank 139: About to start compression. Input data size: 536870912 bytes
+Rank 64: About to start compression. Input data size: 536870912 bytes
+Rank 140: About to start compression. Input data size: 536870912 bytes
+Rank 65: About to start compression. Input data size: 536870912 bytes
+Rank 141: About to start compression. Input data size: 536870912 bytes
+Rank 66: About to start compression. Input data size: 536870912 bytes
+Rank 142: About to start compression. Input data size: 536870912 bytes
+Rank 67: About to start compression. Input data size: 536870912 bytes
+Rank 143: About to start compression. Input data size: 536870912 bytes
+Rank 68: About to start compression. Input data size: 536870912 bytes
+Rank 144: About to start compression. Input data size: 536870912 bytes
+Rank 69: About to start compression. Input data size: 536870912 bytes
+Rank 145: About to start compression. Input data size: 536870912 bytes
+Rank 70: About to start compression. Input data size: 536870912 bytes
+Rank 146: About to start compression. Input data size: 536870912 bytes
+Rank 71: About to start compression. Input data size: 536870912 bytes
+Rank 147: About to start compression. Input data size: 536870912 bytes
+Rank 72: About to start compression. Input data size: 536870912 bytes
+Rank 148: About to start compression. Input data size: 536870912 bytes
+Rank 73: About to start compression. Input data size: 536870912 bytes
+Rank 149: About to start compression. Input data size: 536870912 bytes
+Rank 74: About to start compression. Input data size: 536870912 bytes
+rank 29: Finished compression
+rank 8: Finished compression
+rank 12: Finished compression
+rank 18: Finished compression
+rank 26: Finished compression
+rank 20: Finished compression
+rank 28: Finished compression
+rank 36: Finished compression
+rank 21: Finished compression
+rank 19: Finished compression
+rank 51: Finished compression
+rank 72: Finished compression
+rank 52: Finished compression
+rank 0: Finished compression
+rank 7: Finished compression
+rank 13: Finished compression
+rank 46: Finished compression
+rank 24: Finished compression
+rank 37: Finished compression
+rank 33: Finished compression
+rank 60: Finished compression
+rank 17: Finished compression
+rank 48: Finished compression
+rank 69: Finished compression
+rank 65: Finished compression
+rank 44: Finished compression
+rank 56: Finished compression
+rank 55: Finished compression
+rank 39: Finished compression
+rank 61: Finished compression
+rank 30: Finished compression
+rank 11: Finished compression
+rank 47: Finished compression
+rank 63: Finished compression
+rank 35: Finished compression
+rank 40: Finished compression
+rank 5: Finished compression
+rank 41: Finished compression
+rank 16: Finished compression
+rank 34: Finished compression
+rank 27: Finished compression
+rank 4: Finished compression
+rank 31: Finished compression
+rank 10: Finished compression
+rank 6: Finished compression
+rank 32: Finished compression
+rank 15: Finished compression
+rank 1: Finished compression
+rank 14: Finished compression
+rank 53: Finished compression
+rank 9: Finished compression
+rank 23: Finished compression
+rank 22: Finished compression
+rank 2: Finished compression
+rank 25: Finished compression
+rank 3: Finished compression
+rank 73: Finished compression
+rank 66: Finished compression
+rank 70: Finished compression
+rank 74: Finished compression
+rank 49: Finished compression
+rank 54: Finished compression
+rank 62: Finished compression
+rank 67: Finished compression
+rank 68: Finished compression
+rank 71: Finished compression
+rank 43: Finished compression
+rank 45: Finished compression
+rank 42: Finished compression
+rank 59: Finished compression
+rank 57: Finished compression
+rank 58: Finished compression
+rank 50: Finished compression
+rank 64: Finished compression
+rank 38: Finished compression
+rank 130: Finished compression
+rank 83: Finished compression
+rank 87: Finished compression
+rank 109: Finished compression
+rank 104: Finished compression
+rank 107: Finished compression
+rank 99: Finished compression
+rank 138: Finished compression
+rank 131: Finished compression
+rank 77: Finished compression
+rank 92: Finished compression
+rank 85: Finished compression
+rank 79: Finished compression
+rank 98: Finished compression
+rank 134: Finished compression
+rank 122: Finished compression
+rank 142: Finished compression
+rank 146: Finished compression
+rank 114: Finished compression
+rank 118: Finished compression
+rank 96: Finished compression
+rank 91: Finished compression
+rank 143: Finished compression
+rank 147: Finished compression
+rank 132: Finished compression
+rank 140: Finished compression
+rank 84: Finished compression
+rank 123: Finished compression
+rank 144: Finished compression
+rank 121: Finished compression
+rank 125: Finished compression
+rank 136: Finished compression
+rank 139: Finished compression
+rank 141: Finished compression
+rank 149: Finished compression
+rank 126: Finished compression
+rank 133: Finished compression
+rank 115: Finished compression
+rank 119: Finished compression
+rank 137: Finished compression
+rank 145: Finished compression
+rank 148: Finished compression
+rank 129: Finished compression
+rank 135: Finished compression
+rank 127: Finished compression
+rank 116: Finished compression
+rank 103: Finished compression
+rank 117: Finished compression
+rank 120: Finished compression
+rank 105: Finished compression
+rank 128: Finished compression
+rank 124: Finished compression
+rank 110: Finished compression
+rank 113: Finished compression
+rank 102: Finished compression
+rank 101: Finished compression
+rank 94: Finished compression
+rank 86: Finished compression
+rank 76: Finished compression
+rank 111: Finished compression
+rank 80: Finished compression
+rank 95: Finished compression
+rank 81: Finished compression
+rank 97: Finished compression
+rank 108: Finished compression
+rank 89: Finished compression
+rank 88: Finished compression
+rank 90: Finished compression
+rank 100: Finished compression
+rank 82: Finished compression
+rank 93: Finished compression
+rank 106: Finished compression
+rank 112: Finished compression
+rank 78: Finished compression
+rank 75: Finished compression
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 35 PID 2009037 RUNNING AT c513-131
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 43 PID 2009045 RUNNING AT c513-131
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 57 PID 2009059 RUNNING AT c513-131
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+TACC:  MPI job exited with code: 255 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1120413 
+TACC:  Starting parallel tasks... 
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+Rank 0: About to start compression. Input data size: 536870912 bytes
+Rank 1: About to start compression. Input data size: 536870912 bytes
+Rank 2: About to start compression. Input data size: 536870912 bytes
+Rank 3: About to start compression. Input data size: 536870912 bytes
+Rank 4: About to start compression. Input data size: 536870912 bytes
+Rank 5: About to start compression. Input data size: 536870912 bytes
+Rank 6: About to start compression. Input data size: 536870912 bytes
+Rank 7: About to start compression. Input data size: 536870912 bytes
+Rank 75: About to start compression. Input data size: 536870912 bytes
+Rank 8: About to start compression. Input data size: 536870912 bytes
+Rank 9: About to start compression. Input data size: 536870912 bytes
+Rank 10: About to start compression. Input data size: 536870912 bytes
+Rank 11: About to start compression. Input data size: 536870912 bytes
+Rank 76: About to start compression. Input data size: 536870912 bytes
+Rank 12: About to start compression. Input data size: 536870912 bytes
+Rank 77: About to start compression. Input data size: 536870912 bytes
+Rank 13: About to start compression. Input data size: 536870912 bytes
+Rank 78: About to start compression. Input data size: 536870912 bytes
+Rank 14: About to start compression. Input data size: 536870912 bytes
+Rank 79: About to start compression. Input data size: 536870912 bytes
+Rank 15: About to start compression. Input data size: 536870912 bytes
+Rank 80: About to start compression. Input data size: 536870912 bytes
+Rank 16: About to start compression. Input data size: 536870912 bytes
+Rank 81: About to start compression. Input data size: 536870912 bytes
+Rank 17: About to start compression. Input data size: 536870912 bytes
+Rank 18: About to start compression. Input data size: 536870912 bytes
+Rank 19: About to start compression. Input data size: 536870912 bytes
+Rank 20: About to start compression. Input data size: 536870912 bytes
+Rank 21: About to start compression. Input data size: 536870912 bytes
+Rank 82: About to start compression. Input data size: 536870912 bytes
+Rank 22: About to start compression. Input data size: 536870912 bytes
+Rank 83: About to start compression. Input data size: 536870912 bytes
+Rank 23: About to start compression. Input data size: 536870912 bytes
+Rank 84: About to start compression. Input data size: 536870912 bytes
+Rank 24: About to start compression. Input data size: 536870912 bytes
+Rank 85: About to start compression. Input data size: 536870912 bytes
+Rank 25: About to start compression. Input data size: 536870912 bytes
+Rank 86: About to start compression. Input data size: 536870912 bytes
+Rank 26: About to start compression. Input data size: 536870912 bytes
+Rank 87: About to start compression. Input data size: 536870912 bytes
+Rank 27: About to start compression. Input data size: 536870912 bytes
+Rank 88: About to start compression. Input data size: 536870912 bytes
+Rank 28: About to start compression. Input data size: 536870912 bytes
+Rank 89: About to start compression. Input data size: 536870912 bytes
+Rank 29: About to start compression. Input data size: 536870912 bytes
+Rank 90: About to start compression. Input data size: 536870912 bytes
+Rank 30: About to start compression. Input data size: 536870912 bytes
+Rank 91: About to start compression. Input data size: 536870912 bytes
+Rank 31: About to start compression. Input data size: 536870912 bytes
+Rank 92: About to start compression. Input data size: 536870912 bytes
+Rank 32: About to start compression. Input data size: 536870912 bytes
+Rank 93: About to start compression. Input data size: 536870912 bytes
+Rank 33: About to start compression. Input data size: 536870912 bytes
+Rank 94: About to start compression. Input data size: 536870912 bytes
+Rank 34: About to start compression. Input data size: 536870912 bytes
+Rank 95: About to start compression. Input data size: 536870912 bytes
+Rank 35: About to start compression. Input data size: 536870912 bytes
+Rank 96: About to start compression. Input data size: 536870912 bytes
+Rank 36: About to start compression. Input data size: 536870912 bytes
+Rank 97: About to start compression. Input data size: 536870912 bytes
+Rank 37: About to start compression. Input data size: 536870912 bytes
+Rank 98: About to start compression. Input data size: 536870912 bytes
+Rank 38: About to start compression. Input data size: 536870912 bytes
+Rank 99: About to start compression. Input data size: 536870912 bytes
+Rank 39: About to start compression. Input data size: 536870912 bytes
+Rank 100: About to start compression. Input data size: 536870912 bytes
+Rank 40: About to start compression. Input data size: 536870912 bytes
+Rank 101: About to start compression. Input data size: 536870912 bytes
+Rank 41: About to start compression. Input data size: 536870912 bytes
+Rank 102: About to start compression. Input data size: 536870912 bytes
+Rank 42: About to start compression. Input data size: 536870912 bytes
+Rank 103: About to start compression. Input data size: 536870912 bytes
+Rank 43: About to start compression. Input data size: 536870912 bytes
+Rank 104: About to start compression. Input data size: 536870912 bytes
+Rank 44: About to start compression. Input data size: 536870912 bytes
+Rank 105: About to start compression. Input data size: 536870912 bytes
+Rank 45: About to start compression. Input data size: 536870912 bytes
+Rank 106: About to start compression. Input data size: 536870912 bytes
+Rank 46: About to start compression. Input data size: 536870912 bytes
+Rank 107: About to start compression. Input data size: 536870912 bytes
+Rank 47: About to start compression. Input data size: 536870912 bytes
+Rank 108: About to start compression. Input data size: 536870912 bytes
+Rank 48: About to start compression. Input data size: 536870912 bytes
+Rank 109: About to start compression. Input data size: 536870912 bytes
+Rank 49: About to start compression. Input data size: 536870912 bytes
+Rank 110: About to start compression. Input data size: 536870912 bytes
+Rank 50: About to start compression. Input data size: 536870912 bytes
+Rank 111: About to start compression. Input data size: 536870912 bytes
+Rank 51: About to start compression. Input data size: 536870912 bytes
+Rank 112: About to start compression. Input data size: 536870912 bytes
+Rank 52: About to start compression. Input data size: 536870912 bytes
+Rank 113: About to start compression. Input data size: 536870912 bytes
+Rank 53: About to start compression. Input data size: 536870912 bytes
+Rank 114: About to start compression. Input data size: 536870912 bytes
+Rank 54: About to start compression. Input data size: 536870912 bytes
+Rank 115: About to start compression. Input data size: 536870912 bytes
+Rank 55: About to start compression. Input data size: 536870912 bytes
+Rank 116: About to start compression. Input data size: 536870912 bytes
+Rank 56: About to start compression. Input data size: 536870912 bytes
+Rank 117: About to start compression. Input data size: 536870912 bytes
+Rank 57: About to start compression. Input data size: 536870912 bytes
+Rank 118: About to start compression. Input data size: 536870912 bytes
+Rank 58: About to start compression. Input data size: 536870912 bytes
+Rank 119: About to start compression. Input data size: 536870912 bytes
+Rank 59: About to start compression. Input data size: 536870912 bytes
+Rank 120: About to start compression. Input data size: 536870912 bytes
+Rank 60: About to start compression. Input data size: 536870912 bytes
+Rank 121: About to start compression. Input data size: 536870912 bytes
+Rank 61: About to start compression. Input data size: 536870912 bytes
+Rank 122: About to start compression. Input data size: 536870912 bytes
+Rank 62: About to start compression. Input data size: 536870912 bytes
+Rank 123: About to start compression. Input data size: 536870912 bytes
+Rank 63: About to start compression. Input data size: 536870912 bytes
+Rank 124: About to start compression. Input data size: 536870912 bytes
+Rank 64: About to start compression. Input data size: 536870912 bytes
+Rank 125: About to start compression. Input data size: 536870912 bytes
+Rank 65: About to start compression. Input data size: 536870912 bytes
+Rank 126: About to start compression. Input data size: 536870912 bytes
+Rank 66: About to start compression. Input data size: 536870912 bytes
+Rank 127: About to start compression. Input data size: 536870912 bytes
+Rank 67: About to start compression. Input data size: 536870912 bytes
+Rank 128: About to start compression. Input data size: 536870912 bytes
+Rank 68: About to start compression. Input data size: 536870912 bytes
+Rank 129: About to start compression. Input data size: 536870912 bytes
+Rank 69: About to start compression. Input data size: 536870912 bytes
+Rank 130: About to start compression. Input data size: 536870912 bytes
+Rank 70: About to start compression. Input data size: 536870912 bytes
+Rank 131: About to start compression. Input data size: 536870912 bytes
+Rank 71: About to start compression. Input data size: 536870912 bytes
+Rank 132: About to start compression. Input data size: 536870912 bytes
+Rank 72: About to start compression. Input data size: 536870912 bytes
+Rank 133: About to start compression. Input data size: 536870912 bytes
+Rank 73: About to start compression. Input data size: 536870912 bytes
+Rank 134: About to start compression. Input data size: 536870912 bytes
+Rank 74: About to start compression. Input data size: 536870912 bytes
+Rank 135: About to start compression. Input data size: 536870912 bytes
+Rank 136: About to start compression. Input data size: 536870912 bytes
+Rank 137: About to start compression. Input data size: 536870912 bytes
+Rank 138: About to start compression. Input data size: 536870912 bytes
+Rank 139: About to start compression. Input data size: 536870912 bytes
+Rank 140: About to start compression. Input data size: 536870912 bytes
+Rank 141: About to start compression. Input data size: 536870912 bytes
+Rank 142: About to start compression. Input data size: 536870912 bytes
+Rank 143: About to start compression. Input data size: 536870912 bytes
+Rank 144: About to start compression. Input data size: 536870912 bytes
+Rank 145: About to start compression. Input data size: 536870912 bytes
+Rank 146: About to start compression. Input data size: 536870912 bytes
+Rank 147: About to start compression. Input data size: 536870912 bytes
+Rank 148: About to start compression. Input data size: 536870912 bytes
+Rank 149: About to start compression. Input data size: 536870912 bytes
+rank 130: Finished compression
+rank 138: Finished compression
+rank 145: Finished compression
+rank 121: Finished compression
+rank 142: Finished compression
+rank 146: Finished compression
+rank 139: Finished compression
+rank 124: Finished compression
+rank 119: Finished compression
+rank 147: Finished compression
+rank 127: Finished compression
+rank 122: Finished compression
+rank 114: Finished compression
+rank 118: Finished compression
+rank 134: Finished compression
+rank 131: Finished compression
+rank 125: Finished compression
+rank 140: Finished compression
+rank 117: Finished compression
+rank 135: Finished compression
+rank 128: Finished compression
+rank 129: Finished compression
+rank 137: Finished compression
+rank 133: Finished compression
+rank 116: Finished compression
+rank 144: Finished compression
+rank 120: Finished compression
+rank 143: Finished compression
+rank 136: Finished compression
+rank 115: Finished compression
+rank 149: Finished compression
+rank 148: Finished compression
+rank 126: Finished compression
+rank 132: Finished compression
+rank 141: Finished compression
+rank 113: Finished compression
+rank 123: Finished compression
+rank 107: Finished compression
+rank 45: Finished compression
+rank 99: Finished compression
+rank 92: Finished compression
+rank 104: Finished compression
+rank 87: Finished compression
+rank 79: Finished compression
+rank 96: Finished compression
+rank 98: Finished compression
+rank 103: Finished compression
+rank 89: Finished compression
+rank 77: Finished compression
+rank 84: Finished compression
+rank 80: Finished compression
+rank 83: Finished compression
+rank 110: Finished compression
+rank 109: Finished compression
+rank 106: Finished compression
+rank 111: Finished compression
+rank 86: Finished compression
+rank 81: Finished compression
+rank 97: Finished compression
+rank 105: Finished compression
+rank 102: Finished compression
+rank 82: Finished compression
+rank 108: Finished compression
+rank 100: Finished compression
+rank 76: Finished compression
+rank 112: Finished compression
+rank 95: Finished compression
+rank 90: Finished compression
+rank 94: Finished compression
+rank 78: Finished compression
+rank 93: Finished compression
+rank 88: Finished compression
+rank 101: Finished compression
+rank 85: Finished compression
+rank 91: Finished compression
+rank 75: Finished compression
+rank 58: Finished compression
+rank 71: Finished compression
+rank 18: Finished compression
+rank 36: Finished compression
+rank 74: Finished compression
+rank 64: Finished compression
+rank 38: Finished compression
+rank 52: Finished compression
+rank 0: Finished compression
+rank 44: Finished compression
+rank 50: Finished compression
+rank 12: Finished compression
+rank 8: Finished compression
+rank 47: Finished compression
+rank 14: Finished compression
+rank 29: Finished compression
+rank 28: Finished compression
+rank 10: Finished compression
+rank 69: Finished compression
+rank 9: Finished compression
+rank 3: Finished compression
+rank 40: Finished compression
+rank 55: Finished compression
+rank 46: Finished compression
+rank 41: Finished compression
+rank 60: Finished compression
+rank 73: Finished compression
+rank 68: Finished compression
+rank 62: Finished compression
+rank 42: Finished compression
+rank 43: Finished compression
+rank 11: Finished compression
+rank 61: Finished compression
+rank 48: Finished compression
+rank 51: Finished compression
+rank 56: Finished compression
+rank 65: Finished compression
+rank 72: Finished compression
+rank 54: Finished compression
+rank 67: Finished compression
+rank 53: Finished compression
+rank 70: Finished compression
+rank 59: Finished compression
+rank 39: Finished compression
+rank 66: Finished compression
+rank 49: Finished compression
+rank 57: Finished compression
+rank 63: Finished compression
+rank 19: Finished compression
+rank 35: Finished compression
+rank 20: Finished compression
+rank 21: Finished compression
+rank 34: Finished compression
+rank 1: Finished compression
+rank 15: Finished compression
+rank 6: Finished compression
+rank 32: Finished compression
+rank 17: Finished compression
+rank 30: Finished compression
+rank 24: Finished compression
+rank 37: Finished compression
+rank 31: Finished compression
+rank 16: Finished compression
+rank 5: Finished compression
+rank 27: Finished compression
+rank 33: Finished compression
+rank 22: Finished compression
+rank 26: Finished compression
+rank 23: Finished compression
+rank 25: Finished compression
+rank 7: Finished compression
+rank 2: Finished compression
+rank 13: Finished compression
+rank 4: Finished compression
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 42 PID 2009282 RUNNING AT c513-131
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+TACC:  MPI job exited with code: 255 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1120413 
+TACC:  Starting parallel tasks... 
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+Rank 0: About to start compression. Input data size: 536870912 bytes
+Rank 1: About to start compression. Input data size: 536870912 bytes
+Rank 2: About to start compression. Input data size: 536870912 bytes
+Rank 3: About to start compression. Input data size: 536870912 bytes
+Rank 4: About to start compression. Input data size: 536870912 bytes
+Rank 5: About to start compression. Input data size: 536870912 bytes
+Rank 6: About to start compression. Input data size: 536870912 bytes
+Rank 7: About to start compression. Input data size: 536870912 bytes
+Rank 8: About to start compression. Input data size: 536870912 bytes
+Rank 9: About to start compression. Input data size: 536870912 bytes
+Rank 10: About to start compression. Input data size: 536870912 bytes
+Rank 11: About to start compression. Input data size: 536870912 bytes
+Rank 12: About to start compression. Input data size: 536870912 bytes
+Rank 13: About to start compression. Input data size: 536870912 bytes
+Rank 14: About to start compression. Input data size: 536870912 bytes
+Rank 15: About to start compression. Input data size: 536870912 bytes
+Rank 16: About to start compression. Input data size: 536870912 bytes
+Rank 17: About to start compression. Input data size: 536870912 bytes
+Rank 18: About to start compression. Input data size: 536870912 bytes
+Rank 19: About to start compression. Input data size: 536870912 bytes
+Rank 20: About to start compression. Input data size: 536870912 bytes
+Rank 21: About to start compression. Input data size: 536870912 bytes
+Rank 22: About to start compression. Input data size: 536870912 bytes
+Rank 23: About to start compression. Input data size: 536870912 bytes
+Rank 24: About to start compression. Input data size: 536870912 bytes
+Rank 25: About to start compression. Input data size: 536870912 bytes
+Rank 26: About to start compression. Input data size: 536870912 bytes
+Rank 27: About to start compression. Input data size: 536870912 bytes
+Rank 28: About to start compression. Input data size: 536870912 bytes
+Rank 29: About to start compression. Input data size: 536870912 bytes
+Rank 30: About to start compression. Input data size: 536870912 bytes
+Rank 31: About to start compression. Input data size: 536870912 bytes
+Rank 32: About to start compression. Input data size: 536870912 bytes
+Rank 33: About to start compression. Input data size: 536870912 bytes
+Rank 75: About to start compression. Input data size: 536870912 bytes
+Rank 34: About to start compression. Input data size: 536870912 bytes
+Rank 76: About to start compression. Input data size: 536870912 bytes
+Rank 35: About to start compression. Input data size: 536870912 bytes
+Rank 77: About to start compression. Input data size: 536870912 bytes
+Rank 36: About to start compression. Input data size: 536870912 bytes
+Rank 78: About to start compression. Input data size: 536870912 bytes
+Rank 37: About to start compression. Input data size: 536870912 bytes
+Rank 79: About to start compression. Input data size: 536870912 bytes
+Rank 38: About to start compression. Input data size: 536870912 bytes
+Rank 80: About to start compression. Input data size: 536870912 bytes
+Rank 39: About to start compression. Input data size: 536870912 bytes
+Rank 81: About to start compression. Input data size: 536870912 bytes
+Rank 40: About to start compression. Input data size: 536870912 bytes
+Rank 82: About to start compression. Input data size: 536870912 bytes
+Rank 41: About to start compression. Input data size: 536870912 bytes
+Rank 83: About to start compression. Input data size: 536870912 bytes
+Rank 42: About to start compression. Input data size: 536870912 bytes
+Rank 84: About to start compression. Input data size: 536870912 bytes
+Rank 43: About to start compression. Input data size: 536870912 bytes
+Rank 85: About to start compression. Input data size: 536870912 bytes
+Rank 44: About to start compression. Input data size: 536870912 bytes
+Rank 86: About to start compression. Input data size: 536870912 bytes
+Rank 45: About to start compression. Input data size: 536870912 bytes
+Rank 87: About to start compression. Input data size: 536870912 bytes
+Rank 46: About to start compression. Input data size: 536870912 bytes
+Rank 88: About to start compression. Input data size: 536870912 bytes
+Rank 47: About to start compression. Input data size: 536870912 bytes
+Rank 89: About to start compression. Input data size: 536870912 bytes
+Rank 48: About to start compression. Input data size: 536870912 bytes
+Rank 90: About to start compression. Input data size: 536870912 bytes
+Rank 49: About to start compression. Input data size: 536870912 bytes
+Rank 91: About to start compression. Input data size: 536870912 bytes
+Rank 50: About to start compression. Input data size: 536870912 bytes
+Rank 92: About to start compression. Input data size: 536870912 bytes
+Rank 51: About to start compression. Input data size: 536870912 bytes
+Rank 93: About to start compression. Input data size: 536870912 bytes
+Rank 52: About to start compression. Input data size: 536870912 bytes
+Rank 94: About to start compression. Input data size: 536870912 bytes
+Rank 53: About to start compression. Input data size: 536870912 bytes
+Rank 95: About to start compression. Input data size: 536870912 bytes
+Rank 54: About to start compression. Input data size: 536870912 bytes
+Rank 96: About to start compression. Input data size: 536870912 bytes
+Rank 55: About to start compression. Input data size: 536870912 bytes
+Rank 97: About to start compression. Input data size: 536870912 bytes
+Rank 56: About to start compression. Input data size: 536870912 bytes
+Rank 98: About to start compression. Input data size: 536870912 bytes
+Rank 57: About to start compression. Input data size: 536870912 bytes
+Rank 99: About to start compression. Input data size: 536870912 bytes
+Rank 58: About to start compression. Input data size: 536870912 bytes
+Rank 100: About to start compression. Input data size: 536870912 bytes
+Rank 59: About to start compression. Input data size: 536870912 bytes
+Rank 101: About to start compression. Input data size: 536870912 bytes
+Rank 60: About to start compression. Input data size: 536870912 bytes
+Rank 102: About to start compression. Input data size: 536870912 bytes
+Rank 61: About to start compression. Input data size: 536870912 bytes
+Rank 103: About to start compression. Input data size: 536870912 bytes
+Rank 62: About to start compression. Input data size: 536870912 bytes
+Rank 104: About to start compression. Input data size: 536870912 bytes
+Rank 63: About to start compression. Input data size: 536870912 bytes
+Rank 105: About to start compression. Input data size: 536870912 bytes
+Rank 64: About to start compression. Input data size: 536870912 bytes
+Rank 106: About to start compression. Input data size: 536870912 bytes
+Rank 65: About to start compression. Input data size: 536870912 bytes
+Rank 107: About to start compression. Input data size: 536870912 bytes
+Rank 66: About to start compression. Input data size: 536870912 bytes
+Rank 108: About to start compression. Input data size: 536870912 bytes
+Rank 67: About to start compression. Input data size: 536870912 bytes
+Rank 109: About to start compression. Input data size: 536870912 bytes
+Rank 68: About to start compression. Input data size: 536870912 bytes
+Rank 110: About to start compression. Input data size: 536870912 bytes
+Rank 69: About to start compression. Input data size: 536870912 bytes
+Rank 111: About to start compression. Input data size: 536870912 bytes
+Rank 70: About to start compression. Input data size: 536870912 bytes
+Rank 112: About to start compression. Input data size: 536870912 bytes
+Rank 71: About to start compression. Input data size: 536870912 bytes
+Rank 113: About to start compression. Input data size: 536870912 bytes
+Rank 72: About to start compression. Input data size: 536870912 bytes
+Rank 114: About to start compression. Input data size: 536870912 bytes
+Rank 73: About to start compression. Input data size: 536870912 bytes
+Rank 115: About to start compression. Input data size: 536870912 bytes
+Rank 74: About to start compression. Input data size: 536870912 bytes
+Rank 116: About to start compression. Input data size: 536870912 bytes
+Rank 117: About to start compression. Input data size: 536870912 bytes
+Rank 118: About to start compression. Input data size: 536870912 bytes
+Rank 119: About to start compression. Input data size: 536870912 bytes
+Rank 120: About to start compression. Input data size: 536870912 bytes
+Rank 121: About to start compression. Input data size: 536870912 bytes
+Rank 122: About to start compression. Input data size: 536870912 bytes
+Rank 123: About to start compression. Input data size: 536870912 bytes
+Rank 124: About to start compression. Input data size: 536870912 bytes
+Rank 125: About to start compression. Input data size: 536870912 bytes
+Rank 126: About to start compression. Input data size: 536870912 bytes
+Rank 127: About to start compression. Input data size: 536870912 bytes
+Rank 128: About to start compression. Input data size: 536870912 bytes
+Rank 129: About to start compression. Input data size: 536870912 bytes
+Rank 130: About to start compression. Input data size: 536870912 bytes
+Rank 131: About to start compression. Input data size: 536870912 bytes
+Rank 132: About to start compression. Input data size: 536870912 bytes
+Rank 133: About to start compression. Input data size: 536870912 bytes
+Rank 134: About to start compression. Input data size: 536870912 bytes
+Rank 135: About to start compression. Input data size: 536870912 bytes
+Rank 136: About to start compression. Input data size: 536870912 bytes
+Rank 137: About to start compression. Input data size: 536870912 bytes
+Rank 138: About to start compression. Input data size: 536870912 bytes
+Rank 139: About to start compression. Input data size: 536870912 bytes
+Rank 140: About to start compression. Input data size: 536870912 bytes
+Rank 141: About to start compression. Input data size: 536870912 bytes
+Rank 142: About to start compression. Input data size: 536870912 bytes
+Rank 143: About to start compression. Input data size: 536870912 bytes
+Rank 144: About to start compression. Input data size: 536870912 bytes
+Rank 145: About to start compression. Input data size: 536870912 bytes
+Rank 146: About to start compression. Input data size: 536870912 bytes
+Rank 147: About to start compression. Input data size: 536870912 bytes
+Rank 148: About to start compression. Input data size: 536870912 bytes
+Rank 149: About to start compression. Input data size: 536870912 bytes
+rank 109: Finished compression
+rank 104: Finished compression
+rank 98: Finished compression
+rank 83: Finished compression
+rank 107: Finished compression
+rank 99: Finished compression
+rank 87: Finished compression
+rank 96: Finished compression
+rank 79: Finished compression
+rank 85: Finished compression
+rank 77: Finished compression
+rank 92: Finished compression
+rank 84: Finished compression
+rank 103: Finished compression
+rank 91: Finished compression
+rank 89: Finished compression
+rank 80: Finished compression
+rank 106: Finished compression
+rank 88: Finished compression
+rank 101: Finished compression
+rank 81: Finished compression
+rank 94: Finished compression
+rank 110: Finished compression
+rank 76: Finished compression
+rank 108: Finished compression
+rank 105: Finished compression
+rank 97: Finished compression
+rank 82: Finished compression
+rank 86: Finished compression
+rank 93: Finished compression
+rank 130: Finished compression
+rank 78: Finished compression
+rank 100: Finished compression
+rank 90: Finished compression
+rank 138: Finished compression
+rank 95: Finished compression
+rank 111: Finished compression
+rank 112: Finished compression
+rank 102: Finished compression
+rank 75: Finished compression
+rank 146: Finished compression
+rank 142: Finished compression
+rank 122: Finished compression
+rank 118: Finished compression
+rank 114: Finished compression
+rank 134: Finished compression
+rank 126: Finished compression
+rank 144: Finished compression
+rank 131: Finished compression
+rank 147: Finished compression
+rank 133: Finished compression
+rank 140: Finished compression
+rank 127: Finished compression
+rank 145: Finished compression
+rank 121: Finished compression
+rank 125: Finished compression
+rank 139: Finished compression
+rank 124: Finished compression
+rank 148: Finished compression
+rank 141: Finished compression
+rank 115: Finished compression
+rank 143: Finished compression
+rank 117: Finished compression
+rank 128: Finished compression
+rank 137: Finished compression
+rank 129: Finished compression
+rank 120: Finished compression
+rank 132: Finished compression
+rank 119: Finished compression
+rank 135: Finished compression
+rank 136: Finished compression
+rank 149: Finished compression
+rank 123: Finished compression
+rank 116: Finished compression
+rank 113: Finished compression
+rank 17: Finished compression
+rank 18: Finished compression
+rank 28: Finished compression
+rank 2: Finished compression
+rank 19: Finished compression
+rank 14: Finished compression
+rank 29: Finished compression
+rank 3: Finished compression
+rank 23: Finished compression
+rank 21: Finished compression
+rank 46: Finished compression
+rank 8: Finished compression
+rank 56: Finished compression
+rank 33: Finished compression
+rank 69: Finished compression
+rank 68: Finished compression
+rank 26: Finished compression
+rank 36: Finished compression
+rank 52: Finished compression
+rank 9: Finished compression
+rank 25: Finished compression
+rank 35: Finished compression
+rank 42: Finished compression
+rank 47: Finished compression
+rank 60: Finished compression
+rank 74: Finished compression
+rank 40: Finished compression
+rank 53: Finished compression
+rank 61: Finished compression
+rank 71: Finished compression
+rank 70: Finished compression
+rank 54: Finished compression
+rank 51: Finished compression
+rank 64: Finished compression
+rank 63: Finished compression
+rank 43: Finished compression
+rank 66: Finished compression
+rank 57: Finished compression
+rank 72: Finished compression
+rank 44: Finished compression
+rank 37: Finished compression
+rank 12: Finished compression
+rank 50: Finished compression
+rank 59: Finished compression
+rank 1: Finished compression
+rank 62: Finished compression
+rank 65: Finished compression
+rank 73: Finished compression
+rank 39: Finished compression
+rank 48: Finished compression
+rank 20: Finished compression
+rank 41: Finished compression
+rank 49: Finished compression
+rank 67: Finished compression
+rank 58: Finished compression
+rank 45: Finished compression
+rank 38: Finished compression
+rank 0: Finished compression
+rank 55: Finished compression
+rank 5: Finished compression
+rank 30: Finished compression
+rank 13: Finished compression
+rank 11: Finished compression
+rank 16: Finished compression
+rank 10: Finished compression
+rank 31: Finished compression
+rank 4: Finished compression
+rank 32: Finished compression
+rank 24: Finished compression
+rank 6: Finished compression
+rank 34: Finished compression
+rank 15: Finished compression
+rank 22: Finished compression
+rank 27: Finished compression
+rank 7: Finished compression
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+TACC:  MPI job exited with code: 1 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1120413 
+TACC:  Starting parallel tasks... 
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+Rank 0: About to start compression. Input data size: 536870912 bytes
+Rank 75: About to start compression. Input data size: 536870912 bytes
+Rank 1: About to start compression. Input data size: 536870912 bytes
+Rank 2: About to start compression. Input data size: 536870912 bytes
+Rank 3: About to start compression. Input data size: 536870912 bytes
+Rank 4: About to start compression. Input data size: 536870912 bytes
+Rank 5: About to start compression. Input data size: 536870912 bytes
+Rank 6: About to start compression. Input data size: 536870912 bytes
+Rank 7: About to start compression. Input data size: 536870912 bytes
+Rank 8: About to start compression. Input data size: 536870912 bytes
+Rank 9: About to start compression. Input data size: 536870912 bytes
+Rank 10: About to start compression. Input data size: 536870912 bytes
+Rank 11: About to start compression. Input data size: 536870912 bytes
+Rank 12: About to start compression. Input data size: 536870912 bytes
+Rank 13: About to start compression. Input data size: 536870912 bytes
+Rank 14: About to start compression. Input data size: 536870912 bytes
+Rank 15: About to start compression. Input data size: 536870912 bytes
+Rank 76: About to start compression. Input data size: 536870912 bytes
+Rank 16: About to start compression. Input data size: 536870912 bytes
+Rank 77: About to start compression. Input data size: 536870912 bytes
+Rank 17: About to start compression. Input data size: 536870912 bytes
+Rank 78: About to start compression. Input data size: 536870912 bytes
+Rank 18: About to start compression. Input data size: 536870912 bytes
+Rank 79: About to start compression. Input data size: 536870912 bytes
+Rank 19: About to start compression. Input data size: 536870912 bytes
+Rank 80: About to start compression. Input data size: 536870912 bytes
+Rank 20: About to start compression. Input data size: 536870912 bytes
+Rank 81: About to start compression. Input data size: 536870912 bytes
+Rank 21: About to start compression. Input data size: 536870912 bytes
+Rank 82: About to start compression. Input data size: 536870912 bytes
+Rank 22: About to start compression. Input data size: 536870912 bytes
+Rank 83: About to start compression. Input data size: 536870912 bytes
+Rank 23: About to start compression. Input data size: 536870912 bytes
+Rank 84: About to start compression. Input data size: 536870912 bytes
+Rank 24: About to start compression. Input data size: 536870912 bytes
+Rank 85: About to start compression. Input data size: 536870912 bytes
+Rank 25: About to start compression. Input data size: 536870912 bytes
+Rank 86: About to start compression. Input data size: 536870912 bytes
+Rank 26: About to start compression. Input data size: 536870912 bytes
+Rank 87: About to start compression. Input data size: 536870912 bytes
+Rank 27: About to start compression. Input data size: 536870912 bytes
+Rank 88: About to start compression. Input data size: 536870912 bytes
+Rank 28: About to start compression. Input data size: 536870912 bytes
+Rank 89: About to start compression. Input data size: 536870912 bytes
+Rank 29: About to start compression. Input data size: 536870912 bytes
+Rank 90: About to start compression. Input data size: 536870912 bytes
+Rank 30: About to start compression. Input data size: 536870912 bytes
+Rank 91: About to start compression. Input data size: 536870912 bytes
+Rank 31: About to start compression. Input data size: 536870912 bytes
+Rank 92: About to start compression. Input data size: 536870912 bytes
+Rank 32: About to start compression. Input data size: 536870912 bytes
+Rank 93: About to start compression. Input data size: 536870912 bytes
+Rank 33: About to start compression. Input data size: 536870912 bytes
+Rank 94: About to start compression. Input data size: 536870912 bytes
+Rank 34: About to start compression. Input data size: 536870912 bytes
+Rank 95: About to start compression. Input data size: 536870912 bytes
+Rank 35: About to start compression. Input data size: 536870912 bytes
+Rank 96: About to start compression. Input data size: 536870912 bytes
+Rank 36: About to start compression. Input data size: 536870912 bytes
+Rank 97: About to start compression. Input data size: 536870912 bytes
+Rank 37: About to start compression. Input data size: 536870912 bytes
+Rank 98: About to start compression. Input data size: 536870912 bytes
+Rank 38: About to start compression. Input data size: 536870912 bytes
+Rank 99: About to start compression. Input data size: 536870912 bytes
+Rank 39: About to start compression. Input data size: 536870912 bytes
+Rank 100: About to start compression. Input data size: 536870912 bytes
+Rank 40: About to start compression. Input data size: 536870912 bytes
+Rank 101: About to start compression. Input data size: 536870912 bytes
+Rank 41: About to start compression. Input data size: 536870912 bytes
+Rank 102: About to start compression. Input data size: 536870912 bytes
+Rank 42: About to start compression. Input data size: 536870912 bytes
+Rank 103: About to start compression. Input data size: 536870912 bytes
+Rank 43: About to start compression. Input data size: 536870912 bytes
+Rank 104: About to start compression. Input data size: 536870912 bytes
+Rank 44: About to start compression. Input data size: 536870912 bytes
+Rank 105: About to start compression. Input data size: 536870912 bytes
+Rank 45: About to start compression. Input data size: 536870912 bytes
+Rank 106: About to start compression. Input data size: 536870912 bytes
+Rank 46: About to start compression. Input data size: 536870912 bytes
+Rank 107: About to start compression. Input data size: 536870912 bytes
+Rank 47: About to start compression. Input data size: 536870912 bytes
+Rank 108: About to start compression. Input data size: 536870912 bytes
+Rank 48: About to start compression. Input data size: 536870912 bytes
+Rank 109: About to start compression. Input data size: 536870912 bytes
+Rank 49: About to start compression. Input data size: 536870912 bytes
+Rank 110: About to start compression. Input data size: 536870912 bytes
+Rank 50: About to start compression. Input data size: 536870912 bytes
+Rank 111: About to start compression. Input data size: 536870912 bytes
+Rank 51: About to start compression. Input data size: 536870912 bytes
+Rank 112: About to start compression. Input data size: 536870912 bytes
+Rank 52: About to start compression. Input data size: 536870912 bytes
+Rank 113: About to start compression. Input data size: 536870912 bytes
+Rank 53: About to start compression. Input data size: 536870912 bytes
+Rank 114: About to start compression. Input data size: 536870912 bytes
+Rank 54: About to start compression. Input data size: 536870912 bytes
+Rank 115: About to start compression. Input data size: 536870912 bytes
+Rank 55: About to start compression. Input data size: 536870912 bytes
+Rank 116: About to start compression. Input data size: 536870912 bytes
+Rank 56: About to start compression. Input data size: 536870912 bytes
+Rank 117: About to start compression. Input data size: 536870912 bytes
+Rank 57: About to start compression. Input data size: 536870912 bytes
+Rank 118: About to start compression. Input data size: 536870912 bytes
+Rank 58: About to start compression. Input data size: 536870912 bytes
+Rank 119: About to start compression. Input data size: 536870912 bytes
+Rank 59: About to start compression. Input data size: 536870912 bytes
+Rank 120: About to start compression. Input data size: 536870912 bytes
+Rank 60: About to start compression. Input data size: 536870912 bytes
+Rank 121: About to start compression. Input data size: 536870912 bytes
+Rank 61: About to start compression. Input data size: 536870912 bytes
+Rank 122: About to start compression. Input data size: 536870912 bytes
+Rank 62: About to start compression. Input data size: 536870912 bytes
+Rank 123: About to start compression. Input data size: 536870912 bytes
+Rank 63: About to start compression. Input data size: 536870912 bytes
+Rank 124: About to start compression. Input data size: 536870912 bytes
+Rank 64: About to start compression. Input data size: 536870912 bytes
+Rank 125: About to start compression. Input data size: 536870912 bytes
+Rank 65: About to start compression. Input data size: 536870912 bytes
+Rank 126: About to start compression. Input data size: 536870912 bytes
+Rank 66: About to start compression. Input data size: 536870912 bytes
+Rank 127: About to start compression. Input data size: 536870912 bytes
+Rank 67: About to start compression. Input data size: 536870912 bytes
+Rank 128: About to start compression. Input data size: 536870912 bytes
+Rank 68: About to start compression. Input data size: 536870912 bytes
+Rank 129: About to start compression. Input data size: 536870912 bytes
+Rank 69: About to start compression. Input data size: 536870912 bytes
+Rank 130: About to start compression. Input data size: 536870912 bytes
+Rank 70: About to start compression. Input data size: 536870912 bytes
+Rank 131: About to start compression. Input data size: 536870912 bytes
+Rank 71: About to start compression. Input data size: 536870912 bytes
+Rank 132: About to start compression. Input data size: 536870912 bytes
+Rank 72: About to start compression. Input data size: 536870912 bytes
+Rank 133: About to start compression. Input data size: 536870912 bytes
+Rank 73: About to start compression. Input data size: 536870912 bytes
+Rank 134: About to start compression. Input data size: 536870912 bytes
+Rank 74: About to start compression. Input data size: 536870912 bytes
+Rank 135: About to start compression. Input data size: 536870912 bytes
+Rank 136: About to start compression. Input data size: 536870912 bytes
+Rank 137: About to start compression. Input data size: 536870912 bytes
+Rank 138: About to start compression. Input data size: 536870912 bytes
+Rank 139: About to start compression. Input data size: 536870912 bytes
+Rank 140: About to start compression. Input data size: 536870912 bytes
+Rank 141: About to start compression. Input data size: 536870912 bytes
+Rank 142: About to start compression. Input data size: 536870912 bytes
+Rank 143: About to start compression. Input data size: 536870912 bytes
+Rank 144: About to start compression. Input data size: 536870912 bytes
+Rank 145: About to start compression. Input data size: 536870912 bytes
+Rank 146: About to start compression. Input data size: 536870912 bytes
+Rank 147: About to start compression. Input data size: 536870912 bytes
+Rank 148: About to start compression. Input data size: 536870912 bytes
+Rank 149: About to start compression. Input data size: 536870912 bytes
+rank 109: Finished compression
+rank 107: Finished compression
+rank 83: Finished compression
+rank 92: Finished compression
+rank 104: Finished compression
+rank 87: Finished compression
+rank 99: Finished compression
+rank 98: Finished compression
+rank 85: Finished compression
+rank 96: Finished compression
+rank 79: Finished compression
+rank 77: Finished compression
+rank 84: Finished compression
+rank 103: Finished compression
+rank 91: Finished compression
+rank 89: Finished compression
+rank 110: Finished compression
+rank 105: Finished compression
+rank 106: Finished compression
+rank 101: Finished compression
+rank 102: Finished compression
+rank 108: Finished compression
+rank 80: Finished compression
+rank 76: Finished compression
+rank 81: Finished compression
+rank 111: Finished compression
+rank 95: Finished compression
+rank 93: Finished compression
+rank 86: Finished compression
+rank 94: Finished compression
+rank 82: Finished compression
+rank 112: Finished compression
+rank 90: Finished compression
+rank 88: Finished compression
+rank 97: Finished compression
+rank 78: Finished compression
+rank 100: Finished compression
+rank 130: Finished compression
+rank 138: Finished compression
+rank 75: Finished compression
+rank 142: Finished compression
+rank 122: Finished compression
+rank 146: Finished compression
+rank 118: Finished compression
+rank 134: Finished compression
+rank 114: Finished compression
+rank 131: Finished compression
+rank 126: Finished compression
+rank 133: Finished compression
+rank 143: Finished compression
+rank 137: Finished compression
+rank 124: Finished compression
+rank 147: Finished compression
+rank 140: Finished compression
+rank 139: Finished compression
+rank 135: Finished compression
+rank 121: Finished compression
+rank 144: Finished compression
+rank 125: Finished compression
+rank 119: Finished compression
+rank 148: Finished compression
+rank 129: Finished compression
+rank 127: Finished compression
+rank 145: Finished compression
+rank 132: Finished compression
+rank 123: Finished compression
+rank 141: Finished compression
+rank 117: Finished compression
+rank 113: Finished compression
+rank 116: Finished compression
+rank 128: Finished compression
+rank 149: Finished compression
+rank 136: Finished compression
+rank 120: Finished compression
+rank 115: Finished compression
+rank 29: Finished compression
+rank 19: Finished compression
+rank 8: Finished compression
+rank 28: Finished compression
+rank 16: Finished compression
+rank 20: Finished compression
+rank 44: Finished compression
+rank 46: Finished compression
+rank 32: Finished compression
+rank 25: Finished compression
+rank 34: Finished compression
+rank 51: Finished compression
+rank 65: Finished compression
+rank 27: Finished compression
+rank 26: Finished compression
+rank 56: Finished compression
+rank 36: Finished compression
+rank 74: Finished compression
+rank 73: Finished compression
+rank 69: Finished compression
+rank 55: Finished compression
+rank 5: Finished compression
+rank 12: Finished compression
+rank 21: Finished compression
+rank 6: Finished compression
+rank 0: Finished compression
+rank 48: Finished compression
+rank 60: Finished compression
+rank 53: Finished compression
+rank 71: Finished compression
+rank 57: Finished compression
+rank 54: Finished compression
+rank 41: Finished compression
+rank 62: Finished compression
+rank 68: Finished compression
+rank 66: Finished compression
+rank 40: Finished compression
+rank 47: Finished compression
+rank 72: Finished compression
+rank 50: Finished compression
+rank 49: Finished compression
+rank 61: Finished compression
+rank 70: Finished compression
+rank 58: Finished compression
+rank 52: Finished compression
+rank 59: Finished compression
+rank 63: Finished compression
+rank 39: Finished compression
+rank 64: Finished compression
+rank 42: Finished compression
+rank 67: Finished compression
+rank 9: Finished compression
+rank 43: Finished compression
+rank 45: Finished compression
+rank 38: Finished compression
+rank 18: Finished compression
+rank 10: Finished compression
+rank 33: Finished compression
+rank 13: Finished compression
+rank 17: Finished compression
+rank 11: Finished compression
+rank 37: Finished compression
+rank 35: Finished compression
+rank 4: Finished compression
+rank 1: Finished compression
+rank 31: Finished compression
+rank 22: Finished compression
+rank 24: Finished compression
+rank 30: Finished compression
+rank 7: Finished compression
+rank 2: Finished compression
+rank 23: Finished compression
+rank 15: Finished compression
+rank 14: Finished compression
+rank 3: Finished compression
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+TACC:  MPI job exited with code: 1 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1120413 
+TACC:  Starting parallel tasks... 
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+got here 2
+Rank 75: About to start compression. Input data size: 536870912 bytes
+Rank 0: About to start compression. Input data size: 536870912 bytes
+Rank 1: About to start compression. Input data size: 536870912 bytes
+Rank 2: About to start compression. Input data size: 536870912 bytes
+Rank 3: About to start compression. Input data size: 536870912 bytes
+Rank 4: About to start compression. Input data size: 536870912 bytes
+Rank 5: About to start compression. Input data size: 536870912 bytes
+Rank 6: About to start compression. Input data size: 536870912 bytes
+Rank 7: About to start compression. Input data size: 536870912 bytes
+Rank 8: About to start compression. Input data size: 536870912 bytes
+Rank 9: About to start compression. Input data size: 536870912 bytes
+Rank 10: About to start compression. Input data size: 536870912 bytes
+Rank 11: About to start compression. Input data size: 536870912 bytes
+Rank 12: About to start compression. Input data size: 536870912 bytes
+Rank 13: About to start compression. Input data size: 536870912 bytes
+Rank 76: About to start compression. Input data size: 536870912 bytes
+Rank 14: About to start compression. Input data size: 536870912 bytes
+Rank 77: About to start compression. Input data size: 536870912 bytes
+Rank 15: About to start compression. Input data size: 536870912 bytes
+Rank 78: About to start compression. Input data size: 536870912 bytes
+Rank 16: About to start compression. Input data size: 536870912 bytes
+Rank 79: About to start compression. Input data size: 536870912 bytes
+Rank 17: About to start compression. Input data size: 536870912 bytes
+Rank 80: About to start compression. Input data size: 536870912 bytes
+Rank 18: About to start compression. Input data size: 536870912 bytes
+Rank 81: About to start compression. Input data size: 536870912 bytes
+Rank 19: About to start compression. Input data size: 536870912 bytes
+Rank 82: About to start compression. Input data size: 536870912 bytes
+Rank 20: About to start compression. Input data size: 536870912 bytes
+Rank 83: About to start compression. Input data size: 536870912 bytes
+Rank 21: About to start compression. Input data size: 536870912 bytes
+Rank 84: About to start compression. Input data size: 536870912 bytes
+Rank 22: About to start compression. Input data size: 536870912 bytes
+Rank 85: About to start compression. Input data size: 536870912 bytes
+Rank 23: About to start compression. Input data size: 536870912 bytes
+Rank 86: About to start compression. Input data size: 536870912 bytes
+Rank 24: About to start compression. Input data size: 536870912 bytes
+Rank 87: About to start compression. Input data size: 536870912 bytes
+Rank 25: About to start compression. Input data size: 536870912 bytes
+Rank 88: About to start compression. Input data size: 536870912 bytes
+Rank 26: About to start compression. Input data size: 536870912 bytes
+Rank 89: About to start compression. Input data size: 536870912 bytes
+Rank 27: About to start compression. Input data size: 536870912 bytes
+Rank 90: About to start compression. Input data size: 536870912 bytes
+Rank 28: About to start compression. Input data size: 536870912 bytes
+Rank 91: About to start compression. Input data size: 536870912 bytes
+Rank 29: About to start compression. Input data size: 536870912 bytes
+Rank 92: About to start compression. Input data size: 536870912 bytes
+Rank 30: About to start compression. Input data size: 536870912 bytes
+Rank 93: About to start compression. Input data size: 536870912 bytes
+Rank 31: About to start compression. Input data size: 536870912 bytes
+Rank 94: About to start compression. Input data size: 536870912 bytes
+Rank 32: About to start compression. Input data size: 536870912 bytes
+Rank 95: About to start compression. Input data size: 536870912 bytes
+Rank 33: About to start compression. Input data size: 536870912 bytes
+Rank 96: About to start compression. Input data size: 536870912 bytes
+Rank 34: About to start compression. Input data size: 536870912 bytes
+Rank 97: About to start compression. Input data size: 536870912 bytes
+Rank 35: About to start compression. Input data size: 536870912 bytes
+Rank 98: About to start compression. Input data size: 536870912 bytes
+Rank 36: About to start compression. Input data size: 536870912 bytes
+Rank 99: About to start compression. Input data size: 536870912 bytes
+Rank 37: About to start compression. Input data size: 536870912 bytes
+Rank 100: About to start compression. Input data size: 536870912 bytes
+Rank 38: About to start compression. Input data size: 536870912 bytes
+Rank 101: About to start compression. Input data size: 536870912 bytes
+Rank 39: About to start compression. Input data size: 536870912 bytes
+Rank 102: About to start compression. Input data size: 536870912 bytes
+Rank 40: About to start compression. Input data size: 536870912 bytes
+Rank 103: About to start compression. Input data size: 536870912 bytes
+Rank 41: About to start compression. Input data size: 536870912 bytes
+Rank 104: About to start compression. Input data size: 536870912 bytes
+Rank 42: About to start compression. Input data size: 536870912 bytes
+Rank 105: About to start compression. Input data size: 536870912 bytes
+Rank 43: About to start compression. Input data size: 536870912 bytes
+Rank 106: About to start compression. Input data size: 536870912 bytes
+Rank 44: About to start compression. Input data size: 536870912 bytes
+Rank 107: About to start compression. Input data size: 536870912 bytes
+Rank 45: About to start compression. Input data size: 536870912 bytes
+Rank 108: About to start compression. Input data size: 536870912 bytes
+Rank 46: About to start compression. Input data size: 536870912 bytes
+Rank 109: About to start compression. Input data size: 536870912 bytes
+Rank 47: About to start compression. Input data size: 536870912 bytes
+Rank 110: About to start compression. Input data size: 536870912 bytes
+Rank 48: About to start compression. Input data size: 536870912 bytes
+Rank 111: About to start compression. Input data size: 536870912 bytes
+Rank 49: About to start compression. Input data size: 536870912 bytes
+Rank 112: About to start compression. Input data size: 536870912 bytes
+Rank 50: About to start compression. Input data size: 536870912 bytes
+Rank 113: About to start compression. Input data size: 536870912 bytes
+Rank 51: About to start compression. Input data size: 536870912 bytes
+Rank 114: About to start compression. Input data size: 536870912 bytes
+Rank 52: About to start compression. Input data size: 536870912 bytes
+Rank 115: About to start compression. Input data size: 536870912 bytes
+Rank 53: About to start compression. Input data size: 536870912 bytes
+Rank 116: About to start compression. Input data size: 536870912 bytes
+Rank 54: About to start compression. Input data size: 536870912 bytes
+Rank 117: About to start compression. Input data size: 536870912 bytes
+Rank 55: About to start compression. Input data size: 536870912 bytes
+Rank 118: About to start compression. Input data size: 536870912 bytes
+Rank 56: About to start compression. Input data size: 536870912 bytes
+Rank 119: About to start compression. Input data size: 536870912 bytes
+Rank 57: About to start compression. Input data size: 536870912 bytes
+Rank 120: About to start compression. Input data size: 536870912 bytes
+Rank 58: About to start compression. Input data size: 536870912 bytes
+Rank 121: About to start compression. Input data size: 536870912 bytes
+Rank 59: About to start compression. Input data size: 536870912 bytes
+Rank 122: About to start compression. Input data size: 536870912 bytes
+Rank 60: About to start compression. Input data size: 536870912 bytes
+Rank 123: About to start compression. Input data size: 536870912 bytes
+Rank 61: About to start compression. Input data size: 536870912 bytes
+Rank 124: About to start compression. Input data size: 536870912 bytes
+Rank 62: About to start compression. Input data size: 536870912 bytes
+Rank 125: About to start compression. Input data size: 536870912 bytes
+Rank 63: About to start compression. Input data size: 536870912 bytes
+Rank 126: About to start compression. Input data size: 536870912 bytes
+Rank 64: About to start compression. Input data size: 536870912 bytes
+Rank 127: About to start compression. Input data size: 536870912 bytes
+Rank 65: About to start compression. Input data size: 536870912 bytes
+Rank 128: About to start compression. Input data size: 536870912 bytes
+Rank 66: About to start compression. Input data size: 536870912 bytes
+Rank 129: About to start compression. Input data size: 536870912 bytes
+Rank 67: About to start compression. Input data size: 536870912 bytes
+Rank 130: About to start compression. Input data size: 536870912 bytes
+Rank 68: About to start compression. Input data size: 536870912 bytes
+Rank 131: About to start compression. Input data size: 536870912 bytes
+Rank 69: About to start compression. Input data size: 536870912 bytes
+Rank 132: About to start compression. Input data size: 536870912 bytes
+Rank 70: About to start compression. Input data size: 536870912 bytes
+Rank 133: About to start compression. Input data size: 536870912 bytes
+Rank 71: About to start compression. Input data size: 536870912 bytes
+Rank 134: About to start compression. Input data size: 536870912 bytes
+Rank 72: About to start compression. Input data size: 536870912 bytes
+Rank 135: About to start compression. Input data size: 536870912 bytes
+Rank 73: About to start compression. Input data size: 536870912 bytes
+Rank 136: About to start compression. Input data size: 536870912 bytes
+Rank 74: About to start compression. Input data size: 536870912 bytes
+Rank 137: About to start compression. Input data size: 536870912 bytes
+Rank 138: About to start compression. Input data size: 536870912 bytes
+Rank 139: About to start compression. Input data size: 536870912 bytes
+Rank 140: About to start compression. Input data size: 536870912 bytes
+Rank 141: About to start compression. Input data size: 536870912 bytes
+Rank 142: About to start compression. Input data size: 536870912 bytes
+Rank 143: About to start compression. Input data size: 536870912 bytes
+Rank 144: About to start compression. Input data size: 536870912 bytes
+Rank 145: About to start compression. Input data size: 536870912 bytes
+Rank 146: About to start compression. Input data size: 536870912 bytes
+Rank 147: About to start compression. Input data size: 536870912 bytes
+Rank 148: About to start compression. Input data size: 536870912 bytes
+Rank 149: About to start compression. Input data size: 536870912 bytes
+rank 83: Finished compression
+rank 107: Finished compression
+rank 92: Finished compression
+rank 109: Finished compression
+rank 104: Finished compression
+rank 99: Finished compression
+rank 77: Finished compression
+rank 87: Finished compression
+rank 98: Finished compression
+rank 79: Finished compression
+rank 85: Finished compression
+rank 96: Finished compression
+rank 84: Finished compression
+rank 91: Finished compression
+rank 103: Finished compression
+rank 89: Finished compression
+rank 110: Finished compression
+rank 111: Finished compression
+rank 80: Finished compression
+rank 105: Finished compression
+rank 101: Finished compression
+rank 81: Finished compression
+rank 108: Finished compression
+rank 88: Finished compression
+rank 106: Finished compression
+rank 82: Finished compression
+rank 93: Finished compression
+rank 112: Finished compression
+rank 97: Finished compression
+rank 86: Finished compression
+rank 102: Finished compression
+rank 76: Finished compression
+rank 95: Finished compression
+rank 100: Finished compression
+rank 78: Finished compression
+rank 94: Finished compression
+rank 75: Finished compression
+rank 130: Finished compression
+rank 138: Finished compression
+rank 118: Finished compression
+rank 90: Finished compression
+rank 146: Finished compression
+rank 142: Finished compression
+rank 131: Finished compression
+rank 114: Finished compression
+rank 134: Finished compression
+rank 122: Finished compression
+rank 126: Finished compression
+rank 124: Finished compression
+rank 148: Finished compression
+rank 143: Finished compression
+rank 121: Finished compression
+rank 144: Finished compression
+rank 140: Finished compression
+rank 127: Finished compression
+rank 147: Finished compression
+rank 145: Finished compression
+rank 135: Finished compression
+rank 132: Finished compression
+rank 133: Finished compression
+rank 129: Finished compression
+rank 139: Finished compression
+rank 119: Finished compression
+rank 141: Finished compression
+rank 136: Finished compression
+rank 117: Finished compression
+rank 116: Finished compression
+rank 137: Finished compression
+rank 128: Finished compression
+rank 123: Finished compression
+rank 125: Finished compression
+rank 115: Finished compression
+rank 120: Finished compression
+rank 113: Finished compression
+rank 149: Finished compression
+rank 44: Finished compression
+rank 69: Finished compression
+rank 46: Finished compression
+rank 51: Finished compression
+rank 56: Finished compression
+rank 73: Finished compression
+rank 74: Finished compression
+rank 55: Finished compression
+rank 70: Finished compression
+rank 65: Finished compression
+rank 48: Finished compression
+rank 47: Finished compression
+rank 60: Finished compression
+rank 40: Finished compression
+rank 72: Finished compression
+rank 57: Finished compression
+rank 28: Finished compression
+rank 49: Finished compression
+rank 53: Finished compression
+rank 8: Finished compression
+rank 63: Finished compression
+rank 39: Finished compression
+rank 62: Finished compression
+rank 68: Finished compression
+rank 67: Finished compression
+rank 41: Finished compression
+rank 59: Finished compression
+rank 54: Finished compression
+rank 64: Finished compression
+rank 50: Finished compression
+rank 58: Finished compression
+rank 66: Finished compression
+rank 71: Finished compression
+rank 61: Finished compression
+rank 42: Finished compression
+rank 43: Finished compression
+rank 52: Finished compression
+rank 45: Finished compression
+rank 38: Finished compression
+rank 36: Finished compression
+rank 29: Finished compression
+rank 20: Finished compression
+rank 12: Finished compression
+rank 21: Finished compression
+rank 19: Finished compression
+rank 18: Finished compression
+rank 33: Finished compression
+rank 26: Finished compression
+rank 6: Finished compression
+rank 27: Finished compression
+rank 30: Finished compression
+rank 4: Finished compression
+rank 13: Finished compression
+rank 34: Finished compression
+rank 17: Finished compression
+rank 16: Finished compression
+rank 11: Finished compression
+rank 5: Finished compression
+rank 37: Finished compression
+rank 32: Finished compression
+rank 7: Finished compression
+rank 31: Finished compression
+rank 3: Finished compression
+rank 10: Finished compression
+rank 24: Finished compression
+rank 1: Finished compression
+rank 35: Finished compression
+rank 25: Finished compression
+rank 23: Finished compression
+rank 9: Finished compression
+rank 14: Finished compression
+rank 0: Finished compression
+rank 2: Finished compression
+rank 15: Finished compression
+rank 22: Finished compression
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+PAPI error 1: (null)
+TACC:  MPI job exited with code: 1 
+TACC:  Shutdown complete. Exiting. 

@@ -201,12 +201,12 @@ int main(int argc, char **argv) {
   snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
   input_data = pressio_io_data_path_read(metadata, full_path);
   if (input_data == NULL) {
-    fprintf(stderr, "Failed to read dataset %s\n", dataset_file);
+    fprintf(stderr, "Rank %d failed to read dataset %s\n", rank, dataset_file);
     MPI_Abort(MPI_COMM_WORLD, 1);
   }
   data_size = pressio_data_get_bytes(input_data);
   pressio_data_free(metadata);
-  printf("got here\n");
+  
   // }
 
   // Broadcast metadata to all ranks in the node
@@ -243,7 +243,7 @@ int main(int argc, char **argv) {
   // MPI_Barrier(MPI_COMM_WORLD);
   // Set compressor options
   struct pressio_options *options = pressio_options_new();
-  pressio_options_set_double(options, "pressio:rel", error_bound);
+  pressio_options_set_double(options, "pressio:abs", error_bound);
   if (pressio_compressor_check_options(compressor, options)) {
     fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
     pressio_options_free(options);
@@ -261,14 +261,30 @@ int main(int argc, char **argv) {
       pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
   printf("got here 2\n");
   MPI_Barrier(MPI_COMM_WORLD);
+  if (compressor == NULL) {
+    fprintf(stderr, "Rank %d: Failed to create compressor %s\n", rank, compressor_id);
+    MPI_Abort(MPI_COMM_WORLD, 1);
+  }
+  size_t local_data_size = pressio_data_get_bytes(input_data);
+size_t global_data_size;
+MPI_Allreduce(&local_data_size, &global_data_size, 1, MPI_UNSIGNED_LONG, MPI_MAX, MPI_COMM_WORLD);
+if (local_data_size != global_data_size) {
+    fprintf(stderr, "Rank %d: Data size mismatch. Local: %zu, Global: %zu\n", 
+            rank, local_data_size, global_data_size);
+    MPI_Abort(MPI_COMM_WORLD, 1);
+}
   // Compression phase
   double compress_start_time = get_time();
 
   // Perform compression
   // compress_data(compressor, rank_input_data, compressed_data);
+  printf("Rank %d: About to start compression. Input data size: %zu bytes\n",
+       rank, pressio_data_get_bytes(input_data));
+  fflush(stdout);
   if (pressio_compressor_compress(compressor, input_data, compressed_data)) {
       fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
     }
+  printf("rank %d: Finished compression\n", rank);
 
   double compress_end_time = get_time();
   double compress_time = compress_end_time - compress_start_time;
