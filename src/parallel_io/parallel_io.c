@@ -93,13 +93,12 @@ int main(int argc, char **argv) {
 
   const char *compressor_id = argv[1];
   const char *dataset_file = argv[2];
-  double error_bound = atof(argv[3]);
+  double relative_error_bound = atof(argv[3]);
   const char *datadir = "/work2/10191/gfw/stampede3/";
   const char *output_dir = "/work2/10191/gfw/stampede3/compressed/";
 
   // Initialize PAPI
   int EventSet = PAPI_NULL;
-  long long *values;
   int num_events = 0;
   char event_names[MAX_POWERCAP_EVENTS][PAPI_MAX_STR_LEN];
   int data_type[MAX_POWERCAP_EVENTS];
@@ -206,7 +205,7 @@ int main(int argc, char **argv) {
   }
   data_size = pressio_data_get_bytes(input_data);
   pressio_data_free(metadata);
-  
+
   // }
 
   // Broadcast metadata to all ranks in the node
@@ -242,8 +241,35 @@ int main(int argc, char **argv) {
   //     dtype, data_buffer, ndims, dims, pressio_data_libc_free_fn, NULL);
   // MPI_Barrier(MPI_COMM_WORLD);
   // Set compressor options
+
+  double data_min, data_max, data_range;
+  size_t num_elements = pressio_data_num_elements(input_data);
+  void *data_ptr = pressio_data_ptr(input_data, NULL);
+
+  if (strstr(dataset_file, "s3d") == NULL) {
+    float *float_data = (float *)data_ptr;
+    data_min = data_max = float_data[0];
+    for (size_t i = 1; i < num_elements; i++) {
+      if (float_data[i] < data_min)
+        data_min = float_data[i];
+      if (float_data[i] > data_max)
+        data_max = float_data[i];
+    }
+  } else {
+    double *double_data = (double *)data_ptr;
+    data_min = data_max = double_data[0];
+    for (size_t i = 1; i < num_elements; i++) {
+      if (double_data[i] < data_min)
+        data_min = double_data[i];
+      if (double_data[i] > data_max)
+        data_max = double_data[i];
+    }
+  }
+  data_range = data_max - data_min;
+  double absolute_error_bound = relative_error_bound * data_range;
+
   struct pressio_options *options = pressio_options_new();
-  pressio_options_set_double(options, "pressio:abs", error_bound);
+  pressio_options_set_double(options, "pressio:rel", absolute_error_bound);
   if (pressio_compressor_check_options(compressor, options)) {
     fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
     pressio_options_free(options);
@@ -251,43 +277,68 @@ int main(int argc, char **argv) {
   }
 
   if (pressio_compressor_set_options(compressor, options)) {
-     fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
-     pressio_options_free(options);
-     return 1;
+    fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
+    pressio_options_free(options);
+    return 1;
   }
   pressio_options_free(options);
   // Prepare for compression
   struct pressio_data *compressed_data =
       pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
-  printf("got here 2\n");
   MPI_Barrier(MPI_COMM_WORLD);
   if (compressor == NULL) {
-    fprintf(stderr, "Rank %d: Failed to create compressor %s\n", rank, compressor_id);
+    fprintf(stderr, "Rank %d: Failed to create compressor %s\n", rank,
+            compressor_id);
     MPI_Abort(MPI_COMM_WORLD, 1);
   }
   size_t local_data_size = pressio_data_get_bytes(input_data);
-size_t global_data_size;
-MPI_Allreduce(&local_data_size, &global_data_size, 1, MPI_UNSIGNED_LONG, MPI_MAX, MPI_COMM_WORLD);
-if (local_data_size != global_data_size) {
-    fprintf(stderr, "Rank %d: Data size mismatch. Local: %zu, Global: %zu\n", 
+  size_t global_data_size;
+  MPI_Allreduce(&local_data_size, &global_data_size, 1, MPI_UNSIGNED_LONG,
+                MPI_MAX, MPI_COMM_WORLD);
+  if (local_data_size != global_data_size) {
+    fprintf(stderr, "Rank %d: Data size mismatch. Local: %zu, Global: %zu\n",
             rank, local_data_size, global_data_size);
     MPI_Abort(MPI_COMM_WORLD, 1);
-}
+  }
   // Compression phase
   double compress_start_time = get_time();
 
   // Perform compression
   // compress_data(compressor, rank_input_data, compressed_data);
   printf("Rank %d: About to start compression. Input data size: %zu bytes\n",
-       rank, pressio_data_get_bytes(input_data));
+         rank, pressio_data_get_bytes(input_data));
   fflush(stdout);
+
+  if (PAPI_start(EventSet) != PAPI_OK) {
+    handle_error(1);
+  }
   if (pressio_compressor_compress(compressor, input_data, compressed_data)) {
-      fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
-    }
-  printf("rank %d: Finished compression\n", rank);
+    fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
+  }
+  if (PAPI_stop(EventSet, compress_values) != PAPI_OK) {
+    handle_error(1);
+  }
+  printf("Rank %d: Finished compression\n", rank);
 
   double compress_end_time = get_time();
   double compress_time = compress_end_time - compress_start_time;
+
+  double cpu_energy_compression = 0.0;
+  for (i = 0; i < num_events; i++) {
+    if (strstr(event_names[i], "ENERGY_UJ")) {
+      if (data_type[i] == PAPI_DATATYPE_UINT64) {
+        if (!strstr(event_names[i], "SUBZONE")) {
+          cpu_energy_compression += compress_values[i] / 1.0e6;
+        }
+      }
+    }
+  }
+
+  MPI_Barrier(MPI_COMM_WORLD);
+  MPI_Reduce(&cpu_energy_compression, &cpu_energy_compression, 1, MPI_DOUBLE,
+             MPI_MAX, 0, node_comm);
+  MPI_Reduce(&compress_time, &compress_time, 1, MPI_DOUBLE, MPI_MAX, 0,
+             node_comm);
 
   // I/O phase
   const char *io_methods[] = {"hdf5", "netcdf"};
@@ -296,14 +347,15 @@ if (local_data_size != global_data_size) {
   for (int method = 0; method < num_methods; method++) {
     for (int iteration = 0; iteration < NUM_ITERATIONS; iteration++) {
       double write_start_time = get_time();
-
       // Write compressed data to file
       char output_filename[256];
       snprintf(output_filename, sizeof(output_filename),
                "%s/%s_%s_%g_%d_%d_%s_%d.%s", output_dir, dataset_file,
-               compressor_id, error_bound, rank, node_rank, io_methods[method],
-               iteration, (method == 0 ? "h5" : "nc"));
-
+               compressor_id, relative_error_bound, rank, node_rank,
+               io_methods[method], iteration, (method == 0 ? "h5" : "nc"));
+      if (PAPI_start(EventSet) != PAPI_OK) {
+        handle_error(1);
+      }
       if (method == 0) {
         write_to_hdf5(output_filename, pressio_data_ptr(compressed_data, NULL),
                       pressio_data_get_bytes(compressed_data));
@@ -312,6 +364,9 @@ if (local_data_size != global_data_size) {
                         pressio_data_ptr(compressed_data, NULL),
                         pressio_data_get_bytes(compressed_data));
       }
+      if (PAPI_stop(EventSet, write_values) != PAPI_OK) {
+        handle_error(1);
+      }
 
       double write_end_time = get_time();
       double write_time = write_end_time - write_start_time;
@@ -319,27 +374,44 @@ if (local_data_size != global_data_size) {
       // Synchronize all processes after writing
       MPI_Barrier(MPI_COMM_WORLD);
 
-      // Delete the file after writing
-      if (rank == 0) {
-        if (remove(output_filename) != 0) {
-          fprintf(stderr, "Error deleting file: %s\n", output_filename);
+      double cpu_energy_writing = 0.0;
+      for (i = 0; i < num_events; i++) {
+        if (strstr(event_names[i], "ENERGY_UJ")) {
+          if (data_type[i] == PAPI_DATATYPE_UINT64) {
+            if (!strstr(event_names[i], "SUBZONE")) {
+              cpu_energy_writing += write_values[i] / 1.0e6;
+            }
+          }
         }
+      }
+
+      MPI_Barrier(MPI_COMM_WORLD);
+      MPI_Reduce(&cpu_energy_writing, &cpu_energy_writing, 1, MPI_DOUBLE,
+                 MPI_MAX, 0, node_comm);
+      MPI_Reduce(&write_time, &write_time, 1, MPI_DOUBLE, MPI_MAX, 0,
+                 node_comm);
+
+      // Delete the file after writing
+      if (remove(output_filename) != 0) {
+        fprintf(stderr, "Error deleting file: %s\n", output_filename);
       }
 
       // Synchronize all processes after deleting
       MPI_Barrier(MPI_COMM_WORLD);
 
       // Collect and report statistics
-      if (rank == 0) {
+      if (node_rank == 0) {
         char stats_filename[256];
         snprintf(stats_filename, sizeof(stats_filename),
-                 "parallel_write_split.csv");
+                 "parallel_write_experiment.csv");
         FILE *stats_file = fopen(stats_filename, "a");
         if (stats_file) {
-          fprintf(stats_file, "%s,%s,%d,%d,%e,%s,%d,%e,%e,%zu\n", dataset_file,
-                  compressor_id, nodes, size, error_bound, io_methods[method],
-                  iteration, compress_time, write_time,
-                  pressio_data_get_bytes(compressed_data));
+          int node_num = rank / ranks_per_node;
+          fprintf(stats_file, "%s,%s,%d,%d,%d,%e,%s,%d,%e,%e,%e,%e,%zu\n",
+                  dataset_file, compressor_id, node_num, nodes, size,
+                  relative_error_bound, io_methods[method], iteration,
+                  compress_time, write_time, cpu_energy_compression,
+                  cpu_energy_writing, pressio_data_get_bytes(compressed_data));
           fclose(stats_file);
         } else {
           fprintf(stderr, "Failed to open stats file for writing\n");
@@ -348,21 +420,14 @@ if (local_data_size != global_data_size) {
     }
   }
 
-  // Stop PAPI counters
-  if (PAPI_stop(EventSet, values) != PAPI_OK) {
-    handle_error(1);
-  }
-
-  if (rank == 0) {
-    printf("PAPI measured %lld instructions\n", values[0]);
-  }
-
   // Clean up
   pressio_data_free(input_data);
   pressio_data_free(compressed_data);
   pressio_options_free(options);
   pressio_compressor_release(compressor);
   pressio_release(library);
+  free(compress_values);
+  free(write_values);
 
   PAPI_cleanup_eventset(EventSet);
   PAPI_destroy_eventset(&EventSet);
