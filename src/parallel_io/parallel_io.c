@@ -161,85 +161,85 @@ int main(int argc, char **argv) {
   size_t ndims = 0;
   enum pressio_dtype dtype;
 
-  if (node_rank == 0) {
-    if (strstr(dataset_file, "nyx") != NULL) {
-      dims[0] = 512;
-      dims[1] = 512;
-      dims[2] = 512;
-      ndims = 3;
-      dtype = pressio_float_dtype;
-    } else if (strstr(dataset_file, "hacc") != NULL) {
-      dims[0] = 1073726487;
-      ndims = 1;
-      dtype = pressio_float_dtype;
-    } else if (strstr(dataset_file, "s3d") != NULL) {
-      dims[0] = 11;
-      dims[1] = 500;
-      dims[2] = 500;
-      dims[3] = 500;
-      ndims = 4;
-      dtype = pressio_double_dtype;
-    } else if (strstr(dataset_file, "miranda") != NULL) {
-      dims[0] = 3072;
-      dims[1] = 3072;
-      dims[2] = 3072;
-      ndims = 3;
-      dtype = pressio_float_dtype;
-    } else if (strstr(dataset_file, "cesm") != NULL) {
-      dims[0] = 26;
-      dims[1] = 1800;
-      dims[2] = 3600;
-      ndims = 3;
-      dtype = pressio_float_dtype;
-    } else {
-      fprintf(stderr, "Unknown dataset %s\n", dataset_file);
-      MPI_Abort(MPI_COMM_WORLD, 1);
-    }
-
-    struct pressio_data *metadata = pressio_data_new_empty(dtype, ndims, dims);
-    char full_path[1024];
-    snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
-    input_data = pressio_io_data_path_read(metadata, full_path);
-    if (input_data == NULL) {
-      fprintf(stderr, "Failed to read dataset %s\n", dataset_file);
-      MPI_Abort(MPI_COMM_WORLD, 1);
-    }
-    data_size = pressio_data_get_bytes(input_data);
-    pressio_data_free(metadata);
-  }
-
-  // Broadcast metadata to all ranks in the node
-  MPI_Bcast(&data_size, 1, MPI_UNSIGNED_LONG, 0, node_comm);
-  MPI_Bcast(&ndims, 1, MPI_UNSIGNED_LONG, 0, node_comm);
-  MPI_Bcast(dims, 4, MPI_UNSIGNED_LONG, 0, node_comm);
-  int dtype_int;
-  if (node_rank == 0) {
-    dtype_int = (int)dtype;
-  }
-  MPI_Bcast(&dtype_int, 1, MPI_INT, 0, node_comm);
-  dtype = (enum pressio_dtype)dtype_int;
-
-  printf("Rank %d: data_size = %zu, ndims = %zu, dims = {%zu, %zu, %zu}, "
-         "dtype = %d\n",
-         rank, data_size, ndims, dims[0], dims[1], dims[2], dtype);
-
-  // Allocate memory for data on all ranks
-  void *data_buffer = malloc(data_size);
-  if (data_buffer == NULL) {
-    fprintf(stderr, "Failed to allocate memory on rank %d\n", rank);
+  // if (node_rank == 0) {
+  if (strstr(dataset_file, "nyx") != NULL) {
+    dims[0] = 512;
+    dims[1] = 512;
+    dims[2] = 512;
+    ndims = 3;
+    dtype = pressio_float_dtype;
+  } else if (strstr(dataset_file, "hacc") != NULL) {
+    dims[0] = 1073726487;
+    ndims = 1;
+    dtype = pressio_float_dtype;
+  } else if (strstr(dataset_file, "s3d") != NULL) {
+    dims[0] = 11;
+    dims[1] = 500;
+    dims[2] = 500;
+    dims[3] = 500;
+    ndims = 4;
+    dtype = pressio_double_dtype;
+  } else if (strstr(dataset_file, "miranda") != NULL) {
+    dims[0] = 3072;
+    dims[1] = 3072;
+    dims[2] = 3072;
+    ndims = 3;
+    dtype = pressio_float_dtype;
+  } else if (strstr(dataset_file, "cesm") != NULL) {
+    dims[0] = 26;
+    dims[1] = 1800;
+    dims[2] = 3600;
+    ndims = 3;
+    dtype = pressio_float_dtype;
+  } else {
+    fprintf(stderr, "Unknown dataset %s\n", dataset_file);
     MPI_Abort(MPI_COMM_WORLD, 1);
   }
 
-  // Broadcast data to all ranks within the node
-  if (node_rank == 0) {
-    memcpy(data_buffer, pressio_data_ptr(input_data, NULL), data_size);
+  struct pressio_data *metadata = pressio_data_new_empty(dtype, ndims, dims);
+  char full_path[1024];
+  snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
+  input_data = pressio_io_data_path_read(metadata, full_path);
+  if (input_data == NULL) {
+    fprintf(stderr, "Failed to read dataset %s\n", dataset_file);
+    MPI_Abort(MPI_COMM_WORLD, 1);
   }
-  MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
-  MPI_Barrier(MPI_COMM_WORLD);
-  // Create pressio_data object for each rank
-  struct pressio_data *rank_input_data = pressio_data_new_move(
-      dtype, data_buffer, ndims, dims, pressio_data_libc_free_fn, NULL);
-  MPI_Barrier(MPI_COMM_WORLD);
+  data_size = pressio_data_get_bytes(input_data);
+  pressio_data_free(metadata);
+  // }
+
+  // Broadcast metadata to all ranks in the node
+  // MPI_Bcast(&data_size, 1, MPI_UNSIGNED_LONG, 0, node_comm);
+  // MPI_Bcast(&ndims, 1, MPI_UNSIGNED_LONG, 0, node_comm);
+  // MPI_Bcast(dims, 4, MPI_UNSIGNED_LONG, 0, node_comm);
+  // int dtype_int;
+  // if (node_rank == 0) {
+  //   dtype_int = (int)dtype;
+  // }
+  // MPI_Bcast(&dtype_int, 1, MPI_INT, 0, node_comm);
+  // dtype = (enum pressio_dtype)dtype_int;
+
+  // printf("Rank %d: data_size = %zu, ndims = %zu, dims = {%zu, %zu, %zu}, "
+  //        "dtype = %d\n",
+  //        rank, data_size, ndims, dims[0], dims[1], dims[2], dtype);
+
+  // Allocate memory for data on all ranks
+  // void *data_buffer = malloc(data_size);
+  // if (data_buffer == NULL) {
+  //   fprintf(stderr, "Failed to allocate memory on rank %d\n", rank);
+  //   MPI_Abort(MPI_COMM_WORLD, 1);
+  // }
+
+  // // Broadcast data to all ranks within the node
+  // if (node_rank == 0) {
+  //   memcpy(data_buffer, pressio_data_ptr(input_data, NULL), data_size);
+  // }
+  // MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
+  // MPI_Barrier(MPI_COMM_WORLD);
+  // // Create pressio_data object for each rank
+  // struct pressio_data *rank_input_data = pressio_data_new_move(
+  //     dtype, data_buffer, ndims, dims, pressio_data_libc_free_fn, NULL);
+  // MPI_Barrier(MPI_COMM_WORLD);
   // Set compressor options
   struct pressio_options *options = pressio_options_new();
   pressio_options_set_double(options, "pressio:rel", error_bound);
@@ -253,7 +253,8 @@ int main(int argc, char **argv) {
   double compress_start_time = get_time();
 
   // Perform compression
-  compress_data(compressor, rank_input_data, compressed_data);
+  // compress_data(compressor, rank_input_data, compressed_data);
+  compress_data(compressor, input_data, compressed_data);
 
   double compress_end_time = get_time();
   double compress_time = compress_end_time - compress_start_time;
