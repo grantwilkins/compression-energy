@@ -5,7 +5,7 @@
 #SBATCH -e parallel-iot.e%j       # Name of stderr error file
 #SBATCH -p spr             # Queue (partition) name
 #SBATCH -N 2               # Total # of nodes 
-#SBATCH -n 224             # Total # of mpi tasks
+#SBATCH -n 150             # Total # of mpi tasks
 #SBATCH -t 6:00:00        # Run time (hh:mm:ss)
 
 datasets=(

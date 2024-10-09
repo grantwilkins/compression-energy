@@ -206,6 +206,7 @@ int main(int argc, char **argv) {
   }
   data_size = pressio_data_get_bytes(input_data);
   pressio_data_free(metadata);
+  printf("got here\n");
   // }
 
   // Broadcast metadata to all ranks in the node
@@ -243,18 +244,31 @@ int main(int argc, char **argv) {
   // Set compressor options
   struct pressio_options *options = pressio_options_new();
   pressio_options_set_double(options, "pressio:rel", error_bound);
-  pressio_compressor_set_options(compressor, options);
+  if (pressio_compressor_check_options(compressor, options)) {
+    fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
+    pressio_options_free(options);
+    return 1;
+  }
 
+  if (pressio_compressor_set_options(compressor, options)) {
+     fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
+     pressio_options_free(options);
+     return 1;
+  }
+  pressio_options_free(options);
   // Prepare for compression
   struct pressio_data *compressed_data =
       pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
+  printf("got here 2\n");
   MPI_Barrier(MPI_COMM_WORLD);
   // Compression phase
   double compress_start_time = get_time();
 
   // Perform compression
   // compress_data(compressor, rank_input_data, compressed_data);
-  compress_data(compressor, input_data, compressed_data);
+  if (pressio_compressor_compress(compressor, input_data, compressed_data)) {
+      fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
+    }
 
   double compress_end_time = get_time();
   double compress_time = compress_end_time - compress_start_time;
@@ -328,7 +342,7 @@ int main(int argc, char **argv) {
   }
 
   // Clean up
-  pressio_data_free(rank_input_data);
+  pressio_data_free(input_data);
   pressio_data_free(compressed_data);
   pressio_options_free(options);
   pressio_compressor_release(compressor);

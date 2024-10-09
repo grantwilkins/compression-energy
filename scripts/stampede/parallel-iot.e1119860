@@ -1,0 +1,19 @@
+icx: warning: Use of '-qopenmp' recommended over '-fopenmp' [-Wrecommended-option]
+icx: remark: Note that use of '-g' without any optimization-level option will turn off most compiler optimizations similar to use of '-O0'; use '-Rno-debug-disables-optimization' to disable this remark [-Rdebug-disables-optimization]
+parallel_io.c:241:14: error: too many arguments to function call, expected single argument 'src', have 4 arguments
+  240 |   struct pressio_data *rank_input_data = pressio_data_new_clone(
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~
+  241 |       dtype, data_buffer, ndims, dims);
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~
+/home1/10191/gfw/spack/opt/spack/linux-rocky9-sapphirerapids/gcc-11.4.1/libpressio-0.99.4-vhf5sj2d3tfsj73nxyy2j6xqibey4zfl/include/libpressio/pressio_data.h:61:22: note: 'pressio_data_new_clone' declared here
+   61 | struct pressio_data* pressio_data_new_clone(const struct pressio_data* src);
+      |                      ^                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parallel_io.c:248:3: error: call to undeclared function 'print'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  248 |   print("here %d %d\n", node_rank, rank);
+      |   ^
+parallel_io.c:248:3: note: did you mean 'printf'?
+/usr/include/stdio.h:350:12: note: 'printf' declared here
+  350 | extern int printf (const char *__restrict __format, ...);
+      |            ^
+2 errors generated.
+make: *** [Makefile:17: parallel_io] Error 1
