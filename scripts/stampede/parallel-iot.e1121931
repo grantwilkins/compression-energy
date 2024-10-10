@@ -1,0 +1,2105 @@
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3667722240,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 46, pid: 2080092) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1209532416,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 4, pid: 2080050) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3249274880,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 53, pid: 2080099) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [896598016,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2721185792,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4247126016,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 37, pid: 2080083) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [275709952,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 17, pid: 2080063) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 70, pid: 2080116) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2182152192,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 66, pid: 2080112) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 40, pid: 2080086) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [261619712,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1243611136,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 73, pid: 2080119) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 22, pid: 2080068) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [551813120,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [531431424,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1876688896,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 49, pid: 2080095) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 20, pid: 2080066) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 60, pid: 2080106) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4180934656,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 8, pid: 2080054) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1814888448,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 57, pid: 2080103) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1965162496,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 16, pid: 2080062) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1031208960,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 50, pid: 2080096) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2105737216,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 2, pid: 2080048) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4009754624,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2735079424,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 61, pid: 2080107) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 33, pid: 2080079) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [417857536,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2924478464,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 55, pid: 2080101) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 44, pid: 2080090) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2238316544,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 47, pid: 2080093) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3487301632,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 15, pid: 2080061) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1031602176,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 32, pid: 2080078) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [739246080,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 147, pid: 2095677) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [670302208,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 149, pid: 2095679) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2203779072,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1181941760,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1029636096,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [890437632,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2176253952,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3033792512,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3438542848,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 107, pid: 2095637) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 137, pid: 2095667) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2415591424,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 84, pid: 2095614) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 7, pid: 2080053) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 98, pid: 2095628) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 111, pid: 2095641) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 89, pid: 2095619) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 76, pid: 2095606) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [227344384,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [169017344,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4232314880,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 128, pid: 2095658) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 120, pid: 2095650) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 118, pid: 2095648) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1259208704,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 117, pid: 2095647) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1629159424,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 109, pid: 2095639) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [295305216,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4224057344,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 113, pid: 2095643) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1432158208,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1818886144,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 103, pid: 2095633) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1756037120,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 86, pid: 2095616) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 95, pid: 2095625) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 78, pid: 2095608) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3107979264,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1588658176,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 115, pid: 2095645) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 121, pid: 2095651) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1816788992,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3536781312,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2603679744,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 94, pid: 2095624) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 108, pid: 2095638) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 134, pid: 2095664) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2427125760,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 148, pid: 2095678) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [689176576,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 104, pid: 2095634) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2079195136,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 75, pid: 2095605) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2393964544,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4176871424,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 106, pid: 2095636) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3476226048,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [176291840,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1930428416,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 5, pid: 2080051) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [279248896,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 54, pid: 2080100) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 31, pid: 2080077) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 123, pid: 2095653) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 18, pid: 2080064) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [771227648,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 6, pid: 2080052) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2205351936,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 91, pid: 2095621) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [335478784,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [281804800,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1006174208,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1253179392,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 69, pid: 2080115) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3555196928,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 68, pid: 2080114) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 36, pid: 2080082) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 65, pid: 2080111) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2786000896,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 9, pid: 2080055) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1316028416,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 67, pid: 2080113) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3463643136,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2347106304,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [368640000,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [877527040,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 77, pid: 2095607) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 146, pid: 2095676) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 35, pid: 2080081) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [396492800,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 74, pid: 2080120) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 39, pid: 2080085) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2452291584,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 27, pid: 2080073) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 58, pid: 2080104) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [901447680,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3541958656,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2783182848,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 3, pid: 2080049) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 101, pid: 2095631) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 71, pid: 2080117) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3180331008,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2560425984,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 63, pid: 2080109) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 145, pid: 2095675) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2205024256,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4006543360,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 38, pid: 2080084) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3250651136,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 143, pid: 2095673) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 124, pid: 2095654) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [788398080,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 72, pid: 2080118) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [638255104,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3923968000,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 93, pid: 2095623) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 0, pid: 2080046) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3384803328,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3600547840,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 119, pid: 2095649) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 34, pid: 2080080) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [401932288,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 25, pid: 2080071) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2318729216,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 81, pid: 2095611) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2799763456,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 114, pid: 2095644) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3118006272,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3424321536,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 140, pid: 2095670) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 80, pid: 2095610) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [741998592,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3597074432,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [12517376,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 11, pid: 2080057) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 23, pid: 2080069) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2150694912,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 112, pid: 2095642) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 139, pid: 2095669) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2200174592,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [353763328,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1828192256,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [366018560,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 90, pid: 2095620) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3105685504,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 10, pid: 2080056) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 99, pid: 2095629) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 62, pid: 2080108) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2211053568,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 43, pid: 2080089) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3330277376,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 13, pid: 2080059) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 96, pid: 2095626) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3421831168,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1039794176,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [177405952,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 133, pid: 2095663) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1106968576,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 52, pid: 2080098) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 24, pid: 2080070) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3737452544,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [256376832,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 59, pid: 2080105) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3241410560,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 79, pid: 2095609) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 122, pid: 2095652) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 130, pid: 2095660) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4276682752,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 12, pid: 2080058) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1921712128,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 131, pid: 2095661) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4216979456,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [990707712,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 83, pid: 2095613) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 129, pid: 2095659) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1251409920,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [480903168,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 110, pid: 2095640) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1715404800,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 136, pid: 2095666) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 29, pid: 2080075) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1643970560,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3832545280,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 102, pid: 2095632) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 126, pid: 2095656) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3437821952,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [693698560,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 116, pid: 2095646) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1752039424,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3177381888,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 135, pid: 2095665) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2484404224,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 45, pid: 2080091) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2008743936,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3504472064,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 26, pid: 2080072) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 14, pid: 2080060) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 56, pid: 2080102) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 30, pid: 2080076) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [566296576,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2490236928,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2665152512,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 19, pid: 2080065) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 1, pid: 2080047) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 127, pid: 2095657) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2731147264,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 28, pid: 2080074) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2444296192,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2938765312,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3116630016,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 92, pid: 2095622) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 51, pid: 2080097) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 42, pid: 2080088) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2064777216,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1447624704,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 48, pid: 2080094) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3110141952,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 138, pid: 2095668) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4163764224,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 97, pid: 2095627) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3503423488,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 21, pid: 2080067) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 87, pid: 2095617) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3409707008,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1713504256,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 142, pid: 2095672) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4036820992,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 88, pid: 2095618) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4091019264,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 141, pid: 2095671) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [988348416,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 132, pid: 2095662) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1245184,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 82, pid: 2095612) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1285160960,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 100, pid: 2095630) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2408579072,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 85, pid: 2095615) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 41, pid: 2080087) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [875102208,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1408696320,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 105, pid: 2095635) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 125, pid: 2095655) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3822714880,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 144, pid: 2095674) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4232314880,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 64, pid: 2080110) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2432761856,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [397672448,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 24, pid: 2080484) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 33, pid: 2080493) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2231959552,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 5, pid: 2080465) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [735838208,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [145031168,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 50, pid: 2080510) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 59, pid: 2080519) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2083651584,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 69, pid: 2080529) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2137391104,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 36, pid: 2080496) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3551920128,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4166057984,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1505886208,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 55, pid: 2080515) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 1, pid: 2080461) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 41, pid: 2080501) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1638596608,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2114060288,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 7, pid: 2080467) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [169017344,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 9, pid: 2080469) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1612840960,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3447128064,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 117, pid: 2095992) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1960443904,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 18, pid: 2080478) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 148, pid: 2096023) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 140, pid: 2096015) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2085683200,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 110, pid: 2095985) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1090387968,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3993501696,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 14, pid: 2080474) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2454781952,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 133, pid: 2096008) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 13, pid: 2080473) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2539061248,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1173487616,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3508142080,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 132, pid: 2096007) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 128, pid: 2096003) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [149225472,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 106, pid: 2095981) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 51, pid: 2080511) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3455188992,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 30, pid: 2080490) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3750035456,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1819541504,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 29, pid: 2080489) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 43, pid: 2080503) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3625844736,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 136, pid: 2096011) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [265814016,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2340749312,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [81526784,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 40, pid: 2080500) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 64, pid: 2080524) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 10, pid: 2080470) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1730084864,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2134769664,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2826633216,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 42, pid: 2080502) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 104, pid: 2095979) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 91, pid: 2095966) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3103784960,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 35, pid: 2080495) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [893976576,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 53, pid: 2080513) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3944284160,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 17, pid: 2080477) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2796552192,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [121634816,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 105, pid: 2095980) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 19, pid: 2080479) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3287351296,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4229824512,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1064239104,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 72, pid: 2080532) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3526295552,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 122, pid: 2095997) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 92, pid: 2095967) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 107, pid: 2095982) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3658743808,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 87, pid: 2095962) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [166526976,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2038562816,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1715798016,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 88, pid: 2095963) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3556311040,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 97, pid: 2095972) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 68, pid: 2080528) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2828337152,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 142, pid: 2096017) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 101, pid: 2095976) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1635975168,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3351314432,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3385196544,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 70, pid: 2080530) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 61, pid: 2080521) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 108, pid: 2095983) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [469368832,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [554500096,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1586102272,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2744385536,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 125, pid: 2096000) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 11, pid: 2080471) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 134, pid: 2096009) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 139, pid: 2096014) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1973157888,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [854261760,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4055105536,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 130, pid: 2096005) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [761593856,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 34, pid: 2080494) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 129, pid: 2096004) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 3, pid: 2080463) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3406168064,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [86310912,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 37, pid: 2080497) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4243718144,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 93, pid: 2095968) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3953786880,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [473038848,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1842610176,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4020371456,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [489816064,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 123, pid: 2095998) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3902734336,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3682926592,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 114, pid: 2095989) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 16, pid: 2080476) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 113, pid: 2095988) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 25, pid: 2080485) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 120, pid: 2095995) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 67, pid: 2080527) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 111, pid: 2095986) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1382219776,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 22, pid: 2080482) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [472121344,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2322006016,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1454899200,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4174512128,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [194052096,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1537146880,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 99, pid: 2095974) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 76, pid: 2095951) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 71, pid: 2080531) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 81, pid: 2095956) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 85, pid: 2095960) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 109, pid: 2095984) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3782541312,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [115408896,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 66, pid: 2080526) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 149, pid: 2096024) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2157445120,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 39, pid: 2080499) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3124690944,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2876112896,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 73, pid: 2080533) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 147, pid: 2096022) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1846804480,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [4143710208,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 126, pid: 2096001) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 83, pid: 2095958) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3625058304,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 143, pid: 2096018) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2407399424,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 131, pid: 2096006) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2819227648,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 47, pid: 2080507) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3733520384,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 89, pid: 2095964) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1990131712,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 15, pid: 2080475) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3646226432,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 38, pid: 2080498) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3454468096,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 0, pid: 2080460) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2046099456,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 74, pid: 2080534) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1548877824,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 57, pid: 2080517) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3773628416,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 32, pid: 2080492) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1079705600,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 20, pid: 2080480) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [481034240,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [470482944,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2651783168,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 62, pid: 2080522) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1601699840,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 118, pid: 2095993) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 58, pid: 2080518) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 45, pid: 2080505) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [199884800,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 137, pid: 2096012) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4266852352,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4292083712,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 23, pid: 2080483) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 49, pid: 2080509) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4076666880,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3989700608,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 8, pid: 2080468) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 84, pid: 2095959) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2854158336,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 100, pid: 2095975) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2278359040,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4029874176,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 26, pid: 2080486) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3289841664,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1164115968,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 60, pid: 2080520) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 21, pid: 2080481) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 54, pid: 2080514) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [1633288192,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 44, pid: 2080504) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3036086272,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 48, pid: 2080508) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [4019847168,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [724893696,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2868248576,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 52, pid: 2080512) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 63, pid: 2080523) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 78, pid: 2095953) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1068236800,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 146, pid: 2096021) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2277179392,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 46, pid: 2080506) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2942304256,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2252603392,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 56, pid: 2080516) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 4, pid: 2080464) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [711720960,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2844262400,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2128084992,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2892169216,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 124, pid: 2095999) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 27, pid: 2080487) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 28, pid: 2080488) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 95, pid: 2095970) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3316580352,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 65, pid: 2080525) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2394357760,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 98, pid: 2095973) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3785424896,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3849715712,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [165216256,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 115, pid: 2095990) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 144, pid: 2096019) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 90, pid: 2095965) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [907870208,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [310181888,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 31, pid: 2080491) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [214368256,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3426353152,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 119, pid: 2095994) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2852847616,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 86, pid: 2095961) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 75, pid: 2095950) exited with status 13
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [3544907776,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 2, pid: 2080462) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2145386496,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3679911936,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3406364672,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [753598464,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-071:00000] *** reported by process [2447245312,0]
+[c513-071:00000] *** on communicator MPI_COMM_WORLD
+[c513-071:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-071:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-071:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 6, pid: 2080466) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2051538944,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 102, pid: 2095977) exited with status 13
+[c513-071.stampede3.tacc.utexas.edu:mpispawn_0][child_handler] MPI process (rank: 12, pid: 2080472) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 127, pid: 2096002) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 79, pid: 2095954) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 145, pid: 2096020) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 96, pid: 2095971) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2403663872,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 112, pid: 2095987) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1041235968,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2472542208,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3118661632,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 94, pid: 2095969) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 138, pid: 2096013) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [2787639296,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1264189440,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3553296384,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 116, pid: 2095991) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 135, pid: 2096010) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 80, pid: 2095955) exited with status 13
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 82, pid: 2095957) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3730374656,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 121, pid: 2095996) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [1336213504,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 141, pid: 2096016) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [416481280,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 77, pid: 2095952) exited with status 13
+[c513-072:00000] *** An error occurred in MPI_Comm_create_keyval
+[c513-072:00000] *** reported by process [3308781568,0]
+[c513-072:00000] *** on communicator MPI_COMM_WORLD
+[c513-072:00000] *** MPI_ERR_ARG: invalid argument of some other kind
+[c513-072:00000] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[c513-072:00000] ***    and MPI will try to terminate your MPI job as well)
+[c513-072.stampede3.tacc.utexas.edu:mpispawn_1][child_handler] MPI process (rank: 103, pid: 2095978) exited with status 13
+slurmstepd: error: *** JOB 1121931 ON c513-071 CANCELLED AT 2024-10-09T17:12:02 ***
+[c513-071.stampede3.tacc.utexas.edu:mpirun_rsh][signal_processor] Caught signal 15, killing job
+slurmstepd: error: _get_joules_task: can't get info from slurmd
+Connection to c513-072 closed by remote host.

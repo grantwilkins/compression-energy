@@ -2,10 +2,10 @@
 
 #SBATCH -J parallel-io          # Job name
 #SBATCH -o parallel-io.o%j       # Name of stdout output file
-#SBATCH -e parallel-iot.e%j       # Name of stderr error file
+#SBATCH -e parallel-io.e%j       # Name of stderr error file
 #SBATCH -p spr             # Queue (partition) name
 #SBATCH -N 2               # Total # of nodes 
-#SBATCH -n 150             # Total # of mpi tasks
+#SBATCH -n 128             # Total # of mpi tasks
 #SBATCH -t 6:00:00        # Run time (hh:mm:ss)
 
 datasets=(
@@ -13,7 +13,10 @@ datasets=(
 )
 
 compressors=(
+    sz
+    sz3
     zfp
+    qoz
 )
 
 error_bounds=(

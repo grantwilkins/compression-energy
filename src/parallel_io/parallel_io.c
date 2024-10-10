@@ -275,7 +275,7 @@ int main(int argc, char **argv) {
   double absolute_error_bound = relative_error_bound * data_range;
 
   struct pressio_options *options = pressio_options_new();
-  pressio_options_set_double(options, "pressio:rel", absolute_error_bound);
+  pressio_options_set_double(options, "pressio:abs", absolute_error_bound);
   if (pressio_compressor_check_options(compressor, options)) {
     fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
     pressio_options_free(options);
@@ -324,7 +324,7 @@ int main(int argc, char **argv) {
     fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
   }
 
-  printf("Rank %d: Finished compression\n", rank);
+  printf("Rank %d: Finished compression. Output data size: %zu bytes\n", rank, pressio_data_get_bytes(compressed_data));
   MPI_Barrier(MPI_COMM_WORLD);
   if (node_rank == 0) {
     if (PAPI_stop(EventSet, compress_values) != PAPI_OK) {
@@ -436,7 +436,8 @@ int main(int argc, char **argv) {
       }
     }
   }
-
+  
+  printf("HERE\n");
   // Clean up
   pressio_data_free(input_data);
   pressio_data_free(compressed_data);
