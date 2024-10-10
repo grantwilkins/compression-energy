@@ -143,7 +143,7 @@ int main(int argc, char **argv) {
 
   long long *compress_values = NULL;
   long long *write_values = NULL;
-  if (rank == 0) {
+  if (node_rank == 0) {
     compress_values = (long long *)calloc(num_events, sizeof(long long));
     write_values = (long long *)calloc(num_events, sizeof(long long));
   }
@@ -277,7 +277,7 @@ int main(int argc, char **argv) {
   if (rank == 0) {
     memcpy(data_buffer, pressio_data_ptr(input_data, NULL), data_size);
   }
-  MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
+  MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, MPI_COMM_WORLD);
   //printf("Rank %d received data\n", node_rank);
 
   struct pressio_data *rank_input_data = pressio_data_new_move(
@@ -345,6 +345,7 @@ int main(int argc, char **argv) {
          rank, pressio_data_get_bytes(rank_input_data));
   fflush(stdout);
   MPI_Barrier(MPI_COMM_WORLD);
+  
   if (node_rank == 0) {
     if (PAPI_start(EventSet) != PAPI_OK) {
       handle_error(1);
@@ -358,6 +359,7 @@ int main(int argc, char **argv) {
   printf("Rank %d: Finished compression. Output data size: %zu bytes\n", rank,
          pressio_data_get_bytes(compressed_data));
   MPI_Barrier(MPI_COMM_WORLD);
+  //printf("HERE\n");
   if (node_rank == 0) {
     if (PAPI_stop(EventSet, compress_values) != PAPI_OK) {
       handle_error(1);
@@ -365,7 +367,7 @@ int main(int argc, char **argv) {
   }
   double compress_end_time = get_time();
   double compress_time = compress_end_time - compress_start_time;
-
+  
   double cpu_energy_compression = 0.0;
   if (node_rank == 0) {
     for (i = 0; i < num_events; i++) {
@@ -383,18 +385,17 @@ int main(int argc, char **argv) {
   MPI_Barrier(MPI_COMM_WORLD);
   MPI_Reduce(&compress_time, &compress_time_max, 1, MPI_DOUBLE, MPI_MAX, 0,
              node_comm);
-
   // I/O phase
   const char *io_methods[] = {"hdf5", "netcdf"};
   int num_methods = sizeof(io_methods) / sizeof(io_methods[0]);
 
-  for (int method = 0; method < num_methods; method++) {
+ for (int method = 0; method < num_methods; method++) {
     for (int iteration = 0; iteration < NUM_ITERATIONS; iteration++) {
       double write_start_time = get_time();
       // Write compressed data to file
       char output_filename[256];
       snprintf(output_filename, sizeof(output_filename),
-               "%s/%s_%s_%g_%d_%d_%s_%d.%s", output_dir, dataset_file,
+               "%s/%s%s%g%d%d%s_%d.%s", output_dir, dataset_file,
                compressor_id, relative_error_bound, rank, node_rank,
                io_methods[method], iteration, (method == 0 ? "h5" : "nc"));
       if (node_rank == 0) {
@@ -421,9 +422,10 @@ int main(int argc, char **argv) {
       double write_end_time = get_time();
       double write_time = write_end_time - write_start_time;
 
-      // Synchronize all processes after writing
+      // Synchronize all processes after deleting
+      MPI_Barrier(MPI_COMM_WORLD);
 
-      double cpu_energy_writing = 0.0;
+          double cpu_energy_writing = 0.0;
       if (node_rank == 0) {
         for (i = 0; i < num_events; i++) {
           if (strstr(event_names[i], "ENERGY_UJ")) {
@@ -469,8 +471,8 @@ int main(int argc, char **argv) {
     }
   }
 
-  printf("HERE\n");
-  // Clean up
+   
+ // Clean up
   pressio_data_free(rank_input_data);
   pressio_data_free(compressed_data);
   pressio_options_free(options);

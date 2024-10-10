@@ -1,0 +1,17 @@
+make: 'parallel_io' is up to date.
+TACC:  Starting up job 1124923 
+TACC:  Starting parallel tasks... 
+TACC:  MPI job exited with code: 1 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1124923 
+TACC:  Starting parallel tasks... 
+TACC:  MPI job exited with code: 1 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1124923 
+TACC:  Starting parallel tasks... 
+TACC:  MPI job exited with code: 1 
+TACC:  Shutdown complete. Exiting. 
+TACC:  Starting up job 1124923 
+TACC:  Starting parallel tasks... 
+TACC:  MPI job exited with code: 1 
+TACC:  Shutdown complete. Exiting. 

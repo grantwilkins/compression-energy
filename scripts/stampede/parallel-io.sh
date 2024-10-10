@@ -3,10 +3,10 @@
 #SBATCH -J parallel-io          # Job name
 #SBATCH -o parallel-io.o%j       # Name of stdout output file
 #SBATCH -e parallel-io.e%j       # Name of stderr error file
-#SBATCH -p spr             # Queue (partition) name
-#SBATCH -N 2               # Total # of nodes 
-#SBATCH -n 128             # Total # of mpi tasks
-#SBATCH -t 6:00:00        # Run time (hh:mm:ss)
+#SBATCH -p skx             # Queue (partition) name
+#SBATCH -N 24               # Total # of nodes 
+#SBATCH -n 1024             # Total # of mpi tasks
+#SBATCH -t 1:00:00        # Run time (hh:mm:ss)
 
 datasets=(
    nyx/temperature.f32
@@ -20,12 +20,7 @@ compressors=(
 )
 
 error_bounds=(
-    0.1
-    0.01
     0.001
-    0.0001
-    0.00001
-    0.000001
 )
 
 cd $HOME/compression-energy/src/parallel_io
