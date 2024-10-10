@@ -16,5 +16,8 @@ ALL=parallel_io
 parallel_io: parallel_io.c
 	$(MPICC) $(CFLAGS) -o parallel_io parallel_io.c -I$(HDF5_INC) -L$(HDF5_LIB) $(LDLIBS) -lhdf5 -lmpi
 
+parallel_io_original: parallel_io_original.c
+	$(MPICC) $(CFLAGS) -o parallel_io_original parallel_io_original.c -I$(HDF5_INC) -L$(HDF5_LIB) $(LDLIBS) -lhdf5 -lmpi
+
 clean:
 	rm parallel_io
