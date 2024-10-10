@@ -68,7 +68,7 @@ void handle_error(int retval) {
   exit(1);
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) { 
   int rank, size, node_rank, nodes, ranks_per_node;
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -81,7 +81,7 @@ int main(int argc, char **argv) {
   MPI_Comm_rank(node_comm, &node_rank);
   MPI_Comm_size(node_comm, &ranks_per_node);
   nodes = size / ranks_per_node;
-
+  
   if (argc != 4) {
     if (rank == 0) {
       fprintf(stderr, "Usage: %s <compressor> <dataset_file> <error_bound>\n",
@@ -138,10 +138,12 @@ int main(int argc, char **argv) {
       r = PAPI_enum_cmp_event(&code, PAPI_ENUM_EVENTS, powercap_cid);
     }
   }
+  
+
 
   long long *compress_values = NULL;
   long long *write_values = NULL;
-  if (node_rank == 0) {
+  if (rank == 0) {
     compress_values = (long long *)calloc(num_events, sizeof(long long));
     write_values = (long long *)calloc(num_events, sizeof(long long));
   }
@@ -160,6 +162,8 @@ int main(int argc, char **argv) {
     }
   }
 
+ 
+
   struct pressio_data *input_data = NULL;
   size_t data_size = 0;
   size_t dims[4] = {0};
@@ -167,7 +171,7 @@ int main(int argc, char **argv) {
   enum pressio_dtype dtype;
 
   // Read data on one rank per node
-  if (node_rank == 0) {
+  if (rank == 0) {
     if (strstr(dataset_file, "nyx") != NULL) {
       dims[0] = 512;
       dims[1] = 512;
@@ -251,15 +255,16 @@ int main(int argc, char **argv) {
   // MPI_Barrier(MPI_COMM_WORLD);
   // Set compressor options
 
-  MPI_Bcast(&data_size, 1, MPI_UNSIGNED_LONG, 0, node_comm);
-  MPI_Bcast(&ndims, 1, MPI_UNSIGNED_LONG, 0, node_comm);
-  MPI_Bcast(dims, 4, MPI_UNSIGNED_LONG, 0, node_comm);
+  MPI_Bcast(&data_size, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
+  MPI_Bcast(&ndims, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
+  MPI_Bcast(dims, 4, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
   int dtype_int;
-  if (node_rank == 0) {
+  if (rank == 0) {
     dtype_int = (int)dtype;
   }
-  MPI_Bcast(&dtype_int, 1, MPI_INT, 0, node_comm);
+  MPI_Bcast(&dtype_int, 1, MPI_INT, 0, MPI_COMM_WORLD);
   dtype = (enum pressio_dtype)dtype_int;
+  // printf("Rank %d has gotten metadata", node_rank);
 
   // Allocate memory for data on all ranks
   void *data_buffer = malloc(data_size);
@@ -269,10 +274,11 @@ int main(int argc, char **argv) {
   }
 
   // Broadcast data to all ranks within the node
-  if (node_rank == 0) {
+  if (rank == 0) {
     memcpy(data_buffer, pressio_data_ptr(input_data, NULL), data_size);
   }
   MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
+  //printf("Rank %d received data\n", node_rank);
 
   struct pressio_data *rank_input_data = pressio_data_new_move(
       dtype, data_buffer, ndims, dims, pressio_data_libc_free_fn, NULL);
@@ -326,15 +332,10 @@ int main(int argc, char **argv) {
             compressor_id);
     MPI_Abort(MPI_COMM_WORLD, 1);
   }
-  size_t local_data_size = pressio_data_get_bytes(rank_input_data);
-  size_t global_data_size;
-  MPI_Allreduce(&local_data_size, &global_data_size, 1, MPI_UNSIGNED_LONG,
-                MPI_MAX, MPI_COMM_WORLD);
-  if (local_data_size != global_data_size) {
-    fprintf(stderr, "Rank %d: Data size mismatch. Local: %zu, Global: %zu\n",
-            rank, local_data_size, global_data_size);
-    MPI_Abort(MPI_COMM_WORLD, 1);
-  }
+  // size_t local_data_size = pressio_data_get_bytes(rank_input_data);
+  // size_t global_data_size;
+  //MPI_Allreduce(&local_data_size, &global_data_size, 1, MPI_UNSIGNED_LONG,
+  //              MPI_MAX, MPI_COMM_WORLD);
   // Compression phase
   double compress_start_time = get_time();
 
@@ -343,7 +344,7 @@ int main(int argc, char **argv) {
   printf("Rank %d: About to start compression. Input data size: %zu bytes\n",
          rank, pressio_data_get_bytes(rank_input_data));
   fflush(stdout);
-
+  MPI_Barrier(MPI_COMM_WORLD);
   if (node_rank == 0) {
     if (PAPI_start(EventSet) != PAPI_OK) {
       handle_error(1);
