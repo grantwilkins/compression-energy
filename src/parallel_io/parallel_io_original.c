@@ -130,7 +130,7 @@ int main(int argc, char **argv) {
 
   long long *transmit_values = NULL;
   long long *write_values = NULL;
-  if (rank == 0) {
+  if (node_rank == 0) {
     transmit_values = (long long *)calloc(num_events, sizeof(long long));
     write_values = (long long *)calloc(num_events, sizeof(long long));
   }
@@ -233,6 +233,8 @@ int main(int argc, char **argv) {
   double transmit_end_time = get_time();
   double transmit_time = transmit_end_time - transmit_start_time;
 
+  MPI_Barrier(MPI_COMM_WORLD);
+
   double cpu_energy_transmission = 0.0;
   if (node_rank == 0) {
     for (i = 0; i < num_events; i++) {
@@ -246,10 +248,13 @@ int main(int argc, char **argv) {
     }
   }
 
-  double transmit_time_max;
+  printf("Rank %d received %zu data\n", rank, data_size);
+
+  double transmit_time_max = 0.0;
   MPI_Reduce(&transmit_time, &transmit_time_max, 1, MPI_DOUBLE, MPI_MAX, 0,
              node_comm);
-
+  
+  
   // I/O phase
   const char *io_methods[] = {"hdf5"};
   int num_methods = sizeof(io_methods) / sizeof(io_methods[0]);
@@ -274,6 +279,8 @@ int main(int argc, char **argv) {
         write_to_netcdf(output_filename, data_buffer, data_size);
       }
 
+      printf("Rank %d here\n", rank);
+
       MPI_Barrier(MPI_COMM_WORLD);
       if (node_rank == 0) {
         if (PAPI_stop(EventSet, write_values) != PAPI_OK) {
@@ -297,7 +304,7 @@ int main(int argc, char **argv) {
         }
       }
 
-      double write_time_max;
+      double write_time_max = 0.0;
       MPI_Reduce(&write_time, &write_time_max, 1, MPI_DOUBLE, MPI_MAX, 0,
                  node_comm);
 
