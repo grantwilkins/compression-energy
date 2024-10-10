@@ -166,51 +166,54 @@ int main(int argc, char **argv) {
   size_t ndims = 0;
   enum pressio_dtype dtype;
 
-  // if (node_rank == 0) {
-  if (strstr(dataset_file, "nyx") != NULL) {
-    dims[0] = 512;
-    dims[1] = 512;
-    dims[2] = 512;
-    ndims = 3;
-    dtype = pressio_float_dtype;
-  } else if (strstr(dataset_file, "hacc") != NULL) {
-    dims[0] = 1073726487;
-    ndims = 1;
-    dtype = pressio_float_dtype;
-  } else if (strstr(dataset_file, "s3d") != NULL) {
-    dims[0] = 11;
-    dims[1] = 500;
-    dims[2] = 500;
-    dims[3] = 500;
-    ndims = 4;
-    dtype = pressio_double_dtype;
-  } else if (strstr(dataset_file, "miranda") != NULL) {
-    dims[0] = 3072;
-    dims[1] = 3072;
-    dims[2] = 3072;
-    ndims = 3;
-    dtype = pressio_float_dtype;
-  } else if (strstr(dataset_file, "cesm") != NULL) {
-    dims[0] = 26;
-    dims[1] = 1800;
-    dims[2] = 3600;
-    ndims = 3;
-    dtype = pressio_float_dtype;
-  } else {
-    fprintf(stderr, "Unknown dataset %s\n", dataset_file);
-    MPI_Abort(MPI_COMM_WORLD, 1);
-  }
+  // Read data on one rank per node
+  if (node_rank == 0) {
+    if (strstr(dataset_file, "nyx") != NULL) {
+      dims[0] = 512;
+      dims[1] = 512;
+      dims[2] = 512;
+      ndims = 3;
+      dtype = pressio_float_dtype;
+    } else if (strstr(dataset_file, "hacc") != NULL) {
+      dims[0] = 1073726487;
+      ndims = 1;
+      dtype = pressio_float_dtype;
+    } else if (strstr(dataset_file, "s3d") != NULL) {
+      dims[0] = 11;
+      dims[1] = 500;
+      dims[2] = 500;
+      dims[3] = 500;
+      ndims = 4;
+      dtype = pressio_double_dtype;
+    } else if (strstr(dataset_file, "miranda") != NULL) {
+      dims[0] = 3072;
+      dims[1] = 3072;
+      dims[2] = 3072;
+      ndims = 3;
+      dtype = pressio_float_dtype;
+    } else if (strstr(dataset_file, "cesm") != NULL) {
+      dims[0] = 26;
+      dims[1] = 1800;
+      dims[2] = 3600;
+      ndims = 3;
+      dtype = pressio_float_dtype;
+    } else {
+      fprintf(stderr, "Unknown dataset %s\n", dataset_file);
+      MPI_Abort(MPI_COMM_WORLD, 1);
+    }
 
-  struct pressio_data *metadata = pressio_data_new_empty(dtype, ndims, dims);
-  char full_path[1024];
-  snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
-  input_data = pressio_io_data_path_read(metadata, full_path);
-  if (input_data == NULL) {
-    fprintf(stderr, "Rank %d failed to read dataset %s\n", rank, dataset_file);
-    MPI_Abort(MPI_COMM_WORLD, 1);
+    struct pressio_data *metadata = pressio_data_new_empty(dtype, ndims, dims);
+    char full_path[1024];
+    snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
+    input_data = pressio_io_data_path_read(metadata, full_path);
+    if (input_data == NULL) {
+      fprintf(stderr, "Rank %d failed to read dataset %s\n", rank,
+              dataset_file);
+      MPI_Abort(MPI_COMM_WORLD, 1);
+    }
+    data_size = pressio_data_get_bytes(input_data);
+    pressio_data_free(metadata);
   }
-  data_size = pressio_data_get_bytes(input_data);
-  pressio_data_free(metadata);
 
   // }
 
@@ -248,9 +251,35 @@ int main(int argc, char **argv) {
   // MPI_Barrier(MPI_COMM_WORLD);
   // Set compressor options
 
+  MPI_Bcast(&data_size, 1, MPI_UNSIGNED_LONG, 0, node_comm);
+  MPI_Bcast(&ndims, 1, MPI_UNSIGNED_LONG, 0, node_comm);
+  MPI_Bcast(dims, 4, MPI_UNSIGNED_LONG, 0, node_comm);
+  int dtype_int;
+  if (node_rank == 0) {
+    dtype_int = (int)dtype;
+  }
+  MPI_Bcast(&dtype_int, 1, MPI_INT, 0, node_comm);
+  dtype = (enum pressio_dtype)dtype_int;
+
+  // Allocate memory for data on all ranks
+  void *data_buffer = malloc(data_size);
+  if (data_buffer == NULL) {
+    fprintf(stderr, "Failed to allocate memory on rank %d\n", rank);
+    MPI_Abort(MPI_COMM_WORLD, 1);
+  }
+
+  // Broadcast data to all ranks within the node
+  if (node_rank == 0) {
+    memcpy(data_buffer, pressio_data_ptr(input_data, NULL), data_size);
+  }
+  MPI_Bcast(data_buffer, data_size, MPI_BYTE, 0, node_comm);
+
+  struct pressio_data *rank_input_data = pressio_data_new_move(
+      dtype, data_buffer, ndims, dims, pressio_data_libc_free_fn, NULL);
+
   double data_min, data_max, data_range;
-  size_t num_elements = pressio_data_num_elements(input_data);
-  void *data_ptr = pressio_data_ptr(input_data, NULL);
+  size_t num_elements = pressio_data_num_elements(rank_input_data);
+  void *data_ptr = pressio_data_ptr(rank_input_data, NULL);
 
   if (strstr(dataset_file, "s3d") == NULL) {
     float *float_data = (float *)data_ptr;
@@ -297,7 +326,7 @@ int main(int argc, char **argv) {
             compressor_id);
     MPI_Abort(MPI_COMM_WORLD, 1);
   }
-  size_t local_data_size = pressio_data_get_bytes(input_data);
+  size_t local_data_size = pressio_data_get_bytes(rank_input_data);
   size_t global_data_size;
   MPI_Allreduce(&local_data_size, &global_data_size, 1, MPI_UNSIGNED_LONG,
                 MPI_MAX, MPI_COMM_WORLD);
@@ -312,7 +341,7 @@ int main(int argc, char **argv) {
   // Perform compression
   // compress_data(compressor, rank_input_data, compressed_data);
   printf("Rank %d: About to start compression. Input data size: %zu bytes\n",
-         rank, pressio_data_get_bytes(input_data));
+         rank, pressio_data_get_bytes(rank_input_data));
   fflush(stdout);
 
   if (node_rank == 0) {
@@ -320,11 +349,13 @@ int main(int argc, char **argv) {
       handle_error(1);
     }
   }
-  if (pressio_compressor_compress(compressor, input_data, compressed_data)) {
+  if (pressio_compressor_compress(compressor, rank_input_data,
+                                  compressed_data)) {
     fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
   }
 
-  printf("Rank %d: Finished compression. Output data size: %zu bytes\n", rank, pressio_data_get_bytes(compressed_data));
+  printf("Rank %d: Finished compression. Output data size: %zu bytes\n", rank,
+         pressio_data_get_bytes(compressed_data));
   MPI_Barrier(MPI_COMM_WORLD);
   if (node_rank == 0) {
     if (PAPI_stop(EventSet, compress_values) != PAPI_OK) {
@@ -436,10 +467,10 @@ int main(int argc, char **argv) {
       }
     }
   }
-  
+
   printf("HERE\n");
   // Clean up
-  pressio_data_free(input_data);
+  pressio_data_free(rank_input_data);
   pressio_data_free(compressed_data);
   pressio_options_free(options);
   pressio_compressor_release(compressor);
@@ -447,7 +478,7 @@ int main(int argc, char **argv) {
   if (node_rank == 0) {
     free(compress_values);
     free(write_values);
-
+    free(input_data);
     PAPI_cleanup_eventset(EventSet);
     PAPI_destroy_eventset(&EventSet);
   }
