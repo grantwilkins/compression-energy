@@ -2,6 +2,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import math
 
 df = pd.read_csv("parallel_write_experiment.csv")
 
@@ -55,7 +56,7 @@ def create_stacked_energy_plot(data, dataset):
         for core in cores:
             core_data = comp_data[comp_data["Cores"] == core]
             if not core_data.empty:
-                num_nodes = round(core_data["Cores"].values[0] / 48)
+                num_nodes = math.ceil(core_data["Cores"].values[0] / 48)
                 comp_energies.append(
                     core_data["Compression Energy (J)"].values[0] * num_nodes
                 )
