@@ -195,6 +195,74 @@ metrics = [
 ]
 
 df = df[df["Chip"] == "Intel Xeon CPU Max 9480"]
+
+df_s3d = df[df["Dataset"] == "NYX"]
+# Create a scatter plot of Compression Ratio vs Total Energy
+plt.figure(figsize=(10, 5))
+
+
+sns.scatterplot(
+    x="Compression Ratio",
+    y="Total Energy (J)",
+    style="Compressor",
+    hue="Compressor",
+    data=df_s3d,
+    markers=["o", "s", "D", "^", "v"],
+    s=200,
+)
+plt.xlabel("Compression Ratio")
+plt.ylabel("Total Energy (J)")
+plt.legend(
+    bbox_to_anchor=(1.02, 0.5), loc="center left", title="Compressor", frameon=False
+)
+plt.yscale("log")
+plt.xscale("log")
+plt.grid(True, which="both", ls="--", alpha=0.5)
+
+plt.tight_layout()
+plt.savefig("compression_ratio_vs_energy.pdf", bbox_inches="tight")
+plt.close()
+
+print("Compression Ratio vs Total Energy plot has been created and saved.")
+
+# Calculate correlation between Compression Ratio and Total Energy
+correlation = df["Compression Ratio"].corr(df["Total Energy (J)"])
+print(f"\nCorrelation between Compression Ratio and Total Energy: {correlation:.4f}")
+
+plt.clf()
+plt.figure(figsize=(10, 5))
+
+
+sns.lineplot(
+    x="PSNR",
+    y="Total Energy (J)",
+    style="Compressor",
+    hue="Compressor",
+    data=df_s3d,
+    markers=["o", "s", "D", "^", "v"],
+    # s=200,
+)
+plt.xlabel("PSNR")
+plt.ylabel("Total Energy (J)")
+plt.legend(
+    bbox_to_anchor=(1.02, 0.5), loc="center left", title="Compressor", frameon=False
+)
+# plt.yscale("log")
+# plt.xscale("log")
+# plt.xlim(10, 500)
+plt.grid(True, which="both", ls="--", alpha=0.5)
+
+plt.tight_layout()
+plt.savefig("psnr_vs_energy.pdf", bbox_inches="tight")
+plt.close()
+
+print("Compression Ratio vs Total Energy plot has been created and saved.")
+
+# Calculate correlation between Compression Ratio and Total Energy
+correlation = df["Compression Ratio"].corr(df["Total Energy (J)"])
+print(f"\nCorrelation between Compression Ratio and Total Energy: {correlation:.4f}")
+
+
 for dataset in df["Dataset"].unique():
     for error_bound in df["REL Error Bound"].unique():
         print(
