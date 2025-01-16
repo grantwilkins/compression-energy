@@ -20,6 +20,9 @@ all: $(ALL)
 compress_cpu: compress_cpu.c
 	$(CC) $(CFLAGS) $(LIBPRESSIO_CFLAGS) -o compress_cpu compress_cpu.c $(LDLIBS) $(LIBPRESSIO_LDLIBS)
 
+compress_cpu_large_nyx: compress_cpu_large_nyx.c
+	$(CC) $(CFLAGS) $(LIBPRESSIO_CFLAGS) -o compress_cpu_large_nyx compress_cpu_large_nyx.c $(LDLIBS) $(LIBPRESSIO_LDLIBS)
+
 compress_cpu_omp: compress_cpu_omp.c
 	$(MPICC) $(CFLAGS) $(LIBPRESSIO_CFLAGS)  -o compress_cpu_omp compress_cpu_omp.c $(LDLIBS) $(LIBPRESSIO_LDLIBS) -fopenmp
 
