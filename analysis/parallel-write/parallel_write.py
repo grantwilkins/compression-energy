@@ -6,7 +6,7 @@ import math
 
 df = pd.read_csv("parallel_write_experiment.csv")
 
-compressor_order = ["SZ2", "SZ3", "ZFP", "QoZ"]
+compressor_order = ["SZ2", "SZ3", "ZFP", "QoZ", "Original"]
 
 
 def create_common_legend():
@@ -23,6 +23,8 @@ def create_common_legend():
 common_handles, common_labels = create_common_legend()
 sns.set(style="whitegrid", context="talk", font_scale=1.2, font="Times New Roman")
 
+print(df["Compressor"].unique())
+
 
 # Function to create and save a stacked bar plot
 def create_stacked_energy_plot(data, dataset):
@@ -32,6 +34,7 @@ def create_stacked_energy_plot(data, dataset):
         .agg({"Compression Energy (J)": "mean", "I/O Energy (J)": "mean"})
         .reset_index()
     )
+    print(grouped)
 
     # Get unique error bounds and compressors
     cores = sorted(grouped["Cores"].unique())
@@ -57,10 +60,18 @@ def create_stacked_energy_plot(data, dataset):
             core_data = comp_data[comp_data["Cores"] == core]
             if not core_data.empty:
                 num_nodes = math.ceil(core_data["Cores"].values[0] / 48)
-                comp_energies.append(
-                    core_data["Compression Energy (J)"].values[0] * num_nodes
-                )
-                io_energies.append(core_data["I/O Energy (J)"].values[0] * num_nodes)
+                if compressor == "Original":
+                    comp_energies.append(0)
+                    io_energies.append(
+                        core_data["I/O Energy (J)"].values[0] * num_nodes
+                    )
+                else:
+                    comp_energies.append(
+                        core_data["Compression Energy (J)"].values[0] * num_nodes
+                    )
+                    io_energies.append(
+                        core_data["I/O Energy (J)"].values[0] * num_nodes
+                    )
             else:
                 comp_energies.append(0)
                 io_energies.append(0)
@@ -71,7 +82,7 @@ def create_stacked_energy_plot(data, dataset):
             width,
             label=compressor,
             color=color_dict[compressor],
-            alpha=0.7,
+            alpha=0.8,
         )
         ax.bar(
             x + i * width,
