@@ -1,0 +1,139 @@
+mpicc -std=c99 -lm -g -lpapi -fopenmp -I/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libpressio-0.99.4-k3qsayver6zix5khuxwdioxg47qck2ge/include/libpressio -I/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libstdcompat-0.0.21-6pym4effyvx3e6iet5xpr4pvqpu3r2f5/include -I/jet/home/gwilkins/papi/src/include  -o io_test io_test.c -I/opt/packages/hdf5/hdf5-1.12.0/INTEL/include -L/opt/packages/hdf5/hdf5-1.12.0/INTEL/lib -L/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libpressio-0.99.4-k3qsayver6zix5khuxwdioxg47qck2ge/lib64 -llibpressio -L/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libstdcompat-0.0.21-6pym4effyvx3e6iet5xpr4pvqpu3r2f5/lib64 -lstd_compat -lpthread -L/jet/home/gwilkins/papi/src/lib -lpapi  -D_POSIX_C_SOURCE=199309L -lhdf5 -lmpi
+/usr/bin/ld: warning: libhdf5.so.310, needed by /jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libpressio-0.99.4-k3qsayver6zix5khuxwdioxg47qck2ge/lib64/liblibpressio.so, may conflict with libhdf5.so.200
+/usr/bin/ld: warning: libmpi.so.12, needed by /opt/packages/hdf5/hdf5-1.12.0/INTEL/lib/libhdf5.so, may conflict with libmpi.so.40
+/usr/bin/ld: warning: libmpi.so.12, needed by /opt/packages/hdf5/hdf5-1.12.0/INTEL/lib/libhdf5.so, may conflict with libmpi.so.40
+/usr/bin/ld: warning: libimf.so, needed by /opt/packages/hdf5/hdf5-1.12.0/INTEL/lib/libhdf5.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libsvml.so, needed by /opt/packages/hdf5/hdf5-1.12.0/INTEL/lib/libhdf5.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libirng.so, needed by /opt/packages/hdf5/hdf5-1.12.0/INTEL/lib/libhdf5.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libintlc.so.5, needed by /opt/packages/hdf5/hdf5-1.12.0/INTEL/lib/libhdf5.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libfabric.so.1, needed by //opt/intel/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release/libmpi.so.12, not found (try using -rpath or -rpath-link)
+/opt/packages/hdf5/hdf5-1.12.0/INTEL/lib/libhdf5.so: undefined reference to `__intel_cpu_features_init_x'
+//opt/intel/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release/libmpi.so.12: undefined reference to `fi_tostr@FABRIC_1.0'
+//opt/intel/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release/libmpi.so.12: undefined reference to `fi_dupinfo@FABRIC_1.1'
+//opt/intel/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release/libmpi.so.12: undefined reference to `fi_strerror@FABRIC_1.0'
+//opt/intel/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release/libmpi.so.12: undefined reference to `fi_freeinfo@FABRIC_1.1'
+//opt/intel/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release/libmpi.so.12: undefined reference to `fi_fabric@FABRIC_1.1'
+/opt/packages/hdf5/hdf5-1.12.0/INTEL/lib/libhdf5.so: undefined reference to `__intel_cpu_feature_indicator_x'
+//opt/intel/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release/libmpi.so.12: undefined reference to `fi_getinfo@FABRIC_1.1'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:18: io_test] Error 1
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory
+/var/spool/slurm/d/job26188673/slurm_script: line 44: ./io_test: No such file or directory

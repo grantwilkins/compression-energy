@@ -6,7 +6,6 @@
 #SBATCH -n 24
 #SBATCH --time=5:00:00 
 
-DATADIR=/ocean/projects/cis240100p/gwilkins
 
 datasets=(
     s3d/stat_planar.1.1000E-03.field.d64
@@ -17,6 +16,10 @@ datasets=(
 
 compressors=(
     sz
+    sz3
+    qoz
+    zfp
+    None
 )
 
 error_bounds=(
@@ -36,13 +39,9 @@ io_methods=(
 cd /jet/home/gwilkins/compression-energy/src/io_profiling
 make
 for d in ${datasets[@]}; do
-cp $DATADIR/$d $LOCAL
 for c in ${compressors[@]}; do
 for eb in ${error_bounds[@]}; do
-for io in ${io_methods[@]}; do
-    ./io_test $c $d $eb $io
+    ./io_test $c $d $eb
 done
 done
-done
-rm $LOCAL/$d
 done

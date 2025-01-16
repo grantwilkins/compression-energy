@@ -3,7 +3,6 @@
 #include <assert.h>
 #include <hdf5.h>
 #include <math.h>
-#include <netcdf.h>
 #include <papi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,18 +34,7 @@ void perform_io(const char *method, const void *data, size_t data_size,
     H5Dclose(dataset_id);
     H5Sclose(dataspace_id);
     H5Fclose(file_id);
-  } else if (strcmp(method, "netcdf") == 0) {
-    int ncid, varid, dimid;
-
-    nc_create(output_file, NC_CLOBBER, &ncid);
-    nc_def_dim(ncid, "size", data_size, &dimid);
-    nc_def_var(ncid, "data", NC_BYTE, 1, &dimid, &varid);
-    nc_enddef(ncid);
-
-    nc_put_var_uchar(ncid, varid, data);
-
-    nc_close(ncid);
-  }
+  } 
 }
 
 void delete_file(const char *filename) {

@@ -3,7 +3,6 @@
 #include <libpressio.h>
 #include <libpressio_ext/io/posix.h>
 #include <math.h>
-#include <netcdf.h>
 #include <papi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -77,18 +76,6 @@ void perform_io(const char *method, const void *data, size_t data_size,
   //   H5Sclose(dataspace_id);
   //   H5Fclose(file_id);
   //}
-  else if (strcmp(method, "netcdf") == 0) {
-    int ncid, varid, dimid;
-
-    nc_create(output_file, NC_CLOBBER, &ncid);
-    nc_def_dim(ncid, "size", data_size, &dimid);
-    nc_def_var(ncid, "data", NC_BYTE, 1, &dimid, &varid);
-    nc_enddef(ncid);
-
-    nc_put_var_uchar(ncid, varid, data);
-
-    nc_close(ncid);
-  }
 }
 
 void delete_file(const char *filename) {
@@ -107,8 +94,8 @@ int main(int argc, char *argv[]) {
   const char *compressor_id = argv[1];
   const char *dataset_file = argv[2];
   double relative_error_bound = atof(argv[3]);
-  const char *datadir = "/work2/10191/gfw/stampede3/";
-  const char *output_dir = "/work2/10191/gfw/stampede3/compressed/";
+  const char *datadir = "/ocean/projects/cis240100p/gwilkins/";
+  const char *output_dir = "/ocean/projects/cis240100p/gwilkins/compressed/";
 
   // PAPI initialization
   int EventSet = PAPI_NULL;
