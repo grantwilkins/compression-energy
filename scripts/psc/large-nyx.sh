@@ -7,7 +7,10 @@
 #SBATCH --time=6:00:00 
 
 datasets=(
-    nyx/temperature.f32
+    nyx/temperature_2.f32
+    nyx/temperature_3.f32
+    nyx/temperature_4.f32
+    nyx/temperature_5.f32
 )
 
 compressors=(

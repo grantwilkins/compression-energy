@@ -1,5 +1,0 @@
-make: Nothing to be done for 'all'.
-Original dimensions: 512x512x512 (134217728 elements)
-Replication factor: 2
-New dimensions: 1024x1024x1024 (1073741824 elements)
-Successfully wrote the expanded dataset to '/ocean/projects/cis240100p/gwilkins/nyx/temperature_16.f32'

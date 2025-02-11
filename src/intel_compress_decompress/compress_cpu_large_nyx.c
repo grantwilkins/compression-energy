@@ -154,7 +154,27 @@ int main(int argc, char *argv[]) {
   size_t ndims;
   struct pressio_data *metadata, *input_data;
   if (strstr(dataset_file, "nyx") != NULL) {
-    size_t dims[] = {512, 512, 512};
+    if(strstr(dataset_file, "_2" != NULL)) {
+      printf("Inflated by 2\n");
+      size_t dims[] = {1024, 1024, 1024};
+    }
+    else if(strstr(dataset_file, "_3" != NULL)) {
+      printf("Inflated by 3\n");
+      size_t dims[] = {1536, 1536, 1536};
+    }
+    else if(strstr(dataset_file, "_4" != NULL)) {
+      printf("Inflated by 4\n");
+      size_t dims[] = {2048, 2048, 2048};
+    }
+    else if(strstr(dataset_file, "_5" != NULL)) {
+      printf("Inflated by 5\n");
+      size_t dims[] = {2560, 2560, 2560};
+    }
+    else {
+      printf("Original size\n");
+      size_t dims[] = {512, 512, 512};
+    }
+
     ndims = sizeof(dims) / sizeof(dims[0]);
     metadata = pressio_data_new_empty(pressio_float_dtype, ndims, dims);
   } else {
@@ -383,10 +403,9 @@ int main(int argc, char *argv[]) {
             within_confidence_interval(decompression_times, iteration);
       }
     }
-    pressio_data_free(compressed);
-    pressio_data_free(output);
-  }
-
+    
+  pressio_data_free(compressed);
+  pressio_data_free(output);
   pressio_data_free(metadata);
   pressio_data_free(input_data);
 

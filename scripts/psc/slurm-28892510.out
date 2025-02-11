@@ -1,4 +1,0 @@
-make: Nothing to be done for 'all'.
-Error: new pointer is NULL.
-Original dims: 512x512x512 (total 134217728 elements)
-Replication factor: 2, New dims: 1024x1024x1024 (total 1073741824 elements)
