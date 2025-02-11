@@ -1,0 +1,2 @@
+make: Nothing to be done for 'all'.
+/var/spool/slurm/d/job28892246/slurm_script: line 12: 36504 Segmentation fault      (core dumped) ./inflate_nyx nyx/temperature.f32 16 nyx/temperature_16.f32

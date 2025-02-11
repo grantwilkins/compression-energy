@@ -1,9 +1,0 @@
-make: Nothing to be done for 'all'.
-Compressor: mgard
-Dataset: s3d/stat_planar.1.1000E-03.field.d64
-REL Error bound: 1.000000e-02
-[31m[ERR][0m  Output too large (original size: 11.000000 GB, compressed size: 3.256950 GB, leftover buffer space: 0.000004 GB)
-[31m[ERR][0m  Output too large (original size: 11.000000 GB, compressed size: 3.256950 GB, leftover buffer space: 0.000004 GB)
-[31m[ERR][0m  Output too large (original size: 11.000000 GB, compressed size: 3.256950 GB, leftover buffer space: 0.000004 GB)
-[31m[ERR][0m  Output too large (original size: 11.000000 GB, compressed size: 3.256950 GB, leftover buffer space: 0.000004 GB)
-slurmstepd: error: *** JOB 25041772 ON e001 CANCELLED AT 2024-08-15T19:11:46 DUE TO TIME LIMIT ***

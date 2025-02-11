@@ -1,0 +1,26 @@
+gcc -std=c99 -lm -g -lpapi -I/jet/home/gwilkins/papi/src/include  -I/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libpressio-0.99.4-vbgj2t2edr6db3wjzl2s7s3s6n337xu5/include/libpressio -I/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libstdcompat-0.0.21-6pym4effyvx3e6iet5xpr4pvqpu3r2f5/include  -o compress_cpu_large_nyx compress_cpu_large_nyx.c -L/jet/home/gwilkins/papi/src/lib -lpapi  -D_POSIX_C_SOURCE=199309L -L/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libpressio-0.99.4-vbgj2t2edr6db3wjzl2s7s3s6n337xu5/lib64 -llibpressio -L/jet/home/gwilkins/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/libstdcompat-0.0.21-6pym4effyvx3e6iet5xpr4pvqpu3r2f5/lib64 -lstd_compat -lpthread 
+compress_cpu_large_nyx.c: In function 'main':
+compress_cpu_large_nyx.c:304:17: warning: implicit declaration of function 'sched_getcpu'; did you mean 'sched_getparam'? [-Wimplicit-function-declaration]
+  304 |       int cpu = sched_getcpu();
+      |                 ^~~~~~~~~~~~
+      |                 sched_getparam
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32
+Failed to read dataset nyx/temperature.f32

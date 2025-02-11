@@ -1,0 +1,21 @@
+make: Nothing to be done for 'all'.
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28276 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28302 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28334 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28366 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28400 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28431 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28462 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28499 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28530 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28561 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28594 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28625 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28656 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28687 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28718 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28749 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28780 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28811 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28842 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k
+/var/spool/slurm/d/job28891783/slurm_script: line 32: 28874 Segmentation fault      (core dumped) ./compress_cpu_large_nyx $j $i $k

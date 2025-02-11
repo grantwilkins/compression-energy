@@ -59,10 +59,10 @@ struct pressio_data *
 inflate_nyx_dataset_sequential(struct pressio_data *original_data,
                                size_t inflation_factor) {
   // Get original dimensions
-  const size_t *orig_dims = pressio_data_get_dims(original_data);
-  size_t orig_nx = orig_dims[0];
-  size_t orig_ny = orig_dims[1];
-  size_t orig_nz = orig_dims[2];
+  //const size_t *orig_dims = pressio_data_get_dims(original_data);
+  size_t orig_nx = 512;
+  size_t orig_ny = 512;
+  size_t orig_nz = 512;
 
   // Calculate new dimensions
   size_t factor = (size_t)cbrt(inflation_factor); // Cube root for 3D expansion
@@ -112,7 +112,7 @@ int main(int argc, char *argv[]) {
   const char *compressor_id = argv[1];
   const char *dataset_file = argv[2];
   double relative_error_bound = atof(argv[3]);
-  const char *datadir = "/work2/10191/gfw/stampede3/";
+  const char *datadir = "/ocean/projects/cis240100p/gwilkins/";
   const char *cluster_name = getenv("CLUSTER_NAME");
 
   double compression_rate = 0.0, decompression_rate = 0.0, avg_difference = 0.0,
@@ -214,7 +214,7 @@ int main(int argc, char *argv[]) {
   snprintf(full_path, sizeof(full_path), "%s%s", datadir, dataset_file);
   input_data = pressio_io_data_path_read(metadata, full_path);
   if (input_data == NULL) {
-    fprintf(stderr, "Failed to read dataset %s\n", dataset_file);
+    fprintf(stderr, "Failed to read dataset %s%s\n", datadir,dataset_file);
     pressio_compressor_release(compressor);
     pressio_release(library);
     return 1;
@@ -289,6 +289,10 @@ int main(int argc, char *argv[]) {
   for (int k = 0; k < 4; k++) {
     struct pressio_data *inflated_data =
         inflate_nyx_dataset_sequential(input_data, inflation_factors[k]);
+    if (!inflated_data) {
+    	fprintf(stderr, "Failed to inflate dataset with factor %zu\n", inflation_factors[k]);
+    	return -1; // or exit, depending on your error-handling strategy
+    }
     struct pressio_data *compressed =
         pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
     struct pressio_data *output = pressio_data_new_clone(inflated_data);
@@ -306,7 +310,7 @@ int main(int argc, char *argv[]) {
       assert(PAPI_start(EventSet) == PAPI_OK);
       double start_time = get_time();
 
-      if (pressio_compressor_compress(compressor, input_data, compressed)) {
+      if (pressio_compressor_compress(compressor, inflated_data, compressed)) {
         fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
         break;
       }
