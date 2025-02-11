@@ -55,53 +55,6 @@ bool within_confidence_interval(double *data, int n) {
   return true;
 }
 
-struct pressio_data *
-inflate_nyx_dataset_sequential(struct pressio_data *original_data,
-                               size_t inflation_factor) {
-  // Get original dimensions
-  //const size_t *orig_dims = pressio_data_get_dims(original_data);
-  size_t orig_nx = 512;
-  size_t orig_ny = 512;
-  size_t orig_nz = 512;
-
-  // Calculate new dimensions
-  size_t factor = (size_t)cbrt(inflation_factor); // Cube root for 3D expansion
-  size_t new_dims[] = {orig_nx * factor, orig_ny * factor, orig_nz * factor};
-
-  // Create new pressio_data object
-  struct pressio_data *inflated_data =
-      pressio_data_new_empty(pressio_float_dtype, 3, new_dims);
-  if (!inflated_data)
-    return NULL;
-
-  // Get pointers to data
-  float *orig_ptr = (float *)pressio_data_ptr(original_data, NULL);
-  float *new_ptr = (float *)pressio_data_ptr(inflated_data, NULL);
-
-  // Copy data in a tiled pattern using nested loops
-  for (size_t z = 0; z < factor; z++) {
-    for (size_t y = 0; y < factor; y++) {
-      for (size_t x = 0; x < factor; x++) {
-        // Copy the original data block to each position
-        for (size_t k = 0; k < orig_nz; k++) {
-          for (size_t j = 0; j < orig_ny; j++) {
-            size_t base_new_idx =
-                (z * orig_nz + k) * (new_dims[1] * new_dims[0]) +
-                (y * orig_ny + j) * new_dims[0] + (x * orig_nx);
-            size_t base_orig_idx = k * orig_ny * orig_nx + j * orig_nx;
-
-            // Use memcpy for the innermost loop for better performance
-            memcpy(&new_ptr[base_new_idx], &orig_ptr[base_orig_idx],
-                   orig_nx * sizeof(float));
-          }
-        }
-      }
-    }
-  }
-
-  return inflated_data;
-}
-
 int main(int argc, char *argv[]) {
   if (argc != 4) {
     fprintf(stderr, "Usage: %s <compressor> <dataset_file> <error_bound>\n",
@@ -240,24 +193,13 @@ int main(int argc, char *argv[]) {
   size_t num_elements = pressio_data_num_elements(input_data);
   void *data_ptr = pressio_data_ptr(input_data, NULL);
 
-  if (strstr(dataset_file, "s3d") == NULL) {
-    float *float_data = (float *)data_ptr;
-    data_min = data_max = float_data[0];
-    for (size_t i = 1; i < num_elements; i++) {
-      if (float_data[i] < data_min)
-        data_min = float_data[i];
-      if (float_data[i] > data_max)
-        data_max = float_data[i];
-    }
-  } else {
-    double *double_data = (double *)data_ptr;
-    data_min = data_max = double_data[0];
-    for (size_t i = 1; i < num_elements; i++) {
-      if (double_data[i] < data_min)
-        data_min = double_data[i];
-      if (double_data[i] > data_max)
-        data_max = double_data[i];
-    }
+  float *float_data = (float *)data_ptr;
+  data_min = data_max = float_data[0];
+  for (size_t i = 1; i < num_elements; i++) {
+    if (float_data[i] < data_min)
+      data_min = float_data[i];
+    if (float_data[i] > data_max)
+      data_max = float_data[i];
   }
 
   data_range = data_max - data_min;
@@ -284,18 +226,10 @@ int main(int argc, char *argv[]) {
     return 1;
   }
   pressio_options_free(options);
-  size_t inflation_factors[] = {16, 32, 64, 128};
 
-  for (int k = 0; k < 4; k++) {
-    struct pressio_data *inflated_data =
-        inflate_nyx_dataset_sequential(input_data, inflation_factors[k]);
-    if (!inflated_data) {
-    	fprintf(stderr, "Failed to inflate dataset with factor %zu\n", inflation_factors[k]);
-    	return -1; // or exit, depending on your error-handling strategy
-    }
     struct pressio_data *compressed =
         pressio_data_new_empty(pressio_byte_dtype, 0, NULL);
-    struct pressio_data *output = pressio_data_new_clone(inflated_data);
+    struct pressio_data *output = pressio_data_new_clone(input_data);
     double compression_times[MAX_ITERATIONS];
     double decompression_times[MAX_ITERATIONS];
     double compression_energy[MAX_ITERATIONS];
@@ -310,7 +244,7 @@ int main(int argc, char *argv[]) {
       assert(PAPI_start(EventSet) == PAPI_OK);
       double start_time = get_time();
 
-      if (pressio_compressor_compress(compressor, inflated_data, compressed)) {
+      if (pressio_compressor_compress(compressor, input_data, compressed)) {
         fprintf(stderr, "%s\n", pressio_compressor_error_msg(compressor));
         break;
       }
@@ -421,8 +355,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Error opening CSV file\n");
       } else {
         fprintf(csv_file,
-                "%s,%s,%e,%e,%d,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%lu,%e,%"
-                "e,%e,"
+                "%s,%s,%e,%e,%d,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%e,%lu,%e,%e,%e,"
                 "%e,%e,%e,%e,%e,%e,%lu,%e,%lu,%lu,%e,%e,%d,%e,%e\n",
                 compressor_id, dataset_file, relative_error_bound,
                 absolute_error_bound, iteration, compression_rate,
@@ -452,7 +385,6 @@ int main(int argc, char *argv[]) {
     }
     pressio_data_free(compressed);
     pressio_data_free(output);
-    pressio_data_free(inflated_data);
   }
 
   pressio_data_free(metadata);
