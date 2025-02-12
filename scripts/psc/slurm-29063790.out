@@ -1,1 +1,26 @@
 make: Nothing to be done for 'all'.
+Inflated by 4
+Compressor: sz
+Dataset: nyx/temperature_4.f32
+REL Error bound: 1.000000e-03
+Inflated by 4
+Compressor: sz3
+Dataset: nyx/temperature_4.f32
+REL Error bound: 1.000000e-03
+Inflated by 4
+Compressor: qoz
+Dataset: nyx/temperature_4.f32
+REL Error bound: 1.000000e-03
+Inflated by 4
+Compressor: zfp
+Dataset: nyx/temperature_4.f32
+REL Error bound: 1.000000e-03
+Inflated by 5
+Compressor: sz
+Dataset: nyx/temperature_5.f32
+REL Error bound: 1.000000e-03
+Inflated by 5
+Compressor: sz3
+Dataset: nyx/temperature_5.f32
+REL Error bound: 1.000000e-03
+slurmstepd: error: *** JOB 29063790 ON e002 CANCELLED AT 2025-02-12T06:01:25 DUE TO TIME LIMIT ***

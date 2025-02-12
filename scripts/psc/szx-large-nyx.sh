@@ -21,6 +21,6 @@ cd /jet/home/gwilkins/compression-energy/src/intel_compress_decompress
 make
 for d in ${datasets[@]}; do
 for eb in ${error_bounds[@]}; do
-    ./szx_serial $d $eb
+    ./szx_large_nyx $d $eb
 done
 done

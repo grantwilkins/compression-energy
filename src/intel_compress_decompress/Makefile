@@ -12,7 +12,7 @@ LIBPRESSIO_LDLIBS := $(shell pkg-config --libs libpressio)
 
 LDLIBS=$(shell pkg-config --libs papi) -D_POSIX_C_SOURCE=199309L
 CFLAGS=-std=c99 -lm -g -lpapi $(shell pkg-config --cflags papi)
-ALL=compress_cpu szx_serial compress_cpu_large_nyx inflate_nyx
+ALL=compress_cpu szx_serial compress_cpu_large_nyx inflate_nyx szx_large_nyx
 .PHONY: all clean
 
 all: $(ALL)
