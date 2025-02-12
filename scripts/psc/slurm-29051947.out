@@ -1,0 +1,137 @@
+make: Nothing to be done for 'all'.
+Inflated by 2
+Compressor: sz
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-01
+Inflated by 2
+Compressor: sz
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-02
+Inflated by 2
+Compressor: sz
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-03
+Inflated by 2
+Compressor: sz
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-04
+Inflated by 2
+Compressor: sz
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-05
+Inflated by 2
+Compressor: sz3
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-01
+Inflated by 2
+Compressor: sz3
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-02
+Inflated by 2
+Compressor: sz3
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-03
+Inflated by 2
+Compressor: sz3
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-04
+Inflated by 2
+Compressor: sz3
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-05
+Inflated by 2
+Compressor: qoz
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-01
+Inflated by 2
+Compressor: qoz
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-02
+Inflated by 2
+Compressor: qoz
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-03
+Inflated by 2
+Compressor: qoz
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-04
+Inflated by 2
+Compressor: qoz
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-05
+Inflated by 2
+Compressor: zfp
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-01
+Inflated by 2
+Compressor: zfp
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-02
+Inflated by 2
+Compressor: zfp
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-03
+Inflated by 2
+Compressor: zfp
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-04
+Inflated by 2
+Compressor: zfp
+Dataset: nyx/temperature_2.f32
+REL Error bound: 1.000000e-05
+Inflated by 3
+Compressor: sz
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-01
+Inflated by 3
+Compressor: sz
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-02
+Inflated by 3
+Compressor: sz
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-03
+Inflated by 3
+Compressor: sz
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-04
+Inflated by 3
+Compressor: sz
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-05
+Inflated by 3
+Compressor: sz3
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-01
+Inflated by 3
+Compressor: sz3
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-02
+Inflated by 3
+Compressor: sz3
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-03
+Inflated by 3
+Compressor: sz3
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-04
+Inflated by 3
+Compressor: sz3
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-05
+Inflated by 3
+Compressor: qoz
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-01
+Inflated by 3
+Compressor: qoz
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-02
+Inflated by 3
+Compressor: qoz
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-03
+Inflated by 3
+Compressor: qoz
+Dataset: nyx/temperature_3.f32
+REL Error bound: 1.000000e-04

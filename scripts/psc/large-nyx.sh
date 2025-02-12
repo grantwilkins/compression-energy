@@ -7,8 +7,6 @@
 #SBATCH --time=6:00:00 
 
 datasets=(
-    nyx/temperature_2.f32
-    nyx/temperature_3.f32
     nyx/temperature_4.f32
     nyx/temperature_5.f32
 )
@@ -21,11 +19,7 @@ compressors=(
 )
 
 error_bounds=(
-    0.1
-    0.01
     0.001
-    0.0001
-    0.00001
 )
 
 cd /jet/home/gwilkins/compression-energy/src/intel_compress_decompress
