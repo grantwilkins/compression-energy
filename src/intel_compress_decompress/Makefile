@@ -36,6 +36,8 @@ inflate_nyx: inflate_nyx.c
 
 szx_serial: szx_serial.c
 	$(CC) $(CFLAGS) -o szx_serial szx_serial.c -I$(SZX_INC) -L$(SZX_LIB) $(LDLIBS) -lSZx
+szx_large_nyx: szx_large_nyx.c
+	$(CC) $(CFLAGS) -o szx_large_nyx szx_large_nyx.c -I$(SZX_INC) -L$(SZX_LIB) $(LDLIBS) -lSZx
 
 clean:
 	rm -f compress_cpu compress_cpu_omp szx_omp szx_serial mgardx mgard-x-omp
